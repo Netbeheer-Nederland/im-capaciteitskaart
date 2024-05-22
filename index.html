@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#im-capaciteitskaart" class="md-skip">
+        <a href="#information-model-for-the-nbnl-capaciteitskaart" class="md-skip">
           Skip to content
         </a>
       
@@ -287,6 +287,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -368,9 +383,17 @@
   </a>
 
 
-<h1 id="im-capaciteitskaart">im-capaciteitskaart</h1>
-<p>Informatiemodel voor de NBNL-capaciteitskaart.</p>
-<p>URI: https://w3id.org/Netbeheer-Nederland/im-capaciteitskaart</p>
+<h1 id="information-model-for-the-nbnl-capaciteitskaart">Information model for the NBNL-capaciteitskaart.</h1>
+<p>The capacity heatmaps information model was defined to cover a superset of
+data exchanged by the NL distribution system operators. A minimum set of data
+is defined that all operators are expected to conform to, along with a number
+of optional properties and data types.</p>
+<p>The data is intended to be presented as a hierarchy with a
+<a href="HeatmapDataSet/">HeatmapDataSet</a> at its root, then
+<a href="Substation/">Substations</a> and <a href="Circuit/">Circuits</a> nested inside the
+<em>HeatmapDataSet</em>. <em>Substations</em> and <em>Ciruits</em> then have their own child
+elements forming a tree of data with the <em>HeatmapDataSet</em> at the root.</p>
+<p>URI: https://begrippen.netbeheernederland.nl/im-capaciteitskaart</p>
 <p>Name: im-capaciteitskaart</p>
 <h2 id="classes">Classes</h2>
 <table>
@@ -382,16 +405,92 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="Circuit/">Circuit</a></td>
+<td>A circuit representing a connection between substations</td>
+</tr>
+<tr>
+<td><a href="ConductingEquipment/">ConductingEquipment</a></td>
+<td>The parts of the AC power system that are designed to carry current or that a...</td>
+</tr>
+<tr>
+<td><a href="ConnectivityNodeContainer/">ConnectivityNodeContainer</a></td>
+<td>A base class for all objects that may contain connectivity nodes or topologic...</td>
+</tr>
+<tr>
+<td><a href="Constraint/">Constraint</a></td>
+<td>An additional constraint/restriction on the Substation or Circuit</td>
+</tr>
+<tr>
+<td><a href="Coordinate/">Coordinate</a></td>
+<td>A coordinate of latitude/longitude</td>
+</tr>
+<tr>
+<td><a href="Curtailment/">Curtailment</a></td>
+<td>Curtailment of demand or generation capacity at the substation with optional ...</td>
+</tr>
+<tr>
+<td><a href="Demand/">Demand</a></td>
+<td>Represents an individual or aggregated demand at the substation</td>
+</tr>
+<tr>
+<td><a href="Equipment/">Equipment</a></td>
+<td>The parts of a power system that are physical devices, electronic or mechanic...</td>
+</tr>
+<tr>
+<td><a href="EquipmentContainer/">EquipmentContainer</a></td>
+<td>A modelling construct to provide a root class for containing equipment</td>
+</tr>
+<tr>
+<td><a href="Generator/">Generator</a></td>
+<td>Represents an individual or aggregated generator at the substation</td>
+</tr>
+<tr>
+<td><a href="Geometry/">Geometry</a></td>
+<td>The geometry of the line, this will be one or more Lines i</td>
+</tr>
+<tr>
 <td><a href="HeatmapDataSet/">HeatmapDataSet</a></td>
-<td>Represents a HeatmapDataSet</td>
+<td>A single instance of a published dataset</td>
 </tr>
 <tr>
-<td><a href="HeatmapDataSetCollection/">HeatmapDataSetCollection</a></td>
-<td>A holder for HeatmapDataSet objects</td>
+<td><a href="IdentifiedObject/">IdentifiedObject</a></td>
+<td>This is a root class to provide common identification for all classes needing...</td>
 </tr>
 <tr>
-<td><a href="NamedThing/">NamedThing</a></td>
-<td>A generic grouping for any identifiable entity</td>
+<td><a href="Line/">Line</a></td>
+<td>A series of coordinates</td>
+</tr>
+<tr>
+<td><a href="Name/">Name</a></td>
+<td>The Name class provides the means to define any number of human readable name...</td>
+</tr>
+<tr>
+<td><a href="NameType/">NameType</a></td>
+<td>Type of name</td>
+</tr>
+<tr>
+<td><a href="NameTypeAuthority/">NameTypeAuthority</a></td>
+<td>Authority responsible for creation and management of names of a given type; t...</td>
+</tr>
+<tr>
+<td><a href="PowerSystemResource/">PowerSystemResource</a></td>
+<td>A power system resource (PSR) can be an item of equipment such as a switch, a...</td>
+</tr>
+<tr>
+<td><a href="PowerTransformer/">PowerTransformer</a></td>
+<td>A transformer at a substation</td>
+</tr>
+<tr>
+<td><a href="Rating/">Rating</a></td>
+<td>A rating assigned to a transformer</td>
+</tr>
+<tr>
+<td><a href="Storage/">Storage</a></td>
+<td>Represents an individual or aggregated storage at the substation</td>
+</tr>
+<tr>
+<td><a href="Substation/">Substation</a></td>
+<td>TODO A Substation with connect demand, generation or storage</td>
 </tr>
 </tbody>
 </table>
@@ -405,36 +504,336 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="age_in_years/">age_in_years</a></td>
-<td>Number of years since birth</td>
+<td><a href="aggregate/">aggregate</a></td>
+<td>True if the demand represents an aggregation of multiple demands all connecte...</td>
 </tr>
 <tr>
-<td><a href="birth_date/">birth_date</a></td>
-<td>Date on which a person is born</td>
+<td><a href="area/">area</a></td>
+<td>The name of the license area</td>
+</tr>
+<tr>
+<td><a href="breakerAvailableCapacity/">breakerAvailableCapacity</a></td>
+<td>The available capacity (in kA) of the circuit breaker</td>
+</tr>
+<tr>
+<td><a href="breakerBreakingCapacity/">breakerBreakingCapacity</a></td>
+<td>The short-circuit current (in kA) that the breakers are capable of breaking</td>
+</tr>
+<tr>
+<td><a href="breakerMakingCapacity/">breakerMakingCapacity</a></td>
+<td>The making current (in kA) of the circuit breaker, when closed on a short cir...</td>
+</tr>
+<tr>
+<td><a href="breakerRatedCurrent/">breakerRatedCurrent</a></td>
+<td>The rated normal current (in kA) of the circuit breaker is the RMS value of t...</td>
+</tr>
+<tr>
+<td><a href="breakerShortCircuitCurrent/">breakerShortCircuitCurrent</a></td>
+<td>The short circuit current (in kA) of a circuit breaker is the RMS value of cu...</td>
+</tr>
+<tr>
+<td><a href="breakerShortCircuitDuration/">breakerShortCircuitDuration</a></td>
+<td>Specified time interval (in seconds) the Short Circuit Current can be carried...</td>
+</tr>
+<tr>
+<td><a href="BSP/">BSP</a></td>
+<td>The name or identifier of the BSP this Substation is supplied by</td>
+</tr>
+<tr>
+<td><a href="Circuits/">Circuits</a></td>
+<td>A list of circuits with heatmap data</td>
+</tr>
+<tr>
+<td><a href="contributor/">contributor</a></td>
+<td>An entity responsible for making contributions to the resource</td>
+</tr>
+<tr>
+<td><a href="Coordinate/">Coordinate</a></td>
+<td>The longitude/latitude value of the substation as a single latitude/longitude...</td>
+</tr>
+<tr>
+<td><a href="Coordinates/">Coordinates</a></td>
+<td>Two (2) or more coordinates for a line</td>
+</tr>
+<tr>
+<td><a href="coverage/">coverage</a></td>
+<td>The spatial or temporal topic of the resource, spatial applicability of the r...</td>
+</tr>
+<tr>
+<td><a href="creator/">creator</a></td>
+<td>An entity responsible for making the resource</td>
+</tr>
+<tr>
+<td><a href="curtailedBy/">curtailedBy</a></td>
+<td>The amount the demand/generation capacity (in MVA) is curtailed by</td>
+</tr>
+<tr>
+<td><a href="Curtailments/">Curtailments</a></td>
+<td>Curtailments at the Substation</td>
+</tr>
+<tr>
+<td><a href="date/">date</a></td>
+<td>A point of time associated with an event in the lifecycle of the resource</td>
+</tr>
+<tr>
+<td><a href="dayType/">dayType</a></td>
+<td>The type of day the curtailment applies during (weekday or weekend)</td>
+</tr>
+<tr>
+<td><a href="demand25Percentile/">demand25Percentile</a></td>
+<td>The 25th percentile of demanding (in MVA) at the substation</td>
+</tr>
+<tr>
+<td><a href="demand50Percentile/">demand50Percentile</a></td>
+<td>The 50th percentile of demanding (in MVA) at the substation</td>
+</tr>
+<tr>
+<td><a href="demand75Percentile/">demand75Percentile</a></td>
+<td>The 75th percentile of demanding (in MVA) at the substation</td>
+</tr>
+<tr>
+<td><a href="demand99Percentile/">demand99Percentile</a></td>
+<td>The 99th percentile of demanding (in MVA) at the substation</td>
+</tr>
+<tr>
+<td><a href="demandAvailableCapacity/">demandAvailableCapacity</a></td>
+<td>The available demand capacity (in MVA) at the substation</td>
+</tr>
+<tr>
+<td><a href="demandConnectedCapacity/">demandConnectedCapacity</a></td>
+<td>Sum of all demand (in MVA) currently connected at the substation</td>
+</tr>
+<tr>
+<td><a href="demandConstraint/">demandConstraint</a></td>
+<td>A RAG definition of the demand constraints at the substation</td>
+</tr>
+<tr>
+<td><a href="demandConstraintLimitingFactor/">demandConstraintLimitingFactor</a></td>
+<td>The limiting factor for demand constraints, either thermal, voltage or fault ...</td>
+</tr>
+<tr>
+<td><a href="demandContractedCapacity/">demandContractedCapacity</a></td>
+<td>Sum of all demand (in MVA) currently contracted at the substation which is no...</td>
+</tr>
+<tr>
+<td><a href="demandFirmCapacity/">demandFirmCapacity</a></td>
+<td>The firm capacity (in MVA) for demand at the substation</td>
+</tr>
+<tr>
+<td><a href="demandMaximum/">demandMaximum</a></td>
+<td>The maximum demand (in MVA) at the substation</td>
+</tr>
+<tr>
+<td><a href="demandMinimum/">demandMinimum</a></td>
+<td>The minimum demand (in MVA) at the substation</td>
+</tr>
+<tr>
+<td><a href="demandQuotedCapacity/">demandQuotedCapacity</a></td>
+<td>Sum of all demand (in MVA) currently quoted at the substation excluding contr...</td>
+</tr>
+<tr>
+<td><a href="Demands/">Demands</a></td>
+<td>The demands at the station covering connected, contracted and quoted</td>
 </tr>
 <tr>
 <td><a href="description/">description</a></td>
-<td>A human-readable description for a thing</td>
+<td>An account of the resource</td>
 </tr>
 <tr>
-<td><a href="entries/">entries</a></td>
-<td></td>
+<td><a href="embeddedCapacityRegister/">embeddedCapacityRegister</a></td>
+<td>TODO A URL to the embedded capacity register entry for this station</td>
 </tr>
 <tr>
-<td><a href="id/">id</a></td>
-<td>A unique identifier for a thing</td>
+<td><a href="endTime/">endTime</a></td>
+<td>The end time of a curtailment (exclusive)</td>
+</tr>
+<tr>
+<td><a href="format/">format</a></td>
+<td>The file format of the resource</td>
+</tr>
+<tr>
+<td><a href="FromSubstation/">FromSubstation</a></td>
+<td>mRID of the Substation the Circuit is from (used where CIM data is being prod...</td>
+</tr>
+<tr>
+<td><a href="fromVoltage/">fromVoltage</a></td>
+<td>From voltage (in kV) for the rating</td>
+</tr>
+<tr>
+<td><a href="generationAvailableCapacity/">generationAvailableCapacity</a></td>
+<td>Available generation capacity (in MVA) at the substation</td>
+</tr>
+<tr>
+<td><a href="generationConnectedCapacity/">generationConnectedCapacity</a></td>
+<td>Sum of all generation (in MVA) currently connected at the substation</td>
+</tr>
+<tr>
+<td><a href="generationConstraint/">generationConstraint</a></td>
+<td>A RAG definition of the demand constraints at the substation</td>
+</tr>
+<tr>
+<td><a href="generationConstraintLimitingFactor/">generationConstraintLimitingFactor</a></td>
+<td>The limiting factor for generation constraints, either thermal or fault level...</td>
+</tr>
+<tr>
+<td><a href="generationContractedCapacity/">generationContractedCapacity</a></td>
+<td>Sum of all generation (in MVA) currently contracted at the substation which i...</td>
+</tr>
+<tr>
+<td><a href="generationFirmCapacity/">generationFirmCapacity</a></td>
+<td>The total firm generation capacity (in MVA) of the substation</td>
+</tr>
+<tr>
+<td><a href="generationQuotedCapacity/">generationQuotedCapacity</a></td>
+<td>Sum of all currently quoted generation (in MVA) at the substation excluding a...</td>
+</tr>
+<tr>
+<td><a href="Generators/">Generators</a></td>
+<td>The generators at the station covering connected, contracted and quoted</td>
+</tr>
+<tr>
+<td><a href="Geometry/">Geometry</a></td>
+<td>The geometry of the circuit</td>
+</tr>
+<tr>
+<td><a href="GSP/">GSP</a></td>
+<td>The name or identifier of the GSP this Substation is within</td>
+</tr>
+<tr>
+<td><a href="identifier/">identifier</a></td>
+<td>An unambiguous reference to the resource within a given context</td>
+</tr>
+<tr>
+<td><a href="issued/">issued</a></td>
+<td>Date of formal issuance of the resource</td>
+</tr>
+<tr>
+<td><a href="language/">language</a></td>
+<td>A language of the resource</td>
+</tr>
+<tr>
+<td><a href="latitude/">latitude</a></td>
+<td>The latitude value of the coordinate as a single latitude/longitude point</td>
+</tr>
+<tr>
+<td><a href="Lines/">Lines</a></td>
+<td>The Line elements</td>
+</tr>
+<tr>
+<td><a href="longitude/">longitude</a></td>
+<td>The longitude value of the coordinate as a single latitude/longitude point</td>
+</tr>
+<tr>
+<td><a href="mRID/">mRID</a></td>
+<td>Master resource identifier issued by a model authority</td>
 </tr>
 <tr>
 <td><a href="name/">name</a></td>
-<td>A human-readable name for a thing</td>
+<td>Human readble name of the rating</td>
 </tr>
 <tr>
-<td><a href="primary_email/">primary_email</a></td>
-<td>The main email address of a person</td>
+<td><a href="Names/">Names</a></td>
+<td>All names of this identified object</td>
 </tr>
 <tr>
-<td><a href="vital_status/">vital_status</a></td>
-<td>living or dead status</td>
+<td><a href="NameType/">NameType</a></td>
+<td>Type of this name</td>
+</tr>
+<tr>
+<td><a href="NameTypeAuthority/">NameTypeAuthority</a></td>
+<td>Authority responsible for managing names of this type</td>
+</tr>
+<tr>
+<td><a href="OtherConstraints/">OtherConstraints</a></td>
+<td>An additional constraint on the Substation</td>
+</tr>
+<tr>
+<td><a href="Primary/">Primary</a></td>
+<td>The name or identifier of the Primary this Substation is supplied by</td>
+</tr>
+<tr>
+<td><a href="publisher/">publisher</a></td>
+<td>An entity responsible for making the resource available</td>
+</tr>
+<tr>
+<td><a href="Ratings/">Ratings</a></td>
+<td>The ratings of the transformer as defined by the Ratings element</td>
+</tr>
+<tr>
+<td><a href="reversePowerFlowAvailableCapacity/">reversePowerFlowAvailableCapacity</a></td>
+<td>The available reverse capacity (in MVA) for the substation from lower to high...</td>
+</tr>
+<tr>
+<td><a href="reversePowerFlowTotalCapacity/">reversePowerFlowTotalCapacity</a></td>
+<td>The reverse capacity (in MVA) for the substation from lower to higher voltage...</td>
+</tr>
+<tr>
+<td><a href="rights/">rights</a></td>
+<td>Information about rights held in and over the resource</td>
+</tr>
+<tr>
+<td><a href="season/">season</a></td>
+<td>The season this curtailment applies during</td>
+</tr>
+<tr>
+<td><a href="shortCode/">shortCode</a></td>
+<td>Short code name for substation (alphanumeric, uppercase letters only)</td>
+</tr>
+<tr>
+<td><a href="startTime/">startTime</a></td>
+<td>The start time of a curtailment (inclusive)</td>
+</tr>
+<tr>
+<td><a href="Storage/">Storage</a></td>
+<td>The storage devices at the station covering connected, contracted and quoted</td>
+</tr>
+<tr>
+<td><a href="Substations/">Substations</a></td>
+<td>A list of substations with heatmap data</td>
+</tr>
+<tr>
+<td><a href="summerRating/">summerRating</a></td>
+<td>Summer rating (in MVA) for minimum rated section in the circuit (i</td>
+</tr>
+<tr>
+<td><a href="technologyType/">technologyType</a></td>
+<td>The technology the connected generation e</td>
+</tr>
+<tr>
+<td><a href="title/">title</a></td>
+<td>A name given to the resource</td>
+</tr>
+<tr>
+<td><a href="ToSubstation/">ToSubstation</a></td>
+<td>mRID of the Substations the Circuit is to (optional if LV circuits are shown ...</td>
+</tr>
+<tr>
+<td><a href="toVoltage/">toVoltage</a></td>
+<td>To voltage (in kV) for the rating</td>
+</tr>
+<tr>
+<td><a href="Transformers/">Transformers</a></td>
+<td>The transformers connected at the substation</td>
+</tr>
+<tr>
+<td><a href="type/">type</a></td>
+<td>The type of the substation</td>
+</tr>
+<tr>
+<td><a href="valid/">valid</a></td>
+<td>TODO A date range for the validity of a resource</td>
+</tr>
+<tr>
+<td><a href="voltage/">voltage</a></td>
+<td>Voltage (in kV) of the circuit</td>
+</tr>
+<tr>
+<td><a href="voltages/">voltages</a></td>
+<td>The voltages at the Substation in Kilovolts (kV)</td>
+</tr>
+<tr>
+<td><a href="winterRating/">winterRating</a></td>
+<td>Winter rating (in MVA) for minimum rated section in the circuit (i</td>
 </tr>
 </tbody>
 </table>
@@ -448,8 +847,28 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="PersonStatus/">PersonStatus</a></td>
-<td></td>
+<td><a href="CurtailmentKind/">CurtailmentKind</a></td>
+<td>TODO</td>
+</tr>
+<tr>
+<td><a href="DayKind/">DayKind</a></td>
+<td>TODO</td>
+</tr>
+<tr>
+<td><a href="LimitingFactorKind/">LimitingFactorKind</a></td>
+<td>TODO</td>
+</tr>
+<tr>
+<td><a href="RAG/">RAG</a></td>
+<td>Traffic light colors coding scheme for categorising status</td>
+</tr>
+<tr>
+<td><a href="SeasonKind/">SeasonKind</a></td>
+<td>TODO</td>
+</tr>
+<tr>
+<td><a href="SubstationKind/">SubstationKind</a></td>
+<td>Type of substation</td>
 </tr>
 </tbody>
 </table>
@@ -505,6 +924,18 @@
 <tr>
 <td><a href="Jsonpointer/">Jsonpointer</a></td>
 <td>A string encoding a JSON Pointer</td>
+</tr>
+<tr>
+<td><a href="KiloA/">KiloA</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="KiloV/">KiloV</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="MegaV-A/">MegaV-A</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="Ncname/">Ncname</a></td>
@@ -572,6 +1003,27 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+      
+        
+        <a href="about/" class="md-footer__link md-footer__link--next" aria-label="Next: About" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              About
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
