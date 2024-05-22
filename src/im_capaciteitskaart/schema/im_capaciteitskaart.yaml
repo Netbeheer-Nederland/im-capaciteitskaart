@@ -13,6 +13,13 @@ description: |-
   [Substations](Substation.md) and [Circuits](Circuit.md) nested inside the
   *HeatmapDataSet*. *Substations* and *Ciruits* then have their own child
   elements forming a tree of data with the *HeatmapDataSet* at the root.
+
+  This information model is based in part on the [LTDS Capacity Heatmap
+  Information
+  Model](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),
+  which itself is published under the [Open Government
+  License](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/),
+  under ©Crown copyright 2024.
 license: Apache Software License 2.0
 see_also:
   - https://Netbeheer-Nederland.github.io/im-capaciteitskaart
