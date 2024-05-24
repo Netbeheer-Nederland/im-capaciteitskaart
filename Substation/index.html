@@ -207,7 +207,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-substation">Class: Substation</h1>
-<p><em>TODO A Substation with connect demand, generation or storage. A substation can be either a Grid Supply Point (GSP), Bulk Supply Point (BSP), Primary or Secondary station.</em></p>
+<p><em>A Substation with connect demand, generation or storage.</em></p>
 <p>URI: <a href="https://cim.ucaiug.io/ns#Substation">cim:Substation</a></p>
 <pre class="mermaid"><code> classDiagram
     class Substation
@@ -228,8 +228,6 @@
       Substation : breakerShortCircuitCurrent
 
       Substation : breakerShortCircuitDuration
-
-      Substation : BSP
 
       Substation : Coordinate
 
@@ -266,8 +264,8 @@
 
 
 
-    Substation --&gt; "1" RAG : demandConstraint
-    click RAG href "../RAG"
+    Substation --&gt; "1" RAGKind : demandConstraint
+    click RAGKind href "../RAGKind"
 
 
       Substation : demandConstraintLimitingFactor
@@ -311,8 +309,8 @@
 
 
 
-    Substation --&gt; "0..1" RAG : generationConstraint
-    click RAG href "../RAG"
+    Substation --&gt; "0..1" RAGKind : generationConstraint
+    click RAGKind href "../RAGKind"
 
 
       Substation : generationConstraintLimitingFactor
@@ -339,8 +337,6 @@
     click Generator href "../Generator"
 
 
-      Substation : GSP
-
       Substation : mRID
 
       Substation : Names
@@ -360,8 +356,6 @@
     Substation --&gt; "*" Constraint : OtherConstraints
     click Constraint href "../Constraint"
 
-
-      Substation : Primary
 
       Substation : reversePowerFlowAvailableCapacity
 
@@ -457,24 +451,6 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../GSP/">GSP</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The name or identifier of the GSP this Substation is within</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../BSP/">BSP</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The name or identifier of the BSP this Substation is supplied by</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../Primary/">Primary</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The name or identifier of the Primary this Substation is supplied by</td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="../demandFirmCapacity/">demandFirmCapacity</a></td>
 <td>1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>The firm capacity (in MVA) for demand at the substation</td>
@@ -542,7 +518,7 @@
 </tr>
 <tr>
 <td><a href="../demandConstraint/">demandConstraint</a></td>
-<td>1 <br/> <a href="../RAG/">RAG</a></td>
+<td>1 <br/> <a href="../RAGKind/">RAGKind</a></td>
 <td>A RAG definition of the demand constraints at the substation</td>
 <td>direct</td>
 </tr>
@@ -584,7 +560,7 @@
 </tr>
 <tr>
 <td><a href="../generationConstraint/">generationConstraint</a></td>
-<td>0..1 <br/> <a href="../RAG/">RAG</a></td>
+<td>0..1 <br/> <a href="../RAGKind/">RAGKind</a></td>
 <td>A RAG definition of the demand constraints at the substation</td>
 <td>direct</td>
 </tr>
@@ -752,9 +728,7 @@
 <h3 id="direct">Direct</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO A Substation with connect demand, generation or storage. A substation</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">can be either a Grid Supply Point (GSP), Bulk Supply Point (BSP), Primary or Secondary</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">station.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A Substation with connect demand, generation or storage.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EquipmentContainer</span>
@@ -814,37 +788,6 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">GSP</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GSP</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The name or identifier of the GSP this Substation is within. It is</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">assumed the corresponding Substation will be contained within the data. Optional</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">as a GSP Substation will not have this reference.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.GSP</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">  </span><span class="nt">BSP</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BSP</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The name or identifier of the BSP this Substation is supplied by.</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">It is assumed the corresponding Substation will be contained within the data.</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Optional as a GSP or BSP Substation will not have this reference, and the Scottish</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">networks do not have BSPs.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.BSP</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">  </span><span class="nt">Primary</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Primary</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The name or identifier of the Primary this Substation is supplied</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">by. It is assumed the corresponding Substation will be contained within the</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">data. Optional as a GSP, BSP or Primary Substation will not have this reference.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">  </span><span class="nt">demandFirmCapacity</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandFirmCapacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The firm capacity (in MVA) for demand at the substation. Any constraints</span>
@@ -1032,7 +975,7 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAG</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAGKind</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">demandConstraintLimitingFactor</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandConstraintLimitingFactor</span>
@@ -1128,7 +1071,7 @@
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.generationConstraint</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAG</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAGKind</span>
 <span class="w">  </span><span class="nt">generationConstraintLimitingFactor</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationConstraintLimitingFactor</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The limiting factor for generation constraints, either thermal or</span>
@@ -1306,9 +1249,7 @@
 <h3 id="induced">Induced</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO A Substation with connect demand, generation or storage. A substation</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">can be either a Grid Supply Point (GSP), Bulk Supply Point (BSP), Primary or Secondary</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">station.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A Substation with connect demand, generation or storage.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EquipmentContainer</span>
@@ -1380,46 +1321,6 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">GSP</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GSP</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The name or identifier of the GSP this Substation is within. It is</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">assumed the corresponding Substation will be contained within the data. Optional</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">as a GSP Substation will not have this reference.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.GSP</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GSP</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span><span class="nt">BSP</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BSP</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The name or identifier of the BSP this Substation is supplied by.</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">It is assumed the corresponding Substation will be contained within the data.</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Optional as a GSP or BSP Substation will not have this reference, and the Scottish</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">networks do not have BSPs.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.BSP</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BSP</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span><span class="nt">Primary</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Primary</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The name or identifier of the Primary this Substation is supplied</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">by. It is assumed the corresponding Substation will be contained within the</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">data. Optional as a GSP, BSP or Primary Substation will not have this reference.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Primary</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="w">  </span><span class="nt">demandFirmCapacity</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandFirmCapacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The firm capacity (in MVA) for demand at the substation. Any constraints</span>
@@ -1631,7 +1532,7 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAG</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAGKind</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">demandConstraintLimitingFactor</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandConstraintLimitingFactor</span>
@@ -1741,7 +1642,7 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAG</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAGKind</span>
 <span class="w">  </span><span class="nt">generationConstraintLimitingFactor</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationConstraintLimitingFactor</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The limiting factor for generation constraints, either thermal or</span>

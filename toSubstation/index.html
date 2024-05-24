@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://Netbeheer-Nederland.github.io/im-capaciteitskaart/RAG/">
+        <link rel="canonical" href="https://Netbeheer-Nederland.github.io/im-capaciteitskaart/toSubstation/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-8.5.10">
     
     
       
-        <title>Enum: RAG - im-capaciteitskaart</title>
+        <title>Slot: toSubstation - im-capaciteitskaart</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enum-rag" class="md-skip">
+        <a href="#slot-tosubstation" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enum: RAG
+              Slot: toSubstation
             
           </span>
         </div>
@@ -260,15 +260,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#permissible-values" class="md-nav__link">
-    Permissible Values
+  <a href="#applicable-classes" class="md-nav__link">
+    Applicable Classes
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#slots" class="md-nav__link">
-    Slots
+  <a href="#properties" class="md-nav__link">
+    Properties
   </a>
   
 </li>
@@ -314,61 +314,43 @@
                 
                   
 
-  <a href="https://github.com/Netbeheer-Nederland/im-capaciteitskaart/edit/master/docs/RAG.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/Netbeheer-Nederland/im-capaciteitskaart/edit/master/docs/toSubstation.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="enum-rag">Enum: RAG</h1>
-<p><em>Traffic light colors coding scheme for categorising status.</em></p>
-<p>URI: <a href="./">RAG</a></p>
-<h2 id="permissible-values">Permissible Values</h2>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Meaning</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Red</td>
-<td>nbnl:RAG.Red</td>
-<td></td>
-</tr>
-<tr>
-<td>Amber</td>
-<td>nbnl:RAG.Amber</td>
-<td></td>
-</tr>
-<tr>
-<td>Green</td>
-<td>nbnl:RAG.Green</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="slots">Slots</h2>
+<h1 id="slot-tosubstation">Slot: toSubstation</h1>
+<p><em>mRID of the Substations the Circuit is to (optional if LV circuits are shown but no LV/Secondary substations). Where CIM data is being produced the identifiers attributes reflect the mRID of the Substations. Where no CIM mRID is yet being produced, the names of the Substations should be used.</em></p>
+<p>URI: <a href="https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/Circuit.toSubstation">nbnl:Circuit.toSubstation</a></p>
+<!-- no inheritance hierarchy -->
+
+<h2 id="applicable-classes">Applicable Classes</h2>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
+<th>Modifies Slot</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../demandConstraint/">demandConstraint</a></td>
-<td>A RAG definition of the demand constraints at the substation</td>
-</tr>
-<tr>
-<td><a href="../generationConstraint/">generationConstraint</a></td>
-<td>A RAG definition of the demand constraints at the substation</td>
+<td><a href="../Circuit/">Circuit</a></td>
+<td>A circuit representing a connection between substations</td>
+<td>no</td>
 </tr>
 </tbody>
 </table>
+<h2 id="properties">Properties</h2>
+<ul>
+<li>
+<p>Range: <a href="../String/">String</a></p>
+</li>
+<li>
+<p>Multivalued: True</p>
+</li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -376,21 +358,20 @@
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAG</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Traffic light colors coding scheme for categorising status.</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toSubstation</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mRID of the Substations the Circuit is to (optional if LV circuits are</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">shown but no LV/Secondary substations). Where CIM data is being produced the identifiers</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">attributes reflect the mRID of the Substations. Where no CIM mRID is yet being produced,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">the names of the Substations should be used.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">enum_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:RAG</span>
-<span class="nt">permissible_values</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">Red</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Red</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:RAG.Red</span>
-<span class="w">  </span><span class="nt">Amber</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Amber</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:RAG.Amber</span>
-<span class="w">  </span><span class="nt">Green</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Green</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:RAG.Green</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Circuit.toSubstation</span>
+<span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toSubstation</span>
+<span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
+<span class="nt">domain_of</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 </code></pre></div>
 </details>
 
