@@ -217,167 +217,161 @@
 
       Substation : area
 
-      Substation : breakerAvailableCapacity
+      Substation : breaker_available_capacity
 
-      Substation : breakerBreakingCapacity
+      Substation : breaker_breaking_capacity
 
-      Substation : breakerMakingCapacity
+      Substation : breaker_making_capacity
 
-      Substation : breakerRatedCurrent
+      Substation : breaker_rated_current
 
-      Substation : breakerShortCircuitCurrent
+      Substation : breaker_short_circuit_current
 
-      Substation : breakerShortCircuitDuration
+      Substation : breaker_short_circuit_duration
 
-      Substation : Coordinate
-
-
+      Substation : coordinate
 
 
-    Substation --&gt; "1" Coordinate : Coordinate
+
+
+    Substation --&gt; "1" Coordinate : coordinate
     click Coordinate href "../Coordinate"
 
 
-      Substation : Curtailments
+      Substation : curtailments
 
 
 
 
-    Substation --&gt; "*" Curtailment : Curtailments
+    Substation --&gt; "*" Curtailment : curtailments
     click Curtailment href "../Curtailment"
 
 
-      Substation : demand25Percentile
+      Substation : demand__percentile
 
-      Substation : demand50Percentile
+      Substation : demand_available_capacity
 
-      Substation : demand75Percentile
+      Substation : demand_connected_capacity
 
-      Substation : demand99Percentile
-
-      Substation : demandAvailableCapacity
-
-      Substation : demandConnectedCapacity
-
-      Substation : demandConstraint
+      Substation : demand_constraint
 
 
 
 
-    Substation --&gt; "1" RAGKind : demandConstraint
+    Substation --&gt; "1" RAGKind : demand_constraint
     click RAGKind href "../RAGKind"
 
 
-      Substation : demandConstraintLimitingFactor
+      Substation : demand_constraint_limiting_factor
 
 
 
 
-    Substation --&gt; "1" LimitingFactorKind : demandConstraintLimitingFactor
+    Substation --&gt; "1" LimitingFactorKind : demand_constraint_limiting_factor
     click LimitingFactorKind href "../LimitingFactorKind"
 
 
-      Substation : demandContractedCapacity
+      Substation : demand_contracted_capacity
 
-      Substation : demandFirmCapacity
+      Substation : demand_firm_capacity
 
-      Substation : demandMaximum
+      Substation : demand_maximum
 
-      Substation : demandMinimum
+      Substation : demand_minimum
 
-      Substation : demandQuotedCapacity
+      Substation : demand_quoted_capacity
 
-      Substation : Demands
-
-
+      Substation : demands
 
 
-    Substation --&gt; "*" Demand : Demands
+
+
+    Substation --&gt; "*" Demand : demands
     click Demand href "../Demand"
 
 
       Substation : description
 
-      Substation : embeddedCapacityRegister
+      Substation : embedded_capacity_register
 
-      Substation : generationAvailableCapacity
+      Substation : generation_available_capacity
 
-      Substation : generationConnectedCapacity
+      Substation : generation_connected_capacity
 
-      Substation : generationConstraint
-
-
+      Substation : generation_constraint
 
 
-    Substation --&gt; "0..1" RAGKind : generationConstraint
+
+
+    Substation --&gt; "0..1" RAGKind : generation_constraint
     click RAGKind href "../RAGKind"
 
 
-      Substation : generationConstraintLimitingFactor
+      Substation : generation_constraint_limiting_factor
 
 
 
 
-    Substation --&gt; "1" LimitingFactorKind : generationConstraintLimitingFactor
+    Substation --&gt; "1" LimitingFactorKind : generation_constraint_limiting_factor
     click LimitingFactorKind href "../LimitingFactorKind"
 
 
-      Substation : generationContractedCapacity
+      Substation : generation_contracted_capacity
 
-      Substation : generationFirmCapacity
+      Substation : generation_firm_capacity
 
-      Substation : generationQuotedCapacity
+      Substation : generation_quoted_capacity
 
-      Substation : Generators
-
-
+      Substation : generators
 
 
-    Substation --&gt; "*" Generator : Generators
+
+
+    Substation --&gt; "*" Generator : generators
     click Generator href "../Generator"
 
 
-      Substation : mRID
+      Substation : m_rid
 
-      Substation : Names
-
-
+      Substation : names
 
 
-    Substation --&gt; "*" Name : Names
+
+
+    Substation --&gt; "*" Name : names
     click Name href "../Name"
 
 
-      Substation : OtherConstraints
+      Substation : other_constraints
 
 
 
 
-    Substation --&gt; "*" Constraint : OtherConstraints
+    Substation --&gt; "*" Constraint : other_constraints
     click Constraint href "../Constraint"
 
 
-      Substation : reversePowerFlowAvailableCapacity
+      Substation : reverse_power_flow_available_capacity
 
-      Substation : reversePowerFlowTotalCapacity
+      Substation : reverse_power_flow_total_capacity
 
-      Substation : shortCode
+      Substation : short_code
 
-      Substation : Storage
-
-
+      Substation : storage
 
 
-    Substation --&gt; "*" Storage : Storage
+
+
+    Substation --&gt; "*" Storage : storage
     click Storage href "../Storage"
 
 
-      Substation : Transformers
+      Substation : transformers
 
 
 
 
-    Substation --&gt; "*" PowerTransformer : Transformers
+    Substation --&gt; "*" PowerTransformer : transformers
     click PowerTransformer href "../PowerTransformer"
 
 
@@ -433,7 +427,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../shortCode/">shortCode</a></td>
+<td><a href="../short_code/">short_code</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>Short code name for substation (alphanumeric, uppercase letters only)</td>
 <td>direct</td>
@@ -445,217 +439,199 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../Coordinate/">Coordinate</a></td>
+<td><a href="../coordinate/">coordinate</a></td>
 <td>1 <br/> <a href="../Coordinate/">Coordinate</a></td>
 <td>The longitude/latitude value of the substation as a single latitude/longitude...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../demandFirmCapacity/">demandFirmCapacity</a></td>
+<td><a href="../demand_firm_capacity/">demand_firm_capacity</a></td>
 <td>1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>The firm capacity (in MVA) for demand at the substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../demandContractedCapacity/">demandContractedCapacity</a></td>
+<td><a href="../demand_contracted_capacity/">demand_contracted_capacity</a></td>
 <td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>Sum of all demand (in MVA) currently contracted at the substation which is no...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../demandConnectedCapacity/">demandConnectedCapacity</a></td>
+<td><a href="../demand_connected_capacity/">demand_connected_capacity</a></td>
 <td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>Sum of all demand (in MVA) currently connected at the substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../demandQuotedCapacity/">demandQuotedCapacity</a></td>
+<td><a href="../demand_quoted_capacity/">demand_quoted_capacity</a></td>
 <td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>Sum of all demand (in MVA) currently quoted at the substation excluding contr...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../demandAvailableCapacity/">demandAvailableCapacity</a></td>
+<td><a href="../demand_available_capacity/">demand_available_capacity</a></td>
 <td>1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>The available demand capacity (in MVA) at the substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../demandMaximum/">demandMaximum</a></td>
+<td><a href="../demand_maximum/">demand_maximum</a></td>
 <td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>The maximum demand (in MVA) at the substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../demandMinimum/">demandMinimum</a></td>
+<td><a href="../demand_minimum/">demand_minimum</a></td>
 <td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>The minimum demand (in MVA) at the substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../demand99Percentile/">demand99Percentile</a></td>
-<td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
-<td>The 99th percentile of demanding (in MVA) at the substation</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../demand75Percentile/">demand75Percentile</a></td>
-<td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
-<td>The 75th percentile of demanding (in MVA) at the substation</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../demand50Percentile/">demand50Percentile</a></td>
-<td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
-<td>The 50th percentile of demanding (in MVA) at the substation</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../demand25Percentile/">demand25Percentile</a></td>
+<td><a href="../demand__percentile/">demand__percentile</a></td>
 <td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>The 25th percentile of demanding (in MVA) at the substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../demandConstraint/">demandConstraint</a></td>
+<td><a href="../demand_constraint/">demand_constraint</a></td>
 <td>1 <br/> <a href="../RAGKind/">RAGKind</a></td>
 <td>A RAG definition of the demand constraints at the substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../demandConstraintLimitingFactor/">demandConstraintLimitingFactor</a></td>
+<td><a href="../demand_constraint_limiting_factor/">demand_constraint_limiting_factor</a></td>
 <td>1 <br/> <a href="../LimitingFactorKind/">LimitingFactorKind</a></td>
 <td>The limiting factor for demand constraints, either thermal, voltage or fault ...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../generationFirmCapacity/">generationFirmCapacity</a></td>
+<td><a href="../generation_firm_capacity/">generation_firm_capacity</a></td>
 <td>1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>The total firm generation capacity (in MVA) of the substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../generationConnectedCapacity/">generationConnectedCapacity</a></td>
+<td><a href="../generation_connected_capacity/">generation_connected_capacity</a></td>
 <td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>Sum of all generation (in MVA) currently connected at the substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../generationContractedCapacity/">generationContractedCapacity</a></td>
+<td><a href="../generation_contracted_capacity/">generation_contracted_capacity</a></td>
 <td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>Sum of all generation (in MVA) currently contracted at the substation which i...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../generationQuotedCapacity/">generationQuotedCapacity</a></td>
+<td><a href="../generation_quoted_capacity/">generation_quoted_capacity</a></td>
 <td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>Sum of all currently quoted generation (in MVA) at the substation excluding a...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../generationAvailableCapacity/">generationAvailableCapacity</a></td>
+<td><a href="../generation_available_capacity/">generation_available_capacity</a></td>
 <td>1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>Available generation capacity (in MVA) at the substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../generationConstraint/">generationConstraint</a></td>
+<td><a href="../generation_constraint/">generation_constraint</a></td>
 <td>0..1 <br/> <a href="../RAGKind/">RAGKind</a></td>
 <td>A RAG definition of the demand constraints at the substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../generationConstraintLimitingFactor/">generationConstraintLimitingFactor</a></td>
+<td><a href="../generation_constraint_limiting_factor/">generation_constraint_limiting_factor</a></td>
 <td>1 <br/> <a href="../LimitingFactorKind/">LimitingFactorKind</a></td>
 <td>The limiting factor for generation constraints, either thermal or fault level...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../breakerRatedCurrent/">breakerRatedCurrent</a></td>
+<td><a href="../breaker_rated_current/">breaker_rated_current</a></td>
 <td>0..1 <br/> <a href="../KiloA/">KiloA</a></td>
 <td>The rated normal current (in kA) of the circuit breaker is the RMS value of t...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../breakerBreakingCapacity/">breakerBreakingCapacity</a></td>
+<td><a href="../breaker_breaking_capacity/">breaker_breaking_capacity</a></td>
 <td>0..1 <br/> <a href="../KiloA/">KiloA</a></td>
 <td>The short-circuit current (in kA) that the breakers are capable of breaking</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../breakerMakingCapacity/">breakerMakingCapacity</a></td>
+<td><a href="../breaker_making_capacity/">breaker_making_capacity</a></td>
 <td>0..1 <br/> <a href="../KiloA/">KiloA</a></td>
 <td>The making current (in kA) of the circuit breaker, when closed on a short cir...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../breakerAvailableCapacity/">breakerAvailableCapacity</a></td>
+<td><a href="../breaker_available_capacity/">breaker_available_capacity</a></td>
 <td>0..1 <br/> <a href="../KiloA/">KiloA</a></td>
 <td>The available capacity (in kA) of the circuit breaker</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../breakerShortCircuitCurrent/">breakerShortCircuitCurrent</a></td>
+<td><a href="../breaker_short_circuit_current/">breaker_short_circuit_current</a></td>
 <td>0..1 <br/> <a href="../KiloA/">KiloA</a></td>
 <td>The short circuit current (in kA) of a circuit breaker is the RMS value of cu...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../breakerShortCircuitDuration/">breakerShortCircuitDuration</a></td>
+<td><a href="../breaker_short_circuit_duration/">breaker_short_circuit_duration</a></td>
 <td>0..1 <br/> <a href="../Integer/">Integer</a></td>
 <td>Specified time interval (in seconds) the Short Circuit Current can be carried...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../reversePowerFlowTotalCapacity/">reversePowerFlowTotalCapacity</a></td>
+<td><a href="../reverse_power_flow_total_capacity/">reverse_power_flow_total_capacity</a></td>
 <td>1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>The reverse capacity (in MVA) for the substation from lower to higher voltage...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../reversePowerFlowAvailableCapacity/">reversePowerFlowAvailableCapacity</a></td>
+<td><a href="../reverse_power_flow_available_capacity/">reverse_power_flow_available_capacity</a></td>
 <td>1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>The available reverse capacity (in MVA) for the substation from lower to high...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../embeddedCapacityRegister/">embeddedCapacityRegister</a></td>
+<td><a href="../embedded_capacity_register/">embedded_capacity_register</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>TODO A URL to the embedded capacity register entry for this station</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../Demands/">Demands</a></td>
+<td><a href="../demands/">demands</a></td>
 <td>* <br/> <a href="../Demand/">Demand</a></td>
 <td>The demands at the station covering connected, contracted and quoted</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../Generators/">Generators</a></td>
+<td><a href="../generators/">generators</a></td>
 <td>* <br/> <a href="../Generator/">Generator</a></td>
 <td>The generators at the station covering connected, contracted and quoted</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../Storage/">Storage</a></td>
+<td><a href="../storage/">storage</a></td>
 <td>* <br/> <a href="../Storage/">Storage</a></td>
 <td>The storage devices at the station covering connected, contracted and quoted</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../OtherConstraints/">OtherConstraints</a></td>
+<td><a href="../other_constraints/">other_constraints</a></td>
 <td>* <br/> <a href="../Constraint/">Constraint</a></td>
 <td>An additional constraint on the Substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../Transformers/">Transformers</a></td>
+<td><a href="../transformers/">transformers</a></td>
 <td>* <br/> <a href="../PowerTransformer/">PowerTransformer</a></td>
 <td>The transformers connected at the substation</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../Curtailments/">Curtailments</a></td>
+<td><a href="../curtailments/">curtailments</a></td>
 <td>* <br/> <a href="../Curtailment/">Curtailment</a></td>
 <td>Curtailments at the Substation</td>
 <td>direct</td>
@@ -667,13 +643,13 @@
 <td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
 </tr>
 <tr>
-<td><a href="../mRID/">mRID</a></td>
+<td><a href="../m_rid/">m_rid</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>Master resource identifier issued by a model authority</td>
 <td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
 </tr>
 <tr>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>* <br/> <a href="../Name/">Name</a></td>
 <td>All names of this identified object</td>
 <td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
@@ -693,7 +669,7 @@
 <tbody>
 <tr>
 <td><a href="../HeatmapDataSet/">HeatmapDataSet</a></td>
-<td><a href="../Substations/">Substations</a></td>
+<td><a href="../substations/">substations</a></td>
 <td>range</td>
 <td><a href="./">Substation</a></td>
 </tr>
@@ -756,8 +732,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">shortCode</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shortCode</span>
+<span class="w">  </span><span class="nt">short_code</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">short_code</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Short code name for substation (alphanumeric, uppercase letters only).</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
@@ -776,8 +752,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PowerTransformer</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">Coordinate</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
+<span class="w">  </span><span class="nt">coordinate</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coordinate</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The longitude/latitude value of the substation as a single latitude/longitude</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">point. For a GeoJSON Heatmap format this data will be part of the feature itself</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">allowing for more complex geometry.</span>
@@ -788,8 +764,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">demandFirmCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandFirmCapacity</span>
+<span class="w">  </span><span class="nt">demand_firm_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_firm_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The firm capacity (in MVA) for demand at the substation. Any constraints</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">that impact this capacity should be listed as individual constraints linked</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to the substation.</span>
@@ -800,8 +776,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">demandContractedCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandContractedCapacity</span>
+<span class="w">  </span><span class="nt">demand_contracted_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_contracted_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sum of all demand (in MVA) currently contracted at the substation</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">which is not yet connected (i.e. do not include any demand that is included</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in demandConnectedCapacity). This includes individual demands and storage that</span>
@@ -817,8 +793,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Demand</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demandConnectedCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandConnectedCapacity</span>
+<span class="w">  </span><span class="nt">demand_connected_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_connected_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sum of all demand (in MVA) currently connected at the substation.</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">This includes individual demands and storage that are explicitly defined and</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">aggregate value of other connect demands and storage. The value for demandConnectedCapacity</span>
@@ -833,8 +809,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Demand</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demandQuotedCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandQuotedCapacity</span>
+<span class="w">  </span><span class="nt">demand_quoted_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_quoted_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sum of all demand (in MVA) currently quoted at the substation excluding</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity).</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">This includes individual demands and storage that are explicitly defined and</span>
@@ -850,8 +826,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Demand</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demandAvailableCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandAvailableCapacity</span>
+<span class="w">  </span><span class="nt">demand_available_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_available_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The available demand capacity (in MVA) at the substation. This value</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is calculated based on total firm capacity, maximum demand, connected capacity,</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">quoted capacity, contracted capacity, and any other constraints on the network.</span>
@@ -866,8 +842,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">demandMaximum</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandMaximum</span>
+<span class="w">  </span><span class="nt">demand_maximum</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_maximum</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The maximum demand (in MVA) at the substation. This is a normalised</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value calculated using historic measured values during normal operating conditions.</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">The data represents net demand without removing the impact of any generation</span>
@@ -883,8 +859,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demandMinimum</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandMinimum</span>
+<span class="w">  </span><span class="nt">demand_minimum</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_minimum</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The minimum demand (in MVA) at the substation. This is a normalised</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value calculated using historic measured values during normal operating conditions.</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">The data represents net demand corrected for any generation at the substation,</span>
@@ -900,56 +876,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demand99Percentile</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand99Percentile</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 99th percentile of demanding (in MVA) at the substation.  This</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions.  The data represents net demand corrected for any generation</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the substation, demand diversity factors, and any other internal processing</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">normally undertaken. All substations at 50kV and above must include demand data;</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for substations below 50kV, if corrected, net demand data is not available,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the value should be omitted.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demand99Percentile</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demand75Percentile</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand75Percentile</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 75th percentile of demanding (in MVA) at the substation.  This</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions.  The data represents net demand corrected for any generation</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the substation, demand diversity factors, and any other internal processing</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">normally undertaken. All substations at 50kV and above must include demand data;</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for substations below 50kV, if corrected, net demand data is not available,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the value should be omitted.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demand75Percentile</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demand50Percentile</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand50Percentile</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 50th percentile of demanding (in MVA) at the substation. This</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions. The data represents net demand corrected for any generation</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the substation, demand diversity factors, and any other internal processing</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">normally undertaken. All substations at 50kV and above must include demand data;</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for substations below 50kV, if corrected, net demand data is not available,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the value should be omitted.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demand50Percentile</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demand25Percentile</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand25Percentile</span>
+<span class="w">  </span><span class="nt">demand__percentile</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand__percentile</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 25th percentile of demanding (in MVA) at the substation. This</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions. The data represents net demand corrected for any generation</span>
@@ -964,8 +892,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demandConstraint</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandConstraint</span>
+<span class="w">  </span><span class="nt">demand_constraint</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_constraint</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A RAG definition of the demand constraints at the substation. A utility</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">should provide details on how this RAG status is calculated as part of the accompanying</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">documentation.</span>
@@ -977,8 +905,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAGKind</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">demandConstraintLimitingFactor</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandConstraintLimitingFactor</span>
+<span class="w">  </span><span class="nt">demand_constraint_limiting_factor</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_constraint_limiting_factor</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The limiting factor for demand constraints, either thermal, voltage</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">or fault level for the demandConstraint value.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
@@ -988,8 +916,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LimitingFactorKind</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">generationFirmCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationFirmCapacity</span>
+<span class="w">  </span><span class="nt">generation_firm_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_firm_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The total firm generation capacity (in MVA) of the substation.  Any</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">constraints that impact this capacity should be listed as individual constraints</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">linked to the substation. The approach used to calculate this value should be</span>
@@ -1001,8 +929,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">generationConnectedCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationConnectedCapacity</span>
+<span class="w">  </span><span class="nt">generation_connected_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_connected_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sum of all generation (in MVA) currently connected at the substation.</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">This includes individual generation and storage that are explicitly defined</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and aggregate value of other connect generation and storage. The value forgenerationConnectedCapacity</span>
@@ -1016,8 +944,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generator</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">generationContractedCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationContractedCapacity</span>
+<span class="w">  </span><span class="nt">generation_contracted_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_contracted_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sum of all generation (in MVA) currently contracted at the substation</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">which is not yet connected (i.e. do not include any generation that is included</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in generationConnectedCapacity). This includes individual generation and storage</span>
@@ -1033,8 +961,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generator</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">generationQuotedCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationQuotedCapacity</span>
+<span class="w">  </span><span class="nt">generation_quoted_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_quoted_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sum of all currently quoted generation (in MVA) at the substation</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">excluding any that are already contracted or connected. This includes individual</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">generation and storage that are explicitly defined and aggregate value of other</span>
@@ -1049,8 +977,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generator</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">generationAvailableCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationAvailableCapacity</span>
+<span class="w">  </span><span class="nt">generation_available_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_available_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Available generation capacity (in MVA) at the substation. This value</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is calculated based on total firm generation, capacity, demand, connected capacity,</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">contracted capacity, and any other constraints on the network.</span>
@@ -1061,8 +989,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">generationConstraint</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationConstraint</span>
+<span class="w">  </span><span class="nt">generation_constraint</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_constraint</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A RAG definition of the demand constraints at the substation. A utility</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">should provide details on how this RAG status is calculated as part of the accompanying</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">documentation</span>
@@ -1072,8 +1000,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAGKind</span>
-<span class="w">  </span><span class="nt">generationConstraintLimitingFactor</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationConstraintLimitingFactor</span>
+<span class="w">  </span><span class="nt">generation_constraint_limiting_factor</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_constraint_limiting_factor</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The limiting factor for generation constraints, either thermal or</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">fault level for the generationConstraint value.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
@@ -1083,8 +1011,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LimitingFactorKind</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">breakerRatedCurrent</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerRatedCurrent</span>
+<span class="w">  </span><span class="nt">breaker_rated_current</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_rated_current</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The rated normal current (in kA) of the circuit breaker is the RMS</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value of the current with which the circuit breaker shall be able to carry continuously.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
@@ -1093,8 +1021,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KiloA</span>
-<span class="w">  </span><span class="nt">breakerBreakingCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerBreakingCapacity</span>
+<span class="w">  </span><span class="nt">breaker_breaking_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_breaking_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The short-circuit current (in kA) that the breakers are capable of</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">breaking.  It is expressed in KA RMS at contact separation.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
@@ -1103,8 +1031,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KiloA</span>
-<span class="w">  </span><span class="nt">breakerMakingCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerMakingCapacity</span>
+<span class="w">  </span><span class="nt">breaker_making_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_making_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The making current (in kA) of the circuit breaker, when closed on</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">a short circuit, is the peak value of the maximum current wave (including dc</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">component) in the first cycle of the current after the circuit is closed by</span>
@@ -1115,8 +1043,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KiloA</span>
-<span class="w">  </span><span class="nt">breakerAvailableCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerAvailableCapacity</span>
+<span class="w">  </span><span class="nt">breaker_available_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_available_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The available capacity (in kA) of the circuit breaker.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
@@ -1124,8 +1052,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KiloA</span>
-<span class="w">  </span><span class="nt">breakerShortCircuitCurrent</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerShortCircuitCurrent</span>
+<span class="w">  </span><span class="nt">breaker_short_circuit_current</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_short_circuit_current</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The short circuit current (in kA) of a circuit breaker is the RMS</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value of current that a breaker can carry in a fully closed condition without</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">damage, for the specified time interval under prescribed condition.  These ratings</span>
@@ -1136,8 +1064,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KiloA</span>
-<span class="w">  </span><span class="nt">breakerShortCircuitDuration</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerShortCircuitDuration</span>
+<span class="w">  </span><span class="nt">breaker_short_circuit_duration</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_short_circuit_duration</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Specified time interval (in seconds) the Short Circuit Current can</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">be carried for without damage.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
@@ -1146,8 +1074,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
-<span class="w">  </span><span class="nt">reversePowerFlowTotalCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reversePowerFlowTotalCapacity</span>
+<span class="w">  </span><span class="nt">reverse_power_flow_total_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reverse_power_flow_total_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The reverse capacity (in MVA) for the substation from lower to higher</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">voltage levels. 0 if there are no reverse powerflow capabilities.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
@@ -1157,8 +1085,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">reversePowerFlowAvailableCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reversePowerFlowAvailableCapacity</span>
+<span class="w">  </span><span class="nt">reverse_power_flow_available_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reverse_power_flow_available_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The available reverse capacity (in MVA) for the substation from lower</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to higher voltage levels.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
@@ -1168,16 +1096,16 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">embeddedCapacityRegister</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">embeddedCapacityRegister</span>
+<span class="w">  </span><span class="nt">embedded_capacity_register</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">embedded_capacity_register</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO A URL to the embedded capacity register entry for this station.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.embeddedCapacityRegister</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">  </span><span class="nt">Demands</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Demands</span>
+<span class="w">  </span><span class="nt">demands</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demands</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The demands at the station covering connected, contracted and quoted.</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">This data is optional and may aggregated into the substation attributes, but</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">utilities may optionally provide details on individual demands.</span>
@@ -1188,8 +1116,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Demand</span>
-<span class="w">  </span><span class="nt">Generators</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generators</span>
+<span class="w">  </span><span class="nt">generators</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generators</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The generators at the station covering connected, contracted and</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">quoted. This data is optional and may aggregated into the substation attributes,</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">but utilities may optionally provide details on individual generators.</span>
@@ -1200,8 +1128,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generator</span>
-<span class="w">  </span><span class="nt">Storage</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
+<span class="w">  </span><span class="nt">storage</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">storage</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The storage devices at the station covering connected, contracted</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and quoted. This data is optional and may aggregated into the substation attributes,</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">but utilities may optionally provide details on individual storage devices.</span>
@@ -1212,8 +1140,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
-<span class="w">  </span><span class="nt">OtherConstraints</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OtherConstraints</span>
+<span class="w">  </span><span class="nt">other_constraints</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other_constraints</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">An additional constraint on the Substation.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
@@ -1223,8 +1151,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Constraint</span>
-<span class="w">  </span><span class="nt">Transformers</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Transformers</span>
+<span class="w">  </span><span class="nt">transformers</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">transformers</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The transformers connected at the substation.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
@@ -1233,8 +1161,8 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PowerTransformer</span>
-<span class="w">  </span><span class="nt">Curtailments</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Curtailments</span>
+<span class="w">  </span><span class="nt">curtailments</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curtailments</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Curtailments at the Substation.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
@@ -1282,13 +1210,13 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">shortCode</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shortCode</span>
+<span class="w">  </span><span class="nt">short_code</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">short_code</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Short code name for substation (alphanumeric, uppercase letters only).</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.shortCode</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shortCode</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">short_code</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
@@ -1307,36 +1235,36 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PowerTransformer</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">Coordinate</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
+<span class="w">  </span><span class="nt">coordinate</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coordinate</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The longitude/latitude value of the substation as a single latitude/longitude</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">point. For a GeoJSON Heatmap format this data will be part of the feature itself</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">allowing for more complex geometry.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.Coordinate</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coordinate</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">demandFirmCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandFirmCapacity</span>
+<span class="w">  </span><span class="nt">demand_firm_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_firm_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The firm capacity (in MVA) for demand at the substation. Any constraints</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">that impact this capacity should be listed as individual constraints linked</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to the substation.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demandFirmCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandFirmCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_firm_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">demandContractedCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandContractedCapacity</span>
+<span class="w">  </span><span class="nt">demand_contracted_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_contracted_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sum of all demand (in MVA) currently contracted at the substation</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">which is not yet connected (i.e. do not include any demand that is included</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in demandConnectedCapacity). This includes individual demands and storage that</span>
@@ -1346,7 +1274,7 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demandContractedCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandContractedCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_contracted_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
@@ -1354,8 +1282,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Demand</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demandConnectedCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandConnectedCapacity</span>
+<span class="w">  </span><span class="nt">demand_connected_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_connected_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sum of all demand (in MVA) currently connected at the substation.</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">This includes individual demands and storage that are explicitly defined and</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">aggregate value of other connect demands and storage. The value for demandConnectedCapacity</span>
@@ -1364,7 +1292,7 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demandConnectedCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandConnectedCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_connected_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
@@ -1372,8 +1300,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Demand</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demandQuotedCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandQuotedCapacity</span>
+<span class="w">  </span><span class="nt">demand_quoted_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_quoted_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sum of all demand (in MVA) currently quoted at the substation excluding</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity).</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">This includes individual demands and storage that are explicitly defined and</span>
@@ -1383,7 +1311,7 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demandQuotedCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandQuotedCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_quoted_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
@@ -1391,8 +1319,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Demand</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demandAvailableCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandAvailableCapacity</span>
+<span class="w">  </span><span class="nt">demand_available_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_available_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The available demand capacity (in MVA) at the substation. This value</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is calculated based on total firm capacity, maximum demand, connected capacity,</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">quoted capacity, contracted capacity, and any other constraints on the network.</span>
@@ -1402,15 +1330,15 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demandAvailableCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandAvailableCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_available_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">demandMaximum</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandMaximum</span>
+<span class="w">  </span><span class="nt">demand_maximum</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_maximum</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The maximum demand (in MVA) at the substation. This is a normalised</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value calculated using historic measured values during normal operating conditions.</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">The data represents net demand without removing the impact of any generation</span>
@@ -1422,14 +1350,14 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demandMaximum</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandMaximum</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_maximum</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demandMinimum</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandMinimum</span>
+<span class="w">  </span><span class="nt">demand_minimum</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_minimum</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The minimum demand (in MVA) at the substation. This is a normalised</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value calculated using historic measured values during normal operating conditions.</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">The data represents net demand corrected for any generation at the substation,</span>
@@ -1441,68 +1369,14 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demandMinimum</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandMinimum</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_minimum</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demand99Percentile</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand99Percentile</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 99th percentile of demanding (in MVA) at the substation.  This</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions.  The data represents net demand corrected for any generation</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the substation, demand diversity factors, and any other internal processing</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">normally undertaken. All substations at 50kV and above must include demand data;</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for substations below 50kV, if corrected, net demand data is not available,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the value should be omitted.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demand99Percentile</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand99Percentile</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demand75Percentile</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand75Percentile</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 75th percentile of demanding (in MVA) at the substation.  This</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions.  The data represents net demand corrected for any generation</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the substation, demand diversity factors, and any other internal processing</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">normally undertaken. All substations at 50kV and above must include demand data;</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for substations below 50kV, if corrected, net demand data is not available,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the value should be omitted.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demand75Percentile</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand75Percentile</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demand50Percentile</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand50Percentile</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 50th percentile of demanding (in MVA) at the substation. This</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions. The data represents net demand corrected for any generation</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the substation, demand diversity factors, and any other internal processing</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">normally undertaken. All substations at 50kV and above must include demand data;</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for substations below 50kV, if corrected, net demand data is not available,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the value should be omitted.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demand50Percentile</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand50Percentile</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demand25Percentile</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand25Percentile</span>
+<span class="w">  </span><span class="nt">demand__percentile</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand__percentile</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 25th percentile of demanding (in MVA) at the substation. This</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions. The data represents net demand corrected for any generation</span>
@@ -1513,42 +1387,42 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demand25Percentile</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand25Percentile</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand__percentile</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demandConstraint</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandConstraint</span>
+<span class="w">  </span><span class="nt">demand_constraint</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_constraint</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A RAG definition of the demand constraints at the substation. A utility</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">should provide details on how this RAG status is calculated as part of the accompanying</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">documentation.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demandConstraint</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandConstraint</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_constraint</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAGKind</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">demandConstraintLimitingFactor</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandConstraintLimitingFactor</span>
+<span class="w">  </span><span class="nt">demand_constraint_limiting_factor</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_constraint_limiting_factor</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The limiting factor for demand constraints, either thermal, voltage</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">or fault level for the demandConstraint value.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.demandConstraintLimitingFactor</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demandConstraintLimitingFactor</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_constraint_limiting_factor</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LimitingFactorKind</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">generationFirmCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationFirmCapacity</span>
+<span class="w">  </span><span class="nt">generation_firm_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_firm_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The total firm generation capacity (in MVA) of the substation.  Any</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">constraints that impact this capacity should be listed as individual constraints</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">linked to the substation. The approach used to calculate this value should be</span>
@@ -1556,14 +1430,14 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.generationFirmCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationFirmCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_firm_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">generationConnectedCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationConnectedCapacity</span>
+<span class="w">  </span><span class="nt">generation_connected_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_connected_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sum of all generation (in MVA) currently connected at the substation.</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">This includes individual generation and storage that are explicitly defined</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and aggregate value of other connect generation and storage. The value forgenerationConnectedCapacity</span>
@@ -1572,15 +1446,15 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.generationConnectedCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationConnectedCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_connected_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generator</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">generationContractedCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationContractedCapacity</span>
+<span class="w">  </span><span class="nt">generation_contracted_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_contracted_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sum of all generation (in MVA) currently contracted at the substation</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">which is not yet connected (i.e. do not include any generation that is included</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in generationConnectedCapacity). This includes individual generation and storage</span>
@@ -1591,15 +1465,15 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.generationContractedCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationContractedCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_contracted_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generator</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">generationQuotedCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationQuotedCapacity</span>
+<span class="w">  </span><span class="nt">generation_quoted_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_quoted_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sum of all currently quoted generation (in MVA) at the substation</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">excluding any that are already contracted or connected. This includes individual</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">generation and storage that are explicitly defined and aggregate value of other</span>
@@ -1609,79 +1483,79 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.generationQuotedCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationQuotedCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_quoted_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generator</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">generationAvailableCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationAvailableCapacity</span>
+<span class="w">  </span><span class="nt">generation_available_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_available_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Available generation capacity (in MVA) at the substation. This value</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is calculated based on total firm generation, capacity, demand, connected capacity,</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">contracted capacity, and any other constraints on the network.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.generationAvailableCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationAvailableCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_available_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">generationConstraint</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationConstraint</span>
+<span class="w">  </span><span class="nt">generation_constraint</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_constraint</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A RAG definition of the demand constraints at the substation. A utility</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">should provide details on how this RAG status is calculated as part of the accompanying</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">documentation</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.generationConstraint</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationConstraint</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_constraint</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RAGKind</span>
-<span class="w">  </span><span class="nt">generationConstraintLimitingFactor</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationConstraintLimitingFactor</span>
+<span class="w">  </span><span class="nt">generation_constraint_limiting_factor</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_constraint_limiting_factor</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The limiting factor for generation constraints, either thermal or</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">fault level for the generationConstraint value.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.generationConstraintLimitingFactor</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generationConstraintLimitingFactor</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_constraint_limiting_factor</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LimitingFactorKind</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">breakerRatedCurrent</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerRatedCurrent</span>
+<span class="w">  </span><span class="nt">breaker_rated_current</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_rated_current</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The rated normal current (in kA) of the circuit breaker is the RMS</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value of the current with which the circuit breaker shall be able to carry continuously.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.breakerRatedCurrent</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerRatedCurrent</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_rated_current</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KiloA</span>
-<span class="w">  </span><span class="nt">breakerBreakingCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerBreakingCapacity</span>
+<span class="w">  </span><span class="nt">breaker_breaking_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_breaking_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The short-circuit current (in kA) that the breakers are capable of</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">breaking.  It is expressed in KA RMS at contact separation.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.breakerBreakingCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerBreakingCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_breaking_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KiloA</span>
-<span class="w">  </span><span class="nt">breakerMakingCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerMakingCapacity</span>
+<span class="w">  </span><span class="nt">breaker_making_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_making_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The making current (in kA) of the circuit breaker, when closed on</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">a short circuit, is the peak value of the maximum current wave (including dc</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">component) in the first cycle of the current after the circuit is closed by</span>
@@ -1689,24 +1563,24 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.breakerMakingCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerMakingCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_making_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KiloA</span>
-<span class="w">  </span><span class="nt">breakerAvailableCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerAvailableCapacity</span>
+<span class="w">  </span><span class="nt">breaker_available_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_available_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The available capacity (in kA) of the circuit breaker.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.breakerAvailableCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerAvailableCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_available_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KiloA</span>
-<span class="w">  </span><span class="nt">breakerShortCircuitCurrent</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerShortCircuitCurrent</span>
+<span class="w">  </span><span class="nt">breaker_short_circuit_current</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_short_circuit_current</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The short circuit current (in kA) of a circuit breaker is the RMS</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">value of current that a breaker can carry in a fully closed condition without</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">damage, for the specified time interval under prescribed condition.  These ratings</span>
@@ -1714,62 +1588,62 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.breakerShortCircuitCurrent</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerShortCircuitCurrent</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_short_circuit_current</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KiloA</span>
-<span class="w">  </span><span class="nt">breakerShortCircuitDuration</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerShortCircuitDuration</span>
+<span class="w">  </span><span class="nt">breaker_short_circuit_duration</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_short_circuit_duration</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Specified time interval (in seconds) the Short Circuit Current can</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">be carried for without damage.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.breakerShortCircuitDuration</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakerShortCircuitDuration</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breaker_short_circuit_duration</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
-<span class="w">  </span><span class="nt">reversePowerFlowTotalCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reversePowerFlowTotalCapacity</span>
+<span class="w">  </span><span class="nt">reverse_power_flow_total_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reverse_power_flow_total_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The reverse capacity (in MVA) for the substation from lower to higher</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">voltage levels. 0 if there are no reverse powerflow capabilities.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.reversePowerFlowTotalCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reversePowerFlowTotalCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reverse_power_flow_total_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">reversePowerFlowAvailableCapacity</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reversePowerFlowAvailableCapacity</span>
+<span class="w">  </span><span class="nt">reverse_power_flow_available_capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reverse_power_flow_available_capacity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The available reverse capacity (in MVA) for the substation from lower</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to higher voltage levels.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.reversePowerFlowAvailableCapacity</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reversePowerFlowAvailableCapacity</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reverse_power_flow_available_capacity</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">embeddedCapacityRegister</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">embeddedCapacityRegister</span>
+<span class="w">  </span><span class="nt">embedded_capacity_register</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">embedded_capacity_register</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO A URL to the embedded capacity register entry for this station.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.embeddedCapacityRegister</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">embeddedCapacityRegister</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">embedded_capacity_register</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span><span class="nt">Demands</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Demands</span>
+<span class="w">  </span><span class="nt">demands</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demands</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The demands at the station covering connected, contracted and quoted.</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">This data is optional and may aggregated into the substation attributes, but</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">utilities may optionally provide details on individual demands.</span>
@@ -1777,13 +1651,13 @@
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.Demands</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Demands</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demands</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Demand</span>
-<span class="w">  </span><span class="nt">Generators</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generators</span>
+<span class="w">  </span><span class="nt">generators</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generators</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The generators at the station covering connected, contracted and</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">quoted. This data is optional and may aggregated into the substation attributes,</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">but utilities may optionally provide details on individual generators.</span>
@@ -1791,13 +1665,13 @@
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.Generators</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generators</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generators</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generator</span>
-<span class="w">  </span><span class="nt">Storage</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
+<span class="w">  </span><span class="nt">storage</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">storage</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The storage devices at the station covering connected, contracted</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and quoted. This data is optional and may aggregated into the substation attributes,</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">but utilities may optionally provide details on individual storage devices.</span>
@@ -1805,44 +1679,44 @@
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.Storage</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">storage</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage</span>
-<span class="w">  </span><span class="nt">OtherConstraints</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OtherConstraints</span>
+<span class="w">  </span><span class="nt">other_constraints</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other_constraints</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">An additional constraint on the Substation.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.OtherConstraints</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OtherConstraints</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other_constraints</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Constraint</span>
-<span class="w">  </span><span class="nt">Transformers</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Transformers</span>
+<span class="w">  </span><span class="nt">transformers</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">transformers</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The transformers connected at the substation.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.Transformers</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Transformers</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">transformers</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PowerTransformer</span>
-<span class="w">  </span><span class="nt">Curtailments</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Curtailments</span>
+<span class="w">  </span><span class="nt">curtailments</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curtailments</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Curtailments at the Substation.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.Curtailments</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Curtailments</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curtailments</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
@@ -1863,30 +1737,30 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NameType</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NameTypeAuthority</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span><span class="nt">mRID</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mRID</span>
+<span class="w">  </span><span class="nt">m_rid</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">m_rid</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Master resource identifier issued by a model authority. The mRID</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is unique within an exchange context. Global uniqueness is easily achieved by</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552,</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">elements.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:IdentifiedObject.mRID</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mRID</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">m_rid</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IdentifiedObject</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span><span class="nt">Names</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Names</span>
+<span class="w">  </span><span class="nt">names</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">names</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">All names of this identified object.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:IdentifiedObject.Names</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Names</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">names</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IdentifiedObject</span>

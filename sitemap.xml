@@ -16,11 +16,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Circuits/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/ConductingEquipment/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
@@ -41,11 +36,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Coordinates/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Curie/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
@@ -57,11 +47,6 @@
     </url>
     <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/CurtailmentKind/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Curtailments/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -96,11 +81,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Demands/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Double/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
@@ -122,11 +102,6 @@
     </url>
     <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Generator/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Generators/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -181,11 +156,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Lines/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/MegaV-A/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
@@ -206,11 +176,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Names/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Ncname/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
@@ -222,11 +187,6 @@
     </url>
     <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Objectidentifier/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/OtherConstraints/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -247,11 +207,6 @@
     </url>
     <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Rating/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Ratings/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -286,17 +241,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Substations/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Time/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Transformers/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -326,37 +271,52 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breakerAvailableCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breaker_available_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breakerBreakingCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breaker_breaking_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breakerMakingCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breaker_making_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breakerRatedCurrent/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breaker_rated_current/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breakerShortCircuitCurrent/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breaker_short_circuit_current/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breakerShortCircuitDuration/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breaker_short_circuit_duration/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/circuits/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/contributor/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/coordinate/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/coordinates/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -371,7 +331,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/curtailedBy/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/curtailed_by/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/curtailments/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -381,72 +346,62 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/dayType/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/day_type/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand25Percentile/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand__percentile/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand50Percentile/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand_available_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand75Percentile/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand_connected_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand99Percentile/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand_constraint/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demandAvailableCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand_constraint_limiting_factor/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demandConnectedCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand_contracted_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demandConstraint/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand_firm_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demandConstraintLimitingFactor/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand_maximum/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demandContractedCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand_minimum/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demandFirmCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demand_quoted_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demandMaximum/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demandMinimum/</loc>
-         <lastmod>2024-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demandQuotedCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/demands/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -456,12 +411,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/embeddedCapacityRegister/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/embedded_capacity_register/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/endTime/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/end_time/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -471,47 +426,57 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/fromSubstation/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/from_substation/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/fromVoltage/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/from_voltage/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generationAvailableCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generation_available_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generationConnectedCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generation_connected_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generationConstraint/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generation_constraint/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generationConstraintLimitingFactor/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generation_constraint_limiting_factor/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generationContractedCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generation_contracted_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generationFirmCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generation_firm_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generationQuotedCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generation_quoted_capacity/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/generators/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/geometry/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -541,17 +506,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/lines/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/longitude/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/mRID/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/m_rid/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/name/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/name_type/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/name_type_authority/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/names/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/other_constraints/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -561,12 +546,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/reversePowerFlowAvailableCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/ratings/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/reversePowerFlowTotalCapacity/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/reverse_power_flow_available_capacity/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/reverse_power_flow_total_capacity/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -581,22 +571,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/shortCode/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/short_code/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/startTime/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/start_time/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/summerRating/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/storage/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/technologyType/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/substations/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/summer_rating/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/technology_type/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -606,12 +606,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/toSubstation/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/to_substation/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/toVoltage/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/to_voltage/</loc>
+         <lastmod>2024-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/transformers/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -636,7 +641,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/winterRating/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/winter_rating/</loc>
          <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -207,12 +207,12 @@
 <pre class="mermaid"><code> classDiagram
     class Name
     click Name href "../Name"
-      Name : NameType
+      Name : name_type
 
 
 
 
-    Name --&gt; "1" NameType : NameType
+    Name --&gt; "1" NameType : name_type
     click NameType href "../NameType"
 
 
@@ -230,7 +230,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../NameType/">NameType</a></td>
+<td><a href="../name_type/">name_type</a></td>
 <td>1 <br/> <a href="../NameType/">NameType</a></td>
 <td>Type of this name</td>
 <td>direct</td>
@@ -250,73 +250,73 @@
 <tbody>
 <tr>
 <td><a href="../Substation/">Substation</a></td>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>range</td>
 <td><a href="./">Name</a></td>
 </tr>
 <tr>
 <td><a href="../Circuit/">Circuit</a></td>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>range</td>
 <td><a href="./">Name</a></td>
 </tr>
 <tr>
 <td><a href="../Demand/">Demand</a></td>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>range</td>
 <td><a href="./">Name</a></td>
 </tr>
 <tr>
 <td><a href="../Generator/">Generator</a></td>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>range</td>
 <td><a href="./">Name</a></td>
 </tr>
 <tr>
 <td><a href="../Storage/">Storage</a></td>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>range</td>
 <td><a href="./">Name</a></td>
 </tr>
 <tr>
 <td><a href="../PowerTransformer/">PowerTransformer</a></td>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>range</td>
 <td><a href="./">Name</a></td>
 </tr>
 <tr>
 <td><a href="../EquipmentContainer/">EquipmentContainer</a></td>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>range</td>
 <td><a href="./">Name</a></td>
 </tr>
 <tr>
 <td><a href="../Equipment/">Equipment</a></td>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>range</td>
 <td><a href="./">Name</a></td>
 </tr>
 <tr>
 <td><a href="../ConductingEquipment/">ConductingEquipment</a></td>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>range</td>
 <td><a href="./">Name</a></td>
 </tr>
 <tr>
 <td><a href="../ConnectivityNodeContainer/">ConnectivityNodeContainer</a></td>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>range</td>
 <td><a href="./">Name</a></td>
 </tr>
 <tr>
 <td><a href="../PowerSystemResource/">PowerSystemResource</a></td>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>range</td>
 <td><a href="./">Name</a></td>
 </tr>
 <tr>
 <td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
-<td><a href="../Names/">Names</a></td>
+<td><a href="../names/">names</a></td>
 <td>range</td>
 <td><a href="./">Name</a></td>
 </tr>
@@ -357,8 +357,8 @@
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">NameType</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NameType</span>
+<span class="w">  </span><span class="nt">name_type</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name_type</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Type of this name.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
@@ -379,13 +379,13 @@
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">NameType</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NameType</span>
+<span class="w">  </span><span class="nt">name_type</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name_type</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Type of this name.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:Name.NameType</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NameType</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name_type</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Name</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Name</span>
