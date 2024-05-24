@@ -130,9 +130,9 @@ classes:
       valid:
         range: date
         description:
-          TODO A date range for the validity of a resource. This should be two
-          dates to form a range.  The first date is inclusive and the second
-          date exclusive.
+          A date range for the validity of a resource. This should be two dates
+          to form a range.  The first date is inclusive and the second date
+          exclusive.
         slot_uri: purl:valid
         minimum_cardinality: 2
         maximum_cardinality: 2
@@ -140,7 +140,7 @@ classes:
         range: Substation
         description:
           A list of substations with heatmap data.
-        slot_uri: nbnl:HeatmapDataSet.Substations
+        slot_uri: nbnl:HeatmapDataSet.substations
         multivalued: true
       Circuits:
         range: Circuit
@@ -152,9 +152,7 @@ classes:
 
   Substation:
     description:
-      TODO A Substation with connect demand, generation or storage. A
-      substation can be either a Grid Supply Point (GSP), Bulk Supply Point
-      (BSP), Primary or Secondary station.
+      A Substation with connect demand, generation or storage.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: EquipmentContainer
     attributes:
@@ -190,26 +188,6 @@ classes:
           be part of the feature itself allowing for more complex geometry.
         slot_uri: nbnl:Substation.Coordinate
         required: true
-      GSP:
-        description:
-          The name or identifier of the GSP this Substation is within. It is
-          assumed the corresponding Substation will be contained within the
-          data. Optional as a GSP Substation will not have this reference.
-        slot_uri: nbnl:Substation.GSP
-      BSP:
-        description:
-          The name or identifier of the BSP this Substation is supplied by. It
-          is assumed the corresponding Substation will be contained within the
-          data. Optional as a GSP or BSP Substation will not have this
-          reference, and the Scottish networks do not have BSPs.
-        slot_uri: nbnl:Substation.BSP
-      Primary:
-        description:
-          The name or identifier of the Primary this Substation is supplied by.
-          It is assumed the corresponding Substation will be contained within
-          the data. Optional as a GSP, BSP or Primary Substation will not have
-          this reference.
-        slot_uri: nbnl:Substation.
       demandFirmCapacity:
         range: MegaV-A
         description:
@@ -338,7 +316,7 @@ classes:
           omitted.
         slot_uri: nbnl:Substation.demand25Percentile
       demandConstraint:
-        range: RAG
+        range: RAGKind
         description:
           A RAG definition of the demand constraints at the substation. A
           utility should provide details on how this RAG status is calculated
@@ -404,7 +382,7 @@ classes:
         slot_uri: nbnl:Substation.generationAvailableCapacity
         required: true
       generationConstraint:
-        range: RAG
+        range: RAGKind
         description:
           A RAG definition of the demand constraints at the substation. A
           utility should provide details on how this RAG status is calculated
@@ -585,7 +563,7 @@ classes:
           operating conditions.
         slot_uri: nbnl:Circuit.demand25Percentile
       demandConstraint:
-        range: RAG
+        range: RAGKind
         description:
           A RAG definition of the demand constraints on the circuit. A utility
           should provide details on how this RAG status is calculated.
@@ -630,21 +608,21 @@ classes:
           Winter rating (in MVA) for minimum rated section in the circuit (i.e.
           limiting series element).
         slot_uri: nbnl:Circuit.winterRating
-      FromSubstation:
+      fromSubstation:
         description:
           mRID of the Substation the Circuit is from (used where CIM data is
           being produced and the mRID attributes are populated for
           Substations). Where no CIM mRID is yet being produced, the name of
           the Substation should be used.
-        slot_uri: nbnl:Circuit.FromSubstation
-      ToSubstation:
+        slot_uri: nbnl:Circuit.fromSubstation
+      toSubstation:
         description:
           mRID of the Substations the Circuit is to (optional if LV circuits
           are shown but no LV/Secondary substations). Where CIM data is being
           produced the identifiers attributes reflect the mRID of the
           Substations. Where no CIM mRID is yet being produced, the names of
           the Substations should be used.
-        slot_uri: nbnl:Circuit.ToSubstation
+        slot_uri: nbnl:Circuit.toSubstation
         multivalued: true
       OtherConstraints:
         range: Constraint
@@ -1132,36 +1110,38 @@ classes:
 
 enums:
 
-  RAG:
-    enum_uri: nbnl:RAG
+  RAGKind:
+    enum_uri: nbnl:RAGKind
     description:
       Traffic light colors coding scheme for categorising status.
     permissible_values:
       Red:
-        meaning: nbnl:RAG.Red
+        meaning: nbnl:RAGKind.Red
       Amber:
-        meaning: nbnl:RAG.Amber
+        meaning: nbnl:RAGKind.Amber
       Green:
-        meaning: nbnl:RAG.Green
+        meaning: nbnl:RAGKind.Green
 
   SubstationKind:
     enum_uri: nbnl:SubstationKind
     description:
       Type of substation.
     permissible_values:
-      GSP:
-        meaning: nbnl:SubstationKind.GSP
-      BSP:
-        meaning: nbnl:SubstationKind.BSP
-      Primary:
-        meaning: nbnl:SubstationKind.Primary
-      Secondary:
-        meaning: nbnl:SubstationKind.Secondary
+      Onderstation:
+        meaning: nbnl:SubstationKind.Onderstation
+      Middenspanningsruimte:
+        meaning: nbnl:SubstationKind.Middenspanningsruimte
+      Laagspanningskast:
+        meaning: nbnl:SubstationKind.Laagspanningskast
+      Regelstation:
+        meaning: nbnl:SubstationKind.Regelstation
+      Schakelstation:
+        meaning: nbnl:SubstationKind.Schakelstation
 
   LimitingFactorKind:
     enum_uri: nbnl:LimitingFactorKind
     description:
-      TODO
+      The limiting factor for demand/generation constraints.
     permissible_values:
       Thermal:
         meaning: nbnl:LimitingFactorKind.Thermal
@@ -1173,7 +1153,7 @@ enums:
   DayKind:
     enum_uri: nbnl:DayKind
     description:
-      TODO
+      The type of day the curtailment applies during (weekday or weekend).
     permissible_values:
       Weekday:
         meaning: nbnl:DayKind.Weekday
@@ -1183,7 +1163,7 @@ enums:
   SeasonKind:
     enum_uri: nbnl:SeasonKind
     description:
-      TODO
+      The season this curtailment applies during.
     permissible_values:
       Spring:
         meaning: nbnl:SeasonKind.Spring
@@ -1197,7 +1177,7 @@ enums:
   CurtailmentKind:
     enum_uri: nbnl:CurtailmentKind
     description:
-      TODO
+      The type of curtailment.
     permissible_values:
       Demand:
         meaning: nbnl:CurtailmentKind.Demand
