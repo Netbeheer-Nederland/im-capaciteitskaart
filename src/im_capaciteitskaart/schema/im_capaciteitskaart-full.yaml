@@ -22,6 +22,11 @@ description: |-
   which itself is published under the [Open Government
   License](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/),
   under ©Crown copyright 2024.
+
+  ## Additional schemas
+  * [JSON Schema](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/jsonschema/im_capaciteitskaart.schema.json)
+  * [SHACL](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/shacl/im_capaciteitskaart.shacl.ttl)
+  ## Identifiers
 license: Apache Software License 2.0
 see_also:
   - https://Netbeheer-Nederland.github.io/im-capaciteitskaart

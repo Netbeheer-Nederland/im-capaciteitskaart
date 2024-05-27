@@ -10,7 +10,9 @@ description: "The capacity heatmaps information model was defined to cover a sup
   \nThis information model is based in part on the [LTDS Capacity Heatmap\nInformation\n\
   Model](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),\n\
   which itself is published under the [Open Government\nLicense](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/),\n\
-  under \xA9Crown copyright 2024."
+  under \xA9Crown copyright 2024.\n\n## Additional schemas\n* [JSON Schema](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/jsonschema/im_capaciteitskaart.schema.json)\n\
+  * [SHACL](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/shacl/im_capaciteitskaart.shacl.ttl)\n\
+  ## Identifiers"
 title: Information model for the NBNL-capaciteitskaart.
 see_also:
 - https://Netbeheer-Nederland.github.io/im-capaciteitskaart
