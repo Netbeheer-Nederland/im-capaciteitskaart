@@ -797,7 +797,7 @@
             "description": "A Substation with connect demand, generation or storage.",
             "properties": {
                 "area": {
-                    "description": "The name of the license area. This should be the abbreviation used in the license (e.g. STEDIN for Stedin)",
+                    "description": "The name of the license area. This should be the EAN used in the license for the system operator.",
                     "type": "string"
                 },
                 "breaker_available_capacity": {
@@ -1012,7 +1012,7 @@
             "type": "string"
         }
     },
-    "$id": "https://begrippen.netbeheernederland.nl/im-capaciteitskaart",
+    "$id": "http://data.netbeheernederland.nl/capaciteitskaart",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "metamodel_version": "1.7.0",

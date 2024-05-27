@@ -1,12 +1,14 @@
-id: https://begrippen.netbeheernederland.nl/im-capaciteitskaart
+id: http://data.netbeheernederland.nl/capaciteitskaart
 name: im-capaciteitskaart
 title: Information model for the NBNL-capaciteitskaart.
 version: 0.1
 description: |-
   The capacity heatmaps information model was defined to cover a superset of
-  data exchanged by the NL distribution system operators. A minimum set of data
-  is defined that all operators are expected to conform to, along with a number
-  of optional properties and data types.
+  data exchanged by the NL system operators. A minimum set of data is defined
+  that all operators are expected to conform to, along with a number of
+  optional properties and data types.
+
+  ![Logical model](assets/im_capaciteitskaart-20240527.png)
 
   The data is intended to be presented as a hierarchy with a
   [HeatmapDataSet](HeatmapDataSet.md) at its root, then
@@ -32,12 +34,14 @@ prefixes:
   linkml: https://w3id.org/linkml/
   github: https://github.com/
   cim: https://cim.ucaiug.io/ns#
+  ck: http://data.netbeheernederland.nl/capaciteitskaart/def#
   nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
   dcterms: http://purl.org/dc/terms/
   unit: http://qudt.org/vocab/unit/
+  schema: http://schema.org/
 default_curi_maps:
 - semweb_context
-default_prefix: nbnl
+default_prefix: ck
 default_range: string
 
 types:
@@ -140,17 +144,19 @@ classes:
         range: Substation
         description:
           A list of substations with heatmap data.
-        slot_uri: nbnl:HeatmapDataSet.substations
+        slot_uri: ck:HeatmapDataSet.substations
         multivalued: true
       Circuits:
         range: Circuit
         description:
           A list of circuits with heatmap data.
-        slot_uri: nbnl:HeatmapDataSet.Circuits
+        slot_uri: ck:HeatmapDataSet.Circuits
         multivalued: true
-    class_uri: nbnl:HeatmapDataSet
+    class_uri: ck:HeatmapDataSet
 
   Substation:
+    todos:
+      - Does the use case require showing connectivity between Substations?
     description:
       A Substation with connect demand, generation or storage.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
@@ -160,24 +166,26 @@ classes:
         range: SubstationKind
         description:
           The type of the substation.
-        slot_uri: nbnl:Substation.type
+        slot_uri: ck:Substation.type
         required: true
       area:
         description:
-          The name of the license area. This should be the abbreviation used in
-          the license (e.g. STEDIN for Stedin)
-        slot_uri: nbnl:Substation.area
+          The name of the license area. This should be the EAN used in
+          the license for the system operator.
+        narrow_mappings:
+          - nbnl:Netbeheerder
+        slot_uri: schema:gtin13
         required: true
       shortCode:
         description:
           Short code name for substation (alphanumeric, uppercase letters
           only).
-        slot_uri: nbnl:Substation.shortCode
+        slot_uri: ck:Substation.shortCode
       voltages:
         range: integer
         description:
           The voltages at the Substation in Kilovolts (kV).
-        slot_uri: nbnl:Substation.voltages
+        slot_uri: ck:Substation.voltages
         multivalued: true
         required: true
       Coordinate:
@@ -186,7 +194,7 @@ classes:
           The longitude/latitude value of the substation as a single
           latitude/longitude point. For a GeoJSON Heatmap format this data will
           be part of the feature itself allowing for more complex geometry.
-        slot_uri: nbnl:Substation.Coordinate
+        slot_uri: ck:Substation.Coordinate
         required: true
       demandFirmCapacity:
         range: MegaV-A
@@ -194,7 +202,7 @@ classes:
           The firm capacity (in MVA) for demand at the substation. Any
           constraints that impact this capacity should be listed as individual
           constraints linked to the substation.
-        slot_uri: nbnl:Substation.demandFirmCapacity
+        slot_uri: ck:Substation.demandFirmCapacity
         required: true
       demandContractedCapacity:
         range: MegaV-A
@@ -207,7 +215,7 @@ classes:
           demandContractedCapacity must be greater than or equal to the sum of
           the demandContractedCapacity values in the Demand and Storage
           elements.
-        slot_uri: nbnl:Substation.demandContractedCapacity
+        slot_uri: ck:Substation.demandContractedCapacity
       demandConnectedCapacity:
         range: MegaV-A
         description:
@@ -217,7 +225,7 @@ classes:
           value for demandConnectedCapacity must be greater than or equal to
           the sum of the demandConnectedCapacity values in the demand and
           Storage elements.
-        slot_uri: nbnl:Substation.demandConnectedCapacity
+        slot_uri: ck:Substation.demandConnectedCapacity
       demandQuotedCapacity:
         range: MegaV-A
         description:
@@ -228,7 +236,7 @@ classes:
           aggregate value of other connect demands and storage. The value for
           demandQuotedCapacity must be greater than or equal to the sum of the
           demandQuotedCapacity values in the demand and Storage elements.
-        slot_uri: nbnl:Substation.demandQuotedCapacity
+        slot_uri: ck:Substation.demandQuotedCapacity
       demandAvailableCapacity:
         range: MegaV-A
         description:
@@ -239,7 +247,9 @@ classes:
           network operator would make available to a connecting party, which
           may be calculated for the most onerous season, or a value based on
           more detailed analysis and internal policies.
-        slot_uri: nbnl:Substation.demandAvailableCapacity
+        exact_mappings:
+          - nbnl:CapaciteitVoorNieuweTransportverzoeken
+        slot_uri: ck:Substation.demandAvailableCapacity
         required: true
       demandMaximum:
         range: MegaV-A
@@ -253,7 +263,9 @@ classes:
           data; for substations below 33kV, if corrected, net demand data is
           not available, the value should be omitted. Users wishing to see
           separate summer/winter peaks can obtain this from the data.
-        slot_uri: nbnl:Substation.demandMaximum
+        narrow_mappings:
+          - nbnl:Transportlimiet
+        slot_uri: ck:Substation.demandMaximum
       demandMinimum:
         range: MegaV-A
         description:
@@ -266,7 +278,7 @@ classes:
           if corrected, net demand data is not available, the value should be
           omitted. Users wishing to see separate summer/winter peaks can obtain
           this from the data.
-        slot_uri: nbnl:Substation.demandMinimum
+        slot_uri: ck:Substation.demandMinimum
       demand99Percentile:
         range: MegaV-A
         description:
@@ -278,7 +290,7 @@ classes:
           substations at 50kV and above must include demand data; for
           substations below 50kV, if corrected, net demand data is not
           available, the value should be omitted.
-        slot_uri: nbnl:Substation.demand99Percentile
+        slot_uri: ck:Substation.demand99Percentile
       demand75Percentile:
         range: MegaV-A
         description:
@@ -290,7 +302,7 @@ classes:
           substations at 50kV and above must include demand data; for
           substations below 50kV, if corrected, net demand data is not
           available, the value should be omitted.
-        slot_uri: nbnl:Substation.demand75Percentile
+        slot_uri: ck:Substation.demand75Percentile
       demand50Percentile:
         range: MegaV-A
         description:
@@ -302,7 +314,7 @@ classes:
           50kV and above must include demand data; for substations below 50kV,
           if corrected, net demand data is not available, the value should be
           omitted.
-        slot_uri: nbnl:Substation.demand50Percentile
+        slot_uri: ck:Substation.demand50Percentile
       demand25Percentile:
         range: MegaV-A
         description:
@@ -314,21 +326,21 @@ classes:
           50kV and above must include demand data; for substations below 50kV,
           if corrected, net demand data is not available, the value should be
           omitted.
-        slot_uri: nbnl:Substation.demand25Percentile
+        slot_uri: ck:Substation.demand25Percentile
       demandConstraint:
         range: RAGKind
         description:
           A RAG definition of the demand constraints at the substation. A
           utility should provide details on how this RAG status is calculated
           as part of the accompanying documentation.
-        slot_uri: nbnl:Substation.demandConstraint
+        slot_uri: ck:Substation.demandConstraint
         required: true
       demandConstraintLimitingFactor:
         range: LimitingFactorKind
         description:
           The limiting factor for demand constraints, either thermal, voltage
           or fault level for the demandConstraint value.
-        slot_uri: nbnl:Substation.demandConstraintLimitingFactor
+        slot_uri: ck:Substation.demandConstraintLimitingFactor
         required: true
       generationFirmCapacity:
         range: MegaV-A
@@ -337,7 +349,7 @@ classes:
           constraints that impact this capacity should be listed as individual
           constraints linked to the substation. The approach used to calculate
           this value should be defined in accompanying documentation.
-        slot_uri: nbnl:Substation.generationFirmCapacity
+        slot_uri: ck:Substation.generationFirmCapacity
         required: true
       generationConnectedCapacity:
         range: MegaV-A
@@ -348,7 +360,7 @@ classes:
           The value forgenerationConnectedCapacity must be greater than or
           equal to the sum of the generationConnectedCapacity values in the
           Generator and Storage elements.
-        slot_uri: nbnl:Substation.generationConnectedCapacity
+        slot_uri: ck:Substation.generationConnectedCapacity
       generationContractedCapacity:
         range: MegaV-A
         description:
@@ -360,7 +372,7 @@ classes:
           generationContractedCapacity must be greater than or equal to the sum
           of the generationContractedCapacity values in the Generator and
           Storage elements.
-        slot_uri: nbnl:Substation.generationContractedCapacity
+        slot_uri: ck:Substation.generationContractedCapacity
       generationQuotedCapacity:
         range: MegaV-A
         description:
@@ -371,7 +383,7 @@ classes:
           for generationQuotedCapacity must be greater than or equal to the sum
           of the generationQuotedCapacity values in the Generator and Storage
           elements.
-        slot_uri: nbnl:Substation.generationQuotedCapacity
+        slot_uri: ck:Substation.generationQuotedCapacity
       generationAvailableCapacity:
         range: MegaV-A
         description:
@@ -379,7 +391,7 @@ classes:
           is calculated based on total firm generation, capacity, demand,
           connected capacity, contracted capacity, and any other constraints on
           the network.
-        slot_uri: nbnl:Substation.generationAvailableCapacity
+        slot_uri: ck:Substation.generationAvailableCapacity
         required: true
       generationConstraint:
         range: RAGKind
@@ -387,13 +399,13 @@ classes:
           A RAG definition of the demand constraints at the substation. A
           utility should provide details on how this RAG status is calculated
           as part of the accompanying documentation
-        slot_uri: nbnl:Substation.generationConstraint
+        slot_uri: ck:Substation.generationConstraint
       generationConstraintLimitingFactor:
         range: LimitingFactorKind
         description:
           The limiting factor for generation constraints, either thermal or
           fault level for the generationConstraint value.
-        slot_uri: nbnl:Substation.generationConstraintLimitingFactor
+        slot_uri: ck:Substation.generationConstraintLimitingFactor
         required: true
       breakerRatedCurrent:
         range: KiloA
@@ -401,13 +413,13 @@ classes:
           The rated normal current (in kA) of the circuit breaker is the RMS
           value of the current with which the circuit breaker shall be able to
           carry continuously.
-        slot_uri: nbnl:Substation.breakerRatedCurrent
+        slot_uri: ck:Substation.breakerRatedCurrent
       breakerBreakingCapacity:
         range: KiloA
         description:
           The short-circuit current (in kA) that the breakers are capable of
           breaking.  It is expressed in KA RMS at contact separation.
-        slot_uri: nbnl:Substation.breakerBreakingCapacity
+        slot_uri: ck:Substation.breakerBreakingCapacity
       breakerMakingCapacity:
         range: KiloA
         description:
@@ -415,12 +427,12 @@ classes:
           short circuit, is the peak value of the maximum current wave
           (including dc component) in the first cycle of the current after the
           circuit is closed by the circuit breaker.
-        slot_uri: nbnl:Substation.breakerMakingCapacity
+        slot_uri: ck:Substation.breakerMakingCapacity
       breakerAvailableCapacity:
         range: KiloA
         description:
           The available capacity (in kA) of the circuit breaker.
-        slot_uri: nbnl:Substation.breakerAvailableCapacity
+        slot_uri: ck:Substation.breakerAvailableCapacity
       breakerShortCircuitCurrent:
         range: KiloA
         description:
@@ -428,31 +440,31 @@ classes:
           value of current that a breaker can carry in a fully closed condition
           without damage, for the specified time interval under prescribed
           condition.  These ratings are based on thermal limitation.
-        slot_uri: nbnl:Substation.breakerShortCircuitCurrent
+        slot_uri: ck:Substation.breakerShortCircuitCurrent
       breakerShortCircuitDuration:
         range: integer
         description:
           Specified time interval (in seconds) the Short Circuit Current can be
           carried for without damage.
-        slot_uri: nbnl:Substation.breakerShortCircuitDuration
+        slot_uri: ck:Substation.breakerShortCircuitDuration
       reversePowerFlowTotalCapacity:
         range: MegaV-A
         description:
           The reverse capacity (in MVA) for the substation from lower to higher
           voltage levels. 0 if there are no reverse powerflow capabilities.
-        slot_uri: nbnl:Substation.reversePowerFlowTotalCapacity
+        slot_uri: ck:Substation.reversePowerFlowTotalCapacity
         required: true
       reversePowerFlowAvailableCapacity:
         range: MegaV-A
         description:
           The available reverse capacity (in MVA) for the substation from lower
           to higher voltage levels.
-        slot_uri: nbnl:Substation.reversePowerFlowAvailableCapacity
+        slot_uri: ck:Substation.reversePowerFlowAvailableCapacity
         required: true
       embeddedCapacityRegister:
         description:
           TODO A URL to the embedded capacity register entry for this station.
-        slot_uri: nbnl:Substation.embeddedCapacityRegister
+        slot_uri: ck:Substation.embeddedCapacityRegister
       Demands:
         range: Demand
         description:
@@ -460,7 +472,7 @@ classes:
           This data is optional and may aggregated into the substation
           attributes, but utilities may optionally provide details on
           individual demands.
-        slot_uri: nbnl:Substation.Demands
+        slot_uri: ck:Substation.Demands
         multivalued: true
       Generators:
         range: Generator
@@ -469,7 +481,7 @@ classes:
           quoted. This data is optional and may aggregated into the substation
           attributes, but utilities may optionally provide details on
           individual generators.
-        slot_uri: nbnl:Substation.Generators
+        slot_uri: ck:Substation.Generators
         multivalued: true
       Storage:
         range: Storage
@@ -478,29 +490,33 @@ classes:
           quoted. This data is optional and may aggregated into the substation
           attributes, but utilities may optionally provide details on
           individual storage devices.
-        slot_uri: nbnl:Substation.Storage
+        slot_uri: ck:Substation.Storage
         multivalued: true
       OtherConstraints:
         range: Constraint
         description:
           An additional constraint on the Substation.
-        slot_uri: nbnl:Substation.OtherConstraints
+        slot_uri: ck:Substation.OtherConstraints
         multivalued: true
       Transformers:
         range: PowerTransformer
         description:
           The transformers connected at the substation.
-        slot_uri: nbnl:Substation.Transformers
+        slot_uri: ck:Substation.Transformers
         multivalued: true
       Curtailments:
         range: Curtailment
         description:
           Curtailments at the Substation.
-        slot_uri: nbnl:Substation.Curtailments
+        slot_uri: ck:Substation.Curtailments
         multivalued: true
+    broad_mappings:
+      - nbnl:Netstation
     class_uri: cim:Substation
 
   Circuit:
+    todos:
+      - Where do we add support for "wachtrij"?
     description:
       A circuit representing a connection between substations. This could be an
       HV circuit between stations or a circuit feeding multiple secondary
@@ -513,7 +529,7 @@ classes:
         range: KiloV
         description:
           Voltage (in kV) of the circuit.
-        slot_uri: nbnl:Circuit.voltage
+        slot_uri: ck:Circuit.voltage
         required: true
       demandMaximum:
         range: MegaV-A
@@ -521,7 +537,9 @@ classes:
           The maximum load (in MVA) on the circuit. This is a value calculated
           using historic measured values and would not necessarily be corrected
           for generation on the circuit and normal operating conditions.
-        slot_uri: nbnl:Circuit.demandMaximum
+        narrow_mappings:
+          - nbnl:Transportlimiet
+        slot_uri: ck:Circuit.demandMaximum
       demandMinimum:
         range: MegaV-A
         description:
@@ -529,7 +547,7 @@ classes:
           calculated using historic measured values and would not necessarily
           be corrected for generation on the circuit and normal operating
           conditions.
-        slot_uri: nbnl:Circuit.demandMinimum
+        slot_uri: ck:Circuit.demandMinimum
       demand99Percentile:
         range: MegaV-A
         description:
@@ -537,7 +555,7 @@ classes:
           value calculated using historic measured values and would not
           necessarily be corrected for generation on the circuit and normal
           operating conditions.
-        slot_uri: nbnl:Circuit.demand99Percentile
+        slot_uri: ck:Circuit.demand99Percentile
       demand75Percentile:
         range: MegaV-A
         description:
@@ -545,7 +563,7 @@ classes:
           value calculated using historic measured values and would not
           necessarily be corrected for generation on the circuit and normal
           operating conditions.
-        slot_uri: nbnl:Circuit.demand75Percentile
+        slot_uri: ck:Circuit.demand75Percentile
       demand50Percentile:
         range: MegaV-A
         description:
@@ -553,7 +571,7 @@ classes:
           value calculated using historic measured values and would not
           necessarily be corrected for generation on the circuit and normal
           operating conditions.
-        slot_uri: nbnl:Circuit.demand50Percentile
+        slot_uri: ck:Circuit.demand50Percentile
       demand25Percentile:
         range: MegaV-A
         description:
@@ -561,13 +579,13 @@ classes:
           value calculated using historic measured values and would not
           necessarily be corrected for generation on the circuit and normal
           operating conditions.
-        slot_uri: nbnl:Circuit.demand25Percentile
+        slot_uri: ck:Circuit.demand25Percentile
       demandConstraint:
         range: RAGKind
         description:
           A RAG definition of the demand constraints on the circuit. A utility
           should provide details on how this RAG status is calculated.
-        slot_uri: nbnl:Circuit.demandConstraint
+        slot_uri: ck:Circuit.demandConstraint
         required: true
       demandContractedCapacity:
         range: MegaV-A
@@ -575,46 +593,48 @@ classes:
           Sum of all demand (in MVA) currently contracted on the circuit which
           are not yet connected (i.e. do not include any demand that is
           included in demandConnectedCapacity).
-        slot_uri: nbnl:Circuit.demandContractedCapacity
+        slot_uri: ck:Circuit.demandContractedCapacity
       demandConnectedCapacity:
         range: MegaV-A
         description:
           Sum of all demand (in MVA) currently connected on the circuit.
-        slot_uri: nbnl:Circuit.demandConnectedCapacity
+        slot_uri: ck:Circuit.demandConnectedCapacity
       demandQuotedCapacity:
         range: MegaV-A
         description:
           Sum of all demand (in MVA) currently quoted on the circuit excluding
           contracted and connected (i.e. does not include
           demandConnectedCapacity or demandContractedCapacity).
-        slot_uri: nbnl:Circuit.demandQuotedCapacity
+        slot_uri: ck:Circuit.demandQuotedCapacity
       demandAvailableCapacity:
         range: MegaV-A
         description:
           The available demand (in MVA) capacity on the circuit. This value is
           calculated based on the circuit rating, maximum demand, contracted
           capacity, and any other constraints on the network.
-        slot_uri: nbnl:Circuit.demandAvailableCapacity
+        exact_mappings:
+          - nbnl:CapaciteitVoorNieuweTransportverzoeken
+        slot_uri: ck:Circuit.demandAvailableCapacity
         required: true
       summerRating:
         range: MegaV-A
         description:
           Summer rating (in MVA) for minimum rated section in the circuit (i.e.
           limiting series element).
-        slot_uri: nbnl:Circuit.summerRating
+        slot_uri: ck:Circuit.summerRating
       winterRating:
         range: MegaV-A
         description:
           Winter rating (in MVA) for minimum rated section in the circuit (i.e.
           limiting series element).
-        slot_uri: nbnl:Circuit.winterRating
+        slot_uri: ck:Circuit.winterRating
       fromSubstation:
         description:
           mRID of the Substation the Circuit is from (used where CIM data is
           being produced and the mRID attributes are populated for
           Substations). Where no CIM mRID is yet being produced, the name of
           the Substation should be used.
-        slot_uri: nbnl:Circuit.fromSubstation
+        slot_uri: ck:Circuit.fromSubstation
       toSubstation:
         description:
           mRID of the Substations the Circuit is to (optional if LV circuits
@@ -622,19 +642,23 @@ classes:
           produced the identifiers attributes reflect the mRID of the
           Substations. Where no CIM mRID is yet being produced, the names of
           the Substations should be used.
-        slot_uri: nbnl:Circuit.toSubstation
+        slot_uri: ck:Circuit.toSubstation
         multivalued: true
       OtherConstraints:
         range: Constraint
         description:
           An additional constraint on the Cicruit.
-        slot_uri: nbnl:Circuit.OtherConstraints
+        slot_uri: ck:Circuit.OtherConstraints
         multivalued: true
       Geometry:
         range: Geometry
         description:
           The geometry of the circuit
-        slot_uri: nbnl:Circuit.Geometry
+        slot_uri: ck:Circuit.Geometry
+    broad_mappings:
+      - nbnl:Voedingsgebied
+    narrow_mappings:
+      - nbnl:Gebiedsindeling
     class_uri: cim:Circuit
 
   Demand:
@@ -650,13 +674,13 @@ classes:
           The currently contracted demand capacity (in MVA) which is not yet
           connected (i.e. do not include any demand that is included in
           demandConnectedCapacity).
-        slot_uri: nbnl:Demand.demandContractedCapacity
+        slot_uri: ck:Demand.demandContractedCapacity
         required: true
       demandConnectedCapacity:
         range: MegaV-A
         description:
           The currently connected demand capacity (in MVA).
-        slot_uri: nbnl:Demand.demandConnectedCapacity
+        slot_uri: ck:Demand.demandConnectedCapacity
         required: true
       demandQuotedCapacity:
         range: MegaV-A
@@ -665,14 +689,16 @@ classes:
           contracted and connected (this is optional as connected/contracted
           generation may not have records of quotes and after a value is
           contracted this value is no longer relevant).
-        slot_uri: nbnl:Demand.demandQuotedCapacity
+        slot_uri: ck:Demand.demandQuotedCapacity
       voltage:
         range: KiloV
         description:
           The voltage the demand (in kV) is connected at.
-        slot_uri: nbnl:Demand.voltage
+        slot_uri: ck:Demand.voltage
         required: true
-    class_uri: nbnl:Demand
+    narrow_mappings:
+      - nbnl:Transportcapaciteit
+    class_uri: ck:Demand
 
   Generator:
     description:
@@ -685,7 +711,7 @@ classes:
         range: MegaV-A
         description:
           The currently connected generation capacity (in MVA).
-        slot_uri: nbnl:Generator.generationConnectedCapacity
+        slot_uri: ck:Generator.generationConnectedCapacity
         required: true
       generationContractedCapacity:
         range: MegaV-A
@@ -693,7 +719,7 @@ classes:
           The currently contracted generation capacity (in MVA) excluding any
           that are already contracted or connected (i.e. do not include any
           generation that is included in generationConnectedCapacity).
-        slot_uri: nbnl:Generator.generationContractedCapacity
+        slot_uri: ck:Generator.generationContractedCapacity
         required: true
       generationQuotedCapacity:
         range: MegaV-A
@@ -702,18 +728,20 @@ classes:
           contracted (this is optional as connected/contracted generation may
           not have records of quotes and after a value is contracted this value
           is no longer relevant).
-        slot_uri: nbnl:Generator.generationQuotedCapacity
+        slot_uri: ck:Generator.generationQuotedCapacity
       voltage:
         range: KiloV
         description:
           The voltage the generator (in kV) is connected at.
-        slot_uri: nbnl:Generator.voltage
+        slot_uri: ck:Generator.voltage
         required: true
       technologyType:
         description:
           The technology the connected generation e.g. CHP, Wind, PV, Battery.
-        slot_uri: nbnl:Generator.technologyType
-    class_uri: nbnl:Generator
+        slot_uri: ck:Generator.technologyType
+    narrow_mappings:
+      - nbnl:Transportcapaciteit
+    class_uri: ck:Generator
 
   Storage:
     description:
@@ -728,13 +756,13 @@ classes:
           The currently contracted demand capacity (in MVA) which is not yet
           connected (i.e. do not include any demand that is included in
           demandConnectedCapacity).
-        slot_uri: nbnl:Storage.demandContractedCapacity
+        slot_uri: ck:Storage.demandContractedCapacity
         required: true
       demandConnectedCapacity:
         range: MegaV-A
         description:
           The currently connected demand capacity (in MVA).
-        slot_uri: nbnl:Storage.demandConnectedCapacity
+        slot_uri: ck:Storage.demandConnectedCapacity
         required: true
       demandQuotedCapacity:
         range: MegaV-A
@@ -743,12 +771,12 @@ classes:
           contracted and connected (this is optional as connected/contracted
           generation may not have records of quotes and after a value is
           contracted this value is no longer relevant).
-        slot_uri: nbnl:Storage.demandQuotedCapacity
+        slot_uri: ck:Storage.demandQuotedCapacity
       generationConnectedCapacity:
         range: MegaV-A
         description:
           The currently connected generation capacity (in MVA).
-        slot_uri: nbnl:Storage.generationConnectedCapacity
+        slot_uri: ck:Storage.generationConnectedCapacity
         required: true
       generationContractedCapacity:
         range: MegaV-A
@@ -756,7 +784,7 @@ classes:
           The currently contracted generation capacity (in MVA) excluding any
           that are already contracted or connected (i.e. do not include any
           generation that is included in generationConnectedCapacity).
-        slot_uri: nbnl:Storage.generationContractedCapacity
+        slot_uri: ck:Storage.generationContractedCapacity
         required: true
       generationQuotedCapacity:
         range: MegaV-A
@@ -765,18 +793,20 @@ classes:
           contracted (this is optional as connected/contracted generation may
           not have records of quotes and after a value is contracted this value
           is no longer relevant).
-        slot_uri: nbnl:Storage.generationQuotedCapacity
+        slot_uri: ck:Storage.generationQuotedCapacity
       voltage:
         range: KiloV
         description:
           The voltage the storage (in kV) is connected at.
-        slot_uri: nbnl:Storage.voltage
+        slot_uri: ck:Storage.voltage
         required: true
       technologyType:
         description:
           The technology of the connected generation e.g. PumpStorage, Battery.
-        slot_uri: nbnl:Storage.technologyType
-    class_uri: nbnl:Storage
+        slot_uri: ck:Storage.technologyType
+    narrow_mappings:
+      - nbnl:Transportcapaciteit
+    class_uri: ck:Storage
 
   PowerTransformer:
     description:
@@ -790,14 +820,14 @@ classes:
         description:
           The primary, secondary (and optional tertiary) voltages of the
           transformer.
-        slot_uri: nbnl:PowerTransformer.voltages
+        slot_uri: ck:PowerTransformer.voltages
         minimum_cardinality: 2
         maximum_cardinality: 3
       Ratings:
         range: Rating
         description:
           The ratings of the transformer as defined by the Ratings element.
-        slot_uri: nbnl:PowerTransformer.Ratings
+        slot_uri: ck:PowerTransformer.Ratings
     class_uri: cim:PowerTransformer
 
   Rating:
@@ -809,33 +839,33 @@ classes:
       name:
         description:
           Human readble name of the rating
-        slot_uri: nbnl:Rating.name
+        slot_uri: ck:Rating.name
         required: true
       summerRating:
         range: MegaV-A
         description:
           Summer rating (in MVA).
-        slot_uri: nbnl:Rating.summerRating
+        slot_uri: ck:Rating.summerRating
         required: true
       winterRating:
         range: MegaV-A
         description:
           Winter rating (in MVA).
-        slot_uri: nbnl:Rating.winterRating
+        slot_uri: ck:Rating.winterRating
         required: true
       fromVoltage:
         range: KiloV
         description:
           From voltage (in kV) for the rating.
-        slot_uri: nbnl:Rating.fromVoltage
+        slot_uri: ck:Rating.fromVoltage
         required: true
       toVoltage:
         range: KiloV
         description:
           To voltage (in kV) for the rating.
-        slot_uri: nbnl:Rating.toVoltage
+        slot_uri: ck:Rating.toVoltage
         required: true
-    class_uri: nbnl:Rating
+    class_uri: ck:Rating
 
   Constraint:
     description:
@@ -846,20 +876,20 @@ classes:
       name:
         description:
           Human readable name of the constraint.
-        slot_uri: nbnl:Constraint.name
+        slot_uri: ck:Constraint.name
         required: true
       description:
         description:
           Free text for any additional descriptive data about the constraint.
-        slot_uri: nbnl:Constraint.description
+        slot_uri: ck:Constraint.description
         required: true
       type:
         description:
           The type of constraint (enumerated field to allow for easier
           processing/identification). Limited to Voltage, Physical or Other.
-        slot_uri: nbnl:Constraint.type
+        slot_uri: ck:Constraint.type
         required: true
-    class_uri: nbnl:Constraint
+    class_uri: ck:Constraint
 
   Curtailment:
     description:
@@ -869,52 +899,54 @@ classes:
       name:
         description:
           Human readable name of the curtailment.
-        slot_uri: nbnl:Curtailment.name
+        slot_uri: ck:Curtailment.name
         required: true
       description:
         description:
           Free text for any additional descriptive data about the curtailment.
-        slot_uri: nbnl:Curtailment.description
+        slot_uri: ck:Curtailment.description
         required: true
       type:
         range: CurtailmentKind
         description:
           The type of curtailment (enumerated field to allow for easier
           processing/identification).
-        slot_uri: nbnl:Curtailment.type
+        slot_uri: ck:Curtailment.type
         required: true
       curtailedBy:
         range: MegaV-A
         description:
           The amount the demand/generation capacity (in MVA) is curtailed by.
-        slot_uri: nbnl:Curtailment.curtailedBy
+        slot_uri: ck:Curtailment.curtailedBy
         required: true
       technologyType:
         description:
           The technology the curtailment applies to e.g. for generation CHP,
           Wind, PV, Battery.
-        slot_uri: nbnl:Curtailment.technologyType
+        slot_uri: ck:Curtailment.technologyType
       season:
         range: SeasonKind
         description:
           The season this curtailment applies during.
-        slot_uri: nbnl:Curtailment.
+        slot_uri: ck:Curtailment.
       dayType:
         range: DayKind
         description:
           The type of day the curtailment applies during (weekday or weekend).
-        slot_uri: nbnl:Curtailment.
+        slot_uri: ck:Curtailment.
       startTime:
         range: time
         description:
           The start time of a curtailment (inclusive).
-        slot_uri: nbnl:Curtailment.
+        slot_uri: ck:Curtailment.
       endTime:
         range: time
         description:
           The end time of a curtailment (exclusive).
-        slot_uri: nbnl:Curtailment.
-    class_uri: nbnl:Curtailment
+        slot_uri: ck:Curtailment.
+    exact_mappings:
+      - nbnl:Congestie
+    class_uri: ck:Curtailment
 
   Geometry:
     description:
@@ -926,16 +958,16 @@ classes:
       type:
         description:
           The geometry type (LineString or MultiLineString).
-        slot_uri: nbnl:Geometry.type
+        slot_uri: ck:Geometry.type
         required: true
       Lines:
         range: Line
         description:
           The Line elements.
-        slot_uri: nbnl:Geometry.Lines
+        slot_uri: ck:Geometry.Lines
         multivalued: true
         required: true
-    class_uri: nbnl:Geometry
+    class_uri: ck:Geometry
 
   Line:
     description:
@@ -945,10 +977,10 @@ classes:
         range: Coordinate
         description:
           Two (2) or more coordinates for a line.
-        slot_uri: nbnl:Line.Coordinates
+        slot_uri: ck:Line.Coordinates
         minimum_cardinality: 2
         multivalued: true
-    class_uri: nbnl:Line
+    class_uri: ck:Line
 
   Coordinate:
     description:
@@ -960,7 +992,7 @@ classes:
           The longitude value of the coordinate as a single latitude/longitude
           point. For a GeoJSON Heatmap format this data will be part of the
           LineString geometry.
-        slot_uri: nbnl:Coordinate.longitude
+        slot_uri: ck:Coordinate.longitude
         required: true
       latitude:
         range: float
@@ -968,9 +1000,9 @@ classes:
           The latitude value of the coordinate as a single latitude/longitude
           point. For a GeoJSON Heatmap format this data will be part of the
           LineString geometry.
-        slot_uri: nbnl:Coordinate.latitude
+        slot_uri: ck:Coordinate.latitude
         required: true
-    class_uri: nbnl:Coordinate
+    class_uri: ck:Coordinate
 
   EquipmentContainer:
     description:
@@ -1111,75 +1143,75 @@ classes:
 enums:
 
   RAGKind:
-    enum_uri: nbnl:RAGKind
+    enum_uri: ck:RAGKind
     description:
       Traffic light colors coding scheme for categorising status.
     permissible_values:
       red:
-        meaning: nbnl:RAGKind.Red
+        meaning: ck:RAGKind.Red
       amber:
-        meaning: nbnl:RAGKind.Amber
+        meaning: ck:RAGKind.Amber
       green:
-        meaning: nbnl:RAGKind.Green
+        meaning: ck:RAGKind.Green
 
   SubstationKind:
-    enum_uri: nbnl:SubstationKind
+    enum_uri: ck:SubstationKind
     description:
       Type of substation.
     permissible_values:
       onderstation:
-        meaning: nbnl:SubstationKind.Onderstation
+        meaning: ck:SubstationKind.Onderstation
       middenspanningsruimte:
-        meaning: nbnl:SubstationKind.Middenspanningsruimte
+        meaning: ck:SubstationKind.Middenspanningsruimte
       laagspanningskast:
-        meaning: nbnl:SubstationKind.Laagspanningskast
+        meaning: ck:SubstationKind.Laagspanningskast
       regelstation:
-        meaning: nbnl:SubstationKind.Regelstation
+        meaning: ck:SubstationKind.Regelstation
       schakelstation:
-        meaning: nbnl:SubstationKind.Schakelstation
+        meaning: ck:SubstationKind.Schakelstation
 
   LimitingFactorKind:
-    enum_uri: nbnl:LimitingFactorKind
+    enum_uri: ck:LimitingFactorKind
     description:
       The limiting factor for demand/generation constraints.
     permissible_values:
       thermal:
-        meaning: nbnl:LimitingFactorKind.Thermal
+        meaning: ck:LimitingFactorKind.Thermal
       voltage:
-        meaning: nbnl:LimitingFactorKind.Voltage
+        meaning: ck:LimitingFactorKind.Voltage
       fault_level:
-        meaning: nbnl:LimitingFactorKind.FaultLevel
+        meaning: ck:LimitingFactorKind.FaultLevel
 
   DayKind:
-    enum_uri: nbnl:DayKind
+    enum_uri: ck:DayKind
     description:
       The type of day the curtailment applies during (weekday or weekend).
     permissible_values:
       weekday:
-        meaning: nbnl:DayKind.Weekday
+        meaning: ck:DayKind.Weekday
       weekend:
-        meaning: nbnl:DayKind.Weekend
+        meaning: ck:DayKind.Weekend
 
   SeasonKind:
-    enum_uri: nbnl:SeasonKind
+    enum_uri: ck:SeasonKind
     description:
       The season this curtailment applies during.
     permissible_values:
       spring:
-        meaning: nbnl:SeasonKind.Spring
+        meaning: ck:SeasonKind.Spring
       summer:
-        meaning: nbnl:SeasonKind.Summer
+        meaning: ck:SeasonKind.Summer
       autumn:
-        meaning: nbnl:SeasonKind.Autumn
+        meaning: ck:SeasonKind.Autumn
       winter:
-        meaning: nbnl:SeasonKind.Winter
+        meaning: ck:SeasonKind.Winter
 
   CurtailmentKind:
-    enum_uri: nbnl:CurtailmentKind
+    enum_uri: ck:CurtailmentKind
     description:
       The type of curtailment.
     permissible_values:
       demand:
-        meaning: nbnl:CurtailmentKind.Demand
+        meaning: ck:CurtailmentKind.Demand
       generation:
-        meaning: nbnl:CurtailmentKind.Generation
+        meaning: ck:CurtailmentKind.Generation
