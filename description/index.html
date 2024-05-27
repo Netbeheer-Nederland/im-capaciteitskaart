@@ -308,7 +308,7 @@
 
 
 <h1 id="slot-description">Slot: description</h1>
-<p>URI: <a href="https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/description">nbnl:description</a></p>
+<p>URI: <a href="http://data.netbeheernederland.nl/capaciteitskaart/def#description">ck:description</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -322,38 +322,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../EquipmentContainer/">EquipmentContainer</a></td>
-<td>A modelling construct to provide a root class for containing equipment</td>
+<td><a href="../NameTypeAuthority/">NameTypeAuthority</a></td>
+<td>Authority responsible for creation and management of names of a given type; t...</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
-<td>This is a root class to provide common identification for all classes needing...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ConnectivityNodeContainer/">ConnectivityNodeContainer</a></td>
-<td>A base class for all objects that may contain connectivity nodes or topologic...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Constraint/">Constraint</a></td>
-<td>An additional constraint/restriction on the Substation or Circuit</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Circuit/">Circuit</a></td>
-<td>A circuit representing a connection between substations</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Curtailment/">Curtailment</a></td>
-<td>Curtailment of demand or generation capacity at the substation with optional ...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Storage/">Storage</a></td>
-<td>Represents an individual or aggregated storage at the substation</td>
+<td><a href="../ConductingEquipment/">ConductingEquipment</a></td>
+<td>The parts of the AC power system that are designed to carry current or that a...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -367,8 +342,38 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../PowerSystemResource/">PowerSystemResource</a></td>
-<td>A power system resource (PSR) can be an item of equipment such as a switch, a...</td>
+<td><a href="../Curtailment/">Curtailment</a></td>
+<td>Curtailment of demand or generation capacity at the substation with optional ...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../ConnectivityNodeContainer/">ConnectivityNodeContainer</a></td>
+<td>A base class for all objects that may contain connectivity nodes or topologic...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../EquipmentContainer/">EquipmentContainer</a></td>
+<td>A modelling construct to provide a root class for containing equipment</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Circuit/">Circuit</a></td>
+<td>A circuit representing a connection between substations</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Storage/">Storage</a></td>
+<td>Represents an individual or aggregated storage at the substation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
+<td>This is a root class to provide common identification for all classes needing...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../NameType/">NameType</a></td>
+<td>Type of name</td>
 <td>no</td>
 </tr>
 <tr>
@@ -382,28 +387,23 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../NameType/">NameType</a></td>
-<td>Type of name</td>
+<td><a href="../Constraint/">Constraint</a></td>
+<td>An additional constraint/restriction on the Substation or Circuit</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../NameTypeAuthority/">NameTypeAuthority</a></td>
-<td>Authority responsible for creation and management of names of a given type; t...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Generator/">Generator</a></td>
-<td>Represents an individual or aggregated generator at the substation</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ConductingEquipment/">ConductingEquipment</a></td>
-<td>The parts of the AC power system that are designed to carry current or that a...</td>
+<td><a href="../PowerSystemResource/">PowerSystemResource</a></td>
+<td>A power system resource (PSR) can be an item of equipment such as a switch, a...</td>
 <td>no</td>
 </tr>
 <tr>
 <td><a href="../PowerTransformer/">PowerTransformer</a></td>
 <td>A transformer at a substation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Generator/">Generator</a></td>
+<td>Represents an individual or aggregated generator at the substation</td>
 <td>no</td>
 </tr>
 </tbody>

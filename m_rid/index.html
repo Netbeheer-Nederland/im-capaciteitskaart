@@ -336,28 +336,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../EquipmentContainer/">EquipmentContainer</a></td>
-<td>A modelling construct to provide a root class for containing equipment</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
-<td>This is a root class to provide common identification for all classes needing...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ConnectivityNodeContainer/">ConnectivityNodeContainer</a></td>
-<td>A base class for all objects that may contain connectivity nodes or topologic...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Circuit/">Circuit</a></td>
-<td>A circuit representing a connection between substations</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Storage/">Storage</a></td>
-<td>Represents an individual or aggregated storage at the substation</td>
+<td><a href="../ConductingEquipment/">ConductingEquipment</a></td>
+<td>The parts of the AC power system that are designed to carry current or that a...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -371,8 +351,28 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../PowerSystemResource/">PowerSystemResource</a></td>
-<td>A power system resource (PSR) can be an item of equipment such as a switch, a...</td>
+<td><a href="../ConnectivityNodeContainer/">ConnectivityNodeContainer</a></td>
+<td>A base class for all objects that may contain connectivity nodes or topologic...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../EquipmentContainer/">EquipmentContainer</a></td>
+<td>A modelling construct to provide a root class for containing equipment</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Circuit/">Circuit</a></td>
+<td>A circuit representing a connection between substations</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Storage/">Storage</a></td>
+<td>Represents an individual or aggregated storage at the substation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
+<td>This is a root class to provide common identification for all classes needing...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -381,18 +381,18 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Generator/">Generator</a></td>
-<td>Represents an individual or aggregated generator at the substation</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ConductingEquipment/">ConductingEquipment</a></td>
-<td>The parts of the AC power system that are designed to carry current or that a...</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../PowerTransformer/">PowerTransformer</a></td>
 <td>A transformer at a substation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../PowerSystemResource/">PowerSystemResource</a></td>
+<td>A power system resource (PSR) can be an item of equipment such as a switch, a...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Generator/">Generator</a></td>
+<td>Represents an individual or aggregated generator at the substation</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -404,7 +404,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://begrippen.netbeheernederland.nl/im-capaciteitskaart</li>
+<li>from schema: http://data.netbeheernederland.nl/capaciteitskaart</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
@@ -414,7 +414,7 @@
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">to rdf:ID or rdf:about attributes that identify CIM object elements.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:IdentifiedObject.mRID</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">m_rid</span>

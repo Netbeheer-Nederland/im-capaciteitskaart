@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#im-capaciteitskaart" class="md-skip">
+        <a href="#informatiemodel-voor-de-nbnl-capaciteitskaart" class="md-skip">
           Skip to content
         </a>
       
@@ -235,9 +235,89 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         About
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#capaciteit-voor-nieuwe-transportverzoeken" class="md-nav__link">
+    Capaciteit voor nieuwe transportverzoeken
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congestie" class="md-nav__link">
+    Congestie
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gebiedsindeling" class="md-nav__link">
+    Gebiedsindeling:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netbeheerder" class="md-nav__link">
+    Netbeheerder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netkoppeling" class="md-nav__link">
+    Netkoppeling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postcodegebied" class="md-nav__link">
+    Postcodegebied
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transportcapaciteit" class="md-nav__link">
+    Transportcapaciteit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voedingsgebied" class="md-nav__link">
+    Voedingsgebied
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -263,6 +343,70 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#capaciteit-voor-nieuwe-transportverzoeken" class="md-nav__link">
+    Capaciteit voor nieuwe transportverzoeken
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congestie" class="md-nav__link">
+    Congestie
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gebiedsindeling" class="md-nav__link">
+    Gebiedsindeling:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netbeheerder" class="md-nav__link">
+    Netbeheerder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netkoppeling" class="md-nav__link">
+    Netkoppeling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postcodegebied" class="md-nav__link">
+    Postcodegebied
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transportcapaciteit" class="md-nav__link">
+    Transportcapaciteit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voedingsgebied" class="md-nav__link">
+    Voedingsgebied
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -281,8 +425,115 @@
   </a>
 
 
-<h1 id="im-capaciteitskaart">im-capaciteitskaart</h1>
-<p>Informatiemodel voor de NBNL-capaciteitskaart.</p>
+<h1 id="informatiemodel-voor-de-nbnl-capaciteitskaart">Informatiemodel voor de NBNL-capaciteitskaart.</h1>
+<p><img alt="Conceptual model" src="../assets/conceptual_model-20240527.png" /></p>
+<h2 id="capaciteit-voor-nieuwe-transportverzoeken">Capaciteit voor nieuwe transportverzoeken</h2>
+<p>transportcapaciteit beschikbaar om nog niet ingediende transportverzoeken uit
+te voeren.</p>
+<ul>
+<li>categorie: onderdeel van een rangschikking</li>
+<li>beschikbaar: de netbeheerder verwacht geen tekort aan transportcapaciteit</li>
+<li>beperkt beschikbaar: de netbeheerder verwacht geen tekort aan
+  transportcapaciteit maar nieuwe transportverzoeken vereisen mogelijk
+  onderzoek om de gevraagde en beschikbare transportcapaciteit met elkaar in
+  overeenstemming te brengen</li>
+<li>in onderzoek: de netbeheerder onderzoekt de mogelijkheden voor de toepassing
+  van congestiemanagement zodat er mogelijk transportcapaciteit beschikbaar
+  komt</li>
+<li>tekort: er is te weinig transportcapaciteit</li>
+<li>energierichting: kant waarop energie beweegt</li>
+<li>afname: onttrekking van energie aan het energienet</li>
+<li>invoeding: inbrenging van energie op het energienet</li>
+</ul>
+<h2 id="congestie">Congestie</h2>
+<p>Situatie waarin de te verwachten behoefte aan transport redelijkerwijs kan
+leiden tot een structureel tekort aan transportcapaciteit.</p>
+<ul>
+<li>energierichting: kant waarop energie beweegt</li>
+<li>afname: onttrekking van energie aan het energienet</li>
+<li>invoeding: inbrenging van energie op het energienet</li>
+<li>status: toestand waarin een congestie zich bevindt</li>
+<li>vooraangekondigd: toestand waarin de netbeheerder door middel van een
+  vooraankondiging als bedoeld in artikel 9.9 van de Netcode elektriciteit
+  (geldend van 20-2-2024) een mogelijk tekort aan beschikbare
+  transportcapaciteit heeft gemeld zonder dat deze vooraankondiding is komen te
+  vervallen en waarbij het onderzoek als bedoeld in artikel 9.10 van de Netcode
+  elektriciteit (geldend van 20-2-2024) nog niet is gepubliceerd</li>
+<li>actief: toestand waarin de netbeheerder na publicatie van een onderzoek als
+  bedoeld in artikel 9.10 van de Netcode elektriciteit (geldend van 20-2-2024)
+  congestiemanagement toepast</li>
+<li>verwacht eindmoment (datum): moment waarop naar verwachting geen sprake meer
+  zal zijn van congestie</li>
+</ul>
+<h2 id="gebiedsindeling">Gebiedsindeling:</h2>
+<p>Een toewijzing van een gebied aan een netbeheerder waarbinnen deze de
+wettelijke taak inzake aansluiten verricht
+(https://wetten.overheid.nl/BWBR0037943) netvlak: deel van het net waarvoor
+geldt dat de verbruikers aangesloten op dit deel van het net eenzelfde tarief
+in rekening krijgen.</p>
+<ul>
+<li>EHS: extra hoogspanning (≥ 220 kV of afwijkende grens per netbeheerder)</li>
+<li>HS: hoogspanning (≥ 110 kV en &lt; 220 kV of afwijkende grenzen per
+  netbeheerder)</li>
+<li>TS: tussenspanning (≥ 25 kV en &lt; 110 kV of afwijkende grenzen per
+  netbeheerder)</li>
+<li>MS: middenspanning (&gt; 1 kV en &lt; 25 kV of afwijkende grenzen per netbeheerder)</li>
+<li>LS: laagspanning (≤ 1 kV of afwijkende grenzen per netbeheerder)</li>
+</ul>
+<h2 id="netbeheerder">Netbeheerder</h2>
+<p>Vennootschap die op grond van de wet is aangewezen voor het beheer van een of
+meer energienetten, niet zijnde gesloten distributiesystemen.</p>
+<ul>
+<li>bedrijfs-EAN-code: identificatienummer van een onderneming conform de
+  Europese Artikel Nummering</li>
+<li>statutaire naam: eerste handelsnaam van een onderneming zoals geregistreerd
+  in een register van ondernemingen</li>
+</ul>
+<h2 id="netkoppeling">Netkoppeling</h2>
+<p>Recht op het gebruik van één of meer verbindingen tussen twee energienetten of
+tussen een energienet en een interconnector.</p>
+<ul>
+<li>EAN-code: identificatie van een netkoppeling</li>
+</ul>
+<h2 id="postcodegebied">Postcodegebied</h2>
+<p>Indeling bedoeld als hulpmiddel bij de bezorging van post.</p>
+<ul>
+<li>geometrie (multivlak): tweedimensionale geometrische representatie van het
+  vlak dat wordt gevormd door de omtrekken van een postcodegebied</li>
+<li>postcode (PC6): reeks tekens om het automatisch sorteren van post
+  gemakkelijker te maken</li>
+</ul>
+<h2 id="transportcapaciteit">Transportcapaciteit</h2>
+<p>Vermogen om een energiedrager te verplaatsen.</p>
+<ul>
+<li>energierichting: kant waarop energie beweegt</li>
+<li>afname: onttrekking van energie aan het energienet</li>
+<li>invoeding: inbrenging van energie op het energienet</li>
+<li>soort: groep dingen met gemeenschappelijke kenmerken</li>
+<li>aanwezige transportcapaciteit: maximale capaciteit dat een energienet aankan,
+  met inachtneming van de van toepassing zijnde netontwerpcriteria en
+  operationele veiligheidsgrenzen</li>
+<li>benodigde transportcapaciteit: transportcapaciteit nodig om
+  transportovereenkomsten uit te voeren</li>
+<li>gevraagde transportcapaciteit: transportcapaciteit nodig om
+  transportverzoeken uit te voeren</li>
+<li>regelbaar vermogen</li>
+<li>geraamde benodigde transportcapaciteit voor de totale behoefte aan transport</li>
+<li>waarde: aantal MW of m3(n)/uur</li>
+</ul>
+<h2 id="voedingsgebied">Voedingsgebied</h2>
+<p>Geografisch afgebakend gebied waar zich de overdrachtspunten van aansluitingen
+bevinden die van energie worden voorzien door een bepaald netelement.</p>
+<ul>
+<li>geraakt door afnamecongestie in landelijk hoogspanningsnet (ja, nee)</li>
+<li>geraakt door invoedingscongestie in landelijk hoogspanningsnet (ja, nee)</li>
+<li>identificatie: reeks karakters toegewezen aan een voedingsgebied om deze
+  ondubbelzinnig te herkennen en onderscheiden van andere voedingsgebieden van
+  dezelfde netbeheerder</li>
+<li>naam: woord of groep van woorden ter aanduiding van een voedingsgebied</li>
+<li>transportverzoeken in een wachtrij (natuurlijk getal): aantal
+  transportverzoeken binnen een voedingsgebied dat in een wachtrij staat</li>
+</ul>
 
 
 

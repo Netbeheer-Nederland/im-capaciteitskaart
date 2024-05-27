@@ -321,8 +321,8 @@
 
 
 <h1 id="slot-area">Slot: area</h1>
-<p><em>The name of the license area. This should be the abbreviation used in the license (e.g. STEDIN for Stedin)</em></p>
-<p>URI: <a href="https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/Substation.area">nbnl:Substation.area</a></p>
+<p><em>The name of the license area. This should be the EAN used in the license for the system operator.</em></p>
+<p>URI: <a href="http://schema.org/gtin13">schema:gtin13</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -354,16 +354,18 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://begrippen.netbeheernederland.nl/im-capaciteitskaart</li>
+<li>from schema: http://data.netbeheernederland.nl/capaciteitskaart</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">area</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The name of the license area. This should be the abbreviation used in</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">the license (e.g. STEDIN for Stedin)</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The name of the license area. This should be the EAN used in the license</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">for the system operator.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
+<span class="nt">narrow_mappings</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Netbeheerder</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Substation.area</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:gtin13</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">area</span>
 <span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="nt">domain_of</span><span class="p">:</span>

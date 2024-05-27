@@ -203,7 +203,7 @@
 </a>
 <h1 id="class-coordinate">Class: Coordinate</h1>
 <p><em>A coordinate of latitude/longitude.</em></p>
-<p>URI: <a href="https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/Coordinate">nbnl:Coordinate</a></p>
+<p>URI: <a href="http://data.netbeheernederland.nl/capaciteitskaart/def#Coordinate">ck:Coordinate</a></p>
 <pre class="mermaid"><code> classDiagram
     class Coordinate
     click Coordinate href "../Coordinate"
@@ -266,7 +266,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://begrippen.netbeheernederland.nl/im-capaciteitskaart</li>
+<li>from schema: http://data.netbeheernederland.nl/capaciteitskaart</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -279,11 +279,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>nbnl:Coordinate</td>
+<td>ck:Coordinate</td>
 </tr>
 <tr>
 <td>native</td>
-<td>nbnl:Coordinate</td>
+<td>ck:Coordinate</td>
 </tr>
 </tbody>
 </table>
@@ -293,7 +293,7 @@
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A coordinate of latitude/longitude.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">longitude</span><span class="p">:</span>
@@ -301,9 +301,9 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The longitude value of the coordinate as a single latitude/longitude</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">point. For a GeoJSON Heatmap format this data will be part of the LineString</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">geometry.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Coordinate.longitude</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Coordinate.longitude</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float</span>
@@ -313,21 +313,21 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The latitude value of the coordinate as a single latitude/longitude</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">point. For a GeoJSON Heatmap format this data will be part of the LineString</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">geometry.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Coordinate.latitude</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Coordinate.latitude</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Coordinate</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Coordinate</span>
 </code></pre></div>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A coordinate of latitude/longitude.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">longitude</span><span class="p">:</span>
@@ -335,9 +335,9 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The longitude value of the coordinate as a single latitude/longitude</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">point. For a GeoJSON Heatmap format this data will be part of the LineString</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">geometry.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Coordinate.longitude</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Coordinate.longitude</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">longitude</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -349,16 +349,16 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The latitude value of the coordinate as a single latitude/longitude</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">point. For a GeoJSON Heatmap format this data will be part of the LineString</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">geometry.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://begrippen.netbeheernederland.nl/im-capaciteitskaart</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Coordinate.latitude</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Coordinate.latitude</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">latitude</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Coordinate</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nbnl:Coordinate</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Coordinate</span>
 </code></pre></div>
 </details>
 </article>
