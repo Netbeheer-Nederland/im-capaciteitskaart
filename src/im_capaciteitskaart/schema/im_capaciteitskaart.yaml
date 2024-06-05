@@ -298,7 +298,37 @@ classes:
           peaks can obtain this from the data.
         slot_uri: ck:Substation.demandMinimum
         range: MegaV-A
-      demand__percentile:
+      demand_99_percentile:
+        description: The 99th percentile of demanding (in MVA) at the substation.  This
+          is a normalised value calculated using historic measured values during normal
+          operating conditions.  The data represents net demand corrected for any
+          generation at the substation, demand diversity factors, and any other internal
+          processing normally undertaken. All substations at 50kV and above must include
+          demand data; for substations below 50kV, if corrected, net demand data is
+          not available, the value should be omitted.
+        slot_uri: ck:Substation.demand99Percentile
+        range: MegaV-A
+      demand_75_percentile:
+        description: The 75th percentile of demanding (in MVA) at the substation.  This
+          is a normalised value calculated using historic measured values during normal
+          operating conditions.  The data represents net demand corrected for any
+          generation at the substation, demand diversity factors, and any other internal
+          processing normally undertaken. All substations at 50kV and above must include
+          demand data; for substations below 50kV, if corrected, net demand data is
+          not available, the value should be omitted.
+        slot_uri: ck:Substation.demand75Percentile
+        range: MegaV-A
+      demand_50_percentile:
+        description: The 50th percentile of demanding (in MVA) at the substation.
+          This is a normalised value calculated using historic measured values during
+          normal operating conditions. The data represents net demand corrected for
+          any generation at the substation, demand diversity factors, and any other
+          internal processing normally undertaken. All substations at 50kV and above
+          must include demand data; for substations below 50kV, if corrected, net
+          demand data is not available, the value should be omitted.
+        slot_uri: ck:Substation.demand50Percentile
+        range: MegaV-A
+      demand_25_percentile:
         description: The 25th percentile of demanding (in MVA) at the substation.
           This is a normalised value calculated using historic measured values during
           normal operating conditions. The data represents net demand corrected for
@@ -495,7 +525,25 @@ classes:
           generation on the circuit and normal operating conditions.
         slot_uri: ck:Circuit.demandMinimum
         range: MegaV-A
-      demand__percentile:
+      demand_99_percentile:
+        description: The 99th percentile of demand (in MVA) on the circuit. This is
+          a value calculated using historic measured values and would not necessarily
+          be corrected for generation on the circuit and normal operating conditions.
+        slot_uri: ck:Circuit.demand99Percentile
+        range: MegaV-A
+      demand_75_percentile:
+        description: The 75th percentile of demand (in MVA) on the circuit. This is
+          a value calculated using historic measured values and would not necessarily
+          be corrected for generation on the circuit and normal operating conditions.
+        slot_uri: ck:Circuit.demand75Percentile
+        range: MegaV-A
+      demand_50_percentile:
+        description: The 50th percentile of demand (in MVA) on the circuit. This is
+          a value calculated using historic measured values and would not necessarily
+          be corrected for generation on the circuit and normal operating conditions.
+        slot_uri: ck:Circuit.demand50Percentile
+        range: MegaV-A
+      demand_25_percentile:
         description: The 25th percentile of demand (in MVA) on the circuit. This is
           a value calculated using historic measured values and would not necessarily
           be corrected for generation on the circuit and normal operating conditions.
