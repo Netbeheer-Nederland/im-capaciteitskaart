@@ -311,11 +311,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/coordinate/</loc>
-         <lastmod>2024-06-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/coordinates/</loc>
          <lastmod>2024-06-05</lastmod>
          <changefreq>daily</changefreq>
@@ -562,6 +557,11 @@
     </url>
     <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/ratings/</loc>
+         <lastmod>2024-06-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/requests_in_queue/</loc>
          <lastmod>2024-06-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
