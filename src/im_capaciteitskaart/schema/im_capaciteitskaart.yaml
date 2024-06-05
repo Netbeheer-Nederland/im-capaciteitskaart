@@ -218,13 +218,19 @@ classes:
         multivalued: true
         range: integer
         required: true
-      coordinate:
+      coordinates:
         description: The longitude/latitude value of the substation as a single latitude/longitude
           point. For a GeoJSON Heatmap format this data will be part of the feature
           itself allowing for more complex geometry.
-        slot_uri: ck:Substation.Coordinate
+        slot_uri: ck:Substation.Coordinates
         range: Coordinate
         required: true
+      requests_in_queue:
+        description: Number of requests for new grid connections and capacity increases
+          in queue.
+        slot_uri: ck:Substation.requestsInQueue
+        range: integer
+        required: false
       demand_firm_capacity:
         description: The firm capacity (in MVA) for demand at the substation. Any
           constraints that impact this capacity should be listed as individual constraints
@@ -511,6 +517,12 @@ classes:
         slot_uri: ck:Circuit.voltage
         range: KiloV
         required: true
+      requests_in_queue:
+        description: Number of requests for new grid connections and capacity increases
+          in queue.
+        slot_uri: ck:Circuit.requestsInQueue
+        range: integer
+        required: false
       demand_maximum:
         description: The maximum load (in MVA) on the circuit. This is a value calculated
           using historic measured values and would not necessarily be corrected for

@@ -193,14 +193,21 @@ classes:
         slot_uri: ck:Substation.voltages
         multivalued: true
         required: true
-      Coordinate:
+      Coordinates:
         range: Coordinate
         description:
           The longitude/latitude value of the substation as a single
           latitude/longitude point. For a GeoJSON Heatmap format this data will
           be part of the feature itself allowing for more complex geometry.
-        slot_uri: ck:Substation.Coordinate
+        slot_uri: ck:Substation.Coordinates
         required: true
+      requestsInQueue:
+        range: integer
+        description:
+          Number of requests for new grid connections and capacity increases in
+          queue.
+        slot_uri: ck:Substation.requestsInQueue
+        required: false
       demandFirmCapacity:
         range: MegaV-A
         description:
@@ -536,6 +543,13 @@ classes:
           Voltage (in kV) of the circuit.
         slot_uri: ck:Circuit.voltage
         required: true
+      requestsInQueue:
+        range: integer
+        description:
+          Number of requests for new grid connections and capacity increases in
+          queue.
+        slot_uri: ck:Circuit.requestsInQueue
+        required: false
       demandMaximum:
         range: MegaV-A
         description:
