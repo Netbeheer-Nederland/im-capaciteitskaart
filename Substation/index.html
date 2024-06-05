@@ -252,7 +252,13 @@
     click Curtailment href "../Curtailment"
 
 
-      Substation : demand__percentile
+      Substation : demand_25_percentile
+
+      Substation : demand_50_percentile
+
+      Substation : demand_75_percentile
+
+      Substation : demand_99_percentile
 
       Substation : demand_available_capacity
 
@@ -492,7 +498,25 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../demand__percentile/">demand__percentile</a></td>
+<td><a href="../demand_99_percentile/">demand_99_percentile</a></td>
+<td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
+<td>The 99th percentile of demanding (in MVA) at the substation</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../demand_75_percentile/">demand_75_percentile</a></td>
+<td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
+<td>The 75th percentile of demanding (in MVA) at the substation</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../demand_50_percentile/">demand_50_percentile</a></td>
+<td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
+<td>The 50th percentile of demanding (in MVA) at the substation</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../demand_25_percentile/">demand_25_percentile</a></td>
 <td>0..1 <br/> <a href="../MegaV-A/">MegaV-A</a></td>
 <td>The 25th percentile of demanding (in MVA) at the substation</td>
 <td>direct</td>
@@ -899,8 +923,56 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demand__percentile</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand__percentile</span>
+<span class="w">  </span><span class="nt">demand_99_percentile</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_99_percentile</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 99th percentile of demanding (in MVA) at the substation.  This</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions.  The data represents net demand corrected for any generation</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the substation, demand diversity factors, and any other internal processing</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">normally undertaken. All substations at 50kV and above must include demand data;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for substations below 50kV, if corrected, net demand data is not available,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the value should be omitted.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Substation.demand99Percentile</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
+<span class="w">  </span><span class="nt">demand_75_percentile</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_75_percentile</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 75th percentile of demanding (in MVA) at the substation.  This</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions.  The data represents net demand corrected for any generation</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the substation, demand diversity factors, and any other internal processing</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">normally undertaken. All substations at 50kV and above must include demand data;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for substations below 50kV, if corrected, net demand data is not available,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the value should be omitted.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Substation.demand75Percentile</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
+<span class="w">  </span><span class="nt">demand_50_percentile</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_50_percentile</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 50th percentile of demanding (in MVA) at the substation. This</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions. The data represents net demand corrected for any generation</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the substation, demand diversity factors, and any other internal processing</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">normally undertaken. All substations at 50kV and above must include demand data;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for substations below 50kV, if corrected, net demand data is not available,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the value should be omitted.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Substation.demand50Percentile</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
+<span class="w">  </span><span class="nt">demand_25_percentile</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_25_percentile</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 25th percentile of demanding (in MVA) at the substation. This</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions. The data represents net demand corrected for any generation</span>
@@ -1408,8 +1480,62 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
-<span class="w">  </span><span class="nt">demand__percentile</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand__percentile</span>
+<span class="w">  </span><span class="nt">demand_99_percentile</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_99_percentile</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 99th percentile of demanding (in MVA) at the substation.  This</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions.  The data represents net demand corrected for any generation</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the substation, demand diversity factors, and any other internal processing</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">normally undertaken. All substations at 50kV and above must include demand data;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for substations below 50kV, if corrected, net demand data is not available,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the value should be omitted.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Substation.demand99Percentile</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_99_percentile</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
+<span class="w">  </span><span class="nt">demand_75_percentile</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_75_percentile</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 75th percentile of demanding (in MVA) at the substation.  This</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions.  The data represents net demand corrected for any generation</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the substation, demand diversity factors, and any other internal processing</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">normally undertaken. All substations at 50kV and above must include demand data;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for substations below 50kV, if corrected, net demand data is not available,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the value should be omitted.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Substation.demand75Percentile</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_75_percentile</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
+<span class="w">  </span><span class="nt">demand_50_percentile</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_50_percentile</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 50th percentile of demanding (in MVA) at the substation. This</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions. The data represents net demand corrected for any generation</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">at the substation, demand diversity factors, and any other internal processing</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">normally undertaken. All substations at 50kV and above must include demand data;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for substations below 50kV, if corrected, net demand data is not available,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the value should be omitted.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Substation.demand50Percentile</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_50_percentile</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Circuit</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaV-A</span>
+<span class="w">  </span><span class="nt">demand_25_percentile</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_25_percentile</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The 25th percentile of demanding (in MVA) at the substation. This</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is a normalised value calculated using historic measured values during normal</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">operating conditions. The data represents net demand corrected for any generation</span>
@@ -1420,7 +1546,7 @@
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Substation.demand25Percentile</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand__percentile</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demand_25_percentile</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
