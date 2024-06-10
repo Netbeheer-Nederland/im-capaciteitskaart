@@ -1,7 +1,7 @@
-id: http://data.netbeheernederland.nl/capaciteitskaart
+id: http://data.netbeheernederland.nl/capaciteitskaart/v1.0.0
 name: im-capaciteitskaart
 title: Information model for the NBNL-capaciteitskaart.
-version: 0.1
+version: 1.0.0
 description: |-
   The capacity heatmaps information model was defined to cover a superset of
   data exchanged by the NL system operators. A minimum set of data is defined
@@ -70,6 +70,11 @@ classes:
       A single instance of a published dataset. The descriptions of these
       fields are taken from the Dublin Core Standard.
     attributes:
+      conformsTo:
+        description:
+          ID for the schema used to create the instance data.
+        slot_uri: dcterms:conformsTo
+        required: true
       contributor:
         description:
           An entity responsible for making contributions to the resource.

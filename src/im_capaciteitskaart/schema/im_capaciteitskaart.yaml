@@ -19,8 +19,8 @@ see_also:
 contributors:
 - github:ritger-alliander
 - github:sefanja
-id: http://data.netbeheernederland.nl/capaciteitskaart
-version: '0.1'
+id: http://data.netbeheernederland.nl/capaciteitskaart/v1.0.0
+version: 1.0.0
 imports:
 - linkml:types
 license: Apache Software License 2.0
@@ -115,6 +115,10 @@ classes:
     description: A single instance of a published dataset. The descriptions of these
       fields are taken from the Dublin Core Standard.
     attributes:
+      conforms_to:
+        description: ID for the schema used to create the instance data.
+        slot_uri: dcterms:conformsTo
+        required: true
       contributor:
         description: An entity responsible for making contributions to the resource.
         slot_uri: dcterms:contributor

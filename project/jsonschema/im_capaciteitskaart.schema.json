@@ -4,8 +4,20 @@
             "additionalProperties": false,
             "description": "A circuit representing a connection between substations. This could be an HV circuit between stations or a circuit feeding multiple secondary stations from a primary. This data element is provided to support utilities that wish to share specfic or all circuits.",
             "properties": {
-                "demand__percentile": {
+                "demand_25_percentile": {
                     "description": "The 25th percentile of demand (in MVA) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
+                    "type": "integer"
+                },
+                "demand_50_percentile": {
+                    "description": "The 50th percentile of demand (in MVA) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
+                    "type": "integer"
+                },
+                "demand_75_percentile": {
+                    "description": "The 75th percentile of demand (in MVA) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
+                    "type": "integer"
+                },
+                "demand_99_percentile": {
+                    "description": "The 99th percentile of demand (in MVA) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
                     "type": "integer"
                 },
                 "demand_available_capacity": {
@@ -65,6 +77,10 @@
                         "$ref": "#/$defs/Constraint"
                     },
                     "type": "array"
+                },
+                "requests_in_queue": {
+                    "description": "Number of requests for new grid connections and capacity increases in queue.",
+                    "type": "integer"
                 },
                 "summer_rating": {
                     "description": "Summer rating (in MVA) for minimum rated section in the circuit (i.e. limiting series element).",
@@ -441,6 +457,10 @@
                     },
                     "type": "array"
                 },
+                "conforms_to": {
+                    "description": "ID for the schema used to create the instance data.",
+                    "type": "string"
+                },
                 "contributor": {
                     "description": "An entity responsible for making contributions to the resource.",
                     "type": "string"
@@ -505,6 +525,7 @@
                 }
             },
             "required": [
+                "conforms_to",
                 "contributor",
                 "coverage",
                 "creator",
@@ -824,7 +845,7 @@
                     "description": "Specified time interval (in seconds) the Short Circuit Current can be carried for without damage.",
                     "type": "integer"
                 },
-                "coordinate": {
+                "coordinates": {
                     "$ref": "#/$defs/Coordinate",
                     "description": "The longitude/latitude value of the substation as a single latitude/longitude point. For a GeoJSON Heatmap format this data will be part of the feature itself allowing for more complex geometry."
                 },
@@ -835,8 +856,20 @@
                     },
                     "type": "array"
                 },
-                "demand__percentile": {
+                "demand_25_percentile": {
                     "description": "The 25th percentile of demanding (in MVA) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
+                    "type": "integer"
+                },
+                "demand_50_percentile": {
+                    "description": "The 50th percentile of demanding (in MVA) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
+                    "type": "integer"
+                },
+                "demand_75_percentile": {
+                    "description": "The 75th percentile of demanding (in MVA) at the substation.  This is a normalised value calculated using historic measured values during normal operating conditions.  The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
+                    "type": "integer"
+                },
+                "demand_99_percentile": {
+                    "description": "The 99th percentile of demanding (in MVA) at the substation.  This is a normalised value calculated using historic measured values during normal operating conditions.  The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
                     "type": "integer"
                 },
                 "demand_available_capacity": {
@@ -943,6 +976,10 @@
                     },
                     "type": "array"
                 },
+                "requests_in_queue": {
+                    "description": "Number of requests for new grid connections and capacity increases in queue.",
+                    "type": "integer"
+                },
                 "reverse_power_flow_available_capacity": {
                     "description": "The available reverse capacity (in MVA) for the substation from lower to higher voltage levels.",
                     "type": "integer"
@@ -985,7 +1022,7 @@
                 "type",
                 "area",
                 "voltages",
-                "coordinate",
+                "coordinates",
                 "demand_firm_capacity",
                 "demand_available_capacity",
                 "demand_constraint",
@@ -1012,11 +1049,11 @@
             "type": "string"
         }
     },
-    "$id": "http://data.netbeheernederland.nl/capaciteitskaart",
+    "$id": "http://data.netbeheernederland.nl/capaciteitskaart/v1.0.0",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "metamodel_version": "1.7.0",
     "title": "im-capaciteitskaart",
     "type": "object",
-    "version": "0.1"
+    "version": "1.0.0"
 }
