@@ -207,6 +207,8 @@
 <pre class="mermaid"><code> classDiagram
     class IdentifiedObject
     click IdentifiedObject href "../IdentifiedObject"
+      IdentifiedObject &lt;|-- Document
+        click Document href "../Document"
       IdentifiedObject &lt;|-- PowerSystemResource
         click PowerSystemResource href "../PowerSystemResource"
 
@@ -227,6 +229,7 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><strong>IdentifiedObject</strong><ul>
+<li><a href="../Document/">Document</a></li>
 <li><a href="../PowerSystemResource/">PowerSystemResource</a></li>
 </ul>
 </li>

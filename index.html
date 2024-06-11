@@ -446,6 +446,10 @@ under ©Crown copyright 2024.</p>
 </thead>
 <tbody>
 <tr>
+<td><a href="BaseWork/">BaseWork</a></td>
+<td>Common representation for work and work tasks</td>
+</tr>
+<tr>
 <td><a href="Circuit/">Circuit</a></td>
 <td>A circuit representing a connection between substations</td>
 </tr>
@@ -470,8 +474,16 @@ under ©Crown copyright 2024.</p>
 <td>Curtailment of demand or generation capacity at the substation with optional ...</td>
 </tr>
 <tr>
+<td><a href="DateTimeInterval/">DateTimeInterval</a></td>
+<td>Interval between two date and time points, where the interval includes the st...</td>
+</tr>
+<tr>
 <td><a href="Demand/">Demand</a></td>
 <td>Represents an individual or aggregated demand at the substation</td>
+</tr>
+<tr>
+<td><a href="Document/">Document</a></td>
+<td>Parent class for different groupings of information collected and managed as ...</td>
 </tr>
 <tr>
 <td><a href="Equipment/">Equipment</a></td>
@@ -532,6 +544,18 @@ under ©Crown copyright 2024.</p>
 <tr>
 <td><a href="Substation/">Substation</a></td>
 <td>A Substation with connect demand, generation or storage</td>
+</tr>
+<tr>
+<td><a href="TimeSchedule/">TimeSchedule</a></td>
+<td>Description of anything that changes through time</td>
+</tr>
+<tr>
+<td><a href="Work/">Work</a></td>
+<td>Document used to request, initiate, track and record work</td>
+</tr>
+<tr>
+<td><a href="WorkTimeSchedule/">WorkTimeSchedule</a></td>
+<td>Time schedule specific to work</td>
 </tr>
 </tbody>
 </table>
@@ -681,6 +705,10 @@ under ©Crown copyright 2024.</p>
 <td>TODO A URL to the embedded capacity register entry for this station</td>
 </tr>
 <tr>
+<td><a href="end/">end</a></td>
+<td>End date and time of this interval</td>
+</tr>
+<tr>
 <td><a href="end_time/">end_time</a></td>
 <td>The end time of a curtailment (exclusive)</td>
 </tr>
@@ -741,6 +769,10 @@ under ©Crown copyright 2024.</p>
 <td>Date of formal issuance of the resource</td>
 </tr>
 <tr>
+<td><a href="kind/">kind</a></td>
+<td>Kind of this work schedule</td>
+</tr>
+<tr>
 <td><a href="language/">language</a></td>
 <td>A language of the resource</td>
 </tr>
@@ -785,6 +817,10 @@ under ©Crown copyright 2024.</p>
 <td>The ratings of the transformer as defined by the Ratings element</td>
 </tr>
 <tr>
+<td><a href="request_date_time/">request_date_time</a></td>
+<td>Date and time work was requested</td>
+</tr>
+<tr>
 <td><a href="requests_in_queue/">requests_in_queue</a></td>
 <td>Number of requests for new grid connections and capacity increases in queue</td>
 </tr>
@@ -801,6 +837,10 @@ under ©Crown copyright 2024.</p>
 <td>Information about rights held in and over the resource</td>
 </tr>
 <tr>
+<td><a href="schedule_interval/">schedule_interval</a></td>
+<td>Schedule date and time interval</td>
+</tr>
+<tr>
 <td><a href="season/">season</a></td>
 <td>The season this curtailment applies during</td>
 </tr>
@@ -809,8 +849,16 @@ under ©Crown copyright 2024.</p>
 <td>Short code name for substation (alphanumeric, uppercase letters only)</td>
 </tr>
 <tr>
+<td><a href="start/">start</a></td>
+<td>Start date and time of this interval</td>
+</tr>
+<tr>
 <td><a href="start_time/">start_time</a></td>
 <td>The start time of a curtailment (inclusive)</td>
+</tr>
+<tr>
+<td><a href="status_kind/">status_kind</a></td>
+<td>Kind of work status</td>
 </tr>
 <tr>
 <td><a href="storage/">storage</a></td>
@@ -827,6 +875,10 @@ under ©Crown copyright 2024.</p>
 <tr>
 <td><a href="technology_type/">technology_type</a></td>
 <td>The technology the connected generation e</td>
+</tr>
+<tr>
+<td><a href="time_schedules/">time_schedules</a></td>
+<td>All time schedules for this work or work task</td>
 </tr>
 <tr>
 <td><a href="title/">title</a></td>
@@ -864,6 +916,14 @@ under ©Crown copyright 2024.</p>
 <td><a href="winter_rating/">winter_rating</a></td>
 <td>Winter rating (in MVA) for minimum rated section in the circuit (i</td>
 </tr>
+<tr>
+<td><a href="work_order_number/">work_order_number</a></td>
+<td>Work order number (or other unique identifying information) for this work</td>
+</tr>
+<tr>
+<td><a href="works/">works</a></td>
+<td>All the works performed for this substation</td>
+</tr>
 </tbody>
 </table>
 <h2 id="enumerations">Enumerations</h2>
@@ -898,6 +958,14 @@ under ©Crown copyright 2024.</p>
 <tr>
 <td><a href="SubstationKind/">SubstationKind</a></td>
 <td>Type of substation</td>
+</tr>
+<tr>
+<td><a href="WorkStatusKind/">WorkStatusKind</a></td>
+<td>Kind of status, specific to work</td>
+</tr>
+<tr>
+<td><a href="WorkTimeScheduleKind/">WorkTimeScheduleKind</a></td>
+<td>Kind of work schedule</td>
 </tr>
 </tbody>
 </table>
