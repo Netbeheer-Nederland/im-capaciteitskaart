@@ -110,6 +110,52 @@ enums:
         meaning: ck:CurtailmentKind.Demand
       generation:
         meaning: ck:CurtailmentKind.Generation
+  WorkStatusKind:
+    description: Kind of status, specific to work.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968
+    enum_uri: cim:WorkStatusKind
+    permissible_values:
+      approved:
+        meaning: cim:WorkStatusKind.approved
+      cancelled:
+        meaning: cim:WorkStatusKind.cancelled
+      closed:
+        meaning: cim:WorkStatusKind.closed
+      completed:
+        meaning: cim:WorkStatusKind.completed
+      dispatched:
+        meaning: cim:WorkStatusKind.dispatched
+      enroute:
+        meaning: cim:WorkStatusKind.enroute
+      inProgress:
+        meaning: cim:WorkStatusKind.inProgress
+      onSite:
+        meaning: cim:WorkStatusKind.onSite
+      scheduled:
+        meaning: cim:WorkStatusKind.scheduled
+      waitingOnApproval:
+        meaning: cim:WorkStatusKind.waitingOnApproval
+      waitingOnMaterial:
+        meaning: cim:WorkStatusKind.waitingOnMaterial
+      waitingToBeScheduled:
+        meaning: cim:WorkStatusKind.waitingToBeScheduled
+  WorkTimeScheduleKind:
+    description: Kind of work schedule.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968
+    enum_uri: cim:WorkTimeScheduleKind
+    permissible_values:
+      actual:
+        meaning: cim:WorkTimeScheduleKind.actual
+      earliest:
+        meaning: cim:WorkTimeScheduleKind.earliest
+      estimate:
+        meaning: cim:WorkTimeScheduleKind.estimate
+      immediate:
+        meaning: cim:WorkTimeScheduleKind.immediate
+      latest:
+        meaning: cim:WorkTimeScheduleKind.latest
+      request:
+        meaning: cim:WorkTimeScheduleKind.request
 classes:
   HeatmapDataSet:
     description: A single instance of a published dataset. The descriptions of these
@@ -464,6 +510,11 @@ classes:
       embedded_capacity_register:
         description: TODO A URL to the embedded capacity register entry for this station.
         slot_uri: ck:Substation.embeddedCapacityRegister
+      works:
+        description: All the works performed for this substation.
+        slot_uri: cim:Substation.Works
+        multivalued: true
+        range: Work
       demands:
         description: The demands at the station covering connected, contracted and
           quoted. This data is optional and may aggregated into the substation attributes,
@@ -619,6 +670,11 @@ classes:
           CIM mRID is yet being produced, the names of the Substations should be used.
         slot_uri: ck:Circuit.toSubstation
         multivalued: true
+      works:
+        description: All the works performed for this circuit.
+        slot_uri: cim:Circuit.Works
+        multivalued: true
+        range: Work
       other_constraints:
         description: An additional constraint on the Cicruit.
         slot_uri: ck:Circuit.OtherConstraints
@@ -854,6 +910,97 @@ classes:
         slot_uri: ck:Curtailment.
         range: time
     class_uri: ck:Curtailment
+  Work:
+    description: Document used to request, initiate, track and record work.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
+    is_a: BaseWork
+    attributes:
+      request_date_time:
+        description: "Date and time work was requested.\r\n"
+        slot_uri: cim:Work.requestDateTime
+        range: date
+      work_order_number:
+        description: Work order number (or other unique identifying information) for
+          this work.
+        slot_uri: cim:Work.workOrderNumber
+        range: string
+    class_uri: cim:Work
+  BaseWork:
+    description: Common representation for work and work tasks.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
+    is_a: Document
+    attributes:
+      status_kind:
+        description: Kind of work status.
+        slot_uri: cim:BaseWork.statusKind
+        range: WorkStatusKind
+        required: true
+      time_schedules:
+        description: All time schedules for this work or work task.
+        slot_uri: cim:BaseWork.TimeSchedules
+        multivalued: true
+        range: WorkTimeSchedule
+        required: true
+    class_uri: cim:BaseWork
+  WorkTimeSchedule:
+    description: Time schedule specific to work.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
+    is_a: TimeSchedule
+    attributes:
+      kind:
+        description: Kind of this work schedule.
+        slot_uri: cim:WorkTimeSchedule.kind
+        range: WorkTimeScheduleKind
+        required: true
+    class_uri: cim:WorkTimeSchedule
+  Document:
+    description: Parent class for different groupings of information collected and
+      managed as a part of a business process. It will frequently contain references
+      to other objects, such as assets, people and power system resources.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
+    is_a: IdentifiedObject
+    attributes:
+      type:
+        description: Utility-specific classification of this document, according to
+          its corporate standards, practices, and existing IT systems (e.g., for management
+          of assets, maintenance, work, outage, customers, etc.).
+        slot_uri: cim:Document.type
+        range: string
+        required: false
+    class_uri: cim:Document
+  TimeSchedule:
+    description: Description of anything that changes through time. Time schedule
+      is used to perform a single-valued function of time. Use inherited 'type' attribute
+      to give additional information on this schedule, such as periodic (hourly, daily,
+      weekly, monthly, etc.), day of the month, by date, calendar (specific times
+      and dates).
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
+    is_a: Document
+    attributes:
+      schedule_interval:
+        description: Schedule date and time interval.
+        slot_uri: cim:TimeSchedule.scheduleInterval
+        range: DateTimeInterval
+        required: true
+    class_uri: cim:TimeSchedule
+  DateTimeInterval:
+    description: Interval between two date and time points, where the interval includes
+      the start time but excludes end time.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Domain
+    attributes:
+      end:
+        description: End date and time of this interval. The end date and time where
+          the interval is defined up to, but excluded.
+        slot_uri: cim:DateTimeInterval.end
+        range: date
+        required: true
+      start:
+        description: Start date and time of this interval.  The start date and time
+          is included in the defined interval.
+        slot_uri: cim:DateTimeInterval.start
+        range: date
+        required: true
+    class_uri: cim:DateTimeInterval
   Geometry:
     description: The geometry of the line, this will be one or more Lines i.e. series
       of ordered coordinates. Multiple Lines allowed to allow for radial geometries.

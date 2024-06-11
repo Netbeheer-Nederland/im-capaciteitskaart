@@ -1,5 +1,47 @@
 {
     "$defs": {
+        "BaseWork": {
+            "additionalProperties": false,
+            "description": "Common representation for work and work tasks.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": "string"
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": "array"
+                },
+                "status_kind": {
+                    "$ref": "#/$defs/WorkStatusKind",
+                    "description": "Kind of work status."
+                },
+                "time_schedules": {
+                    "description": "All time schedules for this work or work task.",
+                    "items": {
+                        "$ref": "#/$defs/WorkTimeSchedule"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "status_kind",
+                "time_schedules"
+            ],
+            "title": "BaseWork",
+            "type": "object"
+        },
         "Circuit": {
             "additionalProperties": false,
             "description": "A circuit representing a connection between substations. This could be an HV circuit between stations or a circuit feeding multiple secondary stations from a primary. This data element is provided to support utilities that wish to share specfic or all circuits.",
@@ -100,6 +142,13 @@
                 "winter_rating": {
                     "description": "Winter rating (in MVA) for minimum rated section in the circuit (i.e. limiting series element).",
                     "type": "integer"
+                },
+                "works": {
+                    "description": "All the works performed for this circuit.",
+                    "items": {
+                        "$ref": "#/$defs/Work"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -259,6 +308,28 @@
             "title": "CurtailmentKind",
             "type": "string"
         },
+        "DateTimeInterval": {
+            "additionalProperties": false,
+            "description": "Interval between two date and time points, where the interval includes the start time but excludes end time.",
+            "properties": {
+                "end": {
+                    "description": "End date and time of this interval. The end date and time where the interval is defined up to, but excluded.",
+                    "format": "date",
+                    "type": "string"
+                },
+                "start": {
+                    "description": "Start date and time of this interval.  The start date and time is included in the defined interval.",
+                    "format": "date",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "end",
+                "start"
+            ],
+            "title": "DateTimeInterval",
+            "type": "object"
+        },
         "DayKind": {
             "description": "The type of day the curtailment applies during (weekday or weekend).",
             "enum": [
@@ -315,6 +386,33 @@
                 "aggregate"
             ],
             "title": "Demand",
+            "type": "object"
+        },
+        "Document": {
+            "additionalProperties": false,
+            "description": "Parent class for different groupings of information collected and managed as a part of a business process. It will frequently contain references to other objects, such as assets, people and power system resources.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": "string"
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).",
+                    "type": "string"
+                }
+            },
+            "title": "Document",
             "type": "object"
         },
         "Equipment": {
@@ -1016,6 +1114,13 @@
                         "type": "integer"
                     },
                     "type": "array"
+                },
+                "works": {
+                    "description": "All the works performed for this substation.",
+                    "items": {
+                        "$ref": "#/$defs/Work"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -1046,6 +1151,162 @@
                 "schakelstation"
             ],
             "title": "SubstationKind",
+            "type": "string"
+        },
+        "TimeSchedule": {
+            "additionalProperties": false,
+            "description": "Description of anything that changes through time. Time schedule is used to perform a single-valued function of time. Use inherited 'type' attribute to give additional information on this schedule, such as periodic (hourly, daily, weekly, monthly, etc.), day of the month, by date, calendar (specific times and dates).",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": "string"
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": "array"
+                },
+                "schedule_interval": {
+                    "$ref": "#/$defs/DateTimeInterval",
+                    "description": "Schedule date and time interval."
+                },
+                "type": {
+                    "description": "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "schedule_interval"
+            ],
+            "title": "TimeSchedule",
+            "type": "object"
+        },
+        "Work": {
+            "additionalProperties": false,
+            "description": "Document used to request, initiate, track and record work.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": "string"
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": "array"
+                },
+                "request_date_time": {
+                    "description": "Date and time work was requested.\r\n",
+                    "format": "date",
+                    "type": "string"
+                },
+                "status_kind": {
+                    "$ref": "#/$defs/WorkStatusKind",
+                    "description": "Kind of work status."
+                },
+                "time_schedules": {
+                    "description": "All time schedules for this work or work task.",
+                    "items": {
+                        "$ref": "#/$defs/WorkTimeSchedule"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).",
+                    "type": "string"
+                },
+                "work_order_number": {
+                    "description": "Work order number (or other unique identifying information) for this work.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "status_kind",
+                "time_schedules"
+            ],
+            "title": "Work",
+            "type": "object"
+        },
+        "WorkStatusKind": {
+            "description": "Kind of status, specific to work.",
+            "enum": [
+                "approved",
+                "cancelled",
+                "closed",
+                "completed",
+                "dispatched",
+                "enroute",
+                "inProgress",
+                "onSite",
+                "scheduled",
+                "waitingOnApproval",
+                "waitingOnMaterial",
+                "waitingToBeScheduled"
+            ],
+            "title": "WorkStatusKind",
+            "type": "string"
+        },
+        "WorkTimeSchedule": {
+            "additionalProperties": false,
+            "description": "Time schedule specific to work.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": "string"
+                },
+                "kind": {
+                    "$ref": "#/$defs/WorkTimeScheduleKind",
+                    "description": "Kind of this work schedule."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": "array"
+                },
+                "schedule_interval": {
+                    "$ref": "#/$defs/DateTimeInterval",
+                    "description": "Schedule date and time interval."
+                },
+                "type": {
+                    "description": "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "kind",
+                "schedule_interval"
+            ],
+            "title": "WorkTimeSchedule",
+            "type": "object"
+        },
+        "WorkTimeScheduleKind": {
+            "description": "Kind of work schedule.",
+            "enum": [
+                "actual",
+                "earliest",
+                "estimate",
+                "immediate",
+                "latest",
+                "request"
+            ],
+            "title": "WorkTimeScheduleKind",
             "type": "string"
         }
     },
