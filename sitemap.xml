@@ -211,17 +211,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/PowerTransformer/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/RAGKind/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Rating/</loc>
          <lastmod>2024-06-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -307,36 +297,6 @@
     </url>
     <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/area/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breaker_available_capacity/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breaker_breaking_capacity/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breaker_making_capacity/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breaker_rated_current/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breaker_short_circuit_current/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/breaker_short_circuit_duration/</loc>
          <lastmod>2024-06-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -466,11 +426,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/embedded_capacity_register/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/end/</loc>
          <lastmod>2024-06-11</lastmod>
          <changefreq>daily</changefreq>
@@ -487,11 +442,6 @@
     </url>
     <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/from_substation/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/from_voltage/</loc>
          <lastmod>2024-06-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -611,11 +561,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/ratings/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/request_date_time/</loc>
          <lastmod>2024-06-11</lastmod>
          <changefreq>daily</changefreq>
@@ -702,16 +647,6 @@
     </url>
     <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/to_substation/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/to_voltage/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/transformers/</loc>
          <lastmod>2024-06-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
