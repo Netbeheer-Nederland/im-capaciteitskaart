@@ -424,46 +424,6 @@ classes:
           fault level for the generationConstraint value.
         slot_uri: ck:Substation.generationConstraintLimitingFactor
         required: true
-      breakerRatedCurrent:
-        range: KiloA
-        description:
-          The rated normal current (in kA) of the circuit breaker is the RMS
-          value of the current with which the circuit breaker shall be able to
-          carry continuously.
-        slot_uri: ck:Substation.breakerRatedCurrent
-      breakerBreakingCapacity:
-        range: KiloA
-        description:
-          The short-circuit current (in kA) that the breakers are capable of
-          breaking.  It is expressed in KA RMS at contact separation.
-        slot_uri: ck:Substation.breakerBreakingCapacity
-      breakerMakingCapacity:
-        range: KiloA
-        description:
-          The making current (in kA) of the circuit breaker, when closed on a
-          short circuit, is the peak value of the maximum current wave
-          (including dc component) in the first cycle of the current after the
-          circuit is closed by the circuit breaker.
-        slot_uri: ck:Substation.breakerMakingCapacity
-      breakerAvailableCapacity:
-        range: KiloA
-        description:
-          The available capacity (in kA) of the circuit breaker.
-        slot_uri: ck:Substation.breakerAvailableCapacity
-      breakerShortCircuitCurrent:
-        range: KiloA
-        description:
-          The short circuit current (in kA) of a circuit breaker is the RMS
-          value of current that a breaker can carry in a fully closed condition
-          without damage, for the specified time interval under prescribed
-          condition.  These ratings are based on thermal limitation.
-        slot_uri: ck:Substation.breakerShortCircuitCurrent
-      breakerShortCircuitDuration:
-        range: integer
-        description:
-          Specified time interval (in seconds) the Short Circuit Current can be
-          carried for without damage.
-        slot_uri: ck:Substation.breakerShortCircuitDuration
       reversePowerFlowTotalCapacity:
         range: MegaV-A
         description:
@@ -478,10 +438,6 @@ classes:
           to higher voltage levels.
         slot_uri: ck:Substation.reversePowerFlowAvailableCapacity
         required: true
-      embeddedCapacityRegister:
-        description:
-          TODO A URL to the embedded capacity register entry for this station.
-        slot_uri: ck:Substation.embeddedCapacityRegister
       Works:
         range: Work
         description:
@@ -520,12 +476,6 @@ classes:
         description:
           An additional constraint on the Substation.
         slot_uri: ck:Substation.OtherConstraints
-        multivalued: true
-      Transformers:
-        range: PowerTransformer
-        description:
-          The transformers connected at the substation.
-        slot_uri: ck:Substation.Transformers
         multivalued: true
       Curtailments:
         range: Curtailment
@@ -843,65 +793,6 @@ classes:
     narrow_mappings:
       - nbnl:Transportcapaciteit
     class_uri: ck:Storage
-
-  PowerTransformer:
-    description:
-      A transformer at a substation. Optional but can be useful if ratings and
-      capacity are required on a per-transformer level.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
-    is_a: ConductingEquipment
-    attributes:
-      voltages:
-        range: integer
-        description:
-          The primary, secondary (and optional tertiary) voltages of the
-          transformer.
-        slot_uri: ck:PowerTransformer.voltages
-        minimum_cardinality: 2
-        maximum_cardinality: 3
-      Ratings:
-        range: Rating
-        description:
-          The ratings of the transformer as defined by the Ratings element.
-        slot_uri: ck:PowerTransformer.Ratings
-    class_uri: cim:PowerTransformer
-
-  Rating:
-    description:
-      A rating assigned to a transformer. This allows multiple ratings to
-      be defined for a single transformer. Different ratings for different
-      voltages (e.g. 20->50 is different from 50->20 for reverse powerflow).
-    attributes:
-      name:
-        description:
-          Human readble name of the rating
-        slot_uri: ck:Rating.name
-        required: true
-      summerRating:
-        range: MegaV-A
-        description:
-          Summer rating (in MVA).
-        slot_uri: ck:Rating.summerRating
-        required: true
-      winterRating:
-        range: MegaV-A
-        description:
-          Winter rating (in MVA).
-        slot_uri: ck:Rating.winterRating
-        required: true
-      fromVoltage:
-        range: KiloV
-        description:
-          From voltage (in kV) for the rating.
-        slot_uri: ck:Rating.fromVoltage
-        required: true
-      toVoltage:
-        range: KiloV
-        description:
-          To voltage (in kV) for the rating.
-        slot_uri: ck:Rating.toVoltage
-        required: true
-    class_uri: ck:Rating
 
   Constraint:
     description:
