@@ -526,6 +526,10 @@ under ©Crown copyright 2024.</p>
 <td>Authority responsible for creation and management of names of a given type; t...</td>
 </tr>
 <tr>
+<td><a href="PostcodeArea/">PostcodeArea</a></td>
+<td>A geographic region that is defined by the initial letters or digits of a pos...</td>
+</tr>
+<tr>
 <td><a href="PowerSystemResource/">PowerSystemResource</a></td>
 <td>A power system resource (PSR) can be an item of equipment such as a switch, a...</td>
 </tr>
@@ -594,7 +598,7 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="curtailed_by/">curtailed_by</a></td>
-<td>The amount the demand/generation capacity (in MVA) is curtailed by</td>
+<td>The amount the demand/generation capacity (in MW) is curtailed by</td>
 </tr>
 <tr>
 <td><a href="curtailments/">curtailments</a></td>
@@ -610,27 +614,27 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="demand_25_percentile/">demand_25_percentile</a></td>
-<td>The 25th percentile of demanding (in MVA) at the substation</td>
+<td>The 25th percentile of demanding (in MW) at the substation</td>
 </tr>
 <tr>
 <td><a href="demand_50_percentile/">demand_50_percentile</a></td>
-<td>The 50th percentile of demanding (in MVA) at the substation</td>
+<td>The 50th percentile of demanding (in MW) at the substation</td>
 </tr>
 <tr>
 <td><a href="demand_75_percentile/">demand_75_percentile</a></td>
-<td>The 75th percentile of demanding (in MVA) at the substation</td>
+<td>The 75th percentile of demanding (in MW) at the substation</td>
 </tr>
 <tr>
 <td><a href="demand_99_percentile/">demand_99_percentile</a></td>
-<td>The 99th percentile of demanding (in MVA) at the substation</td>
+<td>The 99th percentile of demanding (in MW) at the substation</td>
 </tr>
 <tr>
 <td><a href="demand_available_capacity/">demand_available_capacity</a></td>
-<td>The available demand capacity (in MVA) at the substation</td>
+<td>The available demand capacity (in MW) at the substation</td>
 </tr>
 <tr>
 <td><a href="demand_connected_capacity/">demand_connected_capacity</a></td>
-<td>Sum of all demand (in MVA) currently connected at the substation</td>
+<td>Sum of all demand (in MW) currently connected at the substation</td>
 </tr>
 <tr>
 <td><a href="demand_constraint/">demand_constraint</a></td>
@@ -642,23 +646,23 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="demand_contracted_capacity/">demand_contracted_capacity</a></td>
-<td>Sum of all demand (in MVA) currently contracted at the substation which is no...</td>
+<td>Sum of all demand (in MW) currently contracted at the substation which is not...</td>
 </tr>
 <tr>
 <td><a href="demand_firm_capacity/">demand_firm_capacity</a></td>
-<td>The firm capacity (in MVA) for demand at the substation</td>
+<td>The firm capacity (in MW) for demand at the substation</td>
 </tr>
 <tr>
 <td><a href="demand_maximum/">demand_maximum</a></td>
-<td>The maximum demand (in MVA) at the substation</td>
+<td>The maximum demand (in MW) at the substation</td>
 </tr>
 <tr>
 <td><a href="demand_minimum/">demand_minimum</a></td>
-<td>The minimum demand (in MVA) at the substation</td>
+<td>The minimum demand (in MW) at the substation</td>
 </tr>
 <tr>
 <td><a href="demand_quoted_capacity/">demand_quoted_capacity</a></td>
-<td>Sum of all demand (in MVA) currently quoted at the substation excluding contr...</td>
+<td>Sum of all demand (in MW) currently quoted at the substation excluding contra...</td>
 </tr>
 <tr>
 <td><a href="demands/">demands</a></td>
@@ -686,11 +690,11 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="generation_available_capacity/">generation_available_capacity</a></td>
-<td>Available generation capacity (in MVA) at the substation</td>
+<td>Available generation capacity (in MW) at the substation</td>
 </tr>
 <tr>
 <td><a href="generation_connected_capacity/">generation_connected_capacity</a></td>
-<td>Sum of all generation (in MVA) currently connected at the substation</td>
+<td>Sum of all generation (in MW) currently connected at the substation</td>
 </tr>
 <tr>
 <td><a href="generation_constraint/">generation_constraint</a></td>
@@ -702,15 +706,15 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="generation_contracted_capacity/">generation_contracted_capacity</a></td>
-<td>Sum of all generation (in MVA) currently contracted at the substation which i...</td>
+<td>Sum of all generation (in MW) currently contracted at the substation which is...</td>
 </tr>
 <tr>
 <td><a href="generation_firm_capacity/">generation_firm_capacity</a></td>
-<td>The total firm generation capacity (in MVA) of the substation</td>
+<td>The total firm generation capacity (in MW) of the substation</td>
 </tr>
 <tr>
 <td><a href="generation_quoted_capacity/">generation_quoted_capacity</a></td>
-<td>Sum of all currently quoted generation (in MVA) at the substation excluding a...</td>
+<td>Sum of all currently quoted generation (in MW) at the substation excluding an...</td>
 </tr>
 <tr>
 <td><a href="generators/">generators</a></td>
@@ -769,6 +773,14 @@ under ©Crown copyright 2024.</p>
 <td>An additional constraint on the Substation</td>
 </tr>
 <tr>
+<td><a href="postcode/">postcode</a></td>
+<td>Identifier for the postcode area</td>
+</tr>
+<tr>
+<td><a href="postcode_areas/">postcode_areas</a></td>
+<td>Postcode Areas associated with the heatmap data</td>
+</tr>
+<tr>
 <td><a href="publisher/">publisher</a></td>
 <td>An entity responsible for making the resource available</td>
 </tr>
@@ -782,11 +794,11 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="reverse_power_flow_available_capacity/">reverse_power_flow_available_capacity</a></td>
-<td>The available reverse capacity (in MVA) for the substation from lower to high...</td>
+<td>The available reverse capacity (in MW) for the substation from lower to highe...</td>
 </tr>
 <tr>
 <td><a href="reverse_power_flow_total_capacity/">reverse_power_flow_total_capacity</a></td>
-<td>The reverse capacity (in MVA) for the substation from lower to higher voltage...</td>
+<td>The reverse capacity (in MW) for the substation from lower to higher voltage ...</td>
 </tr>
 <tr>
 <td><a href="rights/">rights</a></td>
@@ -826,7 +838,7 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="summer_rating/">summer_rating</a></td>
-<td>Summer rating (in MVA) for minimum rated section in the circuit (i</td>
+<td>Summer rating (in MW) for minimum rated section in the circuit (i</td>
 </tr>
 <tr>
 <td><a href="technology_type/">technology_type</a></td>
@@ -862,7 +874,7 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="winter_rating/">winter_rating</a></td>
-<td>Winter rating (in MVA) for minimum rated section in the circuit (i</td>
+<td>Winter rating (in MW) for minimum rated section in the circuit (i</td>
 </tr>
 <tr>
 <td><a href="work_order_number/">work_order_number</a></td>
@@ -979,7 +991,7 @@ under ©Crown copyright 2024.</p>
 <td></td>
 </tr>
 <tr>
-<td><a href="MegaV-A/">MegaV-A</a></td>
+<td><a href="MegaW/">MegaW</a></td>
 <td></td>
 </tr>
 <tr>

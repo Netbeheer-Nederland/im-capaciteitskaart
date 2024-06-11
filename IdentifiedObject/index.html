@@ -207,6 +207,8 @@
 <pre class="mermaid"><code> classDiagram
     class IdentifiedObject
     click IdentifiedObject href "../IdentifiedObject"
+      IdentifiedObject &lt;|-- PostcodeArea
+        click PostcodeArea href "../PostcodeArea"
       IdentifiedObject &lt;|-- Document
         click Document href "../Document"
       IdentifiedObject &lt;|-- PowerSystemResource
@@ -229,6 +231,7 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><strong>IdentifiedObject</strong><ul>
+<li><a href="../PostcodeArea/">PostcodeArea</a></li>
 <li><a href="../Document/">Document</a></li>
 <li><a href="../PowerSystemResource/">PowerSystemResource</a></li>
 </ul>

@@ -171,7 +171,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/MegaV-A/</loc>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/MegaW/</loc>
          <lastmod>2024-06-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -202,6 +202,11 @@
     </url>
     <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Objectidentifier/</loc>
+         <lastmod>2024-06-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/PostcodeArea/</loc>
          <lastmod>2024-06-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -552,6 +557,16 @@
     </url>
     <url>
          <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/other_constraints/</loc>
+         <lastmod>2024-06-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/postcode/</loc>
+         <lastmod>2024-06-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://Netbeheer-Nederland.github.io/im-capaciteitskaart/postcode_areas/</loc>
          <lastmod>2024-06-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
