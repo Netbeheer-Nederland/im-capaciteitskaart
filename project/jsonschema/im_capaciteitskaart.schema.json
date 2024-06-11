@@ -47,27 +47,27 @@
             "description": "A circuit representing a connection between substations. This could be an HV circuit between stations or a circuit feeding multiple secondary stations from a primary. This data element is provided to support utilities that wish to share specfic or all circuits.",
             "properties": {
                 "demand_25_percentile": {
-                    "description": "The 25th percentile of demand (in MVA) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
+                    "description": "The 25th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
                     "type": "integer"
                 },
                 "demand_50_percentile": {
-                    "description": "The 50th percentile of demand (in MVA) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
+                    "description": "The 50th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
                     "type": "integer"
                 },
                 "demand_75_percentile": {
-                    "description": "The 75th percentile of demand (in MVA) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
+                    "description": "The 75th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
                     "type": "integer"
                 },
                 "demand_99_percentile": {
-                    "description": "The 99th percentile of demand (in MVA) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
+                    "description": "The 99th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
                     "type": "integer"
                 },
                 "demand_available_capacity": {
-                    "description": "The available demand (in MVA) capacity on the circuit. This value is calculated based on the circuit rating, maximum demand, contracted capacity, and any other constraints on the network.",
+                    "description": "The available demand (in MW) capacity on the circuit. This value is calculated based on the circuit rating, maximum demand, contracted capacity, and any other constraints on the network.",
                     "type": "integer"
                 },
                 "demand_connected_capacity": {
-                    "description": "Sum of all demand (in MVA) currently connected on the circuit.",
+                    "description": "Sum of all demand (in MW) currently connected on the circuit.",
                     "type": "integer"
                 },
                 "demand_constraint": {
@@ -75,19 +75,19 @@
                     "description": "A RAG definition of the demand constraints on the circuit. A utility should provide details on how this RAG status is calculated."
                 },
                 "demand_contracted_capacity": {
-                    "description": "Sum of all demand (in MVA) currently contracted on the circuit which are not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity).",
+                    "description": "Sum of all demand (in MW) currently contracted on the circuit which are not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity).",
                     "type": "integer"
                 },
                 "demand_maximum": {
-                    "description": "The maximum load (in MVA) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
+                    "description": "The maximum load (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
                     "type": "integer"
                 },
                 "demand_minimum": {
-                    "description": "The minimum demand (in MVA) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
+                    "description": "The minimum demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
                     "type": "integer"
                 },
                 "demand_quoted_capacity": {
-                    "description": "Sum of all demand (in MVA) currently quoted on the circuit excluding contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity).",
+                    "description": "Sum of all demand (in MW) currently quoted on the circuit excluding contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity).",
                     "type": "integer"
                 },
                 "description": {
@@ -125,7 +125,7 @@
                     "type": "integer"
                 },
                 "summer_rating": {
-                    "description": "Summer rating (in MVA) for minimum rated section in the circuit (i.e. limiting series element).",
+                    "description": "Summer rating (in MW) for minimum rated section in the circuit (i.e. limiting series element).",
                     "type": "integer"
                 },
                 "to_substation": {
@@ -140,7 +140,7 @@
                     "type": "integer"
                 },
                 "winter_rating": {
-                    "description": "Winter rating (in MVA) for minimum rated section in the circuit (i.e. limiting series element).",
+                    "description": "Winter rating (in MW) for minimum rated section in the circuit (i.e. limiting series element).",
                     "type": "integer"
                 },
                 "works": {
@@ -257,7 +257,7 @@
             "description": "Curtailment of demand or generation capacity at the substation with optional day/time and season parameters.",
             "properties": {
                 "curtailed_by": {
-                    "description": "The amount the demand/generation capacity (in MVA) is curtailed by.",
+                    "description": "The amount the demand/generation capacity (in MW) is curtailed by.",
                     "type": "integer"
                 },
                 "day_type": {
@@ -348,15 +348,15 @@
                     "type": "boolean"
                 },
                 "demand_connected_capacity": {
-                    "description": "The currently connected demand capacity (in MVA).",
+                    "description": "The currently connected demand capacity (in MW).",
                     "type": "integer"
                 },
                 "demand_contracted_capacity": {
-                    "description": "The currently contracted demand capacity (in MVA) which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity).",
+                    "description": "The currently contracted demand capacity (in MW) which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity).",
                     "type": "integer"
                 },
                 "demand_quoted_capacity": {
-                    "description": "The currently active quoted demand capacity (in MVA) excluding contracted and connected (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant).",
+                    "description": "The currently active quoted demand capacity (in MW) excluding contracted and connected (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant).",
                     "type": "integer"
                 },
                 "description": {
@@ -481,15 +481,15 @@
                     "type": "string"
                 },
                 "generation_connected_capacity": {
-                    "description": "The currently connected generation capacity (in MVA).",
+                    "description": "The currently connected generation capacity (in MW).",
                     "type": "integer"
                 },
                 "generation_contracted_capacity": {
-                    "description": "The currently contracted generation capacity (in MVA) excluding any that are already contracted or connected (i.e. do not include any generation that is included in generationConnectedCapacity).",
+                    "description": "The currently contracted generation capacity (in MW) excluding any that are already contracted or connected (i.e. do not include any generation that is included in generationConnectedCapacity).",
                     "type": "integer"
                 },
                 "generation_quoted_capacity": {
-                    "description": "The currently active quoted generation capacity (in MVA) above contracted (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant).",
+                    "description": "The currently active quoted generation capacity (in MW) above contracted (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant).",
                     "type": "integer"
                 },
                 "m_rid": {
@@ -596,6 +596,13 @@
                 "language": {
                     "description": "A language of the resource.",
                     "type": "string"
+                },
+                "postcode_areas": {
+                    "description": "Postcode Areas associated with the heatmap data.",
+                    "items": {
+                        "$ref": "#/$defs/PostcodeArea"
+                    },
+                    "type": "array"
                 },
                 "publisher": {
                     "description": "An entity responsible for making the resource available.",
@@ -732,6 +739,146 @@
             "title": "NameTypeAuthority",
             "type": "object"
         },
+        "PostcodeArea": {
+            "additionalProperties": false,
+            "description": "A geographic region that is defined by the initial letters or digits of a postcode.",
+            "properties": {
+                "demand_available_capacity": {
+                    "description": "The available demand capacity (in MW) at the postcode area. This value is calculated based on total firm capacity, maximum demand, connected capacity, quoted capacity, contracted capacity, and any other constraints on the network. The value should reflect the capacity a network operator would make available to a connecting party, which may be calculated for the most onerous season, or a value based on more detailed analysis and internal policies.",
+                    "type": "integer"
+                },
+                "demand_connected_capacity": {
+                    "description": "Sum of all demand (in MW) currently connected at the postcode area. This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandConnectedCapacity must be greater than or equal to the sum of the demandConnectedCapacity values in the Demand and Storage elements.",
+                    "type": "integer"
+                },
+                "demand_constraint": {
+                    "$ref": "#/$defs/RAGKind",
+                    "description": "A RAG definition of the demand constraints at the postcode area. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation."
+                },
+                "demand_constraint_limiting_factor": {
+                    "$ref": "#/$defs/LimitingFactorKind",
+                    "description": "The limiting factor for demand constraints, either thermal, voltage or fault level for the demandConstraint value."
+                },
+                "demand_contracted_capacity": {
+                    "description": "Sum of all demand (in MW) currently contracted at the postcode area which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandContractedCapacity must be greater than or equal to the sum of the demandContractedCapacity values in the Demand and Storage elements.",
+                    "type": "integer"
+                },
+                "demand_firm_capacity": {
+                    "description": "The firm capacity (in MW) for demand at the postcode area. Any constraints that impact this capacity should be listed as individual constraints linked to the substation.",
+                    "type": "integer"
+                },
+                "demand_maximum": {
+                    "description": "The maximum demand (in MW) at the postcode area. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand without removing the impact of any generation on observed demand at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data.",
+                    "type": "integer"
+                },
+                "demand_minimum": {
+                    "description": "The minimum demand (in MW) at the postcode area. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data.",
+                    "type": "integer"
+                },
+                "demand_quoted_capacity": {
+                    "description": "Sum of all demand (in MW) currently quoted at the postcode area excluding contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandQuotedCapacity must be greater than or equal to the sum of the demandQuotedCapacity values in the demand and Storage elements.",
+                    "type": "integer"
+                },
+                "demands": {
+                    "description": "The demands at the postcode area covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual demands.",
+                    "items": {
+                        "$ref": "#/$defs/Demand"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": "string"
+                },
+                "generation_available_capacity": {
+                    "description": "Available generation capacity (in MW) at the postcode area. This value is calculated based on total firm generation, capacity, demand, connected capacity, contracted capacity, and any other constraints on the network.",
+                    "type": "integer"
+                },
+                "generation_connected_capacity": {
+                    "description": "Sum of all generation (in MW) currently connected at the postcode area.  This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage.  The value forgenerationConnectedCapacity must be greater than or equal to the sum of the generationConnectedCapacity values in the Generator and Storage elements.",
+                    "type": "integer"
+                },
+                "generation_constraint": {
+                    "$ref": "#/$defs/RAGKind",
+                    "description": "A RAG definition of the demand constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation"
+                },
+                "generation_constraint_limiting_factor": {
+                    "$ref": "#/$defs/LimitingFactorKind",
+                    "description": "The limiting factor for generation constraints, either thermal or fault level for the generationConstraint value."
+                },
+                "generation_contracted_capacity": {
+                    "description": "Sum of all generation (in MW) currently contracted at the postcode area which is not yet connected (i.e. do not include any generation that is included in generationConnectedCapacity). This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationContractedCapacity must be greater than or equal to the sum of the generationContractedCapacity values in the Generator and Storage elements.",
+                    "type": "integer"
+                },
+                "generation_firm_capacity": {
+                    "description": "The total firm generation capacity (in MW) of the postcode area. Any constraints that impact this capacity should be listed as individual constraints linked to the postcode area. The approach used to calculate this value should be defined in accompanying documentation.",
+                    "type": "integer"
+                },
+                "generation_quoted_capacity": {
+                    "description": "Sum of all currently quoted generation (in MW) at the postcode area excluding any that are already contracted or connected. This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationQuotedCapacity must be greater than or equal to the sum of the generationQuotedCapacity values in the Generator and Storage elements.",
+                    "type": "integer"
+                },
+                "generators": {
+                    "description": "The generators at the postcode area covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual generators.",
+                    "items": {
+                        "$ref": "#/$defs/Generator"
+                    },
+                    "type": "array"
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": "array"
+                },
+                "other_constraints": {
+                    "description": "An additional constraint on the postcode area.",
+                    "items": {
+                        "$ref": "#/$defs/Constraint"
+                    },
+                    "type": "array"
+                },
+                "postcode": {
+                    "description": "Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, lowercase. No spaces between the numbers and letters, i.e. \"1234ab\".",
+                    "type": "string"
+                },
+                "requests_in_queue": {
+                    "description": "Number of requests for new grid connections and capacity increases in queue.",
+                    "type": "integer"
+                },
+                "storage": {
+                    "description": "The storage devices at the postcode area covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual storage devices.",
+                    "items": {
+                        "$ref": "#/$defs/Storage"
+                    },
+                    "type": "array"
+                },
+                "works": {
+                    "description": "All the works performed for this postcode area.",
+                    "items": {
+                        "$ref": "#/$defs/Work"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "postcode",
+                "demand_firm_capacity",
+                "demand_available_capacity",
+                "demand_constraint",
+                "demand_constraint_limiting_factor",
+                "generation_firm_capacity",
+                "generation_available_capacity",
+                "generation_constraint_limiting_factor"
+            ],
+            "title": "PostcodeArea",
+            "type": "object"
+        },
         "PowerSystemResource": {
             "additionalProperties": false,
             "description": "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area.  Power system resources can have measurements associated.",
@@ -785,15 +932,15 @@
                     "type": "boolean"
                 },
                 "demand_connected_capacity": {
-                    "description": "The currently connected demand capacity (in MVA).",
+                    "description": "The currently connected demand capacity (in MW).",
                     "type": "integer"
                 },
                 "demand_contracted_capacity": {
-                    "description": "The currently contracted demand capacity (in MVA) which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity).",
+                    "description": "The currently contracted demand capacity (in MW) which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity).",
                     "type": "integer"
                 },
                 "demand_quoted_capacity": {
-                    "description": "The currently active quoted demand capacity (in MVA) excluding contracted and connected (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant).",
+                    "description": "The currently active quoted demand capacity (in MW) excluding contracted and connected (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant).",
                     "type": "integer"
                 },
                 "description": {
@@ -801,15 +948,15 @@
                     "type": "string"
                 },
                 "generation_connected_capacity": {
-                    "description": "The currently connected generation capacity (in MVA).",
+                    "description": "The currently connected generation capacity (in MW).",
                     "type": "integer"
                 },
                 "generation_contracted_capacity": {
-                    "description": "The currently contracted generation capacity (in MVA) excluding any that are already contracted or connected (i.e. do not include any generation that is included in generationConnectedCapacity).",
+                    "description": "The currently contracted generation capacity (in MW) excluding any that are already contracted or connected (i.e. do not include any generation that is included in generationConnectedCapacity).",
                     "type": "integer"
                 },
                 "generation_quoted_capacity": {
-                    "description": "The currently active quoted generation capacity (in MVA) above contracted (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant).",
+                    "description": "The currently active quoted generation capacity (in MW) above contracted (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant).",
                     "type": "integer"
                 },
                 "m_rid": {
@@ -863,27 +1010,27 @@
                     "type": "array"
                 },
                 "demand_25_percentile": {
-                    "description": "The 25th percentile of demanding (in MVA) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
+                    "description": "The 25th percentile of demanding (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
                     "type": "integer"
                 },
                 "demand_50_percentile": {
-                    "description": "The 50th percentile of demanding (in MVA) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
+                    "description": "The 50th percentile of demanding (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
                     "type": "integer"
                 },
                 "demand_75_percentile": {
-                    "description": "The 75th percentile of demanding (in MVA) at the substation.  This is a normalised value calculated using historic measured values during normal operating conditions.  The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
+                    "description": "The 75th percentile of demanding (in MW) at the substation.  This is a normalised value calculated using historic measured values during normal operating conditions.  The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
                     "type": "integer"
                 },
                 "demand_99_percentile": {
-                    "description": "The 99th percentile of demanding (in MVA) at the substation.  This is a normalised value calculated using historic measured values during normal operating conditions.  The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
+                    "description": "The 99th percentile of demanding (in MW) at the substation.  This is a normalised value calculated using historic measured values during normal operating conditions.  The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
                     "type": "integer"
                 },
                 "demand_available_capacity": {
-                    "description": "The available demand capacity (in MVA) at the substation. This value is calculated based on total firm capacity, maximum demand, connected capacity, quoted capacity, contracted capacity, and any other constraints on the network. The value should reflect the capacity a network operator would make available to a connecting party, which may be calculated for the most onerous season, or a value based on more detailed analysis and internal policies.",
+                    "description": "The available demand capacity (in MW) at the substation. This value is calculated based on total firm capacity, maximum demand, connected capacity, quoted capacity, contracted capacity, and any other constraints on the network. The value should reflect the capacity a network operator would make available to a connecting party, which may be calculated for the most onerous season, or a value based on more detailed analysis and internal policies.",
                     "type": "integer"
                 },
                 "demand_connected_capacity": {
-                    "description": "Sum of all demand (in MVA) currently connected at the substation. This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandConnectedCapacity must be greater than or equal to the sum of the demandConnectedCapacity values in the demand and Storage elements.",
+                    "description": "Sum of all demand (in MW) currently connected at the substation. This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandConnectedCapacity must be greater than or equal to the sum of the demandConnectedCapacity values in the demand and Storage elements.",
                     "type": "integer"
                 },
                 "demand_constraint": {
@@ -895,23 +1042,23 @@
                     "description": "The limiting factor for demand constraints, either thermal, voltage or fault level for the demandConstraint value."
                 },
                 "demand_contracted_capacity": {
-                    "description": "Sum of all demand (in MVA) currently contracted at the substation which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandContractedCapacity must be greater than or equal to the sum of the demandContractedCapacity values in the Demand and Storage elements.",
+                    "description": "Sum of all demand (in MW) currently contracted at the substation which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandContractedCapacity must be greater than or equal to the sum of the demandContractedCapacity values in the Demand and Storage elements.",
                     "type": "integer"
                 },
                 "demand_firm_capacity": {
-                    "description": "The firm capacity (in MVA) for demand at the substation. Any constraints that impact this capacity should be listed as individual constraints linked to the substation.",
+                    "description": "The firm capacity (in MW) for demand at the substation. Any constraints that impact this capacity should be listed as individual constraints linked to the substation.",
                     "type": "integer"
                 },
                 "demand_maximum": {
-                    "description": "The maximum demand (in MVA) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand without removing the impact of any generation on observed demand at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data.",
+                    "description": "The maximum demand (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand without removing the impact of any generation on observed demand at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data.",
                     "type": "integer"
                 },
                 "demand_minimum": {
-                    "description": "The minimum demand (in MVA) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data.",
+                    "description": "The minimum demand (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data.",
                     "type": "integer"
                 },
                 "demand_quoted_capacity": {
-                    "description": "Sum of all demand (in MVA) currently quoted at the substation excluding contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandQuotedCapacity must be greater than or equal to the sum of the demandQuotedCapacity values in the demand and Storage elements.",
+                    "description": "Sum of all demand (in MW) currently quoted at the substation excluding contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandQuotedCapacity must be greater than or equal to the sum of the demandQuotedCapacity values in the demand and Storage elements.",
                     "type": "integer"
                 },
                 "demands": {
@@ -926,11 +1073,11 @@
                     "type": "string"
                 },
                 "generation_available_capacity": {
-                    "description": "Available generation capacity (in MVA) at the substation. This value is calculated based on total firm generation, capacity, demand, connected capacity, contracted capacity, and any other constraints on the network.",
+                    "description": "Available generation capacity (in MW) at the substation. This value is calculated based on total firm generation, capacity, demand, connected capacity, contracted capacity, and any other constraints on the network.",
                     "type": "integer"
                 },
                 "generation_connected_capacity": {
-                    "description": "Sum of all generation (in MVA) currently connected at the substation. This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value forgenerationConnectedCapacity must be greater than or equal to the sum of the generationConnectedCapacity values in the Generator and Storage elements.",
+                    "description": "Sum of all generation (in MW) currently connected at the substation. This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value forgenerationConnectedCapacity must be greater than or equal to the sum of the generationConnectedCapacity values in the Generator and Storage elements.",
                     "type": "integer"
                 },
                 "generation_constraint": {
@@ -942,15 +1089,15 @@
                     "description": "The limiting factor for generation constraints, either thermal or fault level for the generationConstraint value."
                 },
                 "generation_contracted_capacity": {
-                    "description": "Sum of all generation (in MVA) currently contracted at the substation which is not yet connected (i.e. do not include any generation that is included in generationConnectedCapacity). This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationContractedCapacity must be greater than or equal to the sum of the generationContractedCapacity values in the Generator and Storage elements.",
+                    "description": "Sum of all generation (in MW) currently contracted at the substation which is not yet connected (i.e. do not include any generation that is included in generationConnectedCapacity). This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationContractedCapacity must be greater than or equal to the sum of the generationContractedCapacity values in the Generator and Storage elements.",
                     "type": "integer"
                 },
                 "generation_firm_capacity": {
-                    "description": "The total firm generation capacity (in MVA) of the substation.  Any constraints that impact this capacity should be listed as individual constraints linked to the substation. The approach used to calculate this value should be defined in accompanying documentation.",
+                    "description": "The total firm generation capacity (in MW) of the substation.  Any constraints that impact this capacity should be listed as individual constraints linked to the substation. The approach used to calculate this value should be defined in accompanying documentation.",
                     "type": "integer"
                 },
                 "generation_quoted_capacity": {
-                    "description": "Sum of all currently quoted generation (in MVA) at the substation excluding any that are already contracted or connected. This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationQuotedCapacity must be greater than or equal to the sum of the generationQuotedCapacity values in the Generator and Storage elements.",
+                    "description": "Sum of all currently quoted generation (in MW) at the substation excluding any that are already contracted or connected. This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationQuotedCapacity must be greater than or equal to the sum of the generationQuotedCapacity values in the Generator and Storage elements.",
                     "type": "integer"
                 },
                 "generators": {
@@ -983,11 +1130,11 @@
                     "type": "integer"
                 },
                 "reverse_power_flow_available_capacity": {
-                    "description": "The available reverse capacity (in MVA) for the substation from lower to higher voltage levels.",
+                    "description": "The available reverse capacity (in MW) for the substation from lower to higher voltage levels.",
                     "type": "integer"
                 },
                 "reverse_power_flow_total_capacity": {
-                    "description": "The reverse capacity (in MVA) for the substation from lower to higher voltage levels. 0 if there are no reverse powerflow capabilities.",
+                    "description": "The reverse capacity (in MW) for the substation from lower to higher voltage levels. 0 if there are no reverse powerflow capabilities.",
                     "type": "integer"
                 },
                 "short_code": {
