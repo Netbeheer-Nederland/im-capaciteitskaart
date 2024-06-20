@@ -533,7 +533,7 @@
                     "type": "array"
                 },
                 "type": {
-                    "description": "The geometry type (LineString or MultiLineString).",
+                    "description": "The geometry type (LineString, MultiLineString or Polygon).",
                     "type": "string"
                 }
             },
@@ -1106,6 +1106,10 @@
                         "$ref": "#/$defs/Generator"
                     },
                     "type": "array"
+                },
+                "geometry": {
+                    "$ref": "#/$defs/Geometry",
+                    "description": "The geometry of the substation."
                 },
                 "m_rid": {
                     "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",

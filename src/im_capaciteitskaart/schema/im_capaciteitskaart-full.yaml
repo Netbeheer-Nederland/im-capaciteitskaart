@@ -171,8 +171,6 @@ classes:
     class_uri: ck:HeatmapDataSet
 
   Substation:
-    todos:
-      - Does the use case require showing connectivity between Substations?
     description:
       A Substation with connect demand, generation or storage.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
@@ -212,6 +210,11 @@ classes:
           be part of the feature itself allowing for more complex geometry.
         slot_uri: ck:Substation.Coordinates
         required: true
+      Geometry:
+        range: Geometry
+        description:
+          The geometry of the substation.
+        slot_uri: ck:Substation.Geometry
       requestsInQueue:
         range: integer
         description:
@@ -1223,7 +1226,7 @@ classes:
     attributes:
       type:
         description:
-          The geometry type (LineString or MultiLineString).
+          The geometry type (LineString, MultiLineString or Polygon).
         slot_uri: ck:Geometry.type
         required: true
       Lines:

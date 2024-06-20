@@ -244,8 +244,6 @@ classes:
     class_uri: ck:HeatmapDataSet
   Substation:
     description: A Substation with connect demand, generation or storage.
-    todos:
-    - Does the use case require showing connectivity between Substations?
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     broad_mappings:
     - nbnl:Netstation
@@ -280,6 +278,10 @@ classes:
         slot_uri: ck:Substation.Coordinates
         range: Coordinate
         required: true
+      geometry:
+        description: The geometry of the substation.
+        slot_uri: ck:Substation.Geometry
+        range: Geometry
       requests_in_queue:
         description: Number of requests for new grid connections and capacity increases
           in queue.
@@ -1117,7 +1119,7 @@ classes:
       It is likely that this will be rendered as a GeoJSON geometry in that format.
     attributes:
       type:
-        description: The geometry type (LineString or MultiLineString).
+        description: The geometry type (LineString, MultiLineString or Polygon).
         slot_uri: ck:Geometry.type
         required: true
       lines:

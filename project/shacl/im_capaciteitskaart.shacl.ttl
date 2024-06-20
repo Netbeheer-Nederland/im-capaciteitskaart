@@ -19,18 +19,12 @@ ck:HeatmapDataSet a sh:NodeShape ;
             sh:order 5 ;
             sh:path dcterms:description ],
         [ sh:datatype xsd:string ;
-            sh:description "The file format of the resource." ;
+            sh:description "A name given to the resource." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dcterms:format ],
-        [ sh:datatype xsd:date ;
-            sh:description "A date range for the validity of a resource. This should be two dates to form a range.  The first date is inclusive and the second date exclusive." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path dcterms:valid ],
+            sh:order 12 ;
+            sh:path dcterms:title ],
         [ sh:datatype xsd:date ;
             sh:description "Date of formal issuance of the resource." ;
             sh:maxCount 1 ;
@@ -38,11 +32,20 @@ ck:HeatmapDataSet a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path dcterms:issued ],
-        [ sh:class cim:Circuit ;
-            sh:description "A list of circuits with heatmap data." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 15 ;
-            sh:path ck:HeatmapDataSet.Circuits ],
+        [ sh:datatype xsd:date ;
+            sh:description "A point of time associated with an event in the lifecycle of the resource. For this implementation this will represent the date the data set is valid from." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path dcterms:date ],
+        [ sh:datatype xsd:string ;
+            sh:description "An entity responsible for making the resource." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dcterms:creator ],
         [ sh:datatype xsd:string ;
             sh:description "ID for the schema used to create the instance data." ;
             sh:maxCount 1 ;
@@ -50,6 +53,20 @@ ck:HeatmapDataSet a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path dcterms:conformsTo ],
+        [ sh:datatype xsd:string ;
+            sh:description "An entity responsible for making the resource available." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path dcterms:publisher ],
+        [ sh:datatype xsd:string ;
+            sh:description "The file format of the resource." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dcterms:format ],
         [ sh:datatype xsd:string ;
             sh:description "An unambiguous reference to the resource within a given context." ;
             sh:maxCount 1 ;
@@ -64,39 +81,27 @@ ck:HeatmapDataSet a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 9 ;
             sh:path dcterms:language ],
-        [ sh:datatype xsd:string ;
-            sh:description "An entity responsible for making the resource available." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path dcterms:publisher ],
-        [ sh:datatype xsd:string ;
-            sh:description "An entity responsible for making contributions to the resource." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dcterms:contributor ],
-        [ sh:datatype xsd:string ;
-            sh:description "A name given to the resource." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path dcterms:title ],
-        [ sh:datatype xsd:date ;
-            sh:description "A point of time associated with an event in the lifecycle of the resource. For this implementation this will represent the date the data set is valid from." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path dcterms:date ],
+        [ sh:class ck:PostcodeArea ;
+            sh:description "Postcode Areas associated with the heatmap data." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 16 ;
+            sh:path ck:HeatmapDataSet.PostcodeAreas ],
+        [ sh:class cim:Circuit ;
+            sh:description "A list of circuits with heatmap data." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 15 ;
+            sh:path ck:HeatmapDataSet.Circuits ],
         [ sh:class cim:Substation ;
             sh:description "A list of substations with heatmap data." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 14 ;
             sh:path ck:HeatmapDataSet.substations ],
+        [ sh:datatype xsd:date ;
+            sh:description "A date range for the validity of a resource. This should be two dates to form a range.  The first date is inclusive and the second date exclusive." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path dcterms:valid ],
         [ sh:datatype xsd:string ;
             sh:description "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant." ;
             sh:maxCount 1 ;
@@ -105,36 +110,48 @@ ck:HeatmapDataSet a sh:NodeShape ;
             sh:order 2 ;
             sh:path dcterms:coverage ],
         [ sh:datatype xsd:string ;
+            sh:description "An entity responsible for making contributions to the resource." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dcterms:contributor ],
+        [ sh:datatype xsd:string ;
             sh:description "Information about rights held in and over the resource." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 11 ;
-            sh:path dcterms:rights ],
-        [ sh:class ck:PostcodeArea ;
-            sh:description "Postcode Areas associated with the heatmap data." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 16 ;
-            sh:path ck:HeatmapDataSet.PostcodeAreas ],
-        [ sh:datatype xsd:string ;
-            sh:description "An entity responsible for making the resource." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dcterms:creator ] ;
+            sh:path dcterms:rights ] ;
     sh:targetClass ck:HeatmapDataSet .
 
 cim:BaseWork a sh:NodeShape ;
     sh:closed true ;
     sh:description "Common representation for work and work tasks." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Kind of work status." ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:description "Kind of work status." ;
             sh:in ( cim:WorkStatusKind.approved cim:WorkStatusKind.cancelled cim:WorkStatusKind.closed cim:WorkStatusKind.completed cim:WorkStatusKind.dispatched cim:WorkStatusKind.enroute cim:WorkStatusKind.inProgress cim:WorkStatusKind.onSite cim:WorkStatusKind.scheduled cim:WorkStatusKind.waitingOnApproval cim:WorkStatusKind.waitingOnMaterial cim:WorkStatusKind.waitingToBeScheduled ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path cim:BaseWork.statusKind ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:class cim:WorkTimeSchedule ;
             sh:description "All time schedules for this work or work task." ;
             sh:minCount 1 ;
@@ -146,119 +163,14 @@ cim:BaseWork a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path cim:Document.type ],
-        [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path cim:IdentifiedObject.Names ] ;
+            sh:path cim:Document.type ] ;
     sh:targetClass cim:BaseWork .
 
 cim:ConductingEquipment a sh:NodeShape ;
     sh:closed true ;
     sh:description "The parts of the AC power system that are designed to carry current or that are conductively connected through terminals." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "True if the demand represents an aggregation of multiple demands all connected at a single voltage level." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:Equipment.aggregate ] ;
-    sh:targetClass cim:ConductingEquipment .
-
-cim:ConnectivityNodeContainer a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "A base class for all objects that may contain connectivity nodes or topological nodes." ;
-    sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.Names ] ;
-    sh:targetClass cim:ConnectivityNodeContainer .
-
-cim:Document a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "Parent class for different groupings of information collected and managed as a part of a business process. It will frequently contain references to other objects, such as assets, people and power system resources." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
-            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:Document.type ] ;
-    sh:targetClass cim:Document .
-
-cim:Equipment a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "The parts of a power system that are physical devices, electronic or mechanical." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
             sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -275,35 +187,18 @@ cim:Equipment a sh:NodeShape ;
             sh:description "All names of this identified object." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
-            sh:path cim:IdentifiedObject.Names ] ;
-    sh:targetClass cim:Equipment .
-
-cim:EquipmentContainer a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "A modelling construct to provide a root class for containing equipment." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.mRID ],
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.Names ] ;
-    sh:targetClass cim:EquipmentContainer .
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.description ] ;
+    sh:targetClass cim:ConductingEquipment .
 
-cim:IdentifiedObject a sh:NodeShape ;
+cim:ConnectivityNodeContainer a sh:NodeShape ;
     sh:closed true ;
-    sh:description "This is a root class to provide common identification for all classes needing identification and naming attributes." ;
+    sh:description "A base class for all objects that may contain connectivity nodes or topological nodes." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
             sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
@@ -322,19 +217,72 @@ cim:IdentifiedObject a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path cim:IdentifiedObject.description ] ;
-    sh:targetClass cim:IdentifiedObject .
+    sh:targetClass cim:ConnectivityNodeContainer .
 
-cim:PowerSystemResource a sh:NodeShape ;
+cim:Document a sh:NodeShape ;
     sh:closed true ;
-    sh:description "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area.  Power system resources can have measurements associated." ;
+    sh:description "Parent class for different groupings of information collected and managed as a part of a business process. It will frequently contain references to other objects, such as assets, people and power system resources." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
+            sh:order 1 ;
             sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:Document.type ],
         [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.Names ] ;
+    sh:targetClass cim:Document .
+
+cim:Equipment a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "The parts of a power system that are physical devices, electronic or mechanical." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "True if the demand represents an aggregation of multiple demands all connected at a single voltage level." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:Equipment.aggregate ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.description ] ;
+    sh:targetClass cim:Equipment .
+
+cim:EquipmentContainer a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A modelling construct to provide a root class for containing equipment." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class cim:Name ;
             sh:description "All names of this identified object." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 2 ;
@@ -344,7 +292,59 @@ cim:PowerSystemResource a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path cim:IdentifiedObject.mRID ] ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:IdentifiedObject.description ] ;
+    sh:targetClass cim:EquipmentContainer .
+
+cim:IdentifiedObject a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "This is a root class to provide common identification for all classes needing identification and naming attributes." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:IdentifiedObject.description ] ;
+    sh:targetClass cim:IdentifiedObject .
+
+cim:PowerSystemResource a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area.  Power system resources can have measurements associated." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.Names ] ;
     sh:targetClass cim:PowerSystemResource .
 
 cim:TimeSchedule a sh:NodeShape ;
@@ -352,12 +352,6 @@ cim:TimeSchedule a sh:NodeShape ;
     sh:description "Description of anything that changes through time. Time schedule is used to perform a single-valued function of time. Use inherited 'type' attribute to give additional information on this schedule, such as periodic (hourly, daily, weekly, monthly, etc.), day of the month, by date, calendar (specific times and dates)." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:Document.type ],
-        [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -370,6 +364,12 @@ cim:TimeSchedule a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 0 ;
             sh:path cim:TimeSchedule.scheduleInterval ],
+        [ sh:datatype xsd:string ;
+            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:Document.type ],
         [ sh:class cim:Name ;
             sh:description "All names of this identified object." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
@@ -387,13 +387,29 @@ ck:Curtailment a sh:NodeShape ;
     sh:closed true ;
     sh:description "Curtailment of demand or generation capacity at the substation with optional day/time and season parameters." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype unit:MegaW ;
-            sh:description "The amount the demand/generation capacity (in MW) is curtailed by." ;
+    sh:property [ sh:description "The season this curtailment applies during." ;
+            sh:in ( ck:SeasonKind.Spring ck:SeasonKind.Summer ck:SeasonKind.Autumn ck:SeasonKind.Winter ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <http://data.netbeheernederland.nl/capaciteitskaart/def#Curtailment.> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Free text for any additional descriptive data about the curtailment." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ck:Curtailment.curtailedBy ],
+            sh:order 0 ;
+            sh:path ck:Curtailment.description ],
+        [ sh:description "The type of curtailment (enumerated field to allow for easier processing/identification)." ;
+            sh:in ( ck:CurtailmentKind.Demand ck:CurtailmentKind.Generation ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path ck:Curtailment.type ],
+        [ sh:description "The type of day the curtailment applies during (weekday or weekend)." ;
+            sh:in ( ck:DayKind.Weekday ck:DayKind.Weekend ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <http://data.netbeheernederland.nl/capaciteitskaart/def#Curtailment.> ],
         [ sh:datatype xsd:string ;
             sh:description "The technology the curtailment applies to e.g. for generation CHP, Wind, PV, Battery." ;
             sh:maxCount 1 ;
@@ -406,55 +422,20 @@ ck:Curtailment a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
             sh:path <http://data.netbeheernederland.nl/capaciteitskaart/def#Curtailment.> ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The amount the demand/generation capacity (in MW) is curtailed by." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ck:Curtailment.curtailedBy ],
         [ sh:datatype xsd:time ;
             sh:description "The start time of a curtailment (inclusive)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
-            sh:path <http://data.netbeheernederland.nl/capaciteitskaart/def#Curtailment.> ],
-        [ sh:description "The type of day the curtailment applies during (weekday or weekend)." ;
-            sh:in ( ck:DayKind.Weekday ck:DayKind.Weekend ) ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path <http://data.netbeheernederland.nl/capaciteitskaart/def#Curtailment.> ],
-        [ sh:description "The season this curtailment applies during." ;
-            sh:in ( ck:SeasonKind.Spring ck:SeasonKind.Summer ck:SeasonKind.Autumn ck:SeasonKind.Winter ) ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path <http://data.netbeheernederland.nl/capaciteitskaart/def#Curtailment.> ],
-        [ sh:description "The type of curtailment (enumerated field to allow for easier processing/identification)." ;
-            sh:in ( ck:CurtailmentKind.Demand ck:CurtailmentKind.Generation ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path ck:Curtailment.type ],
-        [ sh:datatype xsd:string ;
-            sh:description "Free text for any additional descriptive data about the curtailment." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path ck:Curtailment.description ] ;
+            sh:path <http://data.netbeheernederland.nl/capaciteitskaart/def#Curtailment.> ] ;
     sh:targetClass ck:Curtailment .
-
-ck:Geometry a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "The geometry of the line, this will be one or more Lines i.e. series of ordered coordinates. Multiple Lines allowed to allow for radial geometries. It is likely that this will be rendered as a GeoJSON geometry in that format." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ck:Line ;
-            sh:description "The Line elements." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 1 ;
-            sh:path ck:Geometry.Lines ],
-        [ sh:datatype xsd:string ;
-            sh:description "The geometry type (LineString or MultiLineString)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path ck:Geometry.type ] ;
-    sh:targetClass ck:Geometry .
 
 ck:Line a sh:NodeShape ;
     sh:closed true ;
@@ -471,11 +452,100 @@ ck:PostcodeArea a sh:NodeShape ;
     sh:closed true ;
     sh:description "A geographic region that is defined by the initial letters or digits of a postcode." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ck:Generator ;
-            sh:description "The generators at the postcode area covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual generators." ;
+    sh:property [ sh:datatype unit:MegaW ;
+            sh:description "Sum of all generation (in MW) currently connected at the postcode area.  This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage.  The value forgenerationConnectedCapacity must be greater than or equal to the sum of the generationConnectedCapacity values in the Generator and Storage elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path ck:PostcodeArea.generationConnectedCapacity ],
+        [ sh:class ck:Demand ;
+            sh:description "The demands at the postcode area covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual demands." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 19 ;
-            sh:path ck:PostcodeArea.Generators ],
+            sh:order 18 ;
+            sh:path ck:PostcodeArea.Demands ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "Sum of all demand (in MW) currently contracted at the postcode area which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandContractedCapacity must be greater than or equal to the sum of the demandContractedCapacity values in the Demand and Storage elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ck:PostcodeArea.demandContractedCapacity ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of requests for new grid connections and capacity increases in queue." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ck:PostcodeArea.requestsInQueue ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The minimum demand (in MW) at the postcode area. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path ck:PostcodeArea.demandMinimum ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 23 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "Sum of all generation (in MW) currently contracted at the postcode area which is not yet connected (i.e. do not include any generation that is included in generationConnectedCapacity). This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationContractedCapacity must be greater than or equal to the sum of the generationContractedCapacity values in the Generator and Storage elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path ck:PostcodeArea.generationContractedCapacity ],
+        [ sh:description "A RAG definition of the demand constraints at the postcode area. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation." ;
+            sh:in ( ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Green ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 9 ;
+            sh:path ck:PostcodeArea.demandConstraint ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The total firm generation capacity (in MW) of the postcode area. Any constraints that impact this capacity should be listed as individual constraints linked to the postcode area. The approach used to calculate this value should be defined in accompanying documentation." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path ck:PostcodeArea.generationFirmCapacity ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "Sum of all demand (in MW) currently quoted at the postcode area excluding contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandQuotedCapacity must be greater than or equal to the sum of the demandQuotedCapacity values in the demand and Storage elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ck:PostcodeArea.demandQuotedCapacity ],
+        [ sh:description "A RAG definition of the demand constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation" ;
+            sh:in ( ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Green ) ;
+            sh:maxCount 1 ;
+            sh:order 16 ;
+            sh:path ck:PostcodeArea.generationConstraint ],
+        [ sh:class ck:Constraint ;
+            sh:description "An additional constraint on the postcode area." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 21 ;
+            sh:path ck:PostcodeArea.OtherConstraints ],
+        [ sh:description "The limiting factor for generation constraints, either thermal or fault level for the generationConstraint value." ;
+            sh:in ( ck:LimitingFactorKind.Thermal ck:LimitingFactorKind.Voltage ck:LimitingFactorKind.FaultLevel ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 17 ;
+            sh:path ck:PostcodeArea.generationConstraintLimitingFactor ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The available demand capacity (in MW) at the postcode area. This value is calculated based on total firm capacity, maximum demand, connected capacity, quoted capacity, contracted capacity, and any other constraints on the network. The value should reflect the capacity a network operator would make available to a connecting party, which may be calculated for the most onerous season, or a value based on more detailed analysis and internal policies." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path ck:PostcodeArea.demandAvailableCapacity ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "Sum of all currently quoted generation (in MW) at the postcode area excluding any that are already contracted or connected. This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationQuotedCapacity must be greater than or equal to the sum of the generationQuotedCapacity values in the Generator and Storage elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path ck:PostcodeArea.generationQuotedCapacity ],
+        [ sh:class ck:Storage ;
+            sh:description "The storage devices at the postcode area covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual storage devices." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 20 ;
+            sh:path ck:PostcodeArea.Storage ],
         [ sh:datatype unit:MegaW ;
             sh:description "The firm capacity (in MW) for demand at the postcode area. Any constraints that impact this capacity should be listed as individual constraints linked to the substation." ;
             sh:maxCount 1 ;
@@ -484,116 +554,22 @@ ck:PostcodeArea a sh:NodeShape ;
             sh:order 2 ;
             sh:path ck:PostcodeArea.demandFirmCapacity ],
         [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all demand (in MW) currently quoted at the postcode area excluding contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandQuotedCapacity must be greater than or equal to the sum of the demandQuotedCapacity values in the demand and Storage elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path ck:PostcodeArea.demandQuotedCapacity ],
-        [ sh:datatype xsd:string ;
-            sh:description "Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, lowercase. No spaces between the numbers and letters, i.e. \"1234ab\"." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path ck:PostcodeArea.postcode ],
-        [ sh:description "The limiting factor for generation constraints, either thermal or fault level for the generationConstraint value." ;
-            sh:in ( ck:LimitingFactorKind.Thermal ck:LimitingFactorKind.Voltage ck:LimitingFactorKind.FaultLevel ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 17 ;
-            sh:path ck:PostcodeArea.generationConstraintLimitingFactor ],
-        [ sh:datatype unit:MegaW ;
             sh:description "Sum of all demand (in MW) currently connected at the postcode area. This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandConnectedCapacity must be greater than or equal to the sum of the demandConnectedCapacity values in the Demand and Storage elements." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path ck:PostcodeArea.demandConnectedCapacity ],
         [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all generation (in MW) currently connected at the postcode area.  This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage.  The value forgenerationConnectedCapacity must be greater than or equal to the sum of the generationConnectedCapacity values in the Generator and Storage elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path ck:PostcodeArea.generationConnectedCapacity ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all currently quoted generation (in MW) at the postcode area excluding any that are already contracted or connected. This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationQuotedCapacity must be greater than or equal to the sum of the generationQuotedCapacity values in the Generator and Storage elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path ck:PostcodeArea.generationQuotedCapacity ],
-        [ sh:class cim:Work ;
-            sh:description "All the works performed for this postcode area." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 22 ;
-            sh:path cim:PostcodeArea.Works ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The total firm generation capacity (in MW) of the postcode area. Any constraints that impact this capacity should be listed as individual constraints linked to the postcode area. The approach used to calculate this value should be defined in accompanying documentation." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path ck:PostcodeArea.generationFirmCapacity ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 25 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:class ck:Constraint ;
-            sh:description "An additional constraint on the postcode area." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 21 ;
-            sh:path ck:PostcodeArea.OtherConstraints ],
-        [ sh:datatype unit:MegaW ;
             sh:description "The maximum demand (in MW) at the postcode area. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand without removing the impact of any generation on observed demand at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
             sh:path ck:PostcodeArea.demandMaximum ],
-        [ sh:description "A RAG definition of the demand constraints at the postcode area. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation." ;
-            sh:in ( ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Green ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 9 ;
-            sh:path ck:PostcodeArea.demandConstraint ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all generation (in MW) currently contracted at the postcode area which is not yet connected (i.e. do not include any generation that is included in generationConnectedCapacity). This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationContractedCapacity must be greater than or equal to the sum of the generationContractedCapacity values in the Generator and Storage elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path ck:PostcodeArea.generationContractedCapacity ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The minimum demand (in MW) at the postcode area. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path ck:PostcodeArea.demandMinimum ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all demand (in MW) currently contracted at the postcode area which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandContractedCapacity must be greater than or equal to the sum of the demandContractedCapacity values in the Demand and Storage elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path ck:PostcodeArea.demandContractedCapacity ],
-        [ sh:description "The limiting factor for demand constraints, either thermal, voltage or fault level for the demandConstraint value." ;
-            sh:in ( ck:LimitingFactorKind.Thermal ck:LimitingFactorKind.Voltage ck:LimitingFactorKind.FaultLevel ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 10 ;
-            sh:path ck:PostcodeArea.demandConstraintLimitingFactor ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Number of requests for new grid connections and capacity increases in queue." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path ck:PostcodeArea.requestsInQueue ],
-        [ sh:description "A RAG definition of the demand constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation" ;
-            sh:in ( ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Green ) ;
-            sh:maxCount 1 ;
-            sh:order 16 ;
-            sh:path ck:PostcodeArea.generationConstraint ],
-        [ sh:class ck:Storage ;
-            sh:description "The storage devices at the postcode area covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual storage devices." ;
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 20 ;
-            sh:path ck:PostcodeArea.Storage ],
+            sh:order 25 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype unit:MegaW ;
             sh:description "Available generation capacity (in MW) at the postcode area. This value is calculated based on total firm generation, capacity, demand, connected capacity, contracted capacity, and any other constraints on the network." ;
             sh:maxCount 1 ;
@@ -601,155 +577,122 @@ ck:PostcodeArea a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 15 ;
             sh:path ck:PostcodeArea.generationAvailableCapacity ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The available demand capacity (in MW) at the postcode area. This value is calculated based on total firm capacity, maximum demand, connected capacity, quoted capacity, contracted capacity, and any other constraints on the network. The value should reflect the capacity a network operator would make available to a connecting party, which may be calculated for the most onerous season, or a value based on more detailed analysis and internal policies." ;
+        [ sh:class ck:Generator ;
+            sh:description "The generators at the postcode area covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual generators." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 19 ;
+            sh:path ck:PostcodeArea.Generators ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, lowercase. No spaces between the numbers and letters, i.e. \"1234ab\"." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path ck:PostcodeArea.demandAvailableCapacity ],
+            sh:order 0 ;
+            sh:path ck:PostcodeArea.postcode ],
+        [ sh:class cim:Work ;
+            sh:description "All the works performed for this postcode area." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 22 ;
+            sh:path cim:PostcodeArea.Works ],
         [ sh:datatype xsd:string ;
             sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 24 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:class ck:Demand ;
-            sh:description "The demands at the postcode area covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual demands." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 18 ;
-            sh:path ck:PostcodeArea.Demands ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+        [ sh:description "The limiting factor for demand constraints, either thermal, voltage or fault level for the demandConstraint value." ;
+            sh:in ( ck:LimitingFactorKind.Thermal ck:LimitingFactorKind.Voltage ck:LimitingFactorKind.FaultLevel ) ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 23 ;
-            sh:path cim:IdentifiedObject.description ] ;
+            sh:minCount 1 ;
+            sh:order 10 ;
+            sh:path ck:PostcodeArea.demandConstraintLimitingFactor ] ;
     sh:targetClass ck:PostcodeArea .
 
 cim:Circuit a sh:NodeShape ;
     sh:closed true ;
     sh:description "A circuit representing a connection between substations. This could be an HV circuit between stations or a circuit feeding multiple secondary stations from a primary. This data element is provided to support utilities that wish to share specfic or all circuits." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:integer ;
-            sh:description "Number of requests for new grid connections and capacity increases in queue." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path ck:Circuit.requestsInQueue ],
-        [ sh:datatype unit:MegaW ;
+    sh:property [ sh:datatype unit:MegaW ;
             sh:description "The minimum demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path ck:Circuit.demandMinimum ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all demand (in MW) currently contracted on the circuit which are not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path ck:Circuit.demandContractedCapacity ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Winter rating (in MW) for minimum rated section in the circuit (i.e. limiting series element)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path ck:Circuit.winterRating ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The maximum load (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ck:Circuit.demandMaximum ],
-        [ sh:datatype xsd:string ;
-            sh:description "mRID of the Substations the Circuit is to (optional if LV circuits are shown but no LV/Secondary substations). Where CIM data is being produced the identifiers attributes reflect the mRID of the Substations. Where no CIM mRID is yet being produced, the names of the Substations should be used." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path ck:Circuit.toSubstation ],
-        [ sh:class ck:Geometry ;
-            sh:description "The geometry of the circuit" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 19 ;
-            sh:path ck:Circuit.Geometry ],
-        [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 21 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:class ck:Constraint ;
-            sh:description "An additional constraint on the Cicruit." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 18 ;
-            sh:path ck:Circuit.OtherConstraints ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The 25th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path ck:Circuit.demand25Percentile ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The 75th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path ck:Circuit.demand75Percentile ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all demand (in MW) currently connected on the circuit." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path ck:Circuit.demandConnectedCapacity ],
         [ sh:description "A RAG definition of the demand constraints on the circuit. A utility should provide details on how this RAG status is calculated." ;
             sh:in ( ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Green ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 8 ;
             sh:path ck:Circuit.demandConstraint ],
-        [ sh:datatype unit:KiloV ;
-            sh:description "Voltage (in kV) of the circuit." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path ck:Circuit.voltage ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 22 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype unit:MegaW ;
-            sh:description "The 50th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions." ;
+            sh:description "Sum of all demand (in MW) currently connected on the circuit." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path ck:Circuit.demand50Percentile ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The available demand (in MW) capacity on the circuit. This value is calculated based on the circuit rating, maximum demand, contracted capacity, and any other constraints on the network." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path ck:Circuit.demandAvailableCapacity ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Summer rating (in MW) for minimum rated section in the circuit (i.e. limiting series element)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path ck:Circuit.summerRating ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The 99th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path ck:Circuit.demand99Percentile ],
+            sh:order 10 ;
+            sh:path ck:Circuit.demandConnectedCapacity ],
         [ sh:datatype unit:MegaW ;
             sh:description "Sum of all demand (in MW) currently quoted on the circuit excluding contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 11 ;
             sh:path ck:Circuit.demandQuotedCapacity ],
-        [ sh:class cim:Work ;
-            sh:description "All the works performed for this circuit." ;
+        [ sh:datatype unit:MegaW ;
+            sh:description "Sum of all demand (in MW) currently contracted on the circuit which are not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path ck:Circuit.demandContractedCapacity ],
+        [ sh:datatype xsd:string ;
+            sh:description "mRID of the Substations the Circuit is to (optional if LV circuits are shown but no LV/Secondary substations). Where CIM data is being produced the identifiers attributes reflect the mRID of the Substations. Where no CIM mRID is yet being produced, the names of the Substations should be used." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path ck:Circuit.toSubstation ],
+        [ sh:class ck:Constraint ;
+            sh:description "An additional constraint on the Cicruit." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 17 ;
-            sh:path cim:Circuit.Works ],
+            sh:order 18 ;
+            sh:path ck:Circuit.OtherConstraints ],
+        [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 21 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "Winter rating (in MW) for minimum rated section in the circuit (i.e. limiting series element)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path ck:Circuit.winterRating ],
+        [ sh:class ck:Geometry ;
+            sh:description "The geometry of the circuit" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 19 ;
+            sh:path ck:Circuit.Geometry ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The maximum load (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ck:Circuit.demandMaximum ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "Summer rating (in MW) for minimum rated section in the circuit (i.e. limiting series element)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path ck:Circuit.summerRating ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of requests for new grid connections and capacity increases in queue." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ck:Circuit.requestsInQueue ],
         [ sh:datatype xsd:string ;
             sh:description "mRID of the Substation the Circuit is from (used where CIM data is being produced and the mRID attributes are populated for Substations). Where no CIM mRID is yet being produced, the name of the Substation should be used." ;
             sh:maxCount 1 ;
@@ -762,11 +705,49 @@ cim:Circuit a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 20 ;
             sh:path cim:IdentifiedObject.description ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
+        [ sh:datatype unit:MegaW ;
+            sh:description "The 50th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path ck:Circuit.demand50Percentile ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The 75th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ck:Circuit.demand75Percentile ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The 25th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path ck:Circuit.demand25Percentile ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The available demand (in MW) capacity on the circuit. This value is calculated based on the circuit rating, maximum demand, contracted capacity, and any other constraints on the network." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path ck:Circuit.demandAvailableCapacity ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The 99th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ck:Circuit.demand99Percentile ],
+        [ sh:class cim:Work ;
+            sh:description "All the works performed for this circuit." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 22 ;
-            sh:path cim:IdentifiedObject.Names ] ;
+            sh:order 17 ;
+            sh:path cim:Circuit.Works ],
+        [ sh:datatype unit:KiloV ;
+            sh:description "Voltage (in kV) of the circuit." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ck:Circuit.voltage ] ;
     sh:targetClass cim:Circuit .
 
 cim:NameType a sh:NodeShape ;
@@ -803,170 +784,104 @@ cim:Substation a sh:NodeShape ;
     sh:closed true ;
     sh:description "A Substation with connect demand, generation or storage." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all currently quoted generation (in MW) at the substation excluding any that are already contracted or connected. This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationQuotedCapacity must be greater than or equal to the sum of the generationQuotedCapacity values in the Generator and Storage elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 22 ;
-            sh:path ck:Substation.generationQuotedCapacity ],
-        [ sh:class ck:Generator ;
-            sh:description "The generators at the station covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual generators." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 30 ;
-            sh:path ck:Substation.Generators ],
-        [ sh:description "The limiting factor for demand constraints, either thermal, voltage or fault level for the demandConstraint value." ;
+    sh:property [ sh:description "The limiting factor for generation constraints, either thermal or fault level for the generationConstraint value." ;
             sh:in ( ck:LimitingFactorKind.Thermal ck:LimitingFactorKind.Voltage ck:LimitingFactorKind.FaultLevel ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 18 ;
-            sh:path ck:Substation.demandConstraintLimitingFactor ],
-        [ sh:description "The limiting factor for generation constraints, either thermal or fault level for the generationConstraint value." ;
-            sh:in ( ck:LimitingFactorKind.Thermal ck:LimitingFactorKind.Voltage ck:LimitingFactorKind.FaultLevel ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 25 ;
+            sh:order 26 ;
             sh:path ck:Substation.generationConstraintLimitingFactor ],
-        [ sh:description "The type of the substation." ;
-            sh:in ( ck:SubstationKind.Onderstation ck:SubstationKind.Middenspanningsruimte ck:SubstationKind.Laagspanningskast ck:SubstationKind.Regelstation ck:SubstationKind.Schakelstation ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path ck:Substation.type ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The 50th percentile of demanding (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path ck:Substation.demand50Percentile ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Number of requests for new grid connections and capacity increases in queue." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path ck:Substation.requestsInQueue ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The maximum demand (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand without removing the impact of any generation on observed demand at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path ck:Substation.demandMaximum ],
-        [ sh:class ck:Coordinate ;
-            sh:description "The longitude/latitude value of the substation as a single latitude/longitude point. For a GeoJSON Heatmap format this data will be part of the feature itself allowing for more complex geometry." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path ck:Substation.Coordinates ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The firm capacity (in MW) for demand at the substation. Any constraints that impact this capacity should be listed as individual constraints linked to the substation." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path ck:Substation.demandFirmCapacity ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Available generation capacity (in MW) at the substation. This value is calculated based on total firm generation, capacity, demand, connected capacity, contracted capacity, and any other constraints on the network." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 23 ;
-            sh:path ck:Substation.generationAvailableCapacity ],
-        [ sh:datatype xsd:string ;
-            sh:description "Short code name for substation (alphanumeric, uppercase letters only)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ck:Substation.shortCode ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 34 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:class ck:Storage ;
-            sh:description "The storage devices at the station covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual storage devices." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 31 ;
-            sh:path ck:Substation.Storage ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all demand (in MW) currently contracted at the substation which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandContractedCapacity must be greater than or equal to the sum of the demandContractedCapacity values in the Demand and Storage elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path ck:Substation.demandContractedCapacity ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The available demand capacity (in MW) at the substation. This value is calculated based on total firm capacity, maximum demand, connected capacity, quoted capacity, contracted capacity, and any other constraints on the network. The value should reflect the capacity a network operator would make available to a connecting party, which may be calculated for the most onerous season, or a value based on more detailed analysis and internal policies." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path ck:Substation.demandAvailableCapacity ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The 99th percentile of demanding (in MW) at the substation.  This is a normalised value calculated using historic measured values during normal operating conditions.  The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path ck:Substation.demand99Percentile ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The available reverse capacity (in MW) for the substation from lower to higher voltage levels." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 27 ;
-            sh:path ck:Substation.reversePowerFlowAvailableCapacity ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all demand (in MW) currently connected at the substation. This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandConnectedCapacity must be greater than or equal to the sum of the demandConnectedCapacity values in the demand and Storage elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path ck:Substation.demandConnectedCapacity ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The 75th percentile of demanding (in MW) at the substation.  This is a normalised value calculated using historic measured values during normal operating conditions.  The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path ck:Substation.demand75Percentile ],
         [ sh:datatype xsd:string ;
             sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 35 ;
+            sh:order 36 ;
             sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The maximum demand (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand without removing the impact of any generation on observed demand at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path ck:Substation.demandMaximum ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 35 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 37 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype unit:MegaW ;
             sh:description "Sum of all generation (in MW) currently connected at the substation. This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value forgenerationConnectedCapacity must be greater than or equal to the sum of the generationConnectedCapacity values in the Generator and Storage elements." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 20 ;
+            sh:order 21 ;
             sh:path ck:Substation.generationConnectedCapacity ],
-        [ sh:description "A RAG definition of the demand constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation." ;
-            sh:in ( ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Green ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 17 ;
-            sh:path ck:Substation.demandConstraint ],
         [ sh:datatype unit:MegaW ;
-            sh:description "The reverse capacity (in MW) for the substation from lower to higher voltage levels. 0 if there are no reverse powerflow capabilities." ;
+            sh:description "Sum of all currently quoted generation (in MW) at the substation excluding any that are already contracted or connected. This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationQuotedCapacity must be greater than or equal to the sum of the generationQuotedCapacity values in the Generator and Storage elements." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 26 ;
-            sh:path ck:Substation.reversePowerFlowTotalCapacity ],
+            sh:order 23 ;
+            sh:path ck:Substation.generationQuotedCapacity ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The 50th percentile of demanding (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path ck:Substation.demand50Percentile ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "Sum of all demand (in MW) currently contracted at the substation which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandContractedCapacity must be greater than or equal to the sum of the demandContractedCapacity values in the Demand and Storage elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path ck:Substation.demandContractedCapacity ],
+        [ sh:class ck:Constraint ;
+            sh:description "An additional constraint on the Substation." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 33 ;
+            sh:path ck:Substation.OtherConstraints ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The 99th percentile of demanding (in MW) at the substation.  This is a normalised value calculated using historic measured values during normal operating conditions.  The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path ck:Substation.demand99Percentile ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The minimum demand (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path ck:Substation.demandMinimum ],
         [ sh:class ck:Demand ;
             sh:description "The demands at the station covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual demands." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 29 ;
+            sh:order 30 ;
             sh:path ck:Substation.Demands ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "Sum of all demand (in MW) currently quoted at the substation excluding contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandQuotedCapacity must be greater than or equal to the sum of the demandQuotedCapacity values in the demand and Storage elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path ck:Substation.demandQuotedCapacity ],
+        [ sh:class ck:Curtailment ;
+            sh:description "Curtailments at the Substation." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 34 ;
+            sh:path ck:Substation.Curtailments ],
         [ sh:datatype xsd:integer ;
             sh:description "The voltages at the Substation in Kilovolts (kV)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path ck:Substation.voltages ],
-        [ sh:class ck:Curtailment ;
-            sh:description "Curtailments at the Substation." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 33 ;
-            sh:path ck:Substation.Curtailments ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "Sum of all generation (in MW) currently contracted at the substation which is not yet connected (i.e. do not include any generation that is included in generationConnectedCapacity). This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationContractedCapacity must be greater than or equal to the sum of the generationContractedCapacity values in the Generator and Storage elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 22 ;
+            sh:path ck:Substation.generationContractedCapacity ],
         [ sh:datatype xsd:string ;
             sh:description "The name of the license area. This should be the EAN used in the license for the system operator." ;
             sh:maxCount 1 ;
@@ -975,56 +890,128 @@ cim:Substation a sh:NodeShape ;
             sh:order 1 ;
             sh:path schema1:gtin13 ],
         [ sh:datatype unit:MegaW ;
-            sh:description "The minimum demand (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data." ;
+            sh:description "The available demand capacity (in MW) at the substation. This value is calculated based on total firm capacity, maximum demand, connected capacity, quoted capacity, contracted capacity, and any other constraints on the network. The value should reflect the capacity a network operator would make available to a connecting party, which may be calculated for the most onerous season, or a value based on more detailed analysis and internal policies." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path ck:Substation.demandAvailableCapacity ],
+        [ sh:class ck:Coordinate ;
+            sh:description "The longitude/latitude value of the substation as a single latitude/longitude point. For a GeoJSON Heatmap format this data will be part of the feature itself allowing for more complex geometry." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path ck:Substation.Coordinates ],
+        [ sh:class cim:Work ;
+            sh:description "All the works performed for this substation." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 29 ;
+            sh:path cim:Substation.Works ],
+        [ sh:description "The limiting factor for demand constraints, either thermal, voltage or fault level for the demandConstraint value." ;
+            sh:in ( ck:LimitingFactorKind.Thermal ck:LimitingFactorKind.Voltage ck:LimitingFactorKind.FaultLevel ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 19 ;
+            sh:path ck:Substation.demandConstraintLimitingFactor ],
+        [ sh:description "A RAG definition of the demand constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation" ;
+            sh:in ( ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Green ) ;
+            sh:maxCount 1 ;
+            sh:order 25 ;
+            sh:path ck:Substation.generationConstraint ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of requests for new grid connections and capacity increases in queue." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path ck:Substation.demandMinimum ],
+            sh:order 6 ;
+            sh:path ck:Substation.requestsInQueue ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The 75th percentile of demanding (in MW) at the substation.  This is a normalised value calculated using historic measured values during normal operating conditions.  The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path ck:Substation.demand75Percentile ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The firm capacity (in MW) for demand at the substation. Any constraints that impact this capacity should be listed as individual constraints linked to the substation." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path ck:Substation.demandFirmCapacity ],
+        [ sh:class ck:Generator ;
+            sh:description "The generators at the station covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual generators." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 31 ;
+            sh:path ck:Substation.Generators ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The 25th percentile of demanding (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 17 ;
+            sh:path ck:Substation.demand25Percentile ],
         [ sh:datatype unit:MegaW ;
             sh:description "The total firm generation capacity (in MW) of the substation.  Any constraints that impact this capacity should be listed as individual constraints linked to the substation. The approach used to calculate this value should be defined in accompanying documentation." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 19 ;
+            sh:order 20 ;
             sh:path ck:Substation.generationFirmCapacity ],
         [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all demand (in MW) currently quoted at the substation excluding contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandQuotedCapacity must be greater than or equal to the sum of the demandQuotedCapacity values in the demand and Storage elements." ;
+            sh:description "The available reverse capacity (in MW) for the substation from lower to higher voltage levels." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 28 ;
+            sh:path ck:Substation.reversePowerFlowAvailableCapacity ],
+        [ sh:class ck:Geometry ;
+            sh:description "The geometry of the substation." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path ck:Substation.Geometry ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The reverse capacity (in MW) for the substation from lower to higher voltage levels. 0 if there are no reverse powerflow capabilities." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 27 ;
+            sh:path ck:Substation.reversePowerFlowTotalCapacity ],
+        [ sh:class ck:Storage ;
+            sh:description "The storage devices at the station covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual storage devices." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 32 ;
+            sh:path ck:Substation.Storage ],
+        [ sh:description "The type of the substation." ;
+            sh:in ( ck:SubstationKind.Onderstation ck:SubstationKind.Middenspanningsruimte ck:SubstationKind.Laagspanningskast ck:SubstationKind.Regelstation ck:SubstationKind.Schakelstation ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path ck:Substation.type ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "Available generation capacity (in MW) at the substation. This value is calculated based on total firm generation, capacity, demand, connected capacity, contracted capacity, and any other constraints on the network." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 24 ;
+            sh:path ck:Substation.generationAvailableCapacity ],
+        [ sh:datatype xsd:string ;
+            sh:description "Short code name for substation (alphanumeric, uppercase letters only)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ck:Substation.shortCode ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "Sum of all demand (in MW) currently connected at the substation. This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandConnectedCapacity must be greater than or equal to the sum of the demandConnectedCapacity values in the demand and Storage elements." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 9 ;
-            sh:path ck:Substation.demandQuotedCapacity ],
-        [ sh:description "A RAG definition of the demand constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation" ;
+            sh:path ck:Substation.demandConnectedCapacity ],
+        [ sh:description "A RAG definition of the demand constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation." ;
             sh:in ( ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Green ) ;
             sh:maxCount 1 ;
-            sh:order 24 ;
-            sh:path ck:Substation.generationConstraint ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 36 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:class cim:Work ;
-            sh:description "All the works performed for this substation." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 28 ;
-            sh:path cim:Substation.Works ],
-        [ sh:class ck:Constraint ;
-            sh:description "An additional constraint on the Substation." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 32 ;
-            sh:path ck:Substation.OtherConstraints ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The 25th percentile of demanding (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path ck:Substation.demand25Percentile ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all generation (in MW) currently contracted at the substation which is not yet connected (i.e. do not include any generation that is included in generationConnectedCapacity). This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationContractedCapacity must be greater than or equal to the sum of the generationContractedCapacity values in the Generator and Storage elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 21 ;
-            sh:path ck:Substation.generationContractedCapacity ] ;
+            sh:minCount 1 ;
+            sh:order 18 ;
+            sh:path ck:Substation.demandConstraint ] ;
     sh:targetClass cim:Substation .
 
 ck:Coordinate a sh:NodeShape ;
@@ -1051,21 +1038,7 @@ ck:Demand a sh:NodeShape ;
     sh:closed true ;
     sh:description "Represents an individual or aggregated demand at the substation. This may represent the aggregation of all generation at a voltage level or individual connected/contracted/quoted demand." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:description "True if the demand represents an aggregation of multiple demands all connected at a single voltage level." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cim:Equipment.aggregate ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The currently connected demand capacity (in MW)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path ck:Demand.demandConnectedCapacity ],
-        [ sh:datatype unit:KiloV ;
+    sh:property [ sh:datatype unit:KiloV ;
             sh:description "The voltage the demand (in kV) is connected at." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -1073,80 +1046,56 @@ ck:Demand a sh:NodeShape ;
             sh:order 3 ;
             sh:path ck:Demand.voltage ],
         [ sh:datatype unit:MegaW ;
-            sh:description "The currently active quoted demand capacity (in MW) excluding contracted and connected (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant)." ;
+            sh:description "The currently connected demand capacity (in MW)." ;
             sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ck:Demand.demandQuotedCapacity ],
+            sh:order 1 ;
+            sh:path ck:Demand.demandConnectedCapacity ],
         [ sh:datatype xsd:string ;
             sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 7 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path cim:IdentifiedObject.description ],
         [ sh:datatype unit:MegaW ;
             sh:description "The currently contracted demand capacity (in MW) which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path ck:Demand.demandContractedCapacity ] ;
+            sh:path ck:Demand.demandContractedCapacity ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The currently active quoted demand capacity (in MW) excluding contracted and connected (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ck:Demand.demandQuotedCapacity ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "True if the demand represents an aggregation of multiple demands all connected at a single voltage level." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:Equipment.aggregate ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path cim:IdentifiedObject.description ] ;
     sh:targetClass ck:Demand .
 
 ck:Generator a sh:NodeShape ;
     sh:closed true ;
     sh:description "Represents an individual or aggregated generator at the substation. This may represent the aggregation of all generation at a voltage level or individual connected/contracted/quoted generators." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:description "True if the demand represents an aggregation of multiple demands all connected at a single voltage level." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path cim:Equipment.aggregate ],
-        [ sh:datatype unit:KiloV ;
-            sh:description "The voltage the generator (in kV) is connected at." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path ck:Generator.voltage ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The currently connected generation capacity (in MW)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path ck:Generator.generationConnectedCapacity ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 8 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The currently active quoted generation capacity (in MW) above contracted (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ck:Generator.generationQuotedCapacity ],
-        [ sh:datatype unit:MegaW ;
+    sh:property [ sh:datatype unit:MegaW ;
             sh:description "The currently contracted generation capacity (in MW) excluding any that are already contracted or connected (i.e. do not include any generation that is included in generationConnectedCapacity)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -1154,87 +1103,91 @@ ck:Generator a sh:NodeShape ;
             sh:order 1 ;
             sh:path ck:Generator.generationContractedCapacity ],
         [ sh:datatype xsd:string ;
-            sh:description "The technology the connected generation e.g. CHP, Wind, PV, Battery." ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path ck:Generator.technologyType ],
+            sh:order 6 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The currently connected generation capacity (in MW)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ck:Generator.generationConnectedCapacity ],
         [ sh:datatype xsd:string ;
             sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
-            sh:path cim:IdentifiedObject.mRID ] ;
-    sh:targetClass ck:Generator .
-
-ck:Storage a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "Represents an individual or aggregated storage at the substation. This may represent the aggregation of all storage at a voltage level or individual connected/contracted/quoted storage." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype unit:KiloV ;
-            sh:description "The voltage the storage (in kV) is connected at." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path ck:Storage.voltage ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 11 ;
-            sh:path cim:IdentifiedObject.Names ],
+            sh:path cim:IdentifiedObject.mRID ],
         [ sh:datatype xsd:boolean ;
             sh:description "True if the demand represents an aggregation of multiple demands all connected at a single voltage level." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 8 ;
+            sh:order 5 ;
             sh:path cim:Equipment.aggregate ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The currently connected demand capacity (in MW)." ;
+        [ sh:datatype xsd:string ;
+            sh:description "The technology the connected generation e.g. CHP, Wind, PV, Battery." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ck:Generator.technologyType ],
+        [ sh:datatype unit:KiloV ;
+            sh:description "The voltage the generator (in kV) is connected at." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path ck:Storage.demandConnectedCapacity ],
-        [ sh:datatype xsd:string ;
-            sh:description "The technology of the connected generation e.g. PumpStorage, Battery." ;
+            sh:order 3 ;
+            sh:path ck:Generator.voltage ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 8 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The currently active quoted generation capacity (in MW) above contracted (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path ck:Storage.technologyType ],
-        [ sh:datatype xsd:string ;
+            sh:order 2 ;
+            sh:path ck:Generator.generationQuotedCapacity ] ;
+    sh:targetClass ck:Generator .
+
+ck:Geometry a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "The geometry of the line, this will be one or more Lines i.e. series of ordered coordinates. Multiple Lines allowed to allow for radial geometries. It is likely that this will be rendered as a GeoJSON geometry in that format." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "The geometry type (LineString, MultiLineString or Polygon)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ck:Geometry.type ],
+        [ sh:class ck:Line ;
+            sh:description "The Line elements." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path ck:Geometry.Lines ] ;
+    sh:targetClass ck:Geometry .
+
+ck:Storage a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Represents an individual or aggregated storage at the substation. This may represent the aggregation of all storage at a voltage level or individual connected/contracted/quoted storage." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 9 ;
             sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The currently active quoted generation capacity (in MW) above contracted (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path ck:Storage.generationQuotedCapacity ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The currently contracted demand capacity (in MW) which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path ck:Storage.demandContractedCapacity ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The currently contracted generation capacity (in MW) excluding any that are already contracted or connected (i.e. do not include any generation that is included in generationConnectedCapacity)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path ck:Storage.generationContractedCapacity ],
-        [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 11 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype unit:MegaW ;
             sh:description "The currently active quoted demand capacity (in MW) excluding contracted and connected (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant)." ;
             sh:maxCount 1 ;
@@ -1242,12 +1195,65 @@ ck:Storage a sh:NodeShape ;
             sh:order 2 ;
             sh:path ck:Storage.demandQuotedCapacity ],
         [ sh:datatype unit:MegaW ;
+            sh:description "The currently contracted demand capacity (in MW) which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ck:Storage.demandContractedCapacity ],
+        [ sh:datatype unit:KiloV ;
+            sh:description "The voltage the storage (in kV) is connected at." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path ck:Storage.voltage ],
+        [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description "The technology of the connected generation e.g. PumpStorage, Battery." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path ck:Storage.technologyType ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The currently connected demand capacity (in MW)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ck:Storage.demandConnectedCapacity ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The currently contracted generation capacity (in MW) excluding any that are already contracted or connected (i.e. do not include any generation that is included in generationConnectedCapacity)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ck:Storage.generationContractedCapacity ],
+        [ sh:datatype unit:MegaW ;
             sh:description "The currently connected generation capacity (in MW)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path ck:Storage.generationConnectedCapacity ] ;
+            sh:path ck:Storage.generationConnectedCapacity ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The currently active quoted generation capacity (in MW) above contracted (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ck:Storage.generationQuotedCapacity ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "True if the demand represents an aggregation of multiple demands all connected at a single voltage level." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path cim:Equipment.aggregate ] ;
     sh:targetClass ck:Storage .
 
 cim:DateTimeInterval a sh:NodeShape ;
@@ -1255,45 +1261,26 @@ cim:DateTimeInterval a sh:NodeShape ;
     sh:description "Interval between two date and time points, where the interval includes the start time but excludes end time." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:date ;
-            sh:description "Start date and time of this interval.  The start date and time is included in the defined interval." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:DateTimeInterval.start ],
-        [ sh:datatype xsd:date ;
             sh:description "End date and time of this interval. The end date and time where the interval is defined up to, but excluded." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path cim:DateTimeInterval.end ] ;
+            sh:path cim:DateTimeInterval.end ],
+        [ sh:datatype xsd:date ;
+            sh:description "Start date and time of this interval.  The start date and time is included in the defined interval." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:DateTimeInterval.start ] ;
     sh:targetClass cim:DateTimeInterval .
 
 cim:WorkTimeSchedule a sh:NodeShape ;
     sh:closed true ;
     sh:description "Time schedule specific to work." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:DateTimeInterval ;
-            sh:description "Schedule date and time interval." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 1 ;
-            sh:path cim:TimeSchedule.scheduleInterval ],
-        [ sh:datatype xsd:string ;
-            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:Document.type ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -1309,7 +1296,26 @@ cim:WorkTimeSchedule a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
-            sh:path cim:WorkTimeSchedule.kind ] ;
+            sh:path cim:WorkTimeSchedule.kind ],
+        [ sh:datatype xsd:string ;
+            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:Document.type ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:DateTimeInterval ;
+            sh:description "Schedule date and time interval." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path cim:TimeSchedule.scheduleInterval ] ;
     sh:targetClass cim:WorkTimeSchedule .
 
 ck:Constraint a sh:NodeShape ;
@@ -1336,12 +1342,42 @@ cim:Work a sh:NodeShape ;
     sh:closed true ;
     sh:description "Document used to request, initiate, track and record work." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:WorkTimeSchedule ;
+    sh:property [ sh:description "Kind of work status." ;
+            sh:in ( cim:WorkStatusKind.approved cim:WorkStatusKind.cancelled cim:WorkStatusKind.closed cim:WorkStatusKind.completed cim:WorkStatusKind.dispatched cim:WorkStatusKind.enroute cim:WorkStatusKind.inProgress cim:WorkStatusKind.onSite cim:WorkStatusKind.scheduled cim:WorkStatusKind.waitingOnApproval cim:WorkStatusKind.waitingOnMaterial cim:WorkStatusKind.waitingToBeScheduled ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path cim:BaseWork.statusKind ],
+        [ sh:class cim:WorkTimeSchedule ;
             sh:description "All time schedules for this work or work task." ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path cim:BaseWork.TimeSchedules ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype xsd:string ;
+            sh:description "Work order number (or other unique identifying information) for this work." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:Work.workOrderNumber ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:date ;
+            sh:description """Date and time work was requested.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:Work.requestDateTime ],
         [ sh:datatype xsd:string ;
             sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
             sh:maxCount 1 ;
@@ -1353,37 +1389,7 @@ cim:Work a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
-            sh:path cim:Document.type ],
-        [ sh:description "Kind of work status." ;
-            sh:in ( cim:WorkStatusKind.approved cim:WorkStatusKind.cancelled cim:WorkStatusKind.closed cim:WorkStatusKind.completed cim:WorkStatusKind.dispatched cim:WorkStatusKind.enroute cim:WorkStatusKind.inProgress cim:WorkStatusKind.onSite cim:WorkStatusKind.scheduled cim:WorkStatusKind.waitingOnApproval cim:WorkStatusKind.waitingOnMaterial cim:WorkStatusKind.waitingToBeScheduled ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path cim:BaseWork.statusKind ],
-        [ sh:datatype xsd:string ;
-            sh:description "Work order number (or other unique identifying information) for this work." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:Work.workOrderNumber ],
-        [ sh:datatype xsd:date ;
-            sh:description """Date and time work was requested.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:Work.requestDateTime ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 7 ;
-            sh:path cim:IdentifiedObject.Names ] ;
+            sh:path cim:Document.type ] ;
     sh:targetClass cim:Work .
 
 cim:Name a sh:NodeShape ;
