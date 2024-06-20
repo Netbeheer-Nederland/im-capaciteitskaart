@@ -322,58 +322,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../PowerSystemResource/">PowerSystemResource</a></td>
-<td>A power system resource (PSR) can be an item of equipment such as a switch, a...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Substation/">Substation</a></td>
-<td>A Substation with connect demand, generation or storage</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Curtailment/">Curtailment</a></td>
-<td>Curtailment of demand or generation capacity at the substation with optional ...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Work/">Work</a></td>
-<td>Document used to request, initiate, track and record work</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Circuit/">Circuit</a></td>
-<td>A circuit representing a connection between substations</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Constraint/">Constraint</a></td>
-<td>An additional constraint/restriction on the Substation or Circuit</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../PostcodeArea/">PostcodeArea</a></td>
-<td>A geographic region that is defined by the initial letters or digits of a pos...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../WorkTimeSchedule/">WorkTimeSchedule</a></td>
-<td>Time schedule specific to work</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Generator/">Generator</a></td>
-<td>Represents an individual or aggregated generator at the substation</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../Demand/">Demand</a></td>
 <td>Represents an individual or aggregated demand at the substation</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../BaseWork/">BaseWork</a></td>
-<td>Common representation for work and work tasks</td>
+<td><a href="../EquipmentContainer/">EquipmentContainer</a></td>
+<td>A modelling construct to provide a root class for containing equipment</td>
 <td>no</td>
 </tr>
 <tr>
@@ -382,8 +337,8 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
-<td>This is a root class to provide common identification for all classes needing...</td>
+<td><a href="../TimeSchedule/">TimeSchedule</a></td>
+<td>Description of anything that changes through time</td>
 <td>no</td>
 </tr>
 <tr>
@@ -392,8 +347,38 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../TimeSchedule/">TimeSchedule</a></td>
-<td>Description of anything that changes through time</td>
+<td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
+<td>This is a root class to provide common identification for all classes needing...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../WorkTimeSchedule/">WorkTimeSchedule</a></td>
+<td>Time schedule specific to work</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Work/">Work</a></td>
+<td>Document used to request, initiate, track and record work</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../ConductingEquipment/">ConductingEquipment</a></td>
+<td>The parts of the AC power system that are designed to carry current or that a...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../ConnectivityNodeContainer/">ConnectivityNodeContainer</a></td>
+<td>A base class for all objects that may contain connectivity nodes or topologic...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Generator/">Generator</a></td>
+<td>Represents an individual or aggregated generator at the substation</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Circuit/">Circuit</a></td>
+<td>A circuit representing a connection between substations</td>
 <td>no</td>
 </tr>
 <tr>
@@ -402,13 +387,8 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../HeatmapDataSet/">HeatmapDataSet</a></td>
-<td>A single instance of a published dataset</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ConductingEquipment/">ConductingEquipment</a></td>
-<td>The parts of the AC power system that are designed to carry current or that a...</td>
+<td><a href="../Curtailment/">Curtailment</a></td>
+<td>Curtailment of demand or generation capacity at the substation with optional ...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -422,13 +402,33 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../ConnectivityNodeContainer/">ConnectivityNodeContainer</a></td>
-<td>A base class for all objects that may contain connectivity nodes or topologic...</td>
+<td><a href="../PowerSystemResource/">PowerSystemResource</a></td>
+<td>A power system resource (PSR) can be an item of equipment such as a switch, a...</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../EquipmentContainer/">EquipmentContainer</a></td>
-<td>A modelling construct to provide a root class for containing equipment</td>
+<td><a href="../HeatmapDataSet/">HeatmapDataSet</a></td>
+<td>A single instance of a published dataset</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../PostcodeArea/">PostcodeArea</a></td>
+<td>A geographic region that is defined by the initial letters or digits of a pos...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Constraint/">Constraint</a></td>
+<td>An additional constraint/restriction on the Substation or Circuit</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../BaseWork/">BaseWork</a></td>
+<td>Common representation for work and work tasks</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Substation/">Substation</a></td>
+<td>A Substation with connect demand, generation or storage</td>
 <td>no</td>
 </tr>
 </tbody>
