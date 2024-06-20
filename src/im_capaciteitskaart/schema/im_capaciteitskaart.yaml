@@ -245,8 +245,10 @@ classes:
   Substation:
     description: A Substation with connect demand, generation or storage.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    narrow_mappings:
+    - nbnl:Voedingsgebied
     broad_mappings:
-    - nbnl:Netstation
+    - nbnl:Station
     is_a: EquipmentContainer
     attributes:
       type:
@@ -842,185 +844,11 @@ classes:
           i.e. "1234ab".
         slot_uri: ck:PostcodeArea.postcode
         required: true
-      requests_in_queue:
-        description: Number of requests for new grid connections and capacity increases
-          in queue.
-        slot_uri: ck:PostcodeArea.requestsInQueue
-        range: integer
-        required: false
-      demand_firm_capacity:
-        description: The firm capacity (in MW) for demand at the postcode area. Any
-          constraints that impact this capacity should be listed as individual constraints
-          linked to the substation.
-        slot_uri: ck:PostcodeArea.demandFirmCapacity
-        range: MegaW
-        required: true
-      demand_contracted_capacity:
-        description: Sum of all demand (in MW) currently contracted at the postcode
-          area which is not yet connected (i.e. do not include any demand that is
-          included in demandConnectedCapacity). This includes individual demands and
-          storage that are explicitly defined and aggregate value of other connect
-          demands and storage. The value for demandContractedCapacity must be greater
-          than or equal to the sum of the demandContractedCapacity values in the Demand
-          and Storage elements.
-        slot_uri: ck:PostcodeArea.demandContractedCapacity
-        range: MegaW
-      demand_connected_capacity:
-        description: Sum of all demand (in MW) currently connected at the postcode
-          area. This includes individual demands and storage that are explicitly defined
-          and aggregate value of other connect demands and storage. The value for
-          demandConnectedCapacity must be greater than or equal to the sum of the
-          demandConnectedCapacity values in the Demand and Storage elements.
-        slot_uri: ck:PostcodeArea.demandConnectedCapacity
-        range: MegaW
-      demand_quoted_capacity:
-        description: Sum of all demand (in MW) currently quoted at the postcode area
-          excluding contracted and connected (i.e. does not include demandConnectedCapacity
-          or demandContractedCapacity). This includes individual demands and storage
-          that are explicitly defined and aggregate value of other connect demands
-          and storage. The value for demandQuotedCapacity must be greater than or
-          equal to the sum of the demandQuotedCapacity values in the demand and Storage
-          elements.
-        slot_uri: ck:PostcodeArea.demandQuotedCapacity
-        range: MegaW
-      demand_available_capacity:
-        description: The available demand capacity (in MW) at the postcode area. This
-          value is calculated based on total firm capacity, maximum demand, connected
-          capacity, quoted capacity, contracted capacity, and any other constraints
-          on the network. The value should reflect the capacity a network operator
-          would make available to a connecting party, which may be calculated for
-          the most onerous season, or a value based on more detailed analysis and
-          internal policies.
-        exact_mappings:
-        - nbnl:CapaciteitVoorNieuweTransportverzoeken
-        slot_uri: ck:PostcodeArea.demandAvailableCapacity
-        range: MegaW
-        required: true
-      demand_maximum:
-        description: The maximum demand (in MW) at the postcode area. This is a normalised
-          value calculated using historic measured values during normal operating
-          conditions. The data represents net demand without removing the impact of
-          any generation on observed demand at the substation, demand diversity factors,
-          and any other internal processing normally undertaken. All substations at
-          33kV and above must include demand data; for substations below 33kV, if
-          corrected, net demand data is not available, the value should be omitted.
-          Users wishing to see separate summer/winter peaks can obtain this from the
-          data.
-        narrow_mappings:
-        - nbnl:Transportlimiet
-        slot_uri: ck:PostcodeArea.demandMaximum
-        range: MegaW
-      demand_minimum:
-        description: The minimum demand (in MW) at the postcode area. This is a normalised
-          value calculated using historic measured values during normal operating
-          conditions. The data represents net demand corrected for any generation
-          at the substation, demand diversity factors, and any other internal processing
-          normally undertaken. All substations at 33kV and above must include demand
-          data; for substations below 33kV, if corrected, net demand data is not available,
-          the value should be omitted. Users wishing to see separate summer/winter
-          peaks can obtain this from the data.
-        slot_uri: ck:PostcodeArea.demandMinimum
-        range: MegaW
-      demand_constraint:
-        description: A RAG definition of the demand constraints at the postcode area.
-          A utility should provide details on how this RAG status is calculated as
-          part of the accompanying documentation.
-        slot_uri: ck:PostcodeArea.demandConstraint
-        range: RAGKind
-        required: true
-      demand_constraint_limiting_factor:
-        description: The limiting factor for demand constraints, either thermal, voltage
-          or fault level for the demandConstraint value.
-        slot_uri: ck:PostcodeArea.demandConstraintLimitingFactor
-        range: LimitingFactorKind
-        required: true
-      generation_firm_capacity:
-        description: The total firm generation capacity (in MW) of the postcode area.
-          Any constraints that impact this capacity should be listed as individual
-          constraints linked to the postcode area. The approach used to calculate
-          this value should be defined in accompanying documentation.
-        slot_uri: ck:PostcodeArea.generationFirmCapacity
-        range: MegaW
-        required: true
-      generation_connected_capacity:
-        description: Sum of all generation (in MW) currently connected at the postcode
-          area.  This includes individual generation and storage that are explicitly
-          defined and aggregate value of other connect generation and storage.  The
-          value forgenerationConnectedCapacity must be greater than or equal to the
-          sum of the generationConnectedCapacity values in the Generator and Storage
-          elements.
-        slot_uri: ck:PostcodeArea.generationConnectedCapacity
-        range: MegaW
-      generation_contracted_capacity:
-        description: Sum of all generation (in MW) currently contracted at the postcode
-          area which is not yet connected (i.e. do not include any generation that
-          is included in generationConnectedCapacity). This includes individual generation
-          and storage that are explicitly defined and aggregate value of other connect
-          generation and storage. The value for generationContractedCapacity must
-          be greater than or equal to the sum of the generationContractedCapacity
-          values in the Generator and Storage elements.
-        slot_uri: ck:PostcodeArea.generationContractedCapacity
-        range: MegaW
-      generation_quoted_capacity:
-        description: Sum of all currently quoted generation (in MW) at the postcode
-          area excluding any that are already contracted or connected. This includes
-          individual generation and storage that are explicitly defined and aggregate
-          value of other connect generation and storage. The value for generationQuotedCapacity
-          must be greater than or equal to the sum of the generationQuotedCapacity
-          values in the Generator and Storage elements.
-        slot_uri: ck:PostcodeArea.generationQuotedCapacity
-        range: MegaW
-      generation_available_capacity:
-        description: Available generation capacity (in MW) at the postcode area. This
-          value is calculated based on total firm generation, capacity, demand, connected
-          capacity, contracted capacity, and any other constraints on the network.
-        slot_uri: ck:PostcodeArea.generationAvailableCapacity
-        range: MegaW
-        required: true
-      generation_constraint:
-        description: A RAG definition of the demand constraints at the substation.
-          A utility should provide details on how this RAG status is calculated as
-          part of the accompanying documentation
-        slot_uri: ck:PostcodeArea.generationConstraint
-        range: RAGKind
-      generation_constraint_limiting_factor:
-        description: The limiting factor for generation constraints, either thermal
-          or fault level for the generationConstraint value.
-        slot_uri: ck:PostcodeArea.generationConstraintLimitingFactor
-        range: LimitingFactorKind
-        required: true
-      demands:
-        description: The demands at the postcode area covering connected, contracted
-          and quoted. This data is optional and may aggregated into the substation
-          attributes, but utilities may optionally provide details on individual demands.
-        slot_uri: ck:PostcodeArea.Demands
+      substations:
+        description: A list of substations associated with the PostcodeArea.
+        slot_uri: ck:PostcodeArea.substations
         multivalued: true
-        range: Demand
-      generators:
-        description: The generators at the postcode area covering connected, contracted
-          and quoted. This data is optional and may aggregated into the substation
-          attributes, but utilities may optionally provide details on individual generators.
-        slot_uri: ck:PostcodeArea.Generators
-        multivalued: true
-        range: Generator
-      storage:
-        description: The storage devices at the postcode area covering connected,
-          contracted and quoted. This data is optional and may aggregated into the
-          substation attributes, but utilities may optionally provide details on individual
-          storage devices.
-        slot_uri: ck:PostcodeArea.Storage
-        multivalued: true
-        range: Storage
-      other_constraints:
-        description: An additional constraint on the postcode area.
-        slot_uri: ck:PostcodeArea.OtherConstraints
-        multivalued: true
-        range: Constraint
-      works:
-        description: All the works performed for this postcode area.
-        slot_uri: cim:PostcodeArea.Works
-        multivalued: true
-        range: Work
+        range: Substation
     class_uri: ck:PostcodeArea
   Work:
     description: Document used to request, initiate, track and record work.
