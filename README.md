@@ -15,6 +15,15 @@ Informatiemodel voor de NBNL-capaciteitskaart.
     * [schema](src/im_capaciteitskaart/schema) -- LinkML schema
       (edit this)
 
+## Schema Generation
+
+Run the following commands before committing new versions:
+
+```
+$ make site
+$ gen-linkml-profile pydantic src/im_capaciteitskaart/schema/im_capaciteitskaart-full.yaml --out src/im_capaciteitskaart/schema/im_capaciteitskaart.yaml -a demand99Percentile demand_99_percentile -a demand75Percentile demand_75_percentile -a demand50Percentile demand_50_percentile -a demand25Percentile demand_25_percentile
+```
+
 ## Developer Documentation
 
 <details>
