@@ -1026,6 +1026,13 @@
                     },
                     "type": "array"
                 },
+                "postcode_areas": {
+                    "description": "Postcode Areas serviced by this Substation.",
+                    "items": {
+                        "$ref": "#/$defs/PostcodeArea"
+                    },
+                    "type": "array"
+                },
                 "requests_in_queue": {
                     "description": "Number of requests for new grid connections and capacity increases in queue.",
                     "type": "integer"

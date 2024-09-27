@@ -246,9 +246,9 @@ classes:
     description: A Substation with connect demand, generation or storage.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     narrow_mappings:
-    - nbnl:Voedingsgebied
+    - nbnl:voedingsgebied
     broad_mappings:
-    - nbnl:Station
+    - nbnl:station
     is_a: EquipmentContainer
     attributes:
       type:
@@ -519,6 +519,11 @@ classes:
         slot_uri: ck:Substation.Curtailments
         multivalued: true
         range: Curtailment
+      postcode_areas:
+        description: Postcode Areas serviced by this Substation.
+        slot_uri: ck:Substation.PostcodeAreas
+        multivalued: true
+        range: PostcodeArea
     class_uri: cim:Substation
   Circuit:
     description: A circuit representing a connection between substations. This could

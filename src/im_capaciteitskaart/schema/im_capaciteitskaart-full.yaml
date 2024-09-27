@@ -492,10 +492,16 @@ classes:
           Curtailments at the Substation.
         slot_uri: ck:Substation.Curtailments
         multivalued: true
+      PostcodeAreas:
+        range: PostcodeArea
+        description:
+          Postcode Areas serviced by this Substation.
+        slot_uri: ck:Substation.PostcodeAreas
+        multivalued: true
     broad_mappings:
-      - nbnl:Station
+      - nbnl:station
     narrow_mappings:
-      - nbnl:Voedingsgebied
+      - nbnl:voedingsgebied
     class_uri: cim:Substation
 
   Circuit:
