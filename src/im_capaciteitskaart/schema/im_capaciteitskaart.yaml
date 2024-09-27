@@ -32,7 +32,6 @@ prefixes:
   nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
   dcterms: http://purl.org/dc/terms/
   unit: http://qudt.org/vocab/unit/
-  schema: http://schema.org/
 default_curi_maps:
 - semweb_context
 default_prefix: ck
@@ -261,7 +260,7 @@ classes:
           the license for the system operator.
         narrow_mappings:
         - nbnl:Netbeheerder
-        slot_uri: schema:gtin13
+        slot_uri: ck:Substation.area
         required: true
       short_code:
         description: Short code name for substation (alphanumeric, uppercase letters
