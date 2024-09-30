@@ -20,7 +20,7 @@ description: "The capacity heatmaps information model was defined to cover a sup
   \    Name names\n}\n\nHeatmapDataSet --> Substation : substations\nSubstation -->\
   \ Work : works\nSubstation --> PostcodeArea : postcode_areas\n```\n\nThe data is\
   \ intended to be presented as a hierarchy with a\n[HeatmapDataSet](HeatmapDataSet.md)\
-  \ at its root, followed\n[Substations](Substation.md) nested inside the *HeatmapDataSet*.\n\
+  \ at its root, followed by\n[Substations](Substation.md) nested inside the *HeatmapDataSet*.\n\
   *Substations* then have their own child elements.\n\nThis information model is based\
   \ in part on the [LTDS Capacity Heatmap\nInformation\nModel](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),\n\
   which itself is published under the [Open Government\nLicense](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/),\n\

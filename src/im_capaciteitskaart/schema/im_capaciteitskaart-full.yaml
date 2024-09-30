@@ -70,7 +70,7 @@ description: |-
   ```
 
   The data is intended to be presented as a hierarchy with a
-  [HeatmapDataSet](HeatmapDataSet.md) at its root, followed
+  [HeatmapDataSet](HeatmapDataSet.md) at its root, followed by
   [Substations](Substation.md) nested inside the *HeatmapDataSet*.
   *Substations* then have their own child elements.
 
