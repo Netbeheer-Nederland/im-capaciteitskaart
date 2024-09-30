@@ -5,7 +5,7 @@
             "description": "Common representation for work and work tasks.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "m_rid": {
@@ -42,123 +42,6 @@
             "title": "BaseWork",
             "type": "object"
         },
-        "Circuit": {
-            "additionalProperties": false,
-            "description": "A circuit representing a connection between substations. This could be an HV circuit between stations or a circuit feeding multiple secondary stations from a primary. This data element is provided to support utilities that wish to share specfic or all circuits.",
-            "properties": {
-                "demand_25_percentile": {
-                    "description": "The 25th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
-                    "type": "integer"
-                },
-                "demand_50_percentile": {
-                    "description": "The 50th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
-                    "type": "integer"
-                },
-                "demand_75_percentile": {
-                    "description": "The 75th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
-                    "type": "integer"
-                },
-                "demand_99_percentile": {
-                    "description": "The 99th percentile of demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
-                    "type": "integer"
-                },
-                "demand_available_capacity": {
-                    "description": "The available demand (in MW) capacity on the circuit. This value is calculated based on the circuit rating, maximum demand, contracted capacity, and any other constraints on the network.",
-                    "type": "integer"
-                },
-                "demand_connected_capacity": {
-                    "description": "Sum of all demand (in MW) currently connected on the circuit.",
-                    "type": "integer"
-                },
-                "demand_constraint": {
-                    "$ref": "#/$defs/RAGKind",
-                    "description": "A RAG definition of the demand constraints on the circuit. A utility should provide details on how this RAG status is calculated."
-                },
-                "demand_contracted_capacity": {
-                    "description": "Sum of all demand (in MW) currently contracted on the circuit which are not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity).",
-                    "type": "integer"
-                },
-                "demand_maximum": {
-                    "description": "The maximum load (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
-                    "type": "integer"
-                },
-                "demand_minimum": {
-                    "description": "The minimum demand (in MW) on the circuit. This is a value calculated using historic measured values and would not necessarily be corrected for generation on the circuit and normal operating conditions.",
-                    "type": "integer"
-                },
-                "demand_quoted_capacity": {
-                    "description": "Sum of all demand (in MW) currently quoted on the circuit excluding contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity).",
-                    "type": "integer"
-                },
-                "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
-                    "type": "string"
-                },
-                "from_substation": {
-                    "description": "mRID of the Substation the Circuit is from (used where CIM data is being produced and the mRID attributes are populated for Substations). Where no CIM mRID is yet being produced, the name of the Substation should be used.",
-                    "type": "string"
-                },
-                "geometry": {
-                    "$ref": "#/$defs/Geometry",
-                    "description": "The geometry of the circuit"
-                },
-                "m_rid": {
-                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
-                    "type": "string"
-                },
-                "names": {
-                    "description": "All names of this identified object.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": "array"
-                },
-                "other_constraints": {
-                    "description": "An additional constraint on the Cicruit.",
-                    "items": {
-                        "$ref": "#/$defs/Constraint"
-                    },
-                    "type": "array"
-                },
-                "requests_in_queue": {
-                    "description": "Number of requests for new grid connections and capacity increases in queue.",
-                    "type": "integer"
-                },
-                "summer_rating": {
-                    "description": "Summer rating (in MW) for minimum rated section in the circuit (i.e. limiting series element).",
-                    "type": "integer"
-                },
-                "to_substation": {
-                    "description": "mRID of the Substations the Circuit is to (optional if LV circuits are shown but no LV/Secondary substations). Where CIM data is being produced the identifiers attributes reflect the mRID of the Substations. Where no CIM mRID is yet being produced, the names of the Substations should be used.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "voltage": {
-                    "description": "Voltage (in kV) of the circuit.",
-                    "type": "integer"
-                },
-                "winter_rating": {
-                    "description": "Winter rating (in MW) for minimum rated section in the circuit (i.e. limiting series element).",
-                    "type": "integer"
-                },
-                "works": {
-                    "description": "All the works performed for this circuit.",
-                    "items": {
-                        "$ref": "#/$defs/Work"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "voltage",
-                "demand_constraint",
-                "demand_available_capacity"
-            ],
-            "title": "Circuit",
-            "type": "object"
-        },
         "ConductingEquipment": {
             "additionalProperties": false,
             "description": "The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.",
@@ -168,7 +51,7 @@
                     "type": "boolean"
                 },
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "m_rid": {
@@ -194,7 +77,7 @@
             "description": "A base class for all objects that may contain connectivity nodes or topological nodes.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "m_rid": {
@@ -211,102 +94,6 @@
             },
             "title": "ConnectivityNodeContainer",
             "type": "object"
-        },
-        "Constraint": {
-            "additionalProperties": false,
-            "description": "An additional constraint/restriction on the Substation or Circuit. This is intended for non-numeric constraints e.g. to denote physical restrictions on reinforcement.",
-            "properties": {
-                "description": {
-                    "description": "Free text for any additional descriptive data about the constraint.",
-                    "type": "string"
-                },
-                "type": {
-                    "description": "The type of constraint (enumerated field to allow for easier processing/identification). Limited to Voltage, Physical or Other.",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "description",
-                "type"
-            ],
-            "title": "Constraint",
-            "type": "object"
-        },
-        "Coordinate": {
-            "additionalProperties": false,
-            "description": "A coordinate of latitude/longitude.",
-            "properties": {
-                "latitude": {
-                    "description": "The latitude value of the coordinate as a single latitude/longitude point. For a GeoJSON Heatmap format this data will be part of the LineString geometry.",
-                    "type": "number"
-                },
-                "longitude": {
-                    "description": "The longitude value of the coordinate as a single latitude/longitude point. For a GeoJSON Heatmap format this data will be part of the LineString geometry.",
-                    "type": "number"
-                }
-            },
-            "required": [
-                "longitude",
-                "latitude"
-            ],
-            "title": "Coordinate",
-            "type": "object"
-        },
-        "Curtailment": {
-            "additionalProperties": false,
-            "description": "Curtailment of demand or generation capacity at the substation with optional day/time and season parameters.",
-            "properties": {
-                "curtailed_by": {
-                    "description": "The amount the demand/generation capacity (in MW) is curtailed by.",
-                    "type": "integer"
-                },
-                "day_type": {
-                    "$ref": "#/$defs/DayKind",
-                    "description": "The type of day the curtailment applies during (weekday or weekend)."
-                },
-                "description": {
-                    "description": "Free text for any additional descriptive data about the curtailment.",
-                    "type": "string"
-                },
-                "end_time": {
-                    "description": "The end time of a curtailment (exclusive).",
-                    "format": "time",
-                    "type": "string"
-                },
-                "season": {
-                    "$ref": "#/$defs/SeasonKind",
-                    "description": "The season this curtailment applies during."
-                },
-                "start_time": {
-                    "description": "The start time of a curtailment (inclusive).",
-                    "format": "time",
-                    "type": "string"
-                },
-                "technology_type": {
-                    "description": "The technology the curtailment applies to e.g. for generation CHP, Wind, PV, Battery.",
-                    "type": "string"
-                },
-                "type": {
-                    "$ref": "#/$defs/CurtailmentKind",
-                    "description": "The type of curtailment (enumerated field to allow for easier processing/identification)."
-                }
-            },
-            "required": [
-                "description",
-                "type",
-                "curtailed_by"
-            ],
-            "title": "Curtailment",
-            "type": "object"
-        },
-        "CurtailmentKind": {
-            "description": "The type of curtailment.",
-            "enum": [
-                "demand",
-                "generation"
-            ],
-            "title": "CurtailmentKind",
-            "type": "string"
         },
         "DateTimeInterval": {
             "additionalProperties": false,
@@ -330,70 +117,12 @@
             "title": "DateTimeInterval",
             "type": "object"
         },
-        "DayKind": {
-            "description": "The type of day the curtailment applies during (weekday or weekend).",
-            "enum": [
-                "weekday",
-                "weekend"
-            ],
-            "title": "DayKind",
-            "type": "string"
-        },
-        "Demand": {
-            "additionalProperties": false,
-            "description": "Represents an individual or aggregated demand at the substation. This may represent the aggregation of all generation at a voltage level or individual connected/contracted/quoted demand.",
-            "properties": {
-                "aggregate": {
-                    "description": "True if the demand represents an aggregation of multiple demands all connected at a single voltage level.",
-                    "type": "boolean"
-                },
-                "demand_connected_capacity": {
-                    "description": "The currently connected demand capacity (in MW).",
-                    "type": "integer"
-                },
-                "demand_contracted_capacity": {
-                    "description": "The currently contracted demand capacity (in MW) which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity).",
-                    "type": "integer"
-                },
-                "demand_quoted_capacity": {
-                    "description": "The currently active quoted demand capacity (in MW) excluding contracted and connected (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant).",
-                    "type": "integer"
-                },
-                "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
-                    "type": "string"
-                },
-                "m_rid": {
-                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
-                    "type": "string"
-                },
-                "names": {
-                    "description": "All names of this identified object.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": "array"
-                },
-                "voltage": {
-                    "description": "The voltage the demand (in kV) is connected at.",
-                    "type": "integer"
-                }
-            },
-            "required": [
-                "demand_contracted_capacity",
-                "demand_connected_capacity",
-                "voltage",
-                "aggregate"
-            ],
-            "title": "Demand",
-            "type": "object"
-        },
         "Document": {
             "additionalProperties": false,
             "description": "Parent class for different groupings of information collected and managed as a part of a business process. It will frequently contain references to other objects, such as assets, people and power system resources.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "m_rid": {
@@ -424,7 +153,7 @@
                     "type": "boolean"
                 },
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "m_rid": {
@@ -450,7 +179,7 @@
             "description": "A modelling construct to provide a root class for containing equipment.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "m_rid": {
@@ -468,93 +197,10 @@
             "title": "EquipmentContainer",
             "type": "object"
         },
-        "Generator": {
-            "additionalProperties": false,
-            "description": "Represents an individual or aggregated generator at the substation. This may represent the aggregation of all generation at a voltage level or individual connected/contracted/quoted generators.",
-            "properties": {
-                "aggregate": {
-                    "description": "True if the demand represents an aggregation of multiple demands all connected at a single voltage level.",
-                    "type": "boolean"
-                },
-                "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
-                    "type": "string"
-                },
-                "generation_connected_capacity": {
-                    "description": "The currently connected generation capacity (in MW).",
-                    "type": "integer"
-                },
-                "generation_contracted_capacity": {
-                    "description": "The currently contracted generation capacity (in MW) excluding any that are already contracted or connected (i.e. do not include any generation that is included in generationConnectedCapacity).",
-                    "type": "integer"
-                },
-                "generation_quoted_capacity": {
-                    "description": "The currently active quoted generation capacity (in MW) above contracted (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant).",
-                    "type": "integer"
-                },
-                "m_rid": {
-                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
-                    "type": "string"
-                },
-                "names": {
-                    "description": "All names of this identified object.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": "array"
-                },
-                "technology_type": {
-                    "description": "The technology the connected generation e.g. CHP, Wind, PV, Battery.",
-                    "type": "string"
-                },
-                "voltage": {
-                    "description": "The voltage the generator (in kV) is connected at.",
-                    "type": "integer"
-                }
-            },
-            "required": [
-                "generation_connected_capacity",
-                "generation_contracted_capacity",
-                "voltage",
-                "aggregate"
-            ],
-            "title": "Generator",
-            "type": "object"
-        },
-        "Geometry": {
-            "additionalProperties": false,
-            "description": "The geometry of the line, this will be one or more Lines i.e. series of ordered coordinates. Multiple Lines allowed to allow for radial geometries. It is likely that this will be rendered as a GeoJSON geometry in that format.",
-            "properties": {
-                "lines": {
-                    "description": "The Line elements.",
-                    "items": {
-                        "$ref": "#/$defs/Line"
-                    },
-                    "type": "array"
-                },
-                "type": {
-                    "description": "The geometry type (LineString, MultiLineString or Polygon).",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "lines"
-            ],
-            "title": "Geometry",
-            "type": "object"
-        },
         "HeatmapDataSet": {
             "additionalProperties": false,
             "description": "A single instance of a published dataset. The descriptions of these fields are taken from the Dublin Core Standard.",
             "properties": {
-                "circuits": {
-                    "description": "A list of circuits with heatmap data.",
-                    "items": {
-                        "$ref": "#/$defs/Circuit"
-                    },
-                    "type": "array"
-                },
                 "conforms_to": {
                     "description": "ID for the schema used to create the instance data.",
                     "type": "string"
@@ -596,13 +242,6 @@
                 "language": {
                     "description": "A language of the resource.",
                     "type": "string"
-                },
-                "postcode_areas": {
-                    "description": "Postcode Areas associated with the heatmap data.",
-                    "items": {
-                        "$ref": "#/$defs/PostcodeArea"
-                    },
-                    "type": "array"
                 },
                 "publisher": {
                     "description": "An entity responsible for making the resource available.",
@@ -652,7 +291,7 @@
             "description": "This is a root class to provide common identification for all classes needing identification and naming attributes.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "m_rid": {
@@ -668,32 +307,6 @@
                 }
             },
             "title": "IdentifiedObject",
-            "type": "object"
-        },
-        "LimitingFactorKind": {
-            "description": "The limiting factor for demand/generation constraints.",
-            "enum": [
-                "thermal",
-                "voltage",
-                "fault_level"
-            ],
-            "title": "LimitingFactorKind",
-            "type": "string"
-        },
-        "Line": {
-            "additionalProperties": false,
-            "description": "A series of coordinates.",
-            "properties": {
-                "coordinates": {
-                    "description": "Two (2) or more coordinates for a line.",
-                    "items": {
-                        "$ref": "#/$defs/Coordinate"
-                    },
-                    "minItems": 2,
-                    "type": "array"
-                }
-            },
-            "title": "Line",
             "type": "object"
         },
         "Name": {
@@ -744,7 +357,7 @@
             "description": "A geographic region that is defined by the initial letters or digits of a postcode.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "m_rid": {
@@ -759,15 +372,8 @@
                     "type": "array"
                 },
                 "postcode": {
-                    "description": "Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, lowercase. No spaces between the numbers and letters, i.e. \"1234ab\".",
+                    "description": "Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, uppercase. No spaces between the numbers and letters, i.e. \"1234AB\".",
                     "type": "string"
-                },
-                "substations": {
-                    "description": "A list of substations associated with the PostcodeArea.",
-                    "items": {
-                        "$ref": "#/$defs/Substation"
-                    },
-                    "type": "array"
                 }
             },
             "required": [
@@ -781,7 +387,7 @@
             "description": "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area.  Power system resources can have measurements associated.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "m_rid": {
@@ -802,6 +408,7 @@
         "RAGKind": {
             "description": "Traffic light colors coding scheme for categorising status.",
             "enum": [
+                "transparant",
                 "red",
                 "amber",
                 "green"
@@ -809,204 +416,53 @@
             "title": "RAGKind",
             "type": "string"
         },
-        "SeasonKind": {
-            "description": "The season this curtailment applies during.",
-            "enum": [
-                "spring",
-                "summer",
-                "autumn",
-                "winter"
-            ],
-            "title": "SeasonKind",
-            "type": "string"
-        },
-        "Storage": {
-            "additionalProperties": false,
-            "description": "Represents an individual or aggregated storage at the substation. This may represent the aggregation of all storage at a voltage level or individual connected/contracted/quoted storage.",
-            "properties": {
-                "aggregate": {
-                    "description": "True if the demand represents an aggregation of multiple demands all connected at a single voltage level.",
-                    "type": "boolean"
-                },
-                "demand_connected_capacity": {
-                    "description": "The currently connected demand capacity (in MW).",
-                    "type": "integer"
-                },
-                "demand_contracted_capacity": {
-                    "description": "The currently contracted demand capacity (in MW) which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity).",
-                    "type": "integer"
-                },
-                "demand_quoted_capacity": {
-                    "description": "The currently active quoted demand capacity (in MW) excluding contracted and connected (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant).",
-                    "type": "integer"
-                },
-                "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
-                    "type": "string"
-                },
-                "generation_connected_capacity": {
-                    "description": "The currently connected generation capacity (in MW).",
-                    "type": "integer"
-                },
-                "generation_contracted_capacity": {
-                    "description": "The currently contracted generation capacity (in MW) excluding any that are already contracted or connected (i.e. do not include any generation that is included in generationConnectedCapacity).",
-                    "type": "integer"
-                },
-                "generation_quoted_capacity": {
-                    "description": "The currently active quoted generation capacity (in MW) above contracted (this is optional as connected/contracted generation may not have records of quotes and after a value is contracted this value is no longer relevant).",
-                    "type": "integer"
-                },
-                "m_rid": {
-                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
-                    "type": "string"
-                },
-                "names": {
-                    "description": "All names of this identified object.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": "array"
-                },
-                "technology_type": {
-                    "description": "The technology of the connected generation e.g. PumpStorage, Battery.",
-                    "type": "string"
-                },
-                "voltage": {
-                    "description": "The voltage the storage (in kV) is connected at.",
-                    "type": "integer"
-                }
-            },
-            "required": [
-                "demand_contracted_capacity",
-                "demand_connected_capacity",
-                "generation_connected_capacity",
-                "generation_contracted_capacity",
-                "voltage",
-                "aggregate"
-            ],
-            "title": "Storage",
-            "type": "object"
-        },
         "Substation": {
             "additionalProperties": false,
-            "description": "A Substation with connect demand, generation or storage.",
+            "description": "A Substation with connect demand and generation.",
             "properties": {
-                "area": {
-                    "description": "The name of the license area. This should be the EAN used in the license for the system operator.",
-                    "type": "string"
-                },
-                "coordinates": {
-                    "$ref": "#/$defs/Coordinate",
-                    "description": "The longitude/latitude value of the substation as a single latitude/longitude point. For a GeoJSON Heatmap format this data will be part of the feature itself allowing for more complex geometry."
-                },
-                "curtailments": {
-                    "description": "Curtailments at the Substation.",
-                    "items": {
-                        "$ref": "#/$defs/Curtailment"
-                    },
-                    "type": "array"
-                },
-                "demand_25_percentile": {
-                    "description": "The 25th percentile of demanding (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
-                    "type": "integer"
-                },
-                "demand_50_percentile": {
-                    "description": "The 50th percentile of demanding (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
-                    "type": "integer"
-                },
-                "demand_75_percentile": {
-                    "description": "The 75th percentile of demanding (in MW) at the substation.  This is a normalised value calculated using historic measured values during normal operating conditions.  The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
-                    "type": "integer"
-                },
-                "demand_99_percentile": {
-                    "description": "The 99th percentile of demanding (in MW) at the substation.  This is a normalised value calculated using historic measured values during normal operating conditions.  The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 50kV and above must include demand data; for substations below 50kV, if corrected, net demand data is not available, the value should be omitted.",
-                    "type": "integer"
-                },
                 "demand_available_capacity": {
-                    "description": "The available demand capacity (in MW) at the substation. This value is calculated based on total firm capacity, maximum demand, connected capacity, quoted capacity, contracted capacity, and any other constraints on the network. The value should reflect the capacity a network operator would make available to a connecting party, which may be calculated for the most onerous season, or a value based on more detailed analysis and internal policies.",
+                    "description": "The available demand capacity (in MW) at the substation. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation.",
                     "type": "integer"
                 },
-                "demand_connected_capacity": {
-                    "description": "Sum of all demand (in MW) currently connected at the substation. This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandConnectedCapacity must be greater than or equal to the sum of the demandConnectedCapacity values in the demand and Storage elements.",
+                "demand_capacity_in_queue": {
+                    "description": "The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation.",
                     "type": "integer"
                 },
                 "demand_constraint": {
                     "$ref": "#/$defs/RAGKind",
-                    "description": "A RAG definition of the demand constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation."
-                },
-                "demand_constraint_limiting_factor": {
-                    "$ref": "#/$defs/LimitingFactorKind",
-                    "description": "The limiting factor for demand constraints, either thermal, voltage or fault level for the demandConstraint value."
-                },
-                "demand_contracted_capacity": {
-                    "description": "Sum of all demand (in MW) currently contracted at the substation which is not yet connected (i.e. do not include any demand that is included in demandConnectedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandContractedCapacity must be greater than or equal to the sum of the demandContractedCapacity values in the Demand and Storage elements.",
-                    "type": "integer"
-                },
-                "demand_firm_capacity": {
-                    "description": "The firm capacity (in MW) for demand at the substation. Any constraints that impact this capacity should be listed as individual constraints linked to the substation.",
-                    "type": "integer"
-                },
-                "demand_maximum": {
-                    "description": "The maximum demand (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand without removing the impact of any generation on observed demand at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data.",
-                    "type": "integer"
-                },
-                "demand_minimum": {
-                    "description": "The minimum demand (in MW) at the substation. This is a normalised value calculated using historic measured values during normal operating conditions. The data represents net demand corrected for any generation at the substation, demand diversity factors, and any other internal processing normally undertaken. All substations at 33kV and above must include demand data; for substations below 33kV, if corrected, net demand data is not available, the value should be omitted. Users wishing to see separate summer/winter peaks can obtain this from the data.",
-                    "type": "integer"
+                    "description": "A RAG definition of the demand constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor afname* in the previous implementation."
                 },
                 "demand_quoted_capacity": {
-                    "description": "Sum of all demand (in MW) currently quoted at the substation excluding contracted and connected (i.e. does not include demandConnectedCapacity or demandContractedCapacity). This includes individual demands and storage that are explicitly defined and aggregate value of other connect demands and storage. The value for demandQuotedCapacity must be greater than or equal to the sum of the demandQuotedCapacity values in the demand and Storage elements.",
+                    "description": "Sum of all demand (in MW) currently quoted at the substation. This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation.",
                     "type": "integer"
                 },
-                "demands": {
-                    "description": "The demands at the station covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual demands.",
-                    "items": {
-                        "$ref": "#/$defs/Demand"
-                    },
-                    "type": "array"
+                "demand_requests_in_queue": {
+                    "description": "Number of demand requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - afname* in the previous implementation.",
+                    "type": "integer"
                 },
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "generation_available_capacity": {
-                    "description": "Available generation capacity (in MW) at the substation. This value is calculated based on total firm generation, capacity, demand, connected capacity, contracted capacity, and any other constraints on the network.",
+                    "description": "Available generation capacity (in MW) at the substation. This is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation.",
                     "type": "integer"
                 },
-                "generation_connected_capacity": {
-                    "description": "Sum of all generation (in MW) currently connected at the substation. This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value forgenerationConnectedCapacity must be greater than or equal to the sum of the generationConnectedCapacity values in the Generator and Storage elements.",
+                "generation_capacity_in_queue": {
+                    "description": "The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation.",
                     "type": "integer"
                 },
                 "generation_constraint": {
                     "$ref": "#/$defs/RAGKind",
-                    "description": "A RAG definition of the demand constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation"
-                },
-                "generation_constraint_limiting_factor": {
-                    "$ref": "#/$defs/LimitingFactorKind",
-                    "description": "The limiting factor for generation constraints, either thermal or fault level for the generationConstraint value."
-                },
-                "generation_contracted_capacity": {
-                    "description": "Sum of all generation (in MW) currently contracted at the substation which is not yet connected (i.e. do not include any generation that is included in generationConnectedCapacity). This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationContractedCapacity must be greater than or equal to the sum of the generationContractedCapacity values in the Generator and Storage elements.",
-                    "type": "integer"
-                },
-                "generation_firm_capacity": {
-                    "description": "The total firm generation capacity (in MW) of the substation.  Any constraints that impact this capacity should be listed as individual constraints linked to the substation. The approach used to calculate this value should be defined in accompanying documentation.",
-                    "type": "integer"
+                    "description": "A RAG definition of the generation constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor opwek* in the previous implementation."
                 },
                 "generation_quoted_capacity": {
-                    "description": "Sum of all currently quoted generation (in MW) at the substation excluding any that are already contracted or connected. This includes individual generation and storage that are explicitly defined and aggregate value of other connect generation and storage. The value for generationQuotedCapacity must be greater than or equal to the sum of the generationQuotedCapacity values in the Generator and Storage elements.",
+                    "description": "Sum of all currently quoted generation (in MW) at the substation. This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous implementation.",
                     "type": "integer"
                 },
-                "generators": {
-                    "description": "The generators at the station covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual generators.",
-                    "items": {
-                        "$ref": "#/$defs/Generator"
-                    },
-                    "type": "array"
-                },
-                "geometry": {
-                    "$ref": "#/$defs/Geometry",
-                    "description": "The geometry of the substation."
+                "generation_requests_in_queue": {
+                    "description": "Number of generation requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - invoeding* in the previous implementation.",
+                    "type": "integer"
                 },
                 "m_rid": {
                     "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
@@ -1016,13 +472,6 @@
                     "description": "All names of this identified object.",
                     "items": {
                         "$ref": "#/$defs/Name"
-                    },
-                    "type": "array"
-                },
-                "other_constraints": {
-                    "description": "An additional constraint on the Substation.",
-                    "items": {
-                        "$ref": "#/$defs/Constraint"
                     },
                     "type": "array"
                 },
@@ -1033,39 +482,9 @@
                     },
                     "type": "array"
                 },
-                "requests_in_queue": {
-                    "description": "Number of requests for new grid connections and capacity increases in queue.",
-                    "type": "integer"
-                },
-                "reverse_power_flow_available_capacity": {
-                    "description": "The available reverse capacity (in MW) for the substation from lower to higher voltage levels.",
-                    "type": "integer"
-                },
-                "reverse_power_flow_total_capacity": {
-                    "description": "The reverse capacity (in MW) for the substation from lower to higher voltage levels. 0 if there are no reverse powerflow capabilities.",
-                    "type": "integer"
-                },
                 "short_code": {
-                    "description": "Short code name for substation (alphanumeric, uppercase letters only).",
+                    "description": "Short code name for substation. This is the *Uniek ID voedingsgebied* in the previous implementation.",
                     "type": "string"
-                },
-                "storage": {
-                    "description": "The storage devices at the station covering connected, contracted and quoted. This data is optional and may aggregated into the substation attributes, but utilities may optionally provide details on individual storage devices.",
-                    "items": {
-                        "$ref": "#/$defs/Storage"
-                    },
-                    "type": "array"
-                },
-                "type": {
-                    "$ref": "#/$defs/SubstationKind",
-                    "description": "The type of the substation."
-                },
-                "voltages": {
-                    "description": "The voltages at the Substation in Kilovolts (kV).",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "type": "array"
                 },
                 "works": {
                     "description": "All the works performed for this substation.",
@@ -1076,41 +495,19 @@
                 }
             },
             "required": [
-                "type",
-                "area",
-                "voltages",
-                "coordinates",
-                "demand_firm_capacity",
                 "demand_available_capacity",
                 "demand_constraint",
-                "demand_constraint_limiting_factor",
-                "generation_firm_capacity",
-                "generation_available_capacity",
-                "generation_constraint_limiting_factor",
-                "reverse_power_flow_total_capacity",
-                "reverse_power_flow_available_capacity"
+                "generation_available_capacity"
             ],
             "title": "Substation",
             "type": "object"
-        },
-        "SubstationKind": {
-            "description": "Type of substation.",
-            "enum": [
-                "onderstation",
-                "middenspanningsruimte",
-                "laagspanningskast",
-                "regelstation",
-                "schakelstation"
-            ],
-            "title": "SubstationKind",
-            "type": "string"
         },
         "TimeSchedule": {
             "additionalProperties": false,
             "description": "Description of anything that changes through time. Time schedule is used to perform a single-valued function of time. Use inherited 'type' attribute to give additional information on this schedule, such as periodic (hourly, daily, weekly, monthly, etc.), day of the month, by date, calendar (specific times and dates).",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "m_rid": {
@@ -1144,7 +541,7 @@
             "description": "Document used to request, initiate, track and record work.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "m_rid": {
@@ -1214,7 +611,7 @@
             "description": "Time schedule specific to work.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
                 "kind": {

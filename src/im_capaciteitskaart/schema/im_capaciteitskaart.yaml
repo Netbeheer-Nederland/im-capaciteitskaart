@@ -2,13 +2,27 @@ name: im-capaciteitskaart
 description: "The capacity heatmaps information model was defined to cover a superset\
   \ of\ndata exchanged by the NL system operators. A minimum set of data is defined\n\
   that all operators are expected to conform to, along with a number of\noptional\
-  \ properties and data types.\n\n![Logical model](assets/im_capaciteitskaart-20240527.png)\n\
-  \nThe data is intended to be presented as a hierarchy with a\n[HeatmapDataSet](HeatmapDataSet.md)\
-  \ at its root, then\n[Substations](Substation.md) and [Circuits](Circuit.md) nested\
-  \ inside the\n*HeatmapDataSet*. *Substations* and *Ciruits* then have their own\
-  \ child\nelements forming a tree of data with the *HeatmapDataSet* at the root.\n\
-  \nThis information model is based in part on the [LTDS Capacity Heatmap\nInformation\n\
-  Model](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),\n\
+  \ properties and data types.\n\n```mermaid\nclassDiagram\ndirection RL\n\nclass\
+  \ HeatmapDataSet {\n    string conforms_to\n    string contributor\n    string coverage\n\
+  \    string creator\n    date date\n    string description\n    string format\n\
+  \    string identifier\n    date issued\n    string language\n    string publisher\n\
+  \    string rights\n    string title\n    date valid\n    Substation substations\n\
+  }\nclass Substation {\n    string short_code\n    integer demand_requests_in_queue\n\
+  \    MegaW demand_capacity_in_queue\n    MegaW demand_quoted_capacity\n    MegaW\
+  \ demand_available_capacity\n    RAGKind demand_constraint\n    integer generation_requests_in_queue\n\
+  \    MegaW generation_capacity_in_queue\n    MegaW generation_quoted_capacity\n\
+  \    MegaW generation_available_capacity\n    RAGKind generation_constraint\n  \
+  \  Work works\n    PostcodeArea postcode_areas\n    string description\n    string\
+  \ m_rid\n    Name names\n}\nclass Work {\n    date request_date_time\n    string\
+  \ work_order_number\n    WorkStatusKind status_kind\n    WorkTimeSchedule time_schedules\n\
+  \    string type\n    string description\n    string m_rid\n    Name names\n}\n\
+  class PostcodeArea {\n    string postcode\n    string description\n    string m_rid\n\
+  \    Name names\n}\n\nHeatmapDataSet --> Substation : substations\nSubstation -->\
+  \ Work : works\nSubstation --> PostcodeArea : postcode_areas\n```\n\nThe data is\
+  \ intended to be presented as a hierarchy with a\n[HeatmapDataSet](HeatmapDataSet.md)\
+  \ at its root, followed\n[Substations](Substation.md) nested inside the *HeatmapDataSet*.\n\
+  *Substations* then have their own child elements.\n\nThis information model is based\
+  \ in part on the [LTDS Capacity Heatmap\nInformation\nModel](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),\n\
   which itself is published under the [Open Government\nLicense](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/),\n\
   under \xA9Crown copyright 2024.\n\n## Additional schemas\n* [JSON Schema](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/jsonschema/im_capaciteitskaart.schema.json)\n\
   * [SHACL](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/shacl/im_capaciteitskaart.shacl.ttl)\n\
@@ -51,64 +65,14 @@ enums:
     description: Traffic light colors coding scheme for categorising status.
     enum_uri: ck:RAGKind
     permissible_values:
+      transparant:
+        meaning: ck:RAGKind.Transparant
       red:
         meaning: ck:RAGKind.Red
       amber:
         meaning: ck:RAGKind.Amber
       green:
         meaning: ck:RAGKind.Green
-  SubstationKind:
-    description: Type of substation.
-    enum_uri: ck:SubstationKind
-    permissible_values:
-      onderstation:
-        meaning: ck:SubstationKind.Onderstation
-      middenspanningsruimte:
-        meaning: ck:SubstationKind.Middenspanningsruimte
-      laagspanningskast:
-        meaning: ck:SubstationKind.Laagspanningskast
-      regelstation:
-        meaning: ck:SubstationKind.Regelstation
-      schakelstation:
-        meaning: ck:SubstationKind.Schakelstation
-  LimitingFactorKind:
-    description: The limiting factor for demand/generation constraints.
-    enum_uri: ck:LimitingFactorKind
-    permissible_values:
-      thermal:
-        meaning: ck:LimitingFactorKind.Thermal
-      voltage:
-        meaning: ck:LimitingFactorKind.Voltage
-      fault_level:
-        meaning: ck:LimitingFactorKind.FaultLevel
-  DayKind:
-    description: The type of day the curtailment applies during (weekday or weekend).
-    enum_uri: ck:DayKind
-    permissible_values:
-      weekday:
-        meaning: ck:DayKind.Weekday
-      weekend:
-        meaning: ck:DayKind.Weekend
-  SeasonKind:
-    description: The season this curtailment applies during.
-    enum_uri: ck:SeasonKind
-    permissible_values:
-      spring:
-        meaning: ck:SeasonKind.Spring
-      summer:
-        meaning: ck:SeasonKind.Summer
-      autumn:
-        meaning: ck:SeasonKind.Autumn
-      winter:
-        meaning: ck:SeasonKind.Winter
-  CurtailmentKind:
-    description: The type of curtailment.
-    enum_uri: ck:CurtailmentKind
-    permissible_values:
-      demand:
-        meaning: ck:CurtailmentKind.Demand
-      generation:
-        meaning: ck:CurtailmentKind.Generation
   WorkStatusKind:
     description: Kind of status, specific to work.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968
@@ -230,19 +194,9 @@ classes:
         slot_uri: ck:HeatmapDataSet.substations
         multivalued: true
         range: Substation
-      circuits:
-        description: A list of circuits with heatmap data.
-        slot_uri: ck:HeatmapDataSet.Circuits
-        multivalued: true
-        range: Circuit
-      postcode_areas:
-        description: Postcode Areas associated with the heatmap data.
-        slot_uri: ck:HeatmapDataSet.PostcodeAreas
-        multivalued: true
-        range: PostcodeArea
     class_uri: ck:HeatmapDataSet
   Substation:
-    description: A Substation with connect demand, generation or storage.
+    description: A Substation with connect demand and generation.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     narrow_mappings:
     - nbnl:voedingsgebied
@@ -250,593 +204,89 @@ classes:
     - nbnl:station
     is_a: EquipmentContainer
     attributes:
-      type:
-        description: The type of the substation.
-        slot_uri: ck:Substation.type
-        range: SubstationKind
-        required: true
-      area:
-        description: The name of the license area. This should be the EAN used in
-          the license for the system operator.
-        narrow_mappings:
-        - nbnl:Netbeheerder
-        slot_uri: ck:Substation.area
-        required: true
       short_code:
-        description: Short code name for substation (alphanumeric, uppercase letters
-          only).
+        description: Short code name for substation. This is the *Uniek ID voedingsgebied*
+          in the previous implementation.
         slot_uri: ck:Substation.shortCode
-      voltages:
-        description: The voltages at the Substation in Kilovolts (kV).
-        slot_uri: ck:Substation.voltages
-        multivalued: true
-        range: integer
-        required: true
-      coordinates:
-        description: The longitude/latitude value of the substation as a single latitude/longitude
-          point. For a GeoJSON Heatmap format this data will be part of the feature
-          itself allowing for more complex geometry.
-        slot_uri: ck:Substation.Coordinates
-        range: Coordinate
-        required: true
-      geometry:
-        description: The geometry of the substation.
-        slot_uri: ck:Substation.Geometry
-        range: Geometry
-      requests_in_queue:
-        description: Number of requests for new grid connections and capacity increases
-          in queue.
-        slot_uri: ck:Substation.requestsInQueue
+      demand_requests_in_queue:
+        description: Number of demand requests for new grid connections and capacity
+          increases in queue. This is the *Aantal unieke transportverzoeken in een
+          wachtrij - afname* in the previous implementation.
+        slot_uri: ck:Substation.demandRequestsInQueue
         range: integer
         required: false
-      demand_firm_capacity:
-        description: The firm capacity (in MW) for demand at the substation. Any constraints
-          that impact this capacity should be listed as individual constraints linked
-          to the substation.
-        slot_uri: ck:Substation.demandFirmCapacity
+      demand_capacity_in_queue:
+        description: The contract value of demand requests not yet granted. This is
+          the *Wachtrij in capaciteit - afname* in the previous implementation.
+        slot_uri: ck:Substation.demandCapacityInQueue
         range: MegaW
-        required: true
-      demand_contracted_capacity:
-        description: Sum of all demand (in MW) currently contracted at the substation
-          which is not yet connected (i.e. do not include any demand that is included
-          in demandConnectedCapacity). This includes individual demands and storage
-          that are explicitly defined and aggregate value of other connect demands
-          and storage. The value for demandContractedCapacity must be greater than
-          or equal to the sum of the demandContractedCapacity values in the Demand
-          and Storage elements.
-        slot_uri: ck:Substation.demandContractedCapacity
-        range: MegaW
-      demand_connected_capacity:
-        description: Sum of all demand (in MW) currently connected at the substation.
-          This includes individual demands and storage that are explicitly defined
-          and aggregate value of other connect demands and storage. The value for
-          demandConnectedCapacity must be greater than or equal to the sum of the
-          demandConnectedCapacity values in the demand and Storage elements.
-        slot_uri: ck:Substation.demandConnectedCapacity
-        range: MegaW
+        required: false
       demand_quoted_capacity:
-        description: Sum of all demand (in MW) currently quoted at the substation
-          excluding contracted and connected (i.e. does not include demandConnectedCapacity
-          or demandContractedCapacity). This includes individual demands and storage
-          that are explicitly defined and aggregate value of other connect demands
-          and storage. The value for demandQuotedCapacity must be greater than or
-          equal to the sum of the demandQuotedCapacity values in the demand and Storage
-          elements.
+        description: Sum of all demand (in MW) currently quoted at the substation.
+          This is the *Benodigde transportcapaciteit (in MW) afname* in the previous
+          implementation.
         slot_uri: ck:Substation.demandQuotedCapacity
         range: MegaW
       demand_available_capacity:
-        description: The available demand capacity (in MW) at the substation. This
-          value is calculated based on total firm capacity, maximum demand, connected
-          capacity, quoted capacity, contracted capacity, and any other constraints
-          on the network. The value should reflect the capacity a network operator
-          would make available to a connecting party, which may be calculated for
-          the most onerous season, or a value based on more detailed analysis and
-          internal policies.
-        exact_mappings:
-        - nbnl:CapaciteitVoorNieuweTransportverzoeken
+        description: The available demand capacity (in MW) at the substation. The
+          value should reflect the capacity a network operator would make available
+          to a connecting party. This is the *Aanwezige transportcapaciteit (in MW)
+          afname huidige jaar* in the previous implementation.
         slot_uri: ck:Substation.demandAvailableCapacity
         range: MegaW
         required: true
-      demand_maximum:
-        description: The maximum demand (in MW) at the substation. This is a normalised
-          value calculated using historic measured values during normal operating
-          conditions. The data represents net demand without removing the impact of
-          any generation on observed demand at the substation, demand diversity factors,
-          and any other internal processing normally undertaken. All substations at
-          33kV and above must include demand data; for substations below 33kV, if
-          corrected, net demand data is not available, the value should be omitted.
-          Users wishing to see separate summer/winter peaks can obtain this from the
-          data.
-        narrow_mappings:
-        - nbnl:Transportlimiet
-        slot_uri: ck:Substation.demandMaximum
-        range: MegaW
-      demand_minimum:
-        description: The minimum demand (in MW) at the substation. This is a normalised
-          value calculated using historic measured values during normal operating
-          conditions. The data represents net demand corrected for any generation
-          at the substation, demand diversity factors, and any other internal processing
-          normally undertaken. All substations at 33kV and above must include demand
-          data; for substations below 33kV, if corrected, net demand data is not available,
-          the value should be omitted. Users wishing to see separate summer/winter
-          peaks can obtain this from the data.
-        slot_uri: ck:Substation.demandMinimum
-        range: MegaW
-      demand_99_percentile:
-        description: The 99th percentile of demanding (in MW) at the substation.  This
-          is a normalised value calculated using historic measured values during normal
-          operating conditions.  The data represents net demand corrected for any
-          generation at the substation, demand diversity factors, and any other internal
-          processing normally undertaken. All substations at 50kV and above must include
-          demand data; for substations below 50kV, if corrected, net demand data is
-          not available, the value should be omitted.
-        slot_uri: ck:Substation.demand99Percentile
-        range: MegaW
-      demand_75_percentile:
-        description: The 75th percentile of demanding (in MW) at the substation.  This
-          is a normalised value calculated using historic measured values during normal
-          operating conditions.  The data represents net demand corrected for any
-          generation at the substation, demand diversity factors, and any other internal
-          processing normally undertaken. All substations at 50kV and above must include
-          demand data; for substations below 50kV, if corrected, net demand data is
-          not available, the value should be omitted.
-        slot_uri: ck:Substation.demand75Percentile
-        range: MegaW
-      demand_50_percentile:
-        description: The 50th percentile of demanding (in MW) at the substation. This
-          is a normalised value calculated using historic measured values during normal
-          operating conditions. The data represents net demand corrected for any generation
-          at the substation, demand diversity factors, and any other internal processing
-          normally undertaken. All substations at 50kV and above must include demand
-          data; for substations below 50kV, if corrected, net demand data is not available,
-          the value should be omitted.
-        slot_uri: ck:Substation.demand50Percentile
-        range: MegaW
-      demand_25_percentile:
-        description: The 25th percentile of demanding (in MW) at the substation. This
-          is a normalised value calculated using historic measured values during normal
-          operating conditions. The data represents net demand corrected for any generation
-          at the substation, demand diversity factors, and any other internal processing
-          normally undertaken. All substations at 50kV and above must include demand
-          data; for substations below 50kV, if corrected, net demand data is not available,
-          the value should be omitted.
-        slot_uri: ck:Substation.demand25Percentile
-        range: MegaW
       demand_constraint:
         description: A RAG definition of the demand constraints at the substation.
           A utility should provide details on how this RAG status is calculated as
-          part of the accompanying documentation.
+          part of the accompanying documentation. This is the *Kleurcodering van het
+          postcodegebied voor afname* in the previous implementation.
         slot_uri: ck:Substation.demandConstraint
         range: RAGKind
         required: true
-      demand_constraint_limiting_factor:
-        description: The limiting factor for demand constraints, either thermal, voltage
-          or fault level for the demandConstraint value.
-        slot_uri: ck:Substation.demandConstraintLimitingFactor
-        range: LimitingFactorKind
-        required: true
-      generation_firm_capacity:
-        description: The total firm generation capacity (in MW) of the substation.  Any
-          constraints that impact this capacity should be listed as individual constraints
-          linked to the substation. The approach used to calculate this value should
-          be defined in accompanying documentation.
-        slot_uri: ck:Substation.generationFirmCapacity
+      generation_requests_in_queue:
+        description: Number of generation requests for new grid connections and capacity
+          increases in queue. This is the *Aantal unieke transportverzoeken in een
+          wachtrij - invoeding* in the previous implementation.
+        slot_uri: ck:Substation.generationRequestsInQueue
+        range: integer
+        required: false
+      generation_capacity_in_queue:
+        description: The contract value of generation requests not yet granted. This
+          is the *Wachtrij in capaciteit - invoeding* in the previous implementation.
+        slot_uri: ck:Substation.generationCapacityInQueue
         range: MegaW
-        required: true
-      generation_connected_capacity:
-        description: Sum of all generation (in MW) currently connected at the substation.
-          This includes individual generation and storage that are explicitly defined
-          and aggregate value of other connect generation and storage. The value forgenerationConnectedCapacity
-          must be greater than or equal to the sum of the generationConnectedCapacity
-          values in the Generator and Storage elements.
-        slot_uri: ck:Substation.generationConnectedCapacity
-        range: MegaW
-      generation_contracted_capacity:
-        description: Sum of all generation (in MW) currently contracted at the substation
-          which is not yet connected (i.e. do not include any generation that is included
-          in generationConnectedCapacity). This includes individual generation and
-          storage that are explicitly defined and aggregate value of other connect
-          generation and storage. The value for generationContractedCapacity must
-          be greater than or equal to the sum of the generationContractedCapacity
-          values in the Generator and Storage elements.
-        slot_uri: ck:Substation.generationContractedCapacity
-        range: MegaW
+        required: false
       generation_quoted_capacity:
-        description: Sum of all currently quoted generation (in MW) at the substation
-          excluding any that are already contracted or connected. This includes individual
-          generation and storage that are explicitly defined and aggregate value of
-          other connect generation and storage. The value for generationQuotedCapacity
-          must be greater than or equal to the sum of the generationQuotedCapacity
-          values in the Generator and Storage elements.
+        description: Sum of all currently quoted generation (in MW) at the substation.
+          This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous
+          implementation.
         slot_uri: ck:Substation.generationQuotedCapacity
         range: MegaW
       generation_available_capacity:
         description: Available generation capacity (in MW) at the substation. This
-          value is calculated based on total firm generation, capacity, demand, connected
-          capacity, contracted capacity, and any other constraints on the network.
+          is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in
+          the previous implementation.
         slot_uri: ck:Substation.generationAvailableCapacity
         range: MegaW
         required: true
       generation_constraint:
-        description: A RAG definition of the demand constraints at the substation.
+        description: A RAG definition of the generation constraints at the substation.
           A utility should provide details on how this RAG status is calculated as
-          part of the accompanying documentation
+          part of the accompanying documentation. This is the *Kleurcodering van het
+          postcodegebied voor opwek* in the previous implementation.
         slot_uri: ck:Substation.generationConstraint
         range: RAGKind
-      generation_constraint_limiting_factor:
-        description: The limiting factor for generation constraints, either thermal
-          or fault level for the generationConstraint value.
-        slot_uri: ck:Substation.generationConstraintLimitingFactor
-        range: LimitingFactorKind
-        required: true
-      reverse_power_flow_total_capacity:
-        description: The reverse capacity (in MW) for the substation from lower to
-          higher voltage levels. 0 if there are no reverse powerflow capabilities.
-        slot_uri: ck:Substation.reversePowerFlowTotalCapacity
-        range: MegaW
-        required: true
-      reverse_power_flow_available_capacity:
-        description: The available reverse capacity (in MW) for the substation from
-          lower to higher voltage levels.
-        slot_uri: ck:Substation.reversePowerFlowAvailableCapacity
-        range: MegaW
-        required: true
       works:
         description: All the works performed for this substation.
         slot_uri: cim:Substation.Works
         multivalued: true
         range: Work
-      demands:
-        description: The demands at the station covering connected, contracted and
-          quoted. This data is optional and may aggregated into the substation attributes,
-          but utilities may optionally provide details on individual demands.
-        slot_uri: ck:Substation.Demands
-        multivalued: true
-        range: Demand
-      generators:
-        description: The generators at the station covering connected, contracted
-          and quoted. This data is optional and may aggregated into the substation
-          attributes, but utilities may optionally provide details on individual generators.
-        slot_uri: ck:Substation.Generators
-        multivalued: true
-        range: Generator
-      storage:
-        description: The storage devices at the station covering connected, contracted
-          and quoted. This data is optional and may aggregated into the substation
-          attributes, but utilities may optionally provide details on individual storage
-          devices.
-        slot_uri: ck:Substation.Storage
-        multivalued: true
-        range: Storage
-      other_constraints:
-        description: An additional constraint on the Substation.
-        slot_uri: ck:Substation.OtherConstraints
-        multivalued: true
-        range: Constraint
-      curtailments:
-        description: Curtailments at the Substation.
-        slot_uri: ck:Substation.Curtailments
-        multivalued: true
-        range: Curtailment
       postcode_areas:
         description: Postcode Areas serviced by this Substation.
         slot_uri: ck:Substation.PostcodeAreas
         multivalued: true
         range: PostcodeArea
     class_uri: cim:Substation
-  Circuit:
-    description: A circuit representing a connection between substations. This could
-      be an HV circuit between stations or a circuit feeding multiple secondary stations
-      from a primary. This data element is provided to support utilities that wish
-      to share specfic or all circuits.
-    todos:
-    - Where do we add support for "wachtrij"?
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.InfIEC61970.Feeder
-    narrow_mappings:
-    - nbnl:Gebiedsindeling
-    broad_mappings:
-    - nbnl:Voedingsgebied
-    is_a: EquipmentContainer
-    attributes:
-      voltage:
-        description: Voltage (in kV) of the circuit.
-        slot_uri: ck:Circuit.voltage
-        range: KiloV
-        required: true
-      requests_in_queue:
-        description: Number of requests for new grid connections and capacity increases
-          in queue.
-        slot_uri: ck:Circuit.requestsInQueue
-        range: integer
-        required: false
-      demand_maximum:
-        description: The maximum load (in MW) on the circuit. This is a value calculated
-          using historic measured values and would not necessarily be corrected for
-          generation on the circuit and normal operating conditions.
-        narrow_mappings:
-        - nbnl:Transportlimiet
-        slot_uri: ck:Circuit.demandMaximum
-        range: MegaW
-      demand_minimum:
-        description: The minimum demand (in MW) on the circuit. This is a value calculated
-          using historic measured values and would not necessarily be corrected for
-          generation on the circuit and normal operating conditions.
-        slot_uri: ck:Circuit.demandMinimum
-        range: MegaW
-      demand_99_percentile:
-        description: The 99th percentile of demand (in MW) on the circuit. This is
-          a value calculated using historic measured values and would not necessarily
-          be corrected for generation on the circuit and normal operating conditions.
-        slot_uri: ck:Circuit.demand99Percentile
-        range: MegaW
-      demand_75_percentile:
-        description: The 75th percentile of demand (in MW) on the circuit. This is
-          a value calculated using historic measured values and would not necessarily
-          be corrected for generation on the circuit and normal operating conditions.
-        slot_uri: ck:Circuit.demand75Percentile
-        range: MegaW
-      demand_50_percentile:
-        description: The 50th percentile of demand (in MW) on the circuit. This is
-          a value calculated using historic measured values and would not necessarily
-          be corrected for generation on the circuit and normal operating conditions.
-        slot_uri: ck:Circuit.demand50Percentile
-        range: MegaW
-      demand_25_percentile:
-        description: The 25th percentile of demand (in MW) on the circuit. This is
-          a value calculated using historic measured values and would not necessarily
-          be corrected for generation on the circuit and normal operating conditions.
-        slot_uri: ck:Circuit.demand25Percentile
-        range: MegaW
-      demand_constraint:
-        description: A RAG definition of the demand constraints on the circuit. A
-          utility should provide details on how this RAG status is calculated.
-        slot_uri: ck:Circuit.demandConstraint
-        range: RAGKind
-        required: true
-      demand_contracted_capacity:
-        description: Sum of all demand (in MW) currently contracted on the circuit
-          which are not yet connected (i.e. do not include any demand that is included
-          in demandConnectedCapacity).
-        slot_uri: ck:Circuit.demandContractedCapacity
-        range: MegaW
-      demand_connected_capacity:
-        description: Sum of all demand (in MW) currently connected on the circuit.
-        slot_uri: ck:Circuit.demandConnectedCapacity
-        range: MegaW
-      demand_quoted_capacity:
-        description: Sum of all demand (in MW) currently quoted on the circuit excluding
-          contracted and connected (i.e. does not include demandConnectedCapacity
-          or demandContractedCapacity).
-        slot_uri: ck:Circuit.demandQuotedCapacity
-        range: MegaW
-      demand_available_capacity:
-        description: The available demand (in MW) capacity on the circuit. This value
-          is calculated based on the circuit rating, maximum demand, contracted capacity,
-          and any other constraints on the network.
-        exact_mappings:
-        - nbnl:CapaciteitVoorNieuweTransportverzoeken
-        slot_uri: ck:Circuit.demandAvailableCapacity
-        range: MegaW
-        required: true
-      summer_rating:
-        description: Summer rating (in MW) for minimum rated section in the circuit
-          (i.e. limiting series element).
-        slot_uri: ck:Circuit.summerRating
-        range: MegaW
-      winter_rating:
-        description: Winter rating (in MW) for minimum rated section in the circuit
-          (i.e. limiting series element).
-        slot_uri: ck:Circuit.winterRating
-        range: MegaW
-      from_substation:
-        description: mRID of the Substation the Circuit is from (used where CIM data
-          is being produced and the mRID attributes are populated for Substations).
-          Where no CIM mRID is yet being produced, the name of the Substation should
-          be used.
-        slot_uri: ck:Circuit.fromSubstation
-      to_substation:
-        description: mRID of the Substations the Circuit is to (optional if LV circuits
-          are shown but no LV/Secondary substations). Where CIM data is being produced
-          the identifiers attributes reflect the mRID of the Substations. Where no
-          CIM mRID is yet being produced, the names of the Substations should be used.
-        slot_uri: ck:Circuit.toSubstation
-        multivalued: true
-      works:
-        description: All the works performed for this circuit.
-        slot_uri: cim:Circuit.Works
-        multivalued: true
-        range: Work
-      other_constraints:
-        description: An additional constraint on the Cicruit.
-        slot_uri: ck:Circuit.OtherConstraints
-        multivalued: true
-        range: Constraint
-      geometry:
-        description: The geometry of the circuit
-        slot_uri: ck:Circuit.Geometry
-        range: Geometry
-    class_uri: cim:Circuit
-  Demand:
-    description: Represents an individual or aggregated demand at the substation.
-      This may represent the aggregation of all generation at a voltage level or individual
-      connected/contracted/quoted demand.
-    narrow_mappings:
-    - nbnl:Transportcapaciteit
-    is_a: Equipment
-    attributes:
-      demand_contracted_capacity:
-        description: The currently contracted demand capacity (in MW) which is not
-          yet connected (i.e. do not include any demand that is included in demandConnectedCapacity).
-        slot_uri: ck:Demand.demandContractedCapacity
-        range: MegaW
-        required: true
-      demand_connected_capacity:
-        description: The currently connected demand capacity (in MW).
-        slot_uri: ck:Demand.demandConnectedCapacity
-        range: MegaW
-        required: true
-      demand_quoted_capacity:
-        description: The currently active quoted demand capacity (in MW) excluding
-          contracted and connected (this is optional as connected/contracted generation
-          may not have records of quotes and after a value is contracted this value
-          is no longer relevant).
-        slot_uri: ck:Demand.demandQuotedCapacity
-        range: MegaW
-      voltage:
-        description: The voltage the demand (in kV) is connected at.
-        slot_uri: ck:Demand.voltage
-        range: KiloV
-        required: true
-    class_uri: ck:Demand
-  Generator:
-    description: Represents an individual or aggregated generator at the substation.
-      This may represent the aggregation of all generation at a voltage level or individual
-      connected/contracted/quoted generators.
-    narrow_mappings:
-    - nbnl:Transportcapaciteit
-    is_a: Equipment
-    attributes:
-      generation_connected_capacity:
-        description: The currently connected generation capacity (in MW).
-        slot_uri: ck:Generator.generationConnectedCapacity
-        range: MegaW
-        required: true
-      generation_contracted_capacity:
-        description: The currently contracted generation capacity (in MW) excluding
-          any that are already contracted or connected (i.e. do not include any generation
-          that is included in generationConnectedCapacity).
-        slot_uri: ck:Generator.generationContractedCapacity
-        range: MegaW
-        required: true
-      generation_quoted_capacity:
-        description: The currently active quoted generation capacity (in MW) above
-          contracted (this is optional as connected/contracted generation may not
-          have records of quotes and after a value is contracted this value is no
-          longer relevant).
-        slot_uri: ck:Generator.generationQuotedCapacity
-        range: MegaW
-      voltage:
-        description: The voltage the generator (in kV) is connected at.
-        slot_uri: ck:Generator.voltage
-        range: KiloV
-        required: true
-      technology_type:
-        description: The technology the connected generation e.g. CHP, Wind, PV, Battery.
-        slot_uri: ck:Generator.technologyType
-    class_uri: ck:Generator
-  Storage:
-    description: Represents an individual or aggregated storage at the substation.
-      This may represent the aggregation of all storage at a voltage level or individual
-      connected/contracted/quoted storage.
-    narrow_mappings:
-    - nbnl:Transportcapaciteit
-    is_a: Equipment
-    attributes:
-      demand_contracted_capacity:
-        description: The currently contracted demand capacity (in MW) which is not
-          yet connected (i.e. do not include any demand that is included in demandConnectedCapacity).
-        slot_uri: ck:Storage.demandContractedCapacity
-        range: MegaW
-        required: true
-      demand_connected_capacity:
-        description: The currently connected demand capacity (in MW).
-        slot_uri: ck:Storage.demandConnectedCapacity
-        range: MegaW
-        required: true
-      demand_quoted_capacity:
-        description: The currently active quoted demand capacity (in MW) excluding
-          contracted and connected (this is optional as connected/contracted generation
-          may not have records of quotes and after a value is contracted this value
-          is no longer relevant).
-        slot_uri: ck:Storage.demandQuotedCapacity
-        range: MegaW
-      generation_connected_capacity:
-        description: The currently connected generation capacity (in MW).
-        slot_uri: ck:Storage.generationConnectedCapacity
-        range: MegaW
-        required: true
-      generation_contracted_capacity:
-        description: The currently contracted generation capacity (in MW) excluding
-          any that are already contracted or connected (i.e. do not include any generation
-          that is included in generationConnectedCapacity).
-        slot_uri: ck:Storage.generationContractedCapacity
-        range: MegaW
-        required: true
-      generation_quoted_capacity:
-        description: The currently active quoted generation capacity (in MW) above
-          contracted (this is optional as connected/contracted generation may not
-          have records of quotes and after a value is contracted this value is no
-          longer relevant).
-        slot_uri: ck:Storage.generationQuotedCapacity
-        range: MegaW
-      voltage:
-        description: The voltage the storage (in kV) is connected at.
-        slot_uri: ck:Storage.voltage
-        range: KiloV
-        required: true
-      technology_type:
-        description: The technology of the connected generation e.g. PumpStorage,
-          Battery.
-        slot_uri: ck:Storage.technologyType
-    class_uri: ck:Storage
-  Constraint:
-    description: An additional constraint/restriction on the Substation or Circuit.
-      This is intended for non-numeric constraints e.g. to denote physical restrictions
-      on reinforcement.
-    attributes:
-      description:
-        description: Free text for any additional descriptive data about the constraint.
-        slot_uri: ck:Constraint.description
-        required: true
-      type:
-        description: The type of constraint (enumerated field to allow for easier
-          processing/identification). Limited to Voltage, Physical or Other.
-        slot_uri: ck:Constraint.type
-        required: true
-    class_uri: ck:Constraint
-  Curtailment:
-    description: Curtailment of demand or generation capacity at the substation with
-      optional day/time and season parameters.
-    exact_mappings:
-    - nbnl:Congestie
-    attributes:
-      description:
-        description: Free text for any additional descriptive data about the curtailment.
-        slot_uri: ck:Curtailment.description
-        required: true
-      type:
-        description: The type of curtailment (enumerated field to allow for easier
-          processing/identification).
-        slot_uri: ck:Curtailment.type
-        range: CurtailmentKind
-        required: true
-      curtailed_by:
-        description: The amount the demand/generation capacity (in MW) is curtailed
-          by.
-        slot_uri: ck:Curtailment.curtailedBy
-        range: MegaW
-        required: true
-      technology_type:
-        description: The technology the curtailment applies to e.g. for generation
-          CHP, Wind, PV, Battery.
-        slot_uri: ck:Curtailment.technologyType
-      season:
-        description: The season this curtailment applies during.
-        slot_uri: ck:Curtailment.
-        range: SeasonKind
-      day_type:
-        description: The type of day the curtailment applies during (weekday or weekend).
-        slot_uri: ck:Curtailment.
-        range: DayKind
-      start_time:
-        description: The start time of a curtailment (inclusive).
-        slot_uri: ck:Curtailment.
-        range: time
-      end_time:
-        description: The end time of a curtailment (exclusive).
-        slot_uri: ck:Curtailment.
-        range: time
-    class_uri: ck:Curtailment
   PostcodeArea:
     description: A geographic region that is defined by the initial letters or digits
       of a postcode.
@@ -844,15 +294,10 @@ classes:
     attributes:
       postcode:
         description: Identifier for the postcode area. Contain four (4) numbers, followed
-          by two (2) letters, lowercase. No spaces between the numbers and letters,
-          i.e. "1234ab".
+          by two (2) letters, uppercase. No spaces between the numbers and letters,
+          i.e. "1234AB".
         slot_uri: ck:PostcodeArea.postcode
         required: true
-      substations:
-        description: A list of substations associated with the PostcodeArea.
-        slot_uri: ck:PostcodeArea.substations
-        multivalued: true
-        range: Substation
     class_uri: ck:PostcodeArea
   Work:
     description: Document used to request, initiate, track and record work.
@@ -945,50 +390,6 @@ classes:
         range: date
         required: true
     class_uri: cim:DateTimeInterval
-  Geometry:
-    description: The geometry of the line, this will be one or more Lines i.e. series
-      of ordered coordinates. Multiple Lines allowed to allow for radial geometries.
-      It is likely that this will be rendered as a GeoJSON geometry in that format.
-    attributes:
-      type:
-        description: The geometry type (LineString, MultiLineString or Polygon).
-        slot_uri: ck:Geometry.type
-        required: true
-      lines:
-        description: The Line elements.
-        slot_uri: ck:Geometry.Lines
-        multivalued: true
-        range: Line
-        required: true
-    class_uri: ck:Geometry
-  Line:
-    description: A series of coordinates.
-    attributes:
-      coordinates:
-        description: Two (2) or more coordinates for a line.
-        slot_uri: ck:Line.Coordinates
-        multivalued: true
-        range: Coordinate
-        minimum_cardinality: 2
-    class_uri: ck:Line
-  Coordinate:
-    description: A coordinate of latitude/longitude.
-    attributes:
-      longitude:
-        description: The longitude value of the coordinate as a single latitude/longitude
-          point. For a GeoJSON Heatmap format this data will be part of the LineString
-          geometry.
-        slot_uri: ck:Coordinate.longitude
-        range: float
-        required: true
-      latitude:
-        description: The latitude value of the coordinate as a single latitude/longitude
-          point. For a GeoJSON Heatmap format this data will be part of the LineString
-          geometry.
-        slot_uri: ck:Coordinate.latitude
-        range: float
-        required: true
-    class_uri: ck:Coordinate
   EquipmentContainer:
     description: A modelling construct to provide a root class for containing equipment.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
@@ -1035,6 +436,7 @@ classes:
       description:
         description: The description is a free human readable text describing or naming
           the object. It may be non unique and may not correlate to a naming hierarchy.
+          This is the *Herkenbare naam voedingsgebied* in the previous implementation.
         slot_uri: cim:IdentifiedObject.description
         range: string
       m_rid:
