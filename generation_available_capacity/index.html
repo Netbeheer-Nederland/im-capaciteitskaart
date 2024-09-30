@@ -321,7 +321,7 @@
 
 
 <h1 id="slot-generation_available_capacity">Slot: generation_available_capacity</h1>
-<p><em>Available generation capacity (in MW) at the substation. This value is calculated based on total firm generation, capacity, demand, connected capacity, contracted capacity, and any other constraints on the network.</em></p>
+<p><em>Available generation capacity (in MW) at the substation. This is the <em>Aanwezige transportcapaciteit (in MW) invoeding huidige jaar</em> in the previous implementation.</em></p>
 <p>URI: <a href="http://data.netbeheernederland.nl/capaciteitskaart/def#Substation.generationAvailableCapacity">ck:Substation.generationAvailableCapacity</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -337,7 +337,7 @@
 <tbody>
 <tr>
 <td><a href="../Substation/">Substation</a></td>
-<td>A Substation with connect demand, generation or storage</td>
+<td>A Substation with connect demand and generation</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -359,9 +359,8 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_available_capacity</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Available generation capacity (in MW) at the substation. This value is</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">calculated based on total firm generation, capacity, demand, connected capacity,</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">contracted capacity, and any other constraints on the network.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Available generation capacity (in MW) at the substation. This is the</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">*Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.0.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Substation.generationAvailableCapacity</span>
