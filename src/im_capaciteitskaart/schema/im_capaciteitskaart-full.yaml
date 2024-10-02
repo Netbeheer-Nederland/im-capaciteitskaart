@@ -257,15 +257,6 @@ classes:
           MW) afname huidige jaar* in the previous implementation.
         slot_uri: ck:Substation.demandAvailableCapacity
         required: true
-      demandConstraint:
-        range: RAGKind
-        description:
-          A RAG definition of the demand constraints at the substation. A
-          utility should provide details on how this RAG status is calculated
-          as part of the accompanying documentation. This is the *Kleurcodering
-          van het postcodegebied voor afname* in the previous implementation.
-        slot_uri: ck:Substation.demandConstraint
-        required: true
       generationRequestsInQueue:
         range: integer
         description:
@@ -297,14 +288,6 @@ classes:
           previous implementation.
         slot_uri: ck:Substation.generationAvailableCapacity
         required: true
-      generationConstraint:
-        range: RAGKind
-        description:
-          A RAG definition of the generation constraints at the substation. A
-          utility should provide details on how this RAG status is calculated
-          as part of the accompanying documentation. This is the *Kleurcodering
-          van het postcodegebied voor opwek* in the previous implementation.
-        slot_uri: ck:Substation.generationConstraint
       Works:
         range: Work
         description:
@@ -335,6 +318,24 @@ classes:
           by two (2) letters, uppercase. No spaces between the numbers and
           letters, i.e. "1234AB".
         slot_uri: ck:PostcodeArea.postcode
+        required: true
+      demandConstraint:
+        range: RAGKind
+        description:
+          A RAG definition of the demand constraints at the substation. A
+          utility should provide details on how this RAG status is calculated
+          as part of the accompanying documentation. This is the *Kleurcodering
+          van het postcodegebied voor afname* in the previous implementation.
+        slot_uri: ck:PostcodeArea.demandConstraint
+        required: true
+      generationConstraint:
+        range: RAGKind
+        description:
+          A RAG definition of the generation constraints at the substation. A
+          utility should provide details on how this RAG status is calculated
+          as part of the accompanying documentation. This is the *Kleurcodering
+          van het postcodegebied voor opwek* in the previous implementation.
+        slot_uri: ck:PostcodeArea.generationConstraint
         required: true
     class_uri: ck:PostcodeArea
 
