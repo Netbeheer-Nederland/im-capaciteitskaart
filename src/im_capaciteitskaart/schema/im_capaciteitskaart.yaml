@@ -9,17 +9,17 @@ description: "The capacity heatmaps information model was defined to cover a sup
   \    string rights\n    string title\n    date valid\n    Substation substations\n\
   }\nclass Substation {\n    string short_code\n    integer demand_requests_in_queue\n\
   \    MegaW demand_capacity_in_queue\n    MegaW demand_quoted_capacity\n    MegaW\
-  \ demand_available_capacity\n    RAGKind demand_constraint\n    integer generation_requests_in_queue\n\
-  \    MegaW generation_capacity_in_queue\n    MegaW generation_quoted_capacity\n\
-  \    MegaW generation_available_capacity\n    RAGKind generation_constraint\n  \
-  \  Work works\n    PostcodeArea postcode_areas\n    string description\n    string\
-  \ m_rid\n    Name names\n}\nclass Work {\n    date request_date_time\n    string\
-  \ work_order_number\n    WorkStatusKind status_kind\n    WorkTimeSchedule time_schedules\n\
-  \    string type\n    string description\n    string m_rid\n    Name names\n}\n\
-  class PostcodeArea {\n    string postcode\n    string description\n    string m_rid\n\
-  \    Name names\n}\n\nHeatmapDataSet --> Substation : substations\nSubstation -->\
-  \ Work : works\nSubstation --> PostcodeArea : postcode_areas\n```\n\nThe data is\
-  \ intended to be presented as a hierarchy with a\n[HeatmapDataSet](HeatmapDataSet.md)\
+  \ demand_available_capacity\n    integer generation_requests_in_queue\n    MegaW\
+  \ generation_capacity_in_queue\n    MegaW generation_quoted_capacity\n    MegaW\
+  \ generation_available_capacity\n    Work works\n    PostcodeArea postcode_areas\n\
+  \    string description\n    string m_rid\n    Name names\n}\nclass Work {\n   \
+  \ date request_date_time\n    string work_order_number\n    WorkStatusKind status_kind\n\
+  \    WorkTimeSchedule time_schedules\n    string type\n    string description\n\
+  \    string m_rid\n    Name names\n}\nclass PostcodeArea {\n    string postcode\n\
+  \    RAGKind demand_constraint\n    RAGKind generation_constraint\n    string description\n\
+  \    string m_rid\n    Name names\n}\n\nHeatmapDataSet --> Substation : substations\n\
+  Substation --> Work : works\nSubstation --> PostcodeArea : postcode_areas\n```\n\
+  \nThe data is intended to be presented as a hierarchy with a\n[HeatmapDataSet](HeatmapDataSet.md)\
   \ at its root, followed by\n[Substations](Substation.md) nested inside the *HeatmapDataSet*.\n\
   *Substations* then have their own child elements.\n\nThis information model is based\
   \ in part on the [LTDS Capacity Heatmap\nInformation\nModel](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),\n\
