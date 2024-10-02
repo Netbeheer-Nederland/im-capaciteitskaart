@@ -194,12 +194,10 @@ class Substation {
     MegaW demand_capacity_in_queue
     MegaW demand_quoted_capacity
     MegaW demand_available_capacity
-    RAGKind demand_constraint
     integer generation_requests_in_queue
     MegaW generation_capacity_in_queue
     MegaW generation_quoted_capacity
     MegaW generation_available_capacity
-    RAGKind generation_constraint
     Work works
     PostcodeArea postcode_areas
     string description
@@ -218,6 +216,8 @@ class Work {
 }
 class PostcodeArea {
     string postcode
+    RAGKind demand_constraint
+    RAGKind generation_constraint
     string description
     string m_rid
     Name names
