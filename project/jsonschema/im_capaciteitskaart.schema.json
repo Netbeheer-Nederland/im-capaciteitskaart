@@ -144,6 +144,83 @@
             "title": "Document",
             "type": "object"
         },
+        "EnergyArea": {
+            "additionalProperties": false,
+            "description": "Describes an area having energy production or consumption. Specializations are intended to support the load allocation function as typically required in energy management systems or planning studies to allocate hypothesized load levels to individual load points for power flow analysis. Often the energy area can be linked to both measured and forecast load levels.",
+            "properties": {
+                "demand_available_capacity": {
+                    "description": "The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation.",
+                    "type": "integer"
+                },
+                "demand_capacity_in_queue": {
+                    "description": "The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation.",
+                    "type": "integer"
+                },
+                "demand_quoted_capacity": {
+                    "description": "Sum of all demand (in MW) currently quoted at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation.",
+                    "type": "integer"
+                },
+                "demand_requests_in_queue": {
+                    "description": "Number of demand requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - afname* in the previous implementation.",
+                    "type": "integer"
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
+                    "type": "string"
+                },
+                "generation_available_capacity": {
+                    "description": "Available generation capacity (in MW) at the EnergyArea. This is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation.",
+                    "type": "integer"
+                },
+                "generation_capacity_in_queue": {
+                    "description": "The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation.",
+                    "type": "integer"
+                },
+                "generation_quoted_capacity": {
+                    "description": "Sum of all currently quoted generation (in MW) at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous implementation.",
+                    "type": "integer"
+                },
+                "generation_requests_in_queue": {
+                    "description": "Number of generation requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - invoeding* in the previous implementation.",
+                    "type": "integer"
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": "array"
+                },
+                "postcode_areas": {
+                    "description": "Postcode Areas serviced by this EnergyArea.",
+                    "items": {
+                        "$ref": "#/$defs/PostcodeArea"
+                    },
+                    "type": "array"
+                },
+                "short_code": {
+                    "description": "Short code name for EnergyArea. This is the *Uniek ID voedingsgebied* in the previous implementation.",
+                    "type": "string"
+                },
+                "works": {
+                    "description": "All the works performed for this EnergyArea.",
+                    "items": {
+                        "$ref": "#/$defs/Work"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "demand_available_capacity",
+                "generation_available_capacity"
+            ],
+            "title": "EnergyArea",
+            "type": "object"
+        },
         "Equipment": {
             "additionalProperties": false,
             "description": "The parts of a power system that are physical devices, electronic or mechanical.",
@@ -226,6 +303,13 @@
                     "description": "An account of the resource.",
                     "type": "string"
                 },
+                "energy_areas": {
+                    "description": "A list of energy areas with heatmap data.",
+                    "items": {
+                        "$ref": "#/$defs/EnergyArea"
+                    },
+                    "type": "array"
+                },
                 "format": {
                     "description": "The file format of the resource.",
                     "type": "string"
@@ -250,13 +334,6 @@
                 "rights": {
                     "description": "Information about rights held in and over the resource.",
                     "type": "string"
-                },
-                "substations": {
-                    "description": "A list of substations with heatmap data.",
-                    "items": {
-                        "$ref": "#/$defs/Substation"
-                    },
-                    "type": "array"
                 },
                 "title": {
                     "description": "A name given to the resource.",
@@ -358,7 +435,7 @@
             "properties": {
                 "demand_constraint": {
                     "$ref": "#/$defs/RAGKind",
-                    "description": "A RAG definition of the demand constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor afname* in the previous implementation."
+                    "description": "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor afname* in the previous implementation."
                 },
                 "description": {
                     "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
@@ -366,7 +443,7 @@
                 },
                 "generation_constraint": {
                     "$ref": "#/$defs/RAGKind",
-                    "description": "A RAG definition of the generation constraints at the substation. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor opwek* in the previous implementation."
+                    "description": "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor opwek* in the previous implementation."
                 },
                 "m_rid": {
                     "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
@@ -394,7 +471,7 @@
         },
         "PowerSystemResource": {
             "additionalProperties": false,
-            "description": "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area.  Power system resources can have measurements associated.",
+            "description": "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a Substation, or an organisational entity such as sub-control area.  Power system resources can have measurements associated.",
             "properties": {
                 "description": {
                     "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
@@ -425,83 +502,6 @@
             ],
             "title": "RAGKind",
             "type": "string"
-        },
-        "Substation": {
-            "additionalProperties": false,
-            "description": "A Substation with connect demand and generation.",
-            "properties": {
-                "demand_available_capacity": {
-                    "description": "The available demand capacity (in MW) at the substation. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation.",
-                    "type": "integer"
-                },
-                "demand_capacity_in_queue": {
-                    "description": "The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation.",
-                    "type": "integer"
-                },
-                "demand_quoted_capacity": {
-                    "description": "Sum of all demand (in MW) currently quoted at the substation. This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation.",
-                    "type": "integer"
-                },
-                "demand_requests_in_queue": {
-                    "description": "Number of demand requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - afname* in the previous implementation.",
-                    "type": "integer"
-                },
-                "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
-                    "type": "string"
-                },
-                "generation_available_capacity": {
-                    "description": "Available generation capacity (in MW) at the substation. This is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation.",
-                    "type": "integer"
-                },
-                "generation_capacity_in_queue": {
-                    "description": "The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation.",
-                    "type": "integer"
-                },
-                "generation_quoted_capacity": {
-                    "description": "Sum of all currently quoted generation (in MW) at the substation. This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous implementation.",
-                    "type": "integer"
-                },
-                "generation_requests_in_queue": {
-                    "description": "Number of generation requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - invoeding* in the previous implementation.",
-                    "type": "integer"
-                },
-                "m_rid": {
-                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
-                    "type": "string"
-                },
-                "names": {
-                    "description": "All names of this identified object.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": "array"
-                },
-                "postcode_areas": {
-                    "description": "Postcode Areas serviced by this Substation.",
-                    "items": {
-                        "$ref": "#/$defs/PostcodeArea"
-                    },
-                    "type": "array"
-                },
-                "short_code": {
-                    "description": "Short code name for substation. This is the *Uniek ID voedingsgebied* in the previous implementation.",
-                    "type": "string"
-                },
-                "works": {
-                    "description": "All the works performed for this substation.",
-                    "items": {
-                        "$ref": "#/$defs/Work"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "demand_available_capacity",
-                "generation_available_capacity"
-            ],
-            "title": "Substation",
-            "type": "object"
         },
         "TimeSchedule": {
             "additionalProperties": false,

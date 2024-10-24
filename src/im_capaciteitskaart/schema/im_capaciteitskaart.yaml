@@ -6,8 +6,8 @@ description: "The capacity heatmaps information model was defined to cover a sup
   \ HeatmapDataSet {\n    string conforms_to\n    string contributor\n    string coverage\n\
   \    string creator\n    date date\n    string description\n    string format\n\
   \    string identifier\n    date issued\n    string language\n    string publisher\n\
-  \    string rights\n    string title\n    date valid\n    Substation substations\n\
-  }\nclass Substation {\n    string short_code\n    integer demand_requests_in_queue\n\
+  \    string rights\n    string title\n    date valid\n    EnergyArea energy_areas\n\
+  }\nclass EnergyArea {\n    string short_code\n    integer demand_requests_in_queue\n\
   \    MegaW demand_capacity_in_queue\n    MegaW demand_quoted_capacity\n    MegaW\
   \ demand_available_capacity\n    integer generation_requests_in_queue\n    MegaW\
   \ generation_capacity_in_queue\n    MegaW generation_quoted_capacity\n    MegaW\
@@ -17,12 +17,12 @@ description: "The capacity heatmaps information model was defined to cover a sup
   \    WorkTimeSchedule time_schedules\n    string type\n    string description\n\
   \    string m_rid\n    Name names\n}\nclass PostcodeArea {\n    string postcode\n\
   \    RAGKind demand_constraint\n    RAGKind generation_constraint\n    string description\n\
-  \    string m_rid\n    Name names\n}\n\nHeatmapDataSet --> Substation : substations\n\
-  Substation --> Work : works\nSubstation --> PostcodeArea : postcode_areas\n```\n\
+  \    string m_rid\n    Name names\n}\n\nHeatmapDataSet --> EnergyArea : energy_areas\n\
+  EnergyArea --> Work : works\nEnergyArea --> PostcodeArea : postcode_areas\n```\n\
   \nThe data is intended to be presented as a hierarchy with a\n[HeatmapDataSet](HeatmapDataSet.md)\
-  \ at its root, followed by\n[Substations](Substation.md) nested inside the *HeatmapDataSet*.\n\
-  *Substations* then have their own child elements.\n\nThis information model is based\
-  \ in part on the [LTDS Capacity Heatmap\nInformation\nModel](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),\n\
+  \ at its root, followed by\n[EnergyArea-s](EnergyArea.md) nested inside the *HeatmapDataSet*.\n\
+  *EnergyArea-s* then have their own child elements.\n\nThis information model is\
+  \ based in part on the [LTDS Capacity Heatmap\nInformation\nModel](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),\n\
   which itself is published under the [Open Government\nLicense](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/),\n\
   under \xA9Crown copyright 2024.\n\n## Additional schemas\n* [JSON Schema](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/jsonschema/im_capaciteitskaart.schema.json)\n\
   * [SHACL](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/shacl/im_capaciteitskaart.shacl.ttl)\n\
@@ -189,89 +189,91 @@ classes:
         range: date
         minimum_cardinality: 2
         maximum_cardinality: 2
-      substations:
-        description: A list of substations with heatmap data.
-        slot_uri: ck:HeatmapDataSet.substations
+      energy_areas:
+        description: A list of energy areas with heatmap data.
+        slot_uri: ck:HeatmapDataSet.EnergyAreas
         multivalued: true
-        range: Substation
+        range: EnergyArea
     class_uri: ck:HeatmapDataSet
-  Substation:
-    description: A Substation with connect demand and generation.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
-    narrow_mappings:
+  EnergyArea:
+    description: Describes an area having energy production or consumption. Specializations
+      are intended to support the load allocation function as typically required in
+      energy management systems or planning studies to allocate hypothesized load
+      levels to individual load points for power flow analysis. Often the energy area
+      can be linked to both measured and forecast load levels.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.LoadModel
+    exact_mappings:
     - nbnl:voedingsgebied
-    broad_mappings:
-    - nbnl:station
-    is_a: EquipmentContainer
+    is_a: IdentifiedObject
     attributes:
       short_code:
-        description: Short code name for substation. This is the *Uniek ID voedingsgebied*
+        description: Short code name for EnergyArea. This is the *Uniek ID voedingsgebied*
           in the previous implementation.
-        slot_uri: ck:Substation.shortCode
+        slot_uri: ck:EnergyArea.shortCode
       demand_requests_in_queue:
         description: Number of demand requests for new grid connections and capacity
           increases in queue. This is the *Aantal unieke transportverzoeken in een
           wachtrij - afname* in the previous implementation.
-        slot_uri: ck:Substation.demandRequestsInQueue
+        slot_uri: ck:EnergyArea.demandRequestsInQueue
         range: integer
         required: false
       demand_capacity_in_queue:
         description: The contract value of demand requests not yet granted. This is
           the *Wachtrij in capaciteit - afname* in the previous implementation.
-        slot_uri: ck:Substation.demandCapacityInQueue
+        slot_uri: ck:EnergyArea.demandCapacityInQueue
         range: MegaW
         required: false
       demand_quoted_capacity:
-        description: Sum of all demand (in MW) currently quoted at the substation.
+        description: Sum of all demand (in MW) currently quoted at the EnergyArea.
           This is the *Benodigde transportcapaciteit (in MW) afname* in the previous
           implementation.
-        slot_uri: ck:Substation.demandQuotedCapacity
+        slot_uri: ck:EnergyArea.demandQuotedCapacity
         range: MegaW
       demand_available_capacity:
-        description: The available demand capacity (in MW) at the substation. The
+        description: The available demand capacity (in MW) at the EnergyArea. The
           value should reflect the capacity a network operator would make available
           to a connecting party. This is the *Aanwezige transportcapaciteit (in MW)
           afname huidige jaar* in the previous implementation.
-        slot_uri: ck:Substation.demandAvailableCapacity
+        slot_uri: ck:EnergyArea.demandAvailableCapacity
         range: MegaW
         required: true
       generation_requests_in_queue:
         description: Number of generation requests for new grid connections and capacity
           increases in queue. This is the *Aantal unieke transportverzoeken in een
           wachtrij - invoeding* in the previous implementation.
-        slot_uri: ck:Substation.generationRequestsInQueue
+        slot_uri: ck:EnergyArea.generationRequestsInQueue
         range: integer
         required: false
       generation_capacity_in_queue:
         description: The contract value of generation requests not yet granted. This
           is the *Wachtrij in capaciteit - invoeding* in the previous implementation.
-        slot_uri: ck:Substation.generationCapacityInQueue
+        slot_uri: ck:EnergyArea.generationCapacityInQueue
         range: MegaW
         required: false
       generation_quoted_capacity:
-        description: Sum of all currently quoted generation (in MW) at the substation.
+        description: Sum of all currently quoted generation (in MW) at the EnergyArea.
           This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous
           implementation.
-        slot_uri: ck:Substation.generationQuotedCapacity
+        slot_uri: ck:EnergyArea.generationQuotedCapacity
         range: MegaW
       generation_available_capacity:
-        description: Available generation capacity (in MW) at the substation. This
+        description: Available generation capacity (in MW) at the EnergyArea. This
           is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in
           the previous implementation.
-        slot_uri: ck:Substation.generationAvailableCapacity
+        slot_uri: ck:EnergyArea.generationAvailableCapacity
         range: MegaW
         required: true
       works:
-        description: All the works performed for this substation.
-        slot_uri: cim:Substation.Works
+        description: All the works performed for this EnergyArea.
+        slot_uri: ck:EnergyArea.Works
         multivalued: true
         range: Work
       postcode_areas:
-        description: Postcode Areas serviced by this Substation.
-        slot_uri: ck:Substation.PostcodeAreas
+        description: Postcode Areas serviced by this EnergyArea.
+        slot_uri: ck:EnergyArea.PostcodeAreas
         multivalued: true
         range: PostcodeArea
-    class_uri: cim:Substation
+    class_uri: cim:EnergyArea
   PostcodeArea:
     description: A geographic region that is defined by the initial letters or digits
       of a postcode.
@@ -284,7 +286,7 @@ classes:
         slot_uri: ck:PostcodeArea.postcode
         required: true
       demand_constraint:
-        description: A RAG definition of the demand constraints at the substation.
+        description: A RAG definition of the demand constraints at the EnergyArea.
           A utility should provide details on how this RAG status is calculated as
           part of the accompanying documentation. This is the *Kleurcodering van het
           postcodegebied voor afname* in the previous implementation.
@@ -292,7 +294,7 @@ classes:
         range: RAGKind
         required: true
       generation_constraint:
-        description: A RAG definition of the generation constraints at the substation.
+        description: A RAG definition of the generation constraints at the EnergyArea.
           A utility should provide details on how this RAG status is calculated as
           part of the accompanying documentation. This is the *Kleurcodering van het
           postcodegebied voor opwek* in the previous implementation.
@@ -424,7 +426,7 @@ classes:
   PowerSystemResource:
     description: A power system resource (PSR) can be an item of equipment such as
       a switch, an equipment container containing many individual items of equipment
-      such as a substation, or an organisational entity such as sub-control area.  Power
+      such as a Substation, or an organisational entity such as sub-control area.  Power
       system resources can have measurements associated.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: IdentifiedObject
