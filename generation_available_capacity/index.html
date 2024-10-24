@@ -321,8 +321,8 @@
 
 
 <h1 id="slot-generation_available_capacity">Slot: generation_available_capacity</h1>
-<p><em>Available generation capacity (in MW) at the substation. This is the <em>Aanwezige transportcapaciteit (in MW) invoeding huidige jaar</em> in the previous implementation.</em></p>
-<p>URI: <a href="http://data.netbeheernederland.nl/capaciteitskaart/def#Substation.generationAvailableCapacity">ck:Substation.generationAvailableCapacity</a></p>
+<p><em>Available generation capacity (in MW) at the EnergyArea. This is the <em>Aanwezige transportcapaciteit (in MW) invoeding huidige jaar</em> in the previous implementation.</em></p>
+<p>URI: <a href="http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationAvailableCapacity">ck:EnergyArea.generationAvailableCapacity</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -336,8 +336,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Substation/">Substation</a></td>
-<td>A Substation with connect demand and generation</td>
+<td><a href="../EnergyArea/">EnergyArea</a></td>
+<td>Describes an area having energy production or consumption</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -359,15 +359,15 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_available_capacity</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Available generation capacity (in MW) at the substation. This is the</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Available generation capacity (in MW) at the EnergyArea. This is the</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">*Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.0.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:Substation.generationAvailableCapacity</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:EnergyArea.generationAvailableCapacity</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generation_available_capacity</span>
-<span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
+<span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EnergyArea</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EnergyArea</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MegaW</span>
 <span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>

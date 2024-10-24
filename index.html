@@ -259,9 +259,9 @@ class HeatmapDataSet {
     string rights
     string title
     date valid
-    Substation substations
+    EnergyArea energy_areas
 }
-class Substation {
+class EnergyArea {
     string short_code
     integer demand_requests_in_queue
     MegaW demand_capacity_in_queue
@@ -296,13 +296,13 @@ class PostcodeArea {
     Name names
 }
 
-HeatmapDataSet --&gt; Substation : substations
-Substation --&gt; Work : works
-Substation --&gt; PostcodeArea : postcode_areas</code></pre>
+HeatmapDataSet --&gt; EnergyArea : energy_areas
+EnergyArea --&gt; Work : works
+EnergyArea --&gt; PostcodeArea : postcode_areas</code></pre>
 <p>The data is intended to be presented as a hierarchy with a
 <a href="HeatmapDataSet/">HeatmapDataSet</a> at its root, followed by
-<a href="Substation/">Substations</a> nested inside the <em>HeatmapDataSet</em>.
-<em>Substations</em> then have their own child elements.</p>
+<a href="EnergyArea/">EnergyArea-s</a> nested inside the <em>HeatmapDataSet</em>.
+<em>EnergyArea-s</em> then have their own child elements.</p>
 <p>This information model is based in part on the <a href="https://www.ofgem.gov.uk/decision/long-term-development-statement-direction">LTDS Capacity Heatmap
 Information
 Model</a>,
@@ -347,6 +347,10 @@ under ©Crown copyright 2024.</p>
 <td>Parent class for different groupings of information collected and managed as ...</td>
 </tr>
 <tr>
+<td><a href="EnergyArea/">EnergyArea</a></td>
+<td>Describes an area having energy production or consumption</td>
+</tr>
+<tr>
 <td><a href="Equipment/">Equipment</a></td>
 <td>The parts of a power system that are physical devices, electronic or mechanic...</td>
 </tr>
@@ -381,10 +385,6 @@ under ©Crown copyright 2024.</p>
 <tr>
 <td><a href="PowerSystemResource/">PowerSystemResource</a></td>
 <td>A power system resource (PSR) can be an item of equipment such as a switch, a...</td>
-</tr>
-<tr>
-<td><a href="Substation/">Substation</a></td>
-<td>A Substation with connect demand and generation</td>
 </tr>
 <tr>
 <td><a href="TimeSchedule/">TimeSchedule</a></td>
@@ -435,7 +435,7 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="demand_available_capacity/">demand_available_capacity</a></td>
-<td>The available demand capacity (in MW) at the substation</td>
+<td>The available demand capacity (in MW) at the EnergyArea</td>
 </tr>
 <tr>
 <td><a href="demand_capacity_in_queue/">demand_capacity_in_queue</a></td>
@@ -443,11 +443,11 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="demand_constraint/">demand_constraint</a></td>
-<td>A RAG definition of the demand constraints at the substation</td>
+<td>A RAG definition of the demand constraints at the EnergyArea</td>
 </tr>
 <tr>
 <td><a href="demand_quoted_capacity/">demand_quoted_capacity</a></td>
-<td>Sum of all demand (in MW) currently quoted at the substation</td>
+<td>Sum of all demand (in MW) currently quoted at the EnergyArea</td>
 </tr>
 <tr>
 <td><a href="demand_requests_in_queue/">demand_requests_in_queue</a></td>
@@ -462,12 +462,16 @@ under ©Crown copyright 2024.</p>
 <td>End date and time of this interval</td>
 </tr>
 <tr>
+<td><a href="energy_areas/">energy_areas</a></td>
+<td>A list of energy areas with heatmap data</td>
+</tr>
+<tr>
 <td><a href="format/">format</a></td>
 <td>The file format of the resource</td>
 </tr>
 <tr>
 <td><a href="generation_available_capacity/">generation_available_capacity</a></td>
-<td>Available generation capacity (in MW) at the substation</td>
+<td>Available generation capacity (in MW) at the EnergyArea</td>
 </tr>
 <tr>
 <td><a href="generation_capacity_in_queue/">generation_capacity_in_queue</a></td>
@@ -475,11 +479,11 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="generation_constraint/">generation_constraint</a></td>
-<td>A RAG definition of the generation constraints at the substation</td>
+<td>A RAG definition of the generation constraints at the EnergyArea</td>
 </tr>
 <tr>
 <td><a href="generation_quoted_capacity/">generation_quoted_capacity</a></td>
-<td>Sum of all currently quoted generation (in MW) at the substation</td>
+<td>Sum of all currently quoted generation (in MW) at the EnergyArea</td>
 </tr>
 <tr>
 <td><a href="generation_requests_in_queue/">generation_requests_in_queue</a></td>
@@ -523,7 +527,7 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="postcode_areas/">postcode_areas</a></td>
-<td>Postcode Areas serviced by this Substation</td>
+<td>Postcode Areas serviced by this EnergyArea</td>
 </tr>
 <tr>
 <td><a href="publisher/">publisher</a></td>
@@ -543,7 +547,7 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="short_code/">short_code</a></td>
-<td>Short code name for substation</td>
+<td>Short code name for EnergyArea</td>
 </tr>
 <tr>
 <td><a href="start/">start</a></td>
@@ -552,10 +556,6 @@ under ©Crown copyright 2024.</p>
 <tr>
 <td><a href="status_kind/">status_kind</a></td>
 <td>Kind of work status</td>
-</tr>
-<tr>
-<td><a href="substations/">substations</a></td>
-<td>A list of substations with heatmap data</td>
 </tr>
 <tr>
 <td><a href="time_schedules/">time_schedules</a></td>
@@ -579,7 +579,7 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="works/">works</a></td>
-<td>All the works performed for this substation</td>
+<td>All the works performed for this EnergyArea</td>
 </tr>
 </tbody>
 </table>
