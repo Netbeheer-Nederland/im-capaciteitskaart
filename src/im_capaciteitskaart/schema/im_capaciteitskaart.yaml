@@ -33,8 +33,8 @@ see_also:
 contributors:
 - github:ritger-alliander
 - github:sefanja
-id: http://data.netbeheernederland.nl/capaciteitskaart/v1.0.0
-version: 1.0.0
+id: http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0
+version: 1.1.0
 imports:
 - linkml:types
 license: Apache Software License 2.0
@@ -78,30 +78,14 @@ enums:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968
     enum_uri: cim:WorkStatusKind
     permissible_values:
-      approved:
-        meaning: cim:WorkStatusKind.approved
       cancelled:
         meaning: cim:WorkStatusKind.cancelled
-      closed:
-        meaning: cim:WorkStatusKind.closed
       completed:
         meaning: cim:WorkStatusKind.completed
-      dispatched:
-        meaning: cim:WorkStatusKind.dispatched
-      enroute:
-        meaning: cim:WorkStatusKind.enroute
       inProgress:
         meaning: cim:WorkStatusKind.inProgress
-      onSite:
-        meaning: cim:WorkStatusKind.onSite
       scheduled:
         meaning: cim:WorkStatusKind.scheduled
-      waitingOnApproval:
-        meaning: cim:WorkStatusKind.waitingOnApproval
-      waitingOnMaterial:
-        meaning: cim:WorkStatusKind.waitingOnMaterial
-      waitingToBeScheduled:
-        meaning: cim:WorkStatusKind.waitingToBeScheduled
   WorkTimeScheduleKind:
     description: Kind of work schedule.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968
@@ -303,19 +287,17 @@ classes:
         required: true
     class_uri: ck:PostcodeArea
   Work:
-    description: Document used to request, initiate, track and record work.
+    description: Document used to request, initiate, track and record work. Use the
+      *description* attribute to add additional information about this *Work*. This
+      is *Toelichting bijzonderheden rondom planning* in the previous implementation.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
     is_a: BaseWork
     attributes:
-      request_date_time:
-        description: "Date and time work was requested.\r\n"
-        slot_uri: cim:Work.requestDateTime
-        range: date
-      work_order_number:
-        description: Work order number (or other unique identifying information) for
-          this work.
-        slot_uri: cim:Work.workOrderNumber
-        range: string
+      project_name:
+        description: Name of the project this work belongs to. This is the *Projectnaam*
+          in the previous implementation.
+        slot_uri: ck:Work.projectName
+        required: false
     class_uri: cim:Work
   BaseWork:
     description: Common representation for work and work tasks.
@@ -326,7 +308,7 @@ classes:
         description: Kind of work status.
         slot_uri: cim:BaseWork.statusKind
         range: WorkStatusKind
-        required: true
+        required: false
       time_schedules:
         description: All time schedules for this work or work task.
         slot_uri: cim:BaseWork.TimeSchedules
@@ -338,12 +320,6 @@ classes:
     description: Time schedule specific to work.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
     is_a: TimeSchedule
-    attributes:
-      kind:
-        description: Kind of this work schedule.
-        slot_uri: cim:WorkTimeSchedule.kind
-        range: WorkTimeScheduleKind
-        required: true
     class_uri: cim:WorkTimeSchedule
   Document:
     description: Parent class for different groupings of information collected and
@@ -382,55 +358,21 @@ classes:
     attributes:
       end:
         description: End date and time of this interval. The end date and time where
-          the interval is defined up to, but excluded.
+          the interval is defined up to, but excluded. Follows the international date
+          format of YYYY-MM-DD, i.e. 2024-12-31. This is the *Beoogde in bedrijfsname*
+          in the previous implementation.
         slot_uri: cim:DateTimeInterval.end
         range: date
         required: true
       start:
-        description: Start date and time of this interval.  The start date and time
-          is included in the defined interval.
+        description: Start date and time of this interval. The start date and time
+          is included in the defined interval. Follows the international date format
+          of YYYY-MM-DD, i.e. 2024-12-31. This is the *Startdatum* in the previous
+          implementation.
         slot_uri: cim:DateTimeInterval.start
         range: date
-        required: true
+        required: false
     class_uri: cim:DateTimeInterval
-  EquipmentContainer:
-    description: A modelling construct to provide a root class for containing equipment.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
-    is_a: ConnectivityNodeContainer
-    class_uri: cim:EquipmentContainer
-  Equipment:
-    description: The parts of a power system that are physical devices, electronic
-      or mechanical.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
-    is_a: PowerSystemResource
-    attributes:
-      aggregate:
-        description: True if the demand represents an aggregation of multiple demands
-          all connected at a single voltage level.
-        slot_uri: cim:Equipment.aggregate
-        range: boolean
-        required: true
-    class_uri: cim:Equipment
-  ConductingEquipment:
-    description: The parts of the AC power system that are designed to carry current
-      or that are conductively connected through terminals.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
-    is_a: Equipment
-    class_uri: cim:ConductingEquipment
-  ConnectivityNodeContainer:
-    description: A base class for all objects that may contain connectivity nodes
-      or topological nodes.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
-    is_a: PowerSystemResource
-    class_uri: cim:ConnectivityNodeContainer
-  PowerSystemResource:
-    description: A power system resource (PSR) can be an item of equipment such as
-      a switch, an equipment container containing many individual items of equipment
-      such as a Substation, or an organisational entity such as sub-control area.  Power
-      system resources can have measurements associated.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
-    is_a: IdentifiedObject
-    class_uri: cim:PowerSystemResource
   IdentifiedObject:
     description: This is a root class to provide common identification for all classes
       needing identification and naming attributes.

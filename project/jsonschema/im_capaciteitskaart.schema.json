@@ -36,63 +36,9 @@
                 }
             },
             "required": [
-                "status_kind",
                 "time_schedules"
             ],
             "title": "BaseWork",
-            "type": "object"
-        },
-        "ConductingEquipment": {
-            "additionalProperties": false,
-            "description": "The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.",
-            "properties": {
-                "aggregate": {
-                    "description": "True if the demand represents an aggregation of multiple demands all connected at a single voltage level.",
-                    "type": "boolean"
-                },
-                "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
-                    "type": "string"
-                },
-                "m_rid": {
-                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
-                    "type": "string"
-                },
-                "names": {
-                    "description": "All names of this identified object.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "aggregate"
-            ],
-            "title": "ConductingEquipment",
-            "type": "object"
-        },
-        "ConnectivityNodeContainer": {
-            "additionalProperties": false,
-            "description": "A base class for all objects that may contain connectivity nodes or topological nodes.",
-            "properties": {
-                "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
-                    "type": "string"
-                },
-                "m_rid": {
-                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
-                    "type": "string"
-                },
-                "names": {
-                    "description": "All names of this identified object.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": "array"
-                }
-            },
-            "title": "ConnectivityNodeContainer",
             "type": "object"
         },
         "DateTimeInterval": {
@@ -100,19 +46,18 @@
             "description": "Interval between two date and time points, where the interval includes the start time but excludes end time.",
             "properties": {
                 "end": {
-                    "description": "End date and time of this interval. The end date and time where the interval is defined up to, but excluded.",
+                    "description": "End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. This is the *Beoogde in bedrijfsname* in the previous implementation.",
                     "format": "date",
                     "type": "string"
                 },
                 "start": {
-                    "description": "Start date and time of this interval.  The start date and time is included in the defined interval.",
+                    "description": "Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. This is the *Startdatum* in the previous implementation.",
                     "format": "date",
                     "type": "string"
                 }
             },
             "required": [
-                "end",
-                "start"
+                "end"
             ],
             "title": "DateTimeInterval",
             "type": "object"
@@ -219,59 +164,6 @@
                 "generation_available_capacity"
             ],
             "title": "EnergyArea",
-            "type": "object"
-        },
-        "Equipment": {
-            "additionalProperties": false,
-            "description": "The parts of a power system that are physical devices, electronic or mechanical.",
-            "properties": {
-                "aggregate": {
-                    "description": "True if the demand represents an aggregation of multiple demands all connected at a single voltage level.",
-                    "type": "boolean"
-                },
-                "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
-                    "type": "string"
-                },
-                "m_rid": {
-                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
-                    "type": "string"
-                },
-                "names": {
-                    "description": "All names of this identified object.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "aggregate"
-            ],
-            "title": "Equipment",
-            "type": "object"
-        },
-        "EquipmentContainer": {
-            "additionalProperties": false,
-            "description": "A modelling construct to provide a root class for containing equipment.",
-            "properties": {
-                "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
-                    "type": "string"
-                },
-                "m_rid": {
-                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
-                    "type": "string"
-                },
-                "names": {
-                    "description": "All names of this identified object.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": "array"
-                }
-            },
-            "title": "EquipmentContainer",
             "type": "object"
         },
         "HeatmapDataSet": {
@@ -469,29 +361,6 @@
             "title": "PostcodeArea",
             "type": "object"
         },
-        "PowerSystemResource": {
-            "additionalProperties": false,
-            "description": "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a Substation, or an organisational entity such as sub-control area.  Power system resources can have measurements associated.",
-            "properties": {
-                "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
-                    "type": "string"
-                },
-                "m_rid": {
-                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
-                    "type": "string"
-                },
-                "names": {
-                    "description": "All names of this identified object.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": "array"
-                }
-            },
-            "title": "PowerSystemResource",
-            "type": "object"
-        },
         "RAGKind": {
             "description": "Traffic light colors coding scheme for categorising status.",
             "enum": [
@@ -539,7 +408,7 @@
         },
         "Work": {
             "additionalProperties": false,
-            "description": "Document used to request, initiate, track and record work.",
+            "description": "Document used to request, initiate, track and record work. Use the *description* attribute to add additional information about this *Work*. This is *Toelichting bijzonderheden rondom planning* in the previous implementation.",
             "properties": {
                 "description": {
                     "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
@@ -556,9 +425,8 @@
                     },
                     "type": "array"
                 },
-                "request_date_time": {
-                    "description": "Date and time work was requested.\r\n",
-                    "format": "date",
+                "project_name": {
+                    "description": "Name of the project this work belongs to. This is the *Projectnaam* in the previous implementation.",
                     "type": "string"
                 },
                 "status_kind": {
@@ -575,14 +443,9 @@
                 "type": {
                     "description": "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).",
                     "type": "string"
-                },
-                "work_order_number": {
-                    "description": "Work order number (or other unique identifying information) for this work.",
-                    "type": "string"
                 }
             },
             "required": [
-                "status_kind",
                 "time_schedules"
             ],
             "title": "Work",
@@ -591,18 +454,10 @@
         "WorkStatusKind": {
             "description": "Kind of status, specific to work.",
             "enum": [
-                "approved",
                 "cancelled",
-                "closed",
                 "completed",
-                "dispatched",
-                "enroute",
                 "inProgress",
-                "onSite",
-                "scheduled",
-                "waitingOnApproval",
-                "waitingOnMaterial",
-                "waitingToBeScheduled"
+                "scheduled"
             ],
             "title": "WorkStatusKind",
             "type": "string"
@@ -614,10 +469,6 @@
                 "description": {
                     "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
-                },
-                "kind": {
-                    "$ref": "#/$defs/WorkTimeScheduleKind",
-                    "description": "Kind of this work schedule."
                 },
                 "m_rid": {
                     "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
@@ -640,7 +491,6 @@
                 }
             },
             "required": [
-                "kind",
                 "schedule_interval"
             ],
             "title": "WorkTimeSchedule",
@@ -660,11 +510,11 @@
             "type": "string"
         }
     },
-    "$id": "http://data.netbeheernederland.nl/capaciteitskaart/v1.0.0",
+    "$id": "http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "metamodel_version": "1.7.0",
     "title": "im-capaciteitskaart",
     "type": "object",
-    "version": "1.0.0"
+    "version": "1.1.0"
 }
