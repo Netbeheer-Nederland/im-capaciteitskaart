@@ -321,7 +321,7 @@
 
 
 <h1 id="slot-start">Slot: start</h1>
-<p><em>Start date and time of this interval.  The start date and time is included in the defined interval.</em></p>
+<p><em>Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. This is the <em>Startdatum</em> in the previous implementation.</em></p>
 <p>URI: <a href="https://cim.ucaiug.io/ns#DateTimeInterval.start">cim:DateTimeInterval.start</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -344,24 +344,20 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../date/">date</a></p>
-</li>
-<li>
-<p>Required: True</p>
-</li>
+<li>Range: <a href="../date/">date</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: http://data.netbeheernederland.nl/capaciteitskaart/v1.0.0</li>
+<li>from schema: http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">start</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Start date and time of this interval.  The start date and time is included</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">in the defined interval.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.0.0</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Start date and time of this interval. The start date and time is included</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">in the defined interval. Follows the international date format of YYYY-MM-DD, i.e.</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">2024-12-31. This is the *Startdatum* in the previous implementation.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:DateTimeInterval.start</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">start</span>
@@ -369,7 +365,7 @@
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DateTimeInterval</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">date</span>
-<span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 </details>
 

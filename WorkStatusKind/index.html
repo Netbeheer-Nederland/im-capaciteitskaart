@@ -334,18 +334,8 @@
 </thead>
 <tbody>
 <tr>
-<td>approved</td>
-<td>cim:WorkStatusKind.approved</td>
-<td></td>
-</tr>
-<tr>
 <td>cancelled</td>
 <td>cim:WorkStatusKind.cancelled</td>
-<td></td>
-</tr>
-<tr>
-<td>closed</td>
-<td>cim:WorkStatusKind.closed</td>
 <td></td>
 </tr>
 <tr>
@@ -354,43 +344,13 @@
 <td></td>
 </tr>
 <tr>
-<td>dispatched</td>
-<td>cim:WorkStatusKind.dispatched</td>
-<td></td>
-</tr>
-<tr>
-<td>enroute</td>
-<td>cim:WorkStatusKind.enroute</td>
-<td></td>
-</tr>
-<tr>
 <td>inProgress</td>
 <td>cim:WorkStatusKind.inProgress</td>
 <td></td>
 </tr>
 <tr>
-<td>onSite</td>
-<td>cim:WorkStatusKind.onSite</td>
-<td></td>
-</tr>
-<tr>
 <td>scheduled</td>
 <td>cim:WorkStatusKind.scheduled</td>
-<td></td>
-</tr>
-<tr>
-<td>waitingOnApproval</td>
-<td>cim:WorkStatusKind.waitingOnApproval</td>
-<td></td>
-</tr>
-<tr>
-<td>waitingOnMaterial</td>
-<td>cim:WorkStatusKind.waitingOnMaterial</td>
-<td></td>
-</tr>
-<tr>
-<td>waitingToBeScheduled</td>
-<td>cim:WorkStatusKind.waitingToBeScheduled</td>
 <td></td>
 </tr>
 </tbody>
@@ -413,52 +373,28 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: http://data.netbeheernederland.nl/capaciteitskaart/v1.0.0</li>
+<li>from schema: http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkStatusKind</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kind of status, specific to work.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.0.0</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">enum_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind</span>
 <span class="nt">permissible_values</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">approved</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">approved</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind.approved</span>
 <span class="w">  </span><span class="nt">cancelled</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cancelled</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind.cancelled</span>
-<span class="w">  </span><span class="nt">closed</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">closed</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind.closed</span>
 <span class="w">  </span><span class="nt">completed</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">completed</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind.completed</span>
-<span class="w">  </span><span class="nt">dispatched</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dispatched</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind.dispatched</span>
-<span class="w">  </span><span class="nt">enroute</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enroute</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind.enroute</span>
 <span class="w">  </span><span class="nt">inProgress</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inProgress</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind.inProgress</span>
-<span class="w">  </span><span class="nt">onSite</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">onSite</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind.onSite</span>
 <span class="w">  </span><span class="nt">scheduled</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scheduled</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind.scheduled</span>
-<span class="w">  </span><span class="nt">waitingOnApproval</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">waitingOnApproval</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind.waitingOnApproval</span>
-<span class="w">  </span><span class="nt">waitingOnMaterial</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">waitingOnMaterial</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind.waitingOnMaterial</span>
-<span class="w">  </span><span class="nt">waitingToBeScheduled</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">waitingToBeScheduled</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:WorkStatusKind.waitingToBeScheduled</span>
 </code></pre></div>
 </details>
 
