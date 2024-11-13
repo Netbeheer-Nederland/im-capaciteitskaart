@@ -209,6 +209,8 @@
     click DateTimeInterval href "../DateTimeInterval"
       DateTimeInterval : end
 
+      DateTimeInterval : quarter
+
       DateTimeInterval : start
 
 </code></pre>
@@ -234,6 +236,12 @@
 <td><a href="../start/">start</a></td>
 <td>0..1 <br/> <a href="../date/">date</a></td>
 <td>Start date and time of this interval</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../quarter/">quarter</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Yearly quarter indicator</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -266,7 +274,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0</li>
+<li>from schema: http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -294,16 +302,16 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DateTimeInterval</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Interval between two date and time points, where the interval includes</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">the start time but excludes end time.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">end</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">end</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">End date and time of this interval. The end date and time where the</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">interval is defined up to, but excluded. Follows the international date format</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of YYYY-MM-DD, i.e. 2024-12-31. This is the *Beoogde in bedrijfsname* in the</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">previous implementation.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01*</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">as day. This is the *Beoogde in bedrijfsname* in the previous implementation.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:DateTimeInterval.end</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -314,13 +322,25 @@
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">start</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Start date and time of this interval. The start date and time is</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">included in the defined interval. Follows the international date format of YYYY-MM-DD,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">i.e. 2024-12-31. This is the *Startdatum* in the previous implementation.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">i.e. 2024-12-31. When only a specific month is known, use *01* as day. This</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is the *Startdatum* in the previous implementation.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:DateTimeInterval.start</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DateTimeInterval</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">date</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">quarter</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quarter</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Yearly quarter indicator. Used for the coming two years relative</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to this dataset. Identified as *Q[number]* for the first year, *H[number]* for</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the second year.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:DateTimeInterval.quarter</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DateTimeInterval</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:DateTimeInterval</span>
 </code></pre></div>
@@ -330,16 +350,16 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DateTimeInterval</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Interval between two date and time points, where the interval includes</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">the start time but excludes end time.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">end</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">end</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">End date and time of this interval. The end date and time where the</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">interval is defined up to, but excluded. Follows the international date format</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of YYYY-MM-DD, i.e. 2024-12-31. This is the *Beoogde in bedrijfsname* in the</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">previous implementation.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01*</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">as day. This is the *Beoogde in bedrijfsname* in the previous implementation.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:DateTimeInterval.end</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">end</span>
@@ -352,8 +372,9 @@
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">start</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Start date and time of this interval. The start date and time is</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">included in the defined interval. Follows the international date format of YYYY-MM-DD,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">i.e. 2024-12-31. This is the *Startdatum* in the previous implementation.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">i.e. 2024-12-31. When only a specific month is known, use *01* as day. This</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is the *Startdatum* in the previous implementation.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:DateTimeInterval.start</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">start</span>
@@ -361,6 +382,20 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DateTimeInterval</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">date</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">quarter</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quarter</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Yearly quarter indicator. Used for the coming two years relative</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to this dataset. Identified as *Q[number]* for the first year, *H[number]* for</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the second year.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:DateTimeInterval.quarter</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quarter</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DateTimeInterval</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DateTimeInterval</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:DateTimeInterval</span>
 </code></pre></div>
