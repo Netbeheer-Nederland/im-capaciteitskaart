@@ -1,7 +1,7 @@
-id: http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0
+id: http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0
 name: im-capaciteitskaart
 title: Information model for the NBNL-capaciteitskaart.
-version: 1.1.0
+version: 1.2.0
 description: |-
   The capacity heatmaps information model was defined to cover a superset of
   data exchanged by the NL system operators. A minimum set of data is defined
@@ -35,10 +35,14 @@ description: |-
       MegaW demand_capacity_in_queue
       MegaW demand_quoted_capacity
       MegaW demand_available_capacity
+      MegaW demand_forecast_capacity
+      integer demand_alleviation_year
       integer generation_requests_in_queue
       MegaW generation_capacity_in_queue
       MegaW generation_quoted_capacity
       MegaW generation_available_capacity
+      MegaW generation_forecast_capacity
+      integer generation_alleviation_year
       Work works
       PostcodeArea postcode_areas
       string description
@@ -262,6 +266,20 @@ classes:
           MW) afname huidige jaar* in the previous implementation.
         slot_uri: ck:EnergyArea.demandAvailableCapacity
         required: true
+      demandForecastCapacity:
+        range: MegaW
+        description:
+          Sum of all demand (in MW) forecast for the current year at the
+          EnergyArea.
+        slot_uri: ck:EnergyArea.demandForecastCapacity
+        required: false
+      demandAlleviationYear:
+        range: integer
+        description:
+          Year (e.g. *2028*) from which any capacity issues have been
+          alleviated for the EnergyArea.
+        slot_uri: ck:EnergyArea.demandAlleviationYear
+        required: false
       generationRequestsInQueue:
         range: integer
         description:
@@ -293,6 +311,20 @@ classes:
           previous implementation.
         slot_uri: ck:EnergyArea.generationAvailableCapacity
         required: true
+      generationForecastCapacity:
+        range: MegaW
+        description:
+          Sum of all forecast generation (in MW) for the current year at the
+          EnergyArea.
+        slot_uri: ck:EnergyArea.generationForecastCapacity
+        required: false
+      generationAlleviationYear:
+        range: integer
+        description:
+          Year (e.g. *2028*) from which any capacity issues have been
+          alleviated for the EnergyArea.
+        slot_uri: ck:EnergyArea.generationAlleviationYear
+        required: false
       Works:
         range: Work
         description:
@@ -430,7 +462,8 @@ classes:
         description:
           End date and time of this interval. The end date and time where the
           interval is defined up to, but excluded. Follows the international
-          date format of YYYY-MM-DD, i.e. 2024-12-31. This is the *Beoogde in
+          date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific
+          month is known, use *01* as day. This is the *Beoogde in
           bedrijfsname* in the previous implementation.
         slot_uri: cim:DateTimeInterval.end
         range: date
@@ -439,10 +472,18 @@ classes:
         description:
           Start date and time of this interval. The start date and time is
           included in the defined interval. Follows the international date
-          format of YYYY-MM-DD, i.e. 2024-12-31. This is the *Startdatum* in
-          the previous implementation.
+          format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is
+          known, use *01* as day. This is the *Startdatum* in the previous
+          implementation.
         slot_uri: cim:DateTimeInterval.start
         range: date
+        required: false
+      quarter:
+        description:
+          Yearly quarter indicator. Used for the coming two years relative to
+          this dataset. Identified as *Q[number]* for the first year,
+          *H[number]* for the second year.
+        slot_uri: ck:DateTimeInterval.quarter
         required: false
     class_uri: cim:DateTimeInterval
 

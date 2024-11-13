@@ -23,381 +23,426 @@ ck:BaseWork a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "BaseWork" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:time_schedules ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ck:status_kind ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom cim:WorkStatusKind ;
-            owl:onProperty ck:status_kind ],
-        [ a owl:Restriction ;
             owl:allValuesFrom ck:WorkTimeSchedule ;
             owl:onProperty ck:time_schedules ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty ck:status_kind ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:status_kind ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ck:time_schedules ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom cim:WorkStatusKind ;
+            owl:onProperty ck:status_kind ],
         ck:Document ;
     skos:definition "Common representation for work and work tasks." ;
     skos:exactMatch cim:BaseWork ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:DateTimeInterval a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "DateTimeInterval" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:end ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:date ;
+            owl:onProperty ck:end ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:quarter ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:quarter ],
+        [ a owl:Restriction ;
             owl:allValuesFrom linkml:date ;
             owl:onProperty ck:start ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:start ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:quarter ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty ck:end ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty ck:start ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:end ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:start ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:date ;
-            owl:onProperty ck:end ] ;
+            owl:onProperty ck:start ] ;
     skos:definition "Interval between two date and time points, where the interval includes the start time but excludes end time." ;
     skos:exactMatch cim:DateTimeInterval ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:EnergyArea a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "EnergyArea" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:demand_requests_in_queue ],
+        [ a owl:Restriction ;
             owl:allValuesFrom ck:MegaW ;
+            owl:onProperty ck:demand_forecast_capacity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:short_code ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:generation_alleviation_year ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty ck:demand_capacity_in_queue ],
         [ a owl:Restriction ;
-            owl:allValuesFrom ck:MegaW ;
-            owl:onProperty ck:generation_capacity_in_queue ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ck:PostcodeArea ;
-            owl:onProperty ck:postcode_areas ],
+            owl:minCardinality 0 ;
+            owl:onProperty ck:generation_quoted_capacity ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty ck:works ],
         [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty ck:demand_requests_in_queue ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:generation_forecast_capacity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:generation_requests_in_queue ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:short_code ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty ck:demand_quoted_capacity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty ck:demand_alleviation_year ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:demand_available_capacity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ck:PostcodeArea ;
             owl:onProperty ck:postcode_areas ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ck:demand_quoted_capacity ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:generation_capacity_in_queue ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:demand_quoted_capacity ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:generation_available_capacity ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ck:short_code ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ck:generation_capacity_in_queue ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:demand_requests_in_queue ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:generation_quoted_capacity ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:generation_requests_in_queue ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ck:MegaW ;
-            owl:onProperty ck:generation_quoted_capacity ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ck:MegaW ;
-            owl:onProperty ck:generation_available_capacity ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ck:MegaW ;
-            owl:onProperty ck:demand_available_capacity ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ck:generation_requests_in_queue ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:demand_capacity_in_queue ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty ck:generation_available_capacity ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:demand_available_capacity ],
+            owl:allValuesFrom ck:MegaW ;
+            owl:onProperty ck:demand_quoted_capacity ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Integer ;
-            owl:onProperty ck:generation_requests_in_queue ],
+            owl:onProperty ck:generation_alleviation_year ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty ck:short_code ],
+            owl:onProperty ck:demand_forecast_capacity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:demand_quoted_capacity ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty ck:demand_requests_in_queue ],
+            owl:onProperty ck:generation_forecast_capacity ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Integer ;
+            owl:maxCardinality 1 ;
             owl:onProperty ck:demand_requests_in_queue ],
         [ a owl:Restriction ;
             owl:allValuesFrom ck:Work ;
             owl:onProperty ck:works ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ck:demand_capacity_in_queue ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:short_code ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:demand_available_capacity ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom ck:MegaW ;
             owl:onProperty ck:generation_quoted_capacity ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:generation_alleviation_year ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:demand_alleviation_year ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty ck:generation_requests_in_queue ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:generation_requests_in_queue ],
+        [ a owl:Restriction ;
             owl:allValuesFrom ck:MegaW ;
-            owl:onProperty ck:demand_quoted_capacity ],
+            owl:onProperty ck:demand_available_capacity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:generation_available_capacity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ck:MegaW ;
+            owl:onProperty ck:generation_capacity_in_queue ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ck:MegaW ;
+            owl:onProperty ck:generation_forecast_capacity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ck:MegaW ;
+            owl:onProperty ck:demand_capacity_in_queue ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:demand_forecast_capacity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:demand_capacity_in_queue ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:generation_quoted_capacity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:generation_capacity_in_queue ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:demand_alleviation_year ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ck:demand_available_capacity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ck:MegaW ;
+            owl:onProperty ck:generation_available_capacity ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:generation_capacity_in_queue ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:short_code ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:postcode_areas ],
         ck:IdentifiedObject ;
     skos:definition "Describes an area having energy production or consumption. Specializations are intended to support the load allocation function as typically required in energy management systems or planning studies to allocate hypothesized load levels to individual load points for power flow analysis. Often the energy area can be linked to both measured and forecast load levels." ;
     skos:exactMatch nbnl:voedingsgebied,
         cim:EnergyArea ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:HeatmapDataSet a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "HeatmapDataSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty ck:title ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty ck:contributor ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:issued ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:creator ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:valid ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:conforms_to ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:rights ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:rights ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:coverage ],
+            owl:minCardinality 1 ;
+            owl:onProperty ck:date ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty ck:publisher ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:conforms_to ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty ck:description ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty ck:coverage ],
+            owl:onProperty ck:creator ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:date ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:contributor ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty ck:issued ],
+            owl:onProperty ck:format ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:coverage ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:date ;
             owl:onProperty ck:issued ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:coverage ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:language ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:publisher ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:description ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:format ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ck:energy_areas ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:date ;
-            owl:onProperty ck:date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:title ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:publisher ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:conforms_to ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:title ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:language ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:language ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:rights ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:contributor ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:contributor ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:identifier ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:format ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:conforms_to ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:date ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty ck:valid ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty ck:identifier ],
+            owl:onProperty ck:issued ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:creator ],
+            owl:onProperty ck:rights ],
         [ a owl:Restriction ;
             owl:allValuesFrom ck:EnergyArea ;
             owl:onProperty ck:energy_areas ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty ck:creator ],
+            owl:onProperty ck:identifier ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:format ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:date ;
+            owl:minCardinality 0 ;
             owl:onProperty ck:valid ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:identifier ] ;
+            owl:onProperty ck:publisher ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ck:language ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ck:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:format ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:identifier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:creator ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:date ;
+            owl:onProperty ck:date ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:coverage ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ck:title ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:valid ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ck:publisher ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:conforms_to ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:contributor ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:language ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ck:rights ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:creator ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:energy_areas ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:rights ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:format ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ck:coverage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:language ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:title ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:issued ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:identifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:date ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ck:conforms_to ] ;
     skos:definition "A single instance of a published dataset. The descriptions of these fields are taken from the Dublin Core Standard." ;
     skos:exactMatch ck:HeatmapDataSet ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:Name a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Name" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:name_type ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty ck:name_type ],
         [ a owl:Restriction ;
             owl:allValuesFrom ck:NameType ;
+            owl:onProperty ck:name_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty ck:name_type ] ;
     skos:definition "The Name class provides the means to define any number of human readable names for an object. A name is <b>not</b> to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'" ;
     skos:exactMatch cim:Name ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:NameType a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NameType" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ck:description ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:description ],
-        [ a owl:Restriction ;
             owl:allValuesFrom ck:NameTypeAuthority ;
             owl:onProperty ck:name_type_authority ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty ck:description ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty ck:name_type_authority ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty ck:name_type_authority ] ;
     skos:definition "Type of name. Possible values for attribute 'name' are implementation dependent but standard profiles may specify types. An enterprise may have multiple IT systems each having its own local name for the same object, e.g.  a planning system may have different names from an EMS. An object may also have different names within the same IT system, e.g. localName as defined in CIM version 14. The definition from CIM14 is The localName is a human readable name of the object. It is a free text name local to a node in a naming hierarchy similar to a file directory structure. A power system related naming hierarchy may be Substation, VoltageLevel, Equipment etc. Children of the same parent in such a hierarchy have names that typically are unique among them." ;
     skos:exactMatch cim:NameType ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:NameTypeAuthority a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NameTypeAuthority" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
+            owl:maxCardinality 1 ;
             owl:onProperty ck:description ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty ck:description ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty ck:description ] ;
     skos:definition "Authority responsible for creation and management of names of a given type; typically an organization or an enterprise system." ;
     skos:exactMatch cim:NameTypeAuthority ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:TimeSchedule a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "TimeSchedule" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:schedule_interval ],
+        [ a owl:Restriction ;
             owl:allValuesFrom ck:DateTimeInterval ;
             owl:onProperty ck:schedule_interval ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty ck:schedule_interval ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:schedule_interval ],
         ck:Document ;
     skos:definition "Description of anything that changes through time. Time schedule is used to perform a single-valued function of time. Use inherited 'type' attribute to give additional information on this schedule, such as periodic (hourly, daily, weekly, monthly, etc.), day of the month, by date, calendar (specific times and dates)." ;
     skos:exactMatch cim:TimeSchedule ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:Work a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Work" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty ck:project_name ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty ck:project_name ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty ck:project_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:project_name ],
         ck:BaseWork ;
     skos:definition "Document used to request, initiate, track and record work. Use the *description* attribute to add additional information about this *Work*. This is *Toelichting bijzonderheden rondom planning* in the previous implementation." ;
     skos:exactMatch cim:Work ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:WorkTimeSchedule a owl:Class,
         linkml:ClassDefinition ;
@@ -405,59 +450,59 @@ ck:WorkTimeSchedule a owl:Class,
     rdfs:subClassOf ck:TimeSchedule ;
     skos:definition "Time schedule specific to work." ;
     skos:exactMatch cim:WorkTimeSchedule ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:Document a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Document" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:type ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty ck:type ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty ck:type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:type ],
         ck:IdentifiedObject ;
     skos:definition "Parent class for different groupings of information collected and managed as a part of a business process. It will frequently contain references to other objects, such as assets, people and power system resources." ;
     skos:exactMatch cim:Document ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:PostcodeArea a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "PostcodeArea" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:postcode ],
+        [ a owl:Restriction ;
             owl:allValuesFrom ck:RAGKind ;
+            owl:onProperty ck:generation_constraint ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ck:generation_constraint ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ck:RAGKind ;
+            owl:onProperty ck:demand_constraint ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ck:postcode ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ck:generation_constraint ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty ck:demand_constraint ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty ck:postcode ],
         [ a owl:Restriction ;
-            owl:allValuesFrom ck:RAGKind ;
-            owl:onProperty ck:generation_constraint ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:demand_constraint ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:generation_constraint ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:postcode ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty ck:demand_constraint ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ck:generation_constraint ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:postcode ],
         ck:IdentifiedObject ;
     skos:definition "A geographic region that is defined by the initial letters or digits of a postcode." ;
     skos:exactMatch ck:PostcodeArea ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:RAGKind.Amber a ck:RAGKind,
         owl:Class ;
@@ -483,31 +528,31 @@ ck:energy_areas a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "energy_areas" ;
     skos:definition "A list of energy areas with heatmap data." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:names a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "names" ;
     skos:definition "All names of this identified object." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:postcode_areas a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "postcode_areas" ;
     skos:definition "Postcode Areas serviced by this EnergyArea." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:time_schedules a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "time_schedules" ;
     skos:definition "All time schedules for this work or work task." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:works a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "works" ;
     skos:definition "All the works performed for this EnergyArea." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 cim:WorkStatusKind.cancelled a owl:Class,
         cim:WorkStatusKind ;
@@ -563,236 +608,266 @@ ck:IdentifiedObject a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "IdentifiedObject" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:m_rid ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ck:names ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ck:description ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ck:m_rid ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ck:description ],
-        [ a owl:Restriction ;
             owl:allValuesFrom ck:Name ;
             owl:onProperty ck:names ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:m_rid ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:m_rid ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty ck:description ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ck:names ],
+        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
+            owl:onProperty ck:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty ck:m_rid ] ;
     skos:definition "This is a root class to provide common identification for all classes needing identification and naming attributes." ;
     skos:exactMatch cim:IdentifiedObject ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:conforms_to a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "conforms_to" ;
     skos:definition "ID for the schema used to create the instance data." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:contributor a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "contributor" ;
     skos:definition "An entity responsible for making contributions to the resource." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:coverage a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "coverage" ;
     skos:definition "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:creator a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "creator" ;
     skos:definition "An entity responsible for making the resource." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:date a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "date" ;
     skos:definition "A point of time associated with an event in the lifecycle of the resource. For this implementation this will represent the date the data set is valid from." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
+
+ck:demand_alleviation_year a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "demand_alleviation_year" ;
+    skos:definition "Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea." ;
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:demand_available_capacity a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "demand_available_capacity" ;
     skos:definition "The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:demand_capacity_in_queue a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "demand_capacity_in_queue" ;
     skos:definition "The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:demand_constraint a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "demand_constraint" ;
     skos:definition "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor afname* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
+
+ck:demand_forecast_capacity a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "demand_forecast_capacity" ;
+    skos:definition "Sum of all demand (in MW) forecast for the current year at the EnergyArea." ;
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:demand_quoted_capacity a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "demand_quoted_capacity" ;
     skos:definition "Sum of all demand (in MW) currently quoted at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:demand_requests_in_queue a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "demand_requests_in_queue" ;
     skos:definition "Number of demand requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - afname* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:end a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "end" ;
-    skos:definition "End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. This is the *Beoogde in bedrijfsname* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:definition "End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01* as day. This is the *Beoogde in bedrijfsname* in the previous implementation." ;
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:format a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "format" ;
     skos:definition "The file format of the resource." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
+
+ck:generation_alleviation_year a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "generation_alleviation_year" ;
+    skos:definition "Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea." ;
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:generation_available_capacity a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "generation_available_capacity" ;
     skos:definition "Available generation capacity (in MW) at the EnergyArea. This is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:generation_capacity_in_queue a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "generation_capacity_in_queue" ;
     skos:definition "The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:generation_constraint a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "generation_constraint" ;
     skos:definition "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor opwek* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
+
+ck:generation_forecast_capacity a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "generation_forecast_capacity" ;
+    skos:definition "Sum of all forecast generation (in MW) for the current year at the EnergyArea." ;
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:generation_quoted_capacity a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "generation_quoted_capacity" ;
     skos:definition "Sum of all currently quoted generation (in MW) at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:generation_requests_in_queue a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "generation_requests_in_queue" ;
     skos:definition "Number of generation requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - invoeding* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:identifier a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "identifier" ;
     skos:definition "An unambiguous reference to the resource within a given context." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:issued a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "issued" ;
     skos:definition "Date of formal issuance of the resource." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:language a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "language" ;
     skos:definition "A language of the resource." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:m_rid a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "m_rid" ;
     skos:definition "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:name_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "name_type" ;
     skos:definition "Type of this name." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:name_type_authority a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "name_type_authority" ;
     skos:definition "Authority responsible for managing names of this type." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:postcode a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "postcode" ;
     skos:definition "Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, uppercase. No spaces between the numbers and letters, i.e. \"1234AB\"." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:project_name a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "project_name" ;
     skos:definition "Name of the project this work belongs to. This is the *Projectnaam* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:publisher a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "publisher" ;
     skos:definition "An entity responsible for making the resource available." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
+
+ck:quarter a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "quarter" ;
+    skos:definition "Yearly quarter indicator. Used for the coming two years relative to this dataset. Identified as *Q[number]* for the first year, *H[number]* for the second year." ;
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:rights a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "rights" ;
     skos:definition "Information about rights held in and over the resource." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:schedule_interval a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "schedule_interval" ;
     skos:definition "Schedule date and time interval." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:short_code a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "short_code" ;
     skos:definition "Short code name for EnergyArea. This is the *Uniek ID voedingsgebied* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:start a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "start" ;
-    skos:definition "Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. This is the *Startdatum* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:definition "Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01* as day. This is the *Startdatum* in the previous implementation." ;
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:status_kind a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "status_kind" ;
     skos:definition "Kind of work status." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:title a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "title" ;
     skos:definition "A name given to the resource." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "type" ;
     skos:definition "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:valid a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "valid" ;
     skos:definition "A date range for the validity of a resource. This should be two dates to form a range.  The first date is inclusive and the second date exclusive." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 ck:MegaW a owl:Class,
         linkml:TypeDefinition ;
@@ -821,7 +896,7 @@ ck:description a owl:ObjectProperty,
         "Description of the name type authority.",
         "Description of the name type.",
         "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation." ;
-    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> .
+    skos:inScheme <http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> .
 
 cim:WorkTimeScheduleKind a owl:Class,
         linkml:EnumDefinition ;
@@ -833,13 +908,13 @@ cim:WorkTimeScheduleKind a owl:Class,
         cim:WorkTimeScheduleKind.latest,
         cim:WorkTimeScheduleKind.request .
 
-<http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0> a owl:Ontology ;
+<http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0> a owl:Ontology ;
     rdfs:label "im-capaciteitskaart" ;
     dcterms:contributor github:ritger-alliander,
         github:sefanja ;
     dcterms:license "Apache Software License 2.0" ;
     dcterms:title "Information model for the NBNL-capaciteitskaart." ;
-    pav:version "1.1.0" ;
+    pav:version "1.2.0" ;
     rdfs:seeAlso <https://Netbeheer-Nederland.github.io/im-capaciteitskaart> ;
     skos:definition """The capacity heatmaps information model was defined to cover a superset of
 data exchanged by the NL system operators. A minimum set of data is defined
@@ -873,10 +948,14 @@ class EnergyArea {
     MegaW demand_capacity_in_queue
     MegaW demand_quoted_capacity
     MegaW demand_available_capacity
+    MegaW demand_forecast_capacity
+    integer demand_alleviation_year
     integer generation_requests_in_queue
     MegaW generation_capacity_in_queue
     MegaW generation_quoted_capacity
     MegaW generation_available_capacity
+    MegaW generation_forecast_capacity
+    integer generation_alleviation_year
     Work works
     PostcodeArea postcode_areas
     string description

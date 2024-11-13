@@ -9,18 +9,20 @@ description: "The capacity heatmaps information model was defined to cover a sup
   \    string rights\n    string title\n    date valid\n    EnergyArea energy_areas\n\
   }\nclass EnergyArea {\n    string short_code\n    integer demand_requests_in_queue\n\
   \    MegaW demand_capacity_in_queue\n    MegaW demand_quoted_capacity\n    MegaW\
-  \ demand_available_capacity\n    integer generation_requests_in_queue\n    MegaW\
-  \ generation_capacity_in_queue\n    MegaW generation_quoted_capacity\n    MegaW\
-  \ generation_available_capacity\n    Work works\n    PostcodeArea postcode_areas\n\
-  \    string description\n    string m_rid\n    Name names\n}\nclass Work {\n   \
-  \ date request_date_time\n    string work_order_number\n    WorkStatusKind status_kind\n\
-  \    WorkTimeSchedule time_schedules\n    string type\n    string description\n\
-  \    string m_rid\n    Name names\n}\nclass PostcodeArea {\n    string postcode\n\
-  \    RAGKind demand_constraint\n    RAGKind generation_constraint\n    string description\n\
-  \    string m_rid\n    Name names\n}\n\nHeatmapDataSet --> EnergyArea : energy_areas\n\
-  EnergyArea --> Work : works\nEnergyArea --> PostcodeArea : postcode_areas\n```\n\
-  \nThe data is intended to be presented as a hierarchy with a\n[HeatmapDataSet](HeatmapDataSet.md)\
-  \ at its root, followed by\n[EnergyArea-s](EnergyArea.md) nested inside the *HeatmapDataSet*.\n\
+  \ demand_available_capacity\n    MegaW demand_forecast_capacity\n    integer demand_alleviation_year\n\
+  \    integer generation_requests_in_queue\n    MegaW generation_capacity_in_queue\n\
+  \    MegaW generation_quoted_capacity\n    MegaW generation_available_capacity\n\
+  \    MegaW generation_forecast_capacity\n    integer generation_alleviation_year\n\
+  \    Work works\n    PostcodeArea postcode_areas\n    string description\n    string\
+  \ m_rid\n    Name names\n}\nclass Work {\n    date request_date_time\n    string\
+  \ work_order_number\n    WorkStatusKind status_kind\n    WorkTimeSchedule time_schedules\n\
+  \    string type\n    string description\n    string m_rid\n    Name names\n}\n\
+  class PostcodeArea {\n    string postcode\n    RAGKind demand_constraint\n    RAGKind\
+  \ generation_constraint\n    string description\n    string m_rid\n    Name names\n\
+  }\n\nHeatmapDataSet --> EnergyArea : energy_areas\nEnergyArea --> Work : works\n\
+  EnergyArea --> PostcodeArea : postcode_areas\n```\n\nThe data is intended to be\
+  \ presented as a hierarchy with a\n[HeatmapDataSet](HeatmapDataSet.md) at its root,\
+  \ followed by\n[EnergyArea-s](EnergyArea.md) nested inside the *HeatmapDataSet*.\n\
   *EnergyArea-s* then have their own child elements.\n\nThis information model is\
   \ based in part on the [LTDS Capacity Heatmap\nInformation\nModel](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),\n\
   which itself is published under the [Open Government\nLicense](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/),\n\
@@ -33,8 +35,8 @@ see_also:
 contributors:
 - github:ritger-alliander
 - github:sefanja
-id: http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0
-version: 1.1.0
+id: http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0
+version: 1.2.0
 imports:
 - linkml:types
 license: Apache Software License 2.0
@@ -221,6 +223,18 @@ classes:
         slot_uri: ck:EnergyArea.demandAvailableCapacity
         range: MegaW
         required: true
+      demand_forecast_capacity:
+        description: Sum of all demand (in MW) forecast for the current year at the
+          EnergyArea.
+        slot_uri: ck:EnergyArea.demandForecastCapacity
+        range: MegaW
+        required: false
+      demand_alleviation_year:
+        description: Year (e.g. *2028*) from which any capacity issues have been alleviated
+          for the EnergyArea.
+        slot_uri: ck:EnergyArea.demandAlleviationYear
+        range: integer
+        required: false
       generation_requests_in_queue:
         description: Number of generation requests for new grid connections and capacity
           increases in queue. This is the *Aantal unieke transportverzoeken in een
@@ -247,6 +261,18 @@ classes:
         slot_uri: ck:EnergyArea.generationAvailableCapacity
         range: MegaW
         required: true
+      generation_forecast_capacity:
+        description: Sum of all forecast generation (in MW) for the current year at
+          the EnergyArea.
+        slot_uri: ck:EnergyArea.generationForecastCapacity
+        range: MegaW
+        required: false
+      generation_alleviation_year:
+        description: Year (e.g. *2028*) from which any capacity issues have been alleviated
+          for the EnergyArea.
+        slot_uri: ck:EnergyArea.generationAlleviationYear
+        range: integer
+        required: false
       works:
         description: All the works performed for this EnergyArea.
         slot_uri: ck:EnergyArea.Works
@@ -359,18 +385,24 @@ classes:
       end:
         description: End date and time of this interval. The end date and time where
           the interval is defined up to, but excluded. Follows the international date
-          format of YYYY-MM-DD, i.e. 2024-12-31. This is the *Beoogde in bedrijfsname*
-          in the previous implementation.
+          format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known,
+          use *01* as day. This is the *Beoogde in bedrijfsname* in the previous implementation.
         slot_uri: cim:DateTimeInterval.end
         range: date
         required: true
       start:
         description: Start date and time of this interval. The start date and time
           is included in the defined interval. Follows the international date format
-          of YYYY-MM-DD, i.e. 2024-12-31. This is the *Startdatum* in the previous
-          implementation.
+          of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use
+          *01* as day. This is the *Startdatum* in the previous implementation.
         slot_uri: cim:DateTimeInterval.start
         range: date
+        required: false
+      quarter:
+        description: Yearly quarter indicator. Used for the coming two years relative
+          to this dataset. Identified as *Q[number]* for the first year, *H[number]*
+          for the second year.
+        slot_uri: ck:DateTimeInterval.quarter
         required: false
     class_uri: cim:DateTimeInterval
   IdentifiedObject:

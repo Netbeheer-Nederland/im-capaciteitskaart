@@ -46,12 +46,16 @@
             "description": "Interval between two date and time points, where the interval includes the start time but excludes end time.",
             "properties": {
                 "end": {
-                    "description": "End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. This is the *Beoogde in bedrijfsname* in the previous implementation.",
+                    "description": "End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01* as day. This is the *Beoogde in bedrijfsname* in the previous implementation.",
                     "format": "date",
                     "type": "string"
                 },
+                "quarter": {
+                    "description": "Yearly quarter indicator. Used for the coming two years relative to this dataset. Identified as *Q[number]* for the first year, *H[number]* for the second year.",
+                    "type": "string"
+                },
                 "start": {
-                    "description": "Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. This is the *Startdatum* in the previous implementation.",
+                    "description": "Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01* as day. This is the *Startdatum* in the previous implementation.",
                     "format": "date",
                     "type": "string"
                 }
@@ -93,12 +97,20 @@
             "additionalProperties": false,
             "description": "Describes an area having energy production or consumption. Specializations are intended to support the load allocation function as typically required in energy management systems or planning studies to allocate hypothesized load levels to individual load points for power flow analysis. Often the energy area can be linked to both measured and forecast load levels.",
             "properties": {
+                "demand_alleviation_year": {
+                    "description": "Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea.",
+                    "type": "integer"
+                },
                 "demand_available_capacity": {
                     "description": "The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation.",
                     "type": "integer"
                 },
                 "demand_capacity_in_queue": {
                     "description": "The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation.",
+                    "type": "integer"
+                },
+                "demand_forecast_capacity": {
+                    "description": "Sum of all demand (in MW) forecast for the current year at the EnergyArea.",
                     "type": "integer"
                 },
                 "demand_quoted_capacity": {
@@ -113,12 +125,20 @@
                     "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
+                "generation_alleviation_year": {
+                    "description": "Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea.",
+                    "type": "integer"
+                },
                 "generation_available_capacity": {
                     "description": "Available generation capacity (in MW) at the EnergyArea. This is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation.",
                     "type": "integer"
                 },
                 "generation_capacity_in_queue": {
                     "description": "The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation.",
+                    "type": "integer"
+                },
+                "generation_forecast_capacity": {
+                    "description": "Sum of all forecast generation (in MW) for the current year at the EnergyArea.",
                     "type": "integer"
                 },
                 "generation_quoted_capacity": {
@@ -510,11 +530,11 @@
             "type": "string"
         }
     },
-    "$id": "http://data.netbeheernederland.nl/capaciteitskaart/v1.1.0",
+    "$id": "http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "metamodel_version": "1.7.0",
     "title": "im-capaciteitskaart",
     "type": "object",
-    "version": "1.1.0"
+    "version": "1.2.0"
 }
