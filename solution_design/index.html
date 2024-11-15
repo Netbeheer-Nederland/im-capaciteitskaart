@@ -345,11 +345,13 @@ volgende componenten:</p>
 <p><img alt="Gebruiksscenario" src="../assets/use_case-20241115.svg" /></p>
 <ol>
 <li>TenneT levert een dataset met voedingsgebieden gebaseerd op onderstation
-   (OS)</li>
+   (OS). Deze dataset bevat EnergyArea-s, maar geen PostcodeArea-s</li>
 <li>EDSN levert deze dataset door aan elke Regionale Netbeheerder (RNB) als
    basis voor de invulling van de voedingsgebieden</li>
 <li>Elke individuele RNB levert de dataset met de voedingsgebieden voor haar
-   dekkingsgebied aan bij <em>Energie Data Services Nederland</em> (EDSN)</li>
+   dekkingsgebied aan bij <em>Energie Data Services Nederland</em> (EDSN). Hierbij
+   worden worden voedingsgebieden -waar mogelijk- gekoppeld aan de
+   voedingsgebieden van TenneT</li>
 <li>EDSN consolideert de aangeleverde datasets en visualiseert deze op een
    interactive, geografische kaart. De geconsolideerde (uit alle aanleveringen
    samengevoegde) dataset wordt integraal aangeboden als downloadbaar bestand
