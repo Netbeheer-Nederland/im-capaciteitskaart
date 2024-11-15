@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://Netbeheer-Nederland.github.io/im-capaciteitskaart/Integer/">
+        <link rel="canonical" href="https://Netbeheer-Nederland.github.io/im-capaciteitskaart/solution_design/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-8.5.10">
     
     
       
-        <title>Type: Integer - im-capaciteitskaart</title>
+        <title>Design (NL) - im-capaciteitskaart</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#type-integer" class="md-skip">
+        <a href="#inleiding" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Type: Integer
+              Design (NL)
             
           </span>
         </div>
@@ -239,11 +239,21 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../solution_design/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Design (NL)
       </a>
+      
     </li>
   
 
@@ -268,34 +278,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#identifier-and-mapping-information" class="md-nav__link">
-    Identifier and Mapping Information
-  </a>
-  
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    Schema Source
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -308,28 +290,164 @@
                 
                   
 
-  <a href="https://github.com/Netbeheer-Nederland/im-capaciteitskaart/edit/master/docs/Integer.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/Netbeheer-Nederland/im-capaciteitskaart/edit/master/docs/solution_design.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="type-integer">Type: Integer</h1>
-<p><em>An integer</em></p>
-<p>URI: <a href="http://www.w3.org/2001/XMLSchema#integer">xsd:integer</a></p>
+<h1 id="inleiding">Inleiding</h1>
+<p>Dit ontwerp beschrijft de beoogde gebruiksscenarios voor het dataproduct
+<em>Capaciteitskaart</em>, alsmede de achterliggende architectuur en gemaakte keuzes.</p>
+<h1 id="reikwijdte">Reikwijdte</h1>
+<p>De <a href="https://capaciteitskaart.netbeheernederland.nl/">capaciteitskaart</a> van
+Netbeheer Nederland consolideert en publiceert capaciteitsinformatie van de
+gezamelijke netbeheerders (TSO &amp; DSO) van Nederland. Hiervoor levert elke
+netbeheerder een overzicht van voedingsgebieden en corresponderende
+capaciteits- en projectinformatie.</p>
+<p>Dit ontwerp beschrijft het proces om tot ontsluiting van het bijbehorende
+dataproduct te komen en de betekenis &amp; structuur van het dataproduct.</p>
+<h1 id="achtergrond">Achtergrond</h1>
+<p>Onderstaand wordt kort de achtergrond toegelicht m.b.t. dataproducten.</p>
+<h2 id="dataproduct">Dataproduct</h2>
+<p>Voor alle data-uitwisseling binnen de scope van de visie is expliciet gekozen
+voor het denken over data in de vorm van dataproducten. Een dataproduct
+combineert de semantische-, technische- en gebruiksaspecten van
+data-uitwisseling. Om dit invulling te geven bestaat een dataproduct uit de
+volgende componenten:</p>
 <ul>
-<li>
-<p><a href="https://w3id.org/linkml/base">base</a>: int</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/uri">uri</a>: xsd:integer</p>
-</li>
+<li><em>dataset</em>: de daadwerkelijke gegevens die worden uitgewisseld. Zie een dataset
+  als een tabel met gegevens, waarbij de kolommen beschrijven wat er op elke
+  rij van de data aan gegevens wordt geleverd. Een dataset voor aansluitingen
+  zal minstens een kolom "Aansluitingsnummer" bevatten, waarbij elke rij in de
+  dataset een aansluiting beschrijft;</li>
+<li><em>dataservice</em>: de technische manier van verspreiden van de dataset. Dit gaat
+  over hoe de data ontsloten wordt (als bestand, API, database of <em>file
+  server</em>);</li>
+<li><em>voorwaarden</em>: er kunnen voorwaarden liggen op beschikbaarheid, kwaliteit,
+  classificatie en doelbinding bij gebruik van het dataproduct.</li>
 </ul>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
+<p>Het dataproduct combineert de <em>dataset</em> en <em>dataservice</em>, verrijkt met
+<em>voorwaarden</em> voor gebruik.</p>
+<h2 id="volume-variety-veracity-velocity">Volume, variety, veracity, velocity</h2>
+<p>Data kent vier kenmerken:</p>
 <ul>
-<li>from schema: http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0</li>
+<li><em>volume</em>: data kent een volume, een hoeveelheid;</li>
+<li><em>variety</em> (variëteit): data is te verdelen in gestructureerde en
+  ongestructureerde data. Ongestructureerde data kent geen metamodel;</li>
+<li><em>veracity</em> (betrouwbaarheid): de mate waarin de data vertrouwd kan worden
+  voor de toepassing;</li>
+<li><em>velocity</em> (snelheid): de frequentie waarmee data verandert.</li>
 </ul>
+<h1 id="dataservice">Dataservice</h1>
+<h2 id="gebruiksscenario">Gebruiksscenario</h2>
+<p>Het volgende gebruiksscenario wordt ondersteund:</p>
+<p><img alt="Gebruiksscenario" src="../assets/use_case-20241115.svg" /></p>
+<ol>
+<li>TenneT levert een dataset met voedingsgebieden gebaseerd op onderstation
+   (OS)</li>
+<li>EDSN levert deze dataset door aan elke Regionale Netbeheerder (RNB) als
+   basis voor de invulling van de voedingsgebieden</li>
+<li>Elke individuele RNB levert de dataset met de voedingsgebieden voor haar
+   dekkingsgebied aan bij <em>Energie Data Services Nederland</em> (EDSN)</li>
+<li>EDSN consolideert de aangeleverde datasets en visualiseert deze op een
+   interactive, geografische kaart. De geconsolideerde (uit alle aanleveringen
+   samengevoegde) dataset wordt integraal aangeboden als downloadbaar bestand
+   (dataproduct)</li>
+<li>EDSN bevestigt de ontvangst van de dataset en de publicatie van de kaart</li>
+<li>Een gebruiker vraagt de kaart op, via een browser</li>
+<li>De kaart wordt getoond aan de gebruiker</li>
+</ol>
+<h2 id="architectuur">Architectuur</h2>
+<p>Vanuit architectuurperspectief zijn de volgende keuzes gemaakt:</p>
+<p><img alt="Architectuur" src="../assets/architecture-20241115.svg" /></p>
+<ul>
+<li>de structuur (logisch model) van de dataset is gebaseerd op het <a href="https://begrippen.netbeheernederland.nl/">conceptuele
+  model Begrippenmodel NBNL</a> en het
+  <a href="https://cim-mg.ucaiug.io/latest/">Common Information Model</a>;</li>
+<li>aanlevering van de dataset vanuit de netbeheerder geschiedt via JSON-bestand.
+  Een <a href="">JSON Schema</a> op basis van het logisch model wordt hiervoor beschikbaar
+  gemaakt;</li>
+<li>netbeheerders leveren de dataset aan via de <em>File Gateway</em> van EDSN;</li>
+<li>het dataproduct <em>Capaciteitskaart</em> is vindbaar via het EDSN Dataportaal.</li>
+</ul>
+<h1 id="dataset">Dataset</h1>
+<p>De dataset beschrijft capaciteits- en wachtrij-informatie voor de
+<a href="https://netbeheer-nederland.github.io/im-capaciteitskaart/EnergyArea/">voedingsgebieden</a>,
+<a href="https://netbeheer-nederland.github.io/im-capaciteitskaart/PostcodeArea/">bijbehorende
+postcodes</a>
+en
+<a href="https://netbeheer-nederland.github.io/im-capaciteitskaart/Work/">werkzaamheden</a>
+die invloed hebben op de beschikbare capaciteit.</p>
+<h2 id="prognose">Prognose</h2>
+<p>Bij een meerjarige prognose wordt een aparte dataset (als JSON-bestand) per
+jaar opgeleverd door de netbeheerder. Hiermee kan de verschuiving in
+beschikbare capaciteit worden geduid, naast verschuivingen in voedingsgebieden.
+De bijbehorende
+<a href="https://netbeheer-nederland.github.io/im-capaciteitskaart/HeatmapDataSet/">metadata</a>
+specificeert voor welk jaar de dataset van toepassing is.</p>
+<h2 id="volume-variety-veracity-velocity_1">Volume, variety, veracity, velocity</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Volume</td>
+<td>Laag, &lt; 100MB (ongecomprimeerd).</td>
+</tr>
+<tr>
+<td>Variety</td>
+<td>Gestructureerd.</td>
+</tr>
+<tr>
+<td>Veracity</td>
+<td>Hoog, sluit aan op bestaande congestie/capaciteitsinformatie.</td>
+</tr>
+<tr>
+<td>Velocity</td>
+<td>driemaandelijkse update voor capaciteitsinformatie en werkzaamheden, maandelijks voor wachtrij-informatie.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="voorwaarden">Voorwaarden</h1>
+<p>Dit dataproduct wordt als <a href="https://github.com/Netbeheer-Nederland/am-doelarchitectuur-datadelen/blob/cebef14d35eaedd808cf9cb9ec7e931d0c5178c3/assets/20230217_NBNL_T5_Visie%20op%20datadelen_V1.01.pdf">open
+data</a>
+aangeboden.</p>
+<h1 id="beslissingen-en-aannames">Beslissingen en aannames</h1>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Beslissing</td>
+<td>Een voedingsgebied bestaat uit een of meerdere postcodegebieden.</td>
+</tr>
+<tr>
+<td>Beslissing</td>
+<td>Voor elk jaar (tot 2030) wordt een aparte dataset per jaar opgeleverd.</td>
+</tr>
+<tr>
+<td>Aanname</td>
+<td>Het dataproduct wordt opgevoerd in het EDSN Dataportaal.</td>
+</tr>
+<tr>
+<td>Aanname</td>
+<td>Voedingsgebieden zijn <strong>niet</strong> stabiel over de tijdsperiode voor prognoses.</td>
+</tr>
+<tr>
+<td>Aanname</td>
+<td>Op een later moment wordt mogelijk een ander integratiepatroon gehanteerd, zoals <em>Apache Iceberg</em>.</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -347,6 +465,27 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../about/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Conceptual Model (NL)" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Conceptual Model (NL)
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
