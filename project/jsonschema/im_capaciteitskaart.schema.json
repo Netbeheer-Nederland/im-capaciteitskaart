@@ -109,6 +109,10 @@
                     "description": "The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation.",
                     "type": "integer"
                 },
+                "demand_constraint": {
+                    "$ref": "#/$defs/RAGKind",
+                    "description": "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided."
+                },
                 "demand_forecast_capacity": {
                     "description": "Sum of all demand (in MW) forecast for the current year at the EnergyArea.",
                     "type": "integer"
@@ -136,6 +140,10 @@
                 "generation_capacity_in_queue": {
                     "description": "The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation.",
                     "type": "integer"
+                },
+                "generation_constraint": {
+                    "$ref": "#/$defs/RAGKind",
+                    "description": "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided."
                 },
                 "generation_forecast_capacity": {
                     "description": "Sum of all forecast generation (in MW) for the current year at the EnergyArea.",
@@ -387,7 +395,7 @@
                 "transparant",
                 "red",
                 "amber",
-                "green"
+                "yellow"
             ],
             "title": "RAGKind",
             "type": "string"
@@ -533,7 +541,91 @@
     "$id": "http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
+    "description": "A single instance of a published dataset. The descriptions of these fields are taken from the Dublin Core Standard.",
     "metamodel_version": "1.7.0",
+    "properties": {
+        "conforms_to": {
+            "description": "ID for the schema used to create the instance data.",
+            "type": "string"
+        },
+        "contributor": {
+            "description": "An entity responsible for making contributions to the resource.",
+            "type": "string"
+        },
+        "coverage": {
+            "description": "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant.",
+            "type": "string"
+        },
+        "creator": {
+            "description": "An entity responsible for making the resource.",
+            "type": "string"
+        },
+        "date": {
+            "description": "A point of time associated with an event in the lifecycle of the resource. For this implementation this will represent the date the data set is valid from.",
+            "format": "date",
+            "type": "string"
+        },
+        "description": {
+            "description": "An account of the resource.",
+            "type": "string"
+        },
+        "energy_areas": {
+            "description": "A list of energy areas with heatmap data.",
+            "items": {
+                "$ref": "#/$defs/EnergyArea"
+            },
+            "type": "array"
+        },
+        "format": {
+            "description": "The file format of the resource.",
+            "type": "string"
+        },
+        "identifier": {
+            "description": "An unambiguous reference to the resource within a given context.",
+            "type": "string"
+        },
+        "issued": {
+            "description": "Date of formal issuance of the resource.",
+            "format": "date",
+            "type": "string"
+        },
+        "language": {
+            "description": "A language of the resource.",
+            "type": "string"
+        },
+        "publisher": {
+            "description": "An entity responsible for making the resource available.",
+            "type": "string"
+        },
+        "rights": {
+            "description": "Information about rights held in and over the resource.",
+            "type": "string"
+        },
+        "title": {
+            "description": "A name given to the resource.",
+            "type": "string"
+        },
+        "valid": {
+            "description": "A date range for the validity of a resource. This should be two dates to form a range.  The first date is inclusive and the second date exclusive.",
+            "format": "date",
+            "type": "string"
+        }
+    },
+    "required": [
+        "conforms_to",
+        "contributor",
+        "coverage",
+        "creator",
+        "date",
+        "description",
+        "format",
+        "identifier",
+        "issued",
+        "language",
+        "publisher",
+        "rights",
+        "title"
+    ],
     "title": "im-capaciteitskaart",
     "type": "object",
     "version": "1.2.0"

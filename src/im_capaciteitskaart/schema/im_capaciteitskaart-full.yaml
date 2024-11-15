@@ -127,6 +127,7 @@ types:
 classes:
 
   HeatmapDataSet:
+    tree_root: true
     description:
       A single instance of a published dataset. The descriptions of these
       fields are taken from the Dublin Core Standard.
@@ -280,6 +281,15 @@ classes:
           alleviated for the EnergyArea.
         slot_uri: ck:EnergyArea.demandAlleviationYear
         required: false
+      demandConstraint:
+        range: RAGKind
+        description:
+          A RAG definition of the demand constraints at the EnergyArea. A
+          utility should provide details on how this RAG status is calculated
+          as part of the accompanying documentation. Only specify this
+          attribute if no PostcodeArea-s are provided.
+        slot_uri: ck:EnergyArea.demandConstraint
+        required: false
       generationRequestsInQueue:
         range: integer
         description:
@@ -324,6 +334,15 @@ classes:
           Year (e.g. *2028*) from which any capacity issues have been
           alleviated for the EnergyArea.
         slot_uri: ck:EnergyArea.generationAlleviationYear
+        required: false
+      generationConstraint:
+        range: RAGKind
+        description:
+          A RAG definition of the generation constraints at the EnergyArea. A
+          utility should provide details on how this RAG status is calculated
+          as part of the accompanying documentation. Only specify this
+          attribute if no PostcodeArea-s are provided.
+        slot_uri: ck:EnergyArea.generationConstraint
         required: false
       Works:
         range: Work
@@ -583,12 +602,24 @@ enums:
     permissible_values:
       transparant:
         meaning: ck:RAGKind.Transparant
+        description:
+          Transport capacity is available, without queue (*Transportcapaciteit
+          beschikbaar zonder wachtrij*).
       red:
         meaning: ck:RAGKind.Red
+        description:
+          Shortage of transport capacity, with queue (Tekort aan
+          Transportcapaciteit met wachtrij).
       amber:
         meaning: ck:RAGKind.Amber
-      green:
-        meaning: ck:RAGKind.Green
+        description:
+          Energy Area is being investigated, with queue (Voedingsgebied is in
+          onderzoek met wachtrij).
+      yellow:
+        meaning: ck:RAGKind.Yellow
+        description:
+          Limited availability of transport capacity, without queue
+          (Transportcapaciteit beperkt beschikbaar zonder wachtrij).
 
   WorkStatusKind:
     description: Kind of status, specific to work.

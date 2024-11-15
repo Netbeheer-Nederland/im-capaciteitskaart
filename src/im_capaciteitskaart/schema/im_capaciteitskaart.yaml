@@ -68,13 +68,21 @@ enums:
     enum_uri: ck:RAGKind
     permissible_values:
       transparant:
+        description: Transport capacity is available, without queue (*Transportcapaciteit
+          beschikbaar zonder wachtrij*).
         meaning: ck:RAGKind.Transparant
       red:
+        description: Shortage of transport capacity, with queue (Tekort aan Transportcapaciteit
+          met wachtrij).
         meaning: ck:RAGKind.Red
       amber:
+        description: Energy Area is being investigated, with queue (Voedingsgebied
+          is in onderzoek met wachtrij).
         meaning: ck:RAGKind.Amber
-      green:
-        meaning: ck:RAGKind.Green
+      yellow:
+        description: Limited availability of transport capacity, without queue (Transportcapaciteit
+          beperkt beschikbaar zonder wachtrij).
+        meaning: ck:RAGKind.Yellow
   WorkStatusKind:
     description: Kind of status, specific to work.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968
@@ -181,6 +189,7 @@ classes:
         multivalued: true
         range: EnergyArea
     class_uri: ck:HeatmapDataSet
+    tree_root: true
   EnergyArea:
     description: Describes an area having energy production or consumption. Specializations
       are intended to support the load allocation function as typically required in
@@ -235,6 +244,14 @@ classes:
         slot_uri: ck:EnergyArea.demandAlleviationYear
         range: integer
         required: false
+      demand_constraint:
+        description: A RAG definition of the demand constraints at the EnergyArea.
+          A utility should provide details on how this RAG status is calculated as
+          part of the accompanying documentation. Only specify this attribute if no
+          PostcodeArea-s are provided.
+        slot_uri: ck:EnergyArea.demandConstraint
+        range: RAGKind
+        required: false
       generation_requests_in_queue:
         description: Number of generation requests for new grid connections and capacity
           increases in queue. This is the *Aantal unieke transportverzoeken in een
@@ -272,6 +289,14 @@ classes:
           for the EnergyArea.
         slot_uri: ck:EnergyArea.generationAlleviationYear
         range: integer
+        required: false
+      generation_constraint:
+        description: A RAG definition of the generation constraints at the EnergyArea.
+          A utility should provide details on how this RAG status is calculated as
+          part of the accompanying documentation. Only specify this attribute if no
+          PostcodeArea-s are provided.
+        slot_uri: ck:EnergyArea.generationConstraint
+        range: RAGKind
         required: false
       works:
         description: All the works performed for this EnergyArea.
