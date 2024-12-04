@@ -10,21 +10,22 @@ description: "The capacity heatmaps information model was defined to cover a sup
   }\nclass EnergyArea {\n    string short_code\n    integer demand_requests_in_queue\n\
   \    MegaW demand_capacity_in_queue\n    MegaW demand_quoted_capacity\n    MegaW\
   \ demand_available_capacity\n    MegaW demand_forecast_capacity\n    integer demand_alleviation_year\n\
-  \    integer generation_requests_in_queue\n    MegaW generation_capacity_in_queue\n\
-  \    MegaW generation_quoted_capacity\n    MegaW generation_available_capacity\n\
-  \    MegaW generation_forecast_capacity\n    integer generation_alleviation_year\n\
-  \    Work works\n    PostcodeArea postcode_areas\n    string description\n    string\
-  \ m_rid\n    Name names\n}\nclass Work {\n    date request_date_time\n    string\
-  \ work_order_number\n    WorkStatusKind status_kind\n    WorkTimeSchedule time_schedules\n\
-  \    string type\n    string description\n    string m_rid\n    Name names\n}\n\
-  class PostcodeArea {\n    string postcode\n    RAGKind demand_constraint\n    RAGKind\
-  \ generation_constraint\n    string description\n    string m_rid\n    Name names\n\
-  }\n\nHeatmapDataSet --> EnergyArea : energy_areas\nEnergyArea --> Work : works\n\
-  EnergyArea --> PostcodeArea : postcode_areas\n```\n\nThe data is intended to be\
-  \ presented as a hierarchy with a\n[HeatmapDataSet](HeatmapDataSet.md) at its root,\
-  \ followed by\n[EnergyArea-s](EnergyArea.md) nested inside the *HeatmapDataSet*.\n\
-  *EnergyArea-s* then have their own child elements.\n\nThis information model is\
-  \ based in part on the [LTDS Capacity Heatmap\nInformation\nModel](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),\n\
+  \    RAGKind demand_constraint\n    integer generation_requests_in_queue\n    MegaW\
+  \ generation_capacity_in_queue\n    MegaW generation_quoted_capacity\n    MegaW\
+  \ generation_available_capacity\n    MegaW generation_forecast_capacity\n    integer\
+  \ generation_alleviation_year\n    RAGKind generation_constraint\n    Work works\n\
+  \    PostcodeArea postcode_areas\n    string description\n    string m_rid\n   \
+  \ Name names\n}\nclass Work {\n    date request_date_time\n    string work_order_number\n\
+  \    WorkStatusKind status_kind\n    WorkTimeSchedule time_schedules\n    string\
+  \ type\n    string description\n    string m_rid\n    Name names\n}\nclass PostcodeArea\
+  \ {\n    string postcode\n    RAGKind demand_constraint\n    RAGKind generation_constraint\n\
+  \    string description\n    string m_rid\n    Name names\n}\n\nHeatmapDataSet -->\
+  \ EnergyArea : energy_areas\nEnergyArea --> Work : works\nEnergyArea --> PostcodeArea\
+  \ : postcode_areas\n```\n\nThe data is intended to be presented as a hierarchy with\
+  \ a\n[HeatmapDataSet](HeatmapDataSet.md) at its root, followed by\n[EnergyArea-s](EnergyArea.md)\
+  \ nested inside the *HeatmapDataSet*.\n*EnergyArea-s* then have their own child\
+  \ elements.\n\nThis information model is based in part on the [LTDS Capacity Heatmap\n\
+  Information\nModel](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),\n\
   which itself is published under the [Open Government\nLicense](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/),\n\
   under \xA9Crown copyright 2024.\n\n## Additional schemas\n* [JSON Schema](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/jsonschema/im_capaciteitskaart.schema.json)\n\
   * [SHACL](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/shacl/im_capaciteitskaart.shacl.ttl)\n\
@@ -54,13 +55,13 @@ default_prefix: ck
 default_range: string
 types:
   MegaW:
-    typeof: integer
+    typeof: float
     uri: unit:MegaW
   KiloA:
-    typeof: integer
+    typeof: float
     uri: unit:KiloA
   KiloV:
-    typeof: integer
+    typeof: float
     uri: unit:KiloV
 enums:
   RAGKind:
@@ -205,6 +206,7 @@ classes:
         description: Short code name for EnergyArea. This is the *Uniek ID voedingsgebied*
           in the previous implementation.
         slot_uri: ck:EnergyArea.shortCode
+        required: true
       demand_requests_in_queue:
         description: Number of demand requests for new grid connections and capacity
           increases in queue. This is the *Aantal unieke transportverzoeken in een
@@ -212,18 +214,22 @@ classes:
         slot_uri: ck:EnergyArea.demandRequestsInQueue
         range: integer
         required: false
+        minimum_value: 0
       demand_capacity_in_queue:
         description: The contract value of demand requests not yet granted. This is
           the *Wachtrij in capaciteit - afname* in the previous implementation.
         slot_uri: ck:EnergyArea.demandCapacityInQueue
         range: MegaW
         required: false
+        minimum_value: 0
       demand_quoted_capacity:
         description: Sum of all demand (in MW) currently quoted at the EnergyArea.
           This is the *Benodigde transportcapaciteit (in MW) afname* in the previous
           implementation.
         slot_uri: ck:EnergyArea.demandQuotedCapacity
         range: MegaW
+        required: false
+        minimum_value: 0
       demand_available_capacity:
         description: The available demand capacity (in MW) at the EnergyArea. The
           value should reflect the capacity a network operator would make available
@@ -231,13 +237,15 @@ classes:
           afname huidige jaar* in the previous implementation.
         slot_uri: ck:EnergyArea.demandAvailableCapacity
         range: MegaW
-        required: true
+        required: false
+        minimum_value: 0
       demand_forecast_capacity:
         description: Sum of all demand (in MW) forecast for the current year at the
           EnergyArea.
         slot_uri: ck:EnergyArea.demandForecastCapacity
         range: MegaW
         required: false
+        minimum_value: 0
       demand_alleviation_year:
         description: Year (e.g. *2028*) from which any capacity issues have been alleviated
           for the EnergyArea.
@@ -259,31 +267,37 @@ classes:
         slot_uri: ck:EnergyArea.generationRequestsInQueue
         range: integer
         required: false
+        minimum_value: 0
       generation_capacity_in_queue:
         description: The contract value of generation requests not yet granted. This
           is the *Wachtrij in capaciteit - invoeding* in the previous implementation.
         slot_uri: ck:EnergyArea.generationCapacityInQueue
         range: MegaW
         required: false
+        minimum_value: 0
       generation_quoted_capacity:
         description: Sum of all currently quoted generation (in MW) at the EnergyArea.
           This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous
           implementation.
         slot_uri: ck:EnergyArea.generationQuotedCapacity
         range: MegaW
+        required: false
+        minimum_value: 0
       generation_available_capacity:
         description: Available generation capacity (in MW) at the EnergyArea. This
           is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in
           the previous implementation.
         slot_uri: ck:EnergyArea.generationAvailableCapacity
         range: MegaW
-        required: true
+        required: false
+        minimum_value: 0
       generation_forecast_capacity:
         description: Sum of all forecast generation (in MW) for the current year at
           the EnergyArea.
         slot_uri: ck:EnergyArea.generationForecastCapacity
         range: MegaW
         required: false
+        minimum_value: 0
       generation_alleviation_year:
         description: Year (e.g. *2028*) from which any capacity issues have been alleviated
           for the EnergyArea.

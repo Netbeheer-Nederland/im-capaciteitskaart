@@ -115,15 +115,15 @@ default_range: string
 types:
 
   MegaW:
-    typeof: integer
+    typeof: float
     uri: unit:MegaW
 
   KiloA:
-    typeof: integer
+    typeof: float
     uri: unit:KiloA
 
   KiloV:
-    typeof: integer
+    typeof: float
     uri: unit:KiloV
 
 classes:
@@ -238,6 +238,7 @@ classes:
           Short code name for EnergyArea. This is the *Uniek ID voedingsgebied*
           in the previous implementation.
         slot_uri: ck:EnergyArea.shortCode
+        required: true
       demandRequestsInQueue:
         range: integer
         description:
@@ -246,6 +247,7 @@ classes:
           een wachtrij - afname* in the previous implementation.
         slot_uri: ck:EnergyArea.demandRequestsInQueue
         required: false
+        minimum_value: 0
       demandCapacityInQueue:
         range: MegaW
         description:
@@ -253,6 +255,7 @@ classes:
           *Wachtrij in capaciteit - afname* in the previous implementation.
         slot_uri: ck:EnergyArea.demandCapacityInQueue
         required: false
+        minimum_value: 0
       demandQuotedCapacity:
         range: MegaW
         description:
@@ -260,6 +263,8 @@ classes:
           is the *Benodigde transportcapaciteit (in MW) afname* in the previous
           implementation.
         slot_uri: ck:EnergyArea.demandQuotedCapacity
+        required: false
+        minimum_value: 0
       demandAvailableCapacity:
         range: MegaW
         description:
@@ -268,7 +273,8 @@ classes:
           to a connecting party. This is the *Aanwezige transportcapaciteit (in
           MW) afname huidige jaar* in the previous implementation.
         slot_uri: ck:EnergyArea.demandAvailableCapacity
-        required: true
+        required: false
+        minimum_value: 0
       demandForecastCapacity:
         range: MegaW
         description:
@@ -276,6 +282,7 @@ classes:
           EnergyArea.
         slot_uri: ck:EnergyArea.demandForecastCapacity
         required: false
+        minimum_value: 0
       demandAlleviationYear:
         range: integer
         description:
@@ -300,6 +307,7 @@ classes:
           een wachtrij - invoeding* in the previous implementation.
         slot_uri: ck:EnergyArea.generationRequestsInQueue
         required: false
+        minimum_value: 0
       generationCapacityInQueue:
         range: MegaW
         description:
@@ -308,6 +316,7 @@ classes:
           implementation.
         slot_uri: ck:EnergyArea.generationCapacityInQueue
         required: false
+        minimum_value: 0
       generationQuotedCapacity:
         range: MegaW
         description:
@@ -315,6 +324,8 @@ classes:
           This is the *Benodigde transportcapaciteit (in MW) invoeding* in the
           previous implementation.
         slot_uri: ck:EnergyArea.generationQuotedCapacity
+        required: false
+        minimum_value: 0
       generationAvailableCapacity:
         range: MegaW
         description:
@@ -322,7 +333,8 @@ classes:
           *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the
           previous implementation.
         slot_uri: ck:EnergyArea.generationAvailableCapacity
-        required: true
+        required: false
+        minimum_value: 0
       generationForecastCapacity:
         range: MegaW
         description:
@@ -330,6 +342,7 @@ classes:
           EnergyArea.
         slot_uri: ck:EnergyArea.generationForecastCapacity
         required: false
+        minimum_value: 0
       generationAlleviationYear:
         range: integer
         description:

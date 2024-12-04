@@ -103,11 +103,13 @@
                 },
                 "demand_available_capacity": {
                     "description": "The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation.",
-                    "type": "integer"
+                    "minimum": 0,
+                    "type": "number"
                 },
                 "demand_capacity_in_queue": {
                     "description": "The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation.",
-                    "type": "integer"
+                    "minimum": 0,
+                    "type": "number"
                 },
                 "demand_constraint": {
                     "$ref": "#/$defs/RAGKind",
@@ -115,14 +117,17 @@
                 },
                 "demand_forecast_capacity": {
                     "description": "Sum of all demand (in MW) forecast for the current year at the EnergyArea.",
-                    "type": "integer"
+                    "minimum": 0,
+                    "type": "number"
                 },
                 "demand_quoted_capacity": {
                     "description": "Sum of all demand (in MW) currently quoted at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation.",
-                    "type": "integer"
+                    "minimum": 0,
+                    "type": "number"
                 },
                 "demand_requests_in_queue": {
                     "description": "Number of demand requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - afname* in the previous implementation.",
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "description": {
@@ -135,11 +140,13 @@
                 },
                 "generation_available_capacity": {
                     "description": "Available generation capacity (in MW) at the EnergyArea. This is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation.",
-                    "type": "integer"
+                    "minimum": 0,
+                    "type": "number"
                 },
                 "generation_capacity_in_queue": {
                     "description": "The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation.",
-                    "type": "integer"
+                    "minimum": 0,
+                    "type": "number"
                 },
                 "generation_constraint": {
                     "$ref": "#/$defs/RAGKind",
@@ -147,14 +154,17 @@
                 },
                 "generation_forecast_capacity": {
                     "description": "Sum of all forecast generation (in MW) for the current year at the EnergyArea.",
-                    "type": "integer"
+                    "minimum": 0,
+                    "type": "number"
                 },
                 "generation_quoted_capacity": {
                     "description": "Sum of all currently quoted generation (in MW) at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous implementation.",
-                    "type": "integer"
+                    "minimum": 0,
+                    "type": "number"
                 },
                 "generation_requests_in_queue": {
                     "description": "Number of generation requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - invoeding* in the previous implementation.",
+                    "minimum": 0,
                     "type": "integer"
                 },
                 "m_rid": {
@@ -188,8 +198,7 @@
                 }
             },
             "required": [
-                "demand_available_capacity",
-                "generation_available_capacity"
+                "short_code"
             ],
             "title": "EnergyArea",
             "type": "object"
