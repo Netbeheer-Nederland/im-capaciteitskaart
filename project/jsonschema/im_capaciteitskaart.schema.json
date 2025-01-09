@@ -198,7 +198,9 @@
                 }
             },
             "required": [
-                "short_code"
+                "short_code",
+                "works",
+                "postcode_areas"
             ],
             "title": "EnergyArea",
             "type": "object"
@@ -287,7 +289,8 @@
                 "language",
                 "publisher",
                 "rights",
-                "title"
+                "title",
+                "energy_areas"
             ],
             "title": "HeatmapDataSet",
             "type": "object"
@@ -483,6 +486,7 @@
                 }
             },
             "required": [
+                "project_name",
                 "time_schedules"
             ],
             "title": "Work",
@@ -633,7 +637,8 @@
         "language",
         "publisher",
         "rights",
-        "title"
+        "title",
+        "energy_areas"
     ],
     "title": "im-capaciteitskaart",
     "type": "object",

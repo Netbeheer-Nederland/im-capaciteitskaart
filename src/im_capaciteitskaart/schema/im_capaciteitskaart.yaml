@@ -1,35 +1,93 @@
 name: im-capaciteitskaart
-description: "The capacity heatmaps information model was defined to cover a superset\
-  \ of\ndata exchanged by the NL system operators. A minimum set of data is defined\n\
-  that all operators are expected to conform to, along with a number of\noptional\
-  \ properties and data types.\n\n```mermaid\nclassDiagram\ndirection RL\n\nclass\
-  \ HeatmapDataSet {\n    string conforms_to\n    string contributor\n    string coverage\n\
-  \    string creator\n    date date\n    string description\n    string format\n\
-  \    string identifier\n    date issued\n    string language\n    string publisher\n\
-  \    string rights\n    string title\n    date valid\n    EnergyArea energy_areas\n\
-  }\nclass EnergyArea {\n    string short_code\n    integer demand_requests_in_queue\n\
-  \    MegaW demand_capacity_in_queue\n    MegaW demand_quoted_capacity\n    MegaW\
-  \ demand_available_capacity\n    MegaW demand_forecast_capacity\n    integer demand_alleviation_year\n\
-  \    RAGKind demand_constraint\n    integer generation_requests_in_queue\n    MegaW\
-  \ generation_capacity_in_queue\n    MegaW generation_quoted_capacity\n    MegaW\
-  \ generation_available_capacity\n    MegaW generation_forecast_capacity\n    integer\
-  \ generation_alleviation_year\n    RAGKind generation_constraint\n    Work works\n\
-  \    PostcodeArea postcode_areas\n    string description\n    string m_rid\n   \
-  \ Name names\n}\nclass Work {\n    date request_date_time\n    string work_order_number\n\
-  \    WorkStatusKind status_kind\n    WorkTimeSchedule time_schedules\n    string\
-  \ type\n    string description\n    string m_rid\n    Name names\n}\nclass PostcodeArea\
-  \ {\n    string postcode\n    RAGKind demand_constraint\n    RAGKind generation_constraint\n\
-  \    string description\n    string m_rid\n    Name names\n}\n\nHeatmapDataSet -->\
-  \ EnergyArea : energy_areas\nEnergyArea --> Work : works\nEnergyArea --> PostcodeArea\
-  \ : postcode_areas\n```\n\nThe data is intended to be presented as a hierarchy with\
-  \ a\n[HeatmapDataSet](HeatmapDataSet.md) at its root, followed by\n[EnergyArea-s](EnergyArea.md)\
-  \ nested inside the *HeatmapDataSet*.\n*EnergyArea-s* then have their own child\
-  \ elements.\n\nThis information model is based in part on the [LTDS Capacity Heatmap\n\
-  Information\nModel](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),\n\
-  which itself is published under the [Open Government\nLicense](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/),\n\
-  under \xA9Crown copyright 2024.\n\n## Additional schemas\n* [JSON Schema](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/jsonschema/im_capaciteitskaart.schema.json)\n\
-  * [SHACL](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/shacl/im_capaciteitskaart.shacl.ttl)\n\
-  ## Identifiers"
+description: |-
+  The capacity heatmaps information model was defined to cover a superset of
+  data exchanged by the NL system operators. A minimum set of data is defined
+  that all operators are expected to conform to, along with a number of
+  optional properties and data types.
+
+  ```mermaid
+  classDiagram
+  direction RL
+
+  class HeatmapDataSet {
+      string conforms_to
+      string contributor
+      string coverage
+      string creator
+      date date
+      string description
+      string format
+      string identifier
+      date issued
+      string language
+      string publisher
+      string rights
+      string title
+      date valid
+      EnergyArea energy_areas
+  }
+  class EnergyArea {
+      string short_code
+      integer demand_requests_in_queue
+      MegaW demand_capacity_in_queue
+      MegaW demand_quoted_capacity
+      MegaW demand_available_capacity
+      MegaW demand_forecast_capacity
+      integer demand_alleviation_year
+      RAGKind demand_constraint
+      integer generation_requests_in_queue
+      MegaW generation_capacity_in_queue
+      MegaW generation_quoted_capacity
+      MegaW generation_available_capacity
+      MegaW generation_forecast_capacity
+      integer generation_alleviation_year
+      RAGKind generation_constraint
+      Work works
+      PostcodeArea postcode_areas
+      string description
+      string m_rid
+      Name names
+  }
+  class Work {
+      date request_date_time
+      string work_order_number
+      WorkStatusKind status_kind
+      WorkTimeSchedule time_schedules
+      string type
+      string description
+      string m_rid
+      Name names
+  }
+  class PostcodeArea {
+      string postcode
+      RAGKind demand_constraint
+      RAGKind generation_constraint
+      string description
+      string m_rid
+      Name names
+  }
+
+  HeatmapDataSet --> EnergyArea : energy_areas
+  EnergyArea --> Work : works
+  EnergyArea --> PostcodeArea : postcode_areas
+  ```
+
+  The data is intended to be presented as a hierarchy with a
+  [HeatmapDataSet](HeatmapDataSet.md) at its root, followed by
+  [EnergyArea-s](EnergyArea.md) nested inside the *HeatmapDataSet*.
+  *EnergyArea-s* then have their own child elements.
+
+  This information model is based in part on the [LTDS Capacity Heatmap
+  Information
+  Model](https://www.ofgem.gov.uk/decision/long-term-development-statement-direction),
+  which itself is published under the [Open Government
+  License](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/),
+  under ©Crown copyright 2024.
+
+  ## Additional schemas
+  * [JSON Schema](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/jsonschema/im_capaciteitskaart.schema.json)
+  * [SHACL](https://raw.githubusercontent.com/Netbeheer-Nederland/im-capaciteitskaart/main/project/shacl/im_capaciteitskaart.shacl.ttl)
+  ## Identifiers
 title: Information model for the NBNL-capaciteitskaart.
 see_also:
 - https://Netbeheer-Nederland.github.io/im-capaciteitskaart
@@ -189,6 +247,7 @@ classes:
         slot_uri: ck:HeatmapDataSet.EnergyAreas
         multivalued: true
         range: EnergyArea
+        required: true
     class_uri: ck:HeatmapDataSet
     tree_root: true
   EnergyArea:
@@ -317,11 +376,13 @@ classes:
         slot_uri: ck:EnergyArea.Works
         multivalued: true
         range: Work
+        required: true
       postcode_areas:
         description: Postcode Areas serviced by this EnergyArea.
         slot_uri: ck:EnergyArea.PostcodeAreas
         multivalued: true
         range: PostcodeArea
+        required: true
     class_uri: cim:EnergyArea
   PostcodeArea:
     description: A geographic region that is defined by the initial letters or digits
@@ -362,7 +423,7 @@ classes:
         description: Name of the project this work belongs to. This is the *Projectnaam*
           in the previous implementation.
         slot_uri: ck:Work.projectName
-        required: false
+        required: true
     class_uri: cim:Work
   BaseWork:
     description: Common representation for work and work tasks.
