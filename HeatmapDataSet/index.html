@@ -224,7 +224,7 @@
 
 
 
-    HeatmapDataSet --&gt; "*" EnergyArea : energy_areas
+    HeatmapDataSet --&gt; "1..*" EnergyArea : energy_areas
     click EnergyArea href "../EnergyArea"
 
 
@@ -343,7 +343,7 @@
 </tr>
 <tr>
 <td><a href="../energy_areas/">energy_areas</a></td>
-<td>* <br/> <a href="../EnergyArea/">EnergyArea</a></td>
+<td>1..* <br/> <a href="../EnergyArea/">EnergyArea</a></td>
 <td>A list of energy areas with heatmap data</td>
 <td>direct</td>
 </tr>
@@ -530,6 +530,7 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HeatmapDataSet</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EnergyArea</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:HeatmapDataSet</span>
 <span class="nt">tree_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
@@ -730,6 +731,7 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HeatmapDataSet</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EnergyArea</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ck:HeatmapDataSet</span>
 <span class="nt">tree_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
