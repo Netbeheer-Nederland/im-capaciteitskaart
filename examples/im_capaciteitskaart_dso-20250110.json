@@ -1,0 +1,49 @@
+{
+  "conforms_to": "http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0",
+  "creator": "ritger.teunissen@alliander.com",
+  "identifier": "test_data_im_capaciteitskaart",
+  "issued": "2025-01-10",
+  "energy_areas": [
+    {
+      "short_code": "OS FICTIEF 20-3i",
+      "demand_available_capacity": 47,
+      "demand_capacity_in_queue": 3,
+      "demand_quoted_capacity": 58,
+      "demand_requests_in_queue": 15,
+      "generation_available_capacity": 47,
+      "generation_capacity_in_queue": 0,
+      "generation_quoted_capacity": 38,
+      "generation_requests_in_queue": 0,
+      "works": [
+        {
+          "project_name": "WO#_1234_Verzwaring_Pieterslaan",
+          "time_schedules": [
+            {
+              "schedule_interval": {
+                "end": "2026-01-10"
+              }
+            }
+          ],
+          "description": "Uitbreiding netstation Pieterslaan"
+        }
+      ],
+      "postcode_areas": [
+        {
+          "demand_constraint": "amber",
+          "generation_constraint": "transparant",
+          "postcode": "1234AC"
+        },
+        {
+          "demand_constraint": "red",
+          "generation_constraint": "red",
+          "postcode": "1234AD"
+        },
+        {
+          "demand_constraint": "yellow",
+          "generation_constraint": "transparant",
+          "postcode": "1234AE"
+        }
+      ]
+    }
+  ]
+}
