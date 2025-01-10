@@ -51,7 +51,7 @@
                     "type": "string"
                 },
                 "quarter": {
-                    "description": "Yearly quarter indicator. Used for the coming two years relative to this dataset. Identified as *Q[number]* for the first year, *H[number]* for the second year.",
+                    "description": "Quarter indicator for when this Work is completed. Use in combination with ck:DateTimeInterval.year.",
                     "maximum": 4,
                     "minimum": 1,
                     "type": "integer"
@@ -60,11 +60,12 @@
                     "description": "Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01* as day. This is the *Startdatum* in the previous implementation.",
                     "format": "date",
                     "type": "string"
+                },
+                "year": {
+                    "description": "Year indicator for when this Work is completed. Use in combination with ck:DateTimeInterval.quarter.",
+                    "type": "integer"
                 }
             },
-            "required": [
-                "end"
-            ],
             "title": "DateTimeInterval",
             "type": "object"
         },

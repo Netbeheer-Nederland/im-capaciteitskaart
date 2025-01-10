@@ -25,6 +25,18 @@
             }
           ],
           "description": "Uitbreiding netstation Pieterslaan"
+        },
+        {
+          "project_name": "WO#_4321_Vervanging_Transformator",
+          "time_schedules": [
+            {
+              "schedule_interval": {
+                "quarter": 3,
+                "year": 2026
+              }
+            }
+          ],
+          "description": "Vervanging transformator"
         }
       ],
       "postcode_areas": [

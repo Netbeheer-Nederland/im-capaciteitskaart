@@ -490,7 +490,7 @@ classes:
           use *01* as day. This is the *Beoogde in bedrijfsname* in the previous implementation.
         slot_uri: cim:DateTimeInterval.end
         range: date
-        required: true
+        required: false
       start:
         description: Start date and time of this interval. The start date and time
           is included in the defined interval. Follows the international date format
@@ -500,13 +500,18 @@ classes:
         range: date
         required: false
       quarter:
-        description: Yearly quarter indicator. Used for the coming two years relative
-          to this dataset. Identified as *Q[number]* for the first year, *H[number]*
-          for the second year.
+        description: Quarter indicator for when this Work is completed. Use in
+          combination with ck:DateTimeInterval.year.
         slot_uri: ck:DateTimeInterval.quarter
         range: integer
         minimum_value: 1
         maximum_value: 4
+        required: false
+      year:
+        description: Year indicator for when this Work is completed. Use in
+          combination with ck:DateTimeInterval.quarter.
+        slot_uri: ck:DateTimeInterval.year
+        range: integer
         required: false
     class_uri: cim:DateTimeInterval
   IdentifiedObject:
