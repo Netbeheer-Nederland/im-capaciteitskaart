@@ -184,12 +184,12 @@ classes:
       contributor:
         description: An entity responsible for making contributions to the resource.
         slot_uri: dcterms:contributor
-        required: true
+        required: false
       coverage:
         description: The spatial or temporal topic of the resource, spatial applicability
           of the resource, or jurisdiction under which the resource is relevant.
         slot_uri: dcterms:coverage
-        required: true
+        required: false
       creator:
         description: An entity responsible for making the resource.
         slot_uri: dcterms:creator
@@ -200,15 +200,15 @@ classes:
           set is valid from.
         slot_uri: dcterms:date
         range: date
-        required: true
+        required: false
       description:
         description: An account of the resource.
         slot_uri: dcterms:description
-        required: true
+        required: false
       format:
         description: The file format of the resource.
         slot_uri: dcterms:format
-        required: true
+        required: false
       identifier:
         description: An unambiguous reference to the resource within a given context.
         slot_uri: dcterms:identifier
@@ -221,19 +221,19 @@ classes:
       language:
         description: A language of the resource.
         slot_uri: dcterms:language
-        required: true
+        required: false
       publisher:
         description: An entity responsible for making the resource available.
         slot_uri: dcterms:publisher
-        required: true
+        required: false
       rights:
         description: Information about rights held in and over the resource.
         slot_uri: dcterms:rights
-        required: true
+        required: false
       title:
         description: A name given to the resource.
         slot_uri: dcterms:title
-        required: true
+        required: false
       valid:
         description: A date range for the validity of a resource. This should be two
           dates to form a range.  The first date is inclusive and the second date
@@ -242,6 +242,7 @@ classes:
         range: date
         minimum_cardinality: 2
         maximum_cardinality: 2
+        required: false
       energy_areas:
         description: A list of energy areas with heatmap data.
         slot_uri: ck:HeatmapDataSet.EnergyAreas
@@ -503,6 +504,9 @@ classes:
           to this dataset. Identified as *Q[number]* for the first year, *H[number]*
           for the second year.
         slot_uri: ck:DateTimeInterval.quarter
+        range: integer
+        minimum_value: 1
+        maximum_value: 4
         required: false
     class_uri: cim:DateTimeInterval
   IdentifiedObject:

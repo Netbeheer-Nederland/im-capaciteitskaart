@@ -52,7 +52,9 @@
                 },
                 "quarter": {
                     "description": "Yearly quarter indicator. Used for the coming two years relative to this dataset. Identified as *Q[number]* for the first year, *H[number]* for the second year.",
-                    "type": "string"
+                    "maximum": 4,
+                    "minimum": 1,
+                    "type": "integer"
                 },
                 "start": {
                     "description": "Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01* as day. This is the *Startdatum* in the previous implementation.",
@@ -278,18 +280,9 @@
             },
             "required": [
                 "conforms_to",
-                "contributor",
-                "coverage",
                 "creator",
-                "date",
-                "description",
-                "format",
                 "identifier",
                 "issued",
-                "language",
-                "publisher",
-                "rights",
-                "title",
                 "energy_areas"
             ],
             "title": "HeatmapDataSet",
@@ -626,18 +619,9 @@
     },
     "required": [
         "conforms_to",
-        "contributor",
-        "coverage",
         "creator",
-        "date",
-        "description",
-        "format",
         "identifier",
         "issued",
-        "language",
-        "publisher",
-        "rights",
-        "title",
         "energy_areas"
     ],
     "title": "im-capaciteitskaart",
