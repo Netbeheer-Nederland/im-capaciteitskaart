@@ -1,0 +1,45 @@
+= `RAGKind`
+:toclevels: 4
+
+
++++Traffic light colors coding scheme for categorising status.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Enumeration
+
+| URI^xref:ROOT::uri_explanation.adoc[?]^
+| http://data.netbeheernederland.nl/capaciteitskaart/def#RAGKind[`ck:RAGKind`]
+
+
+| CIM standard (perspective)
+| IEC61970 (Grid)
+
+
+
+|===
+
+== Values
+
+[cols="1,1,5",width=100%]
+|===
+| Value | URI | Description
+
+| `amber`
+| http://data.netbeheernederland.nl/capaciteitskaart/def#RAGKind.Amber[`ck:RAGKind.Amber`]
+| n/a
+
+| `red`
+| http://data.netbeheernederland.nl/capaciteitskaart/def#RAGKind.Red[`ck:RAGKind.Red`]
+| n/a
+
+| `transparant`
+| http://data.netbeheernederland.nl/capaciteitskaart/def#RAGKind.Transparant[`ck:RAGKind.Transparant`]
+| n/a
+
+| `yellow`
+| http://data.netbeheernederland.nl/capaciteitskaart/def#RAGKind.Yellow[`ck:RAGKind.Yellow`]
+| n/a
+|===

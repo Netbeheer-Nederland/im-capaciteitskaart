@@ -1,0 +1,6 @@
+name: dp-capacity-heatmap
+title: Capacity Heatmap
+version: true
+nav:
+- modules/ROOT/nav.adoc
+- modules/information-model/nav.adoc

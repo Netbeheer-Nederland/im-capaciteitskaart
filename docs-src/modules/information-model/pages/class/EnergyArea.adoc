@@ -1,0 +1,610 @@
+= `EnergyArea`
+:toclevels: 4
+
+
++++Describes an area having energy production or consumption. Specializations are intended to support the load allocation function as typically required in energy management systems or planning studies to allocate hypothesized load levels to individual load points for power flow analysis. Often the energy area can be linked to both measured and forecast load levels.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI^xref:ROOT::uri_explanation.adoc[?]^
+| `cim:EnergyArea`
+
+
+| CIM standard (perspective)
+| IEC61970 (Grid)
+
+
+| Glossary mappings^xref:ROOT::what_are_glossary_mappings.adoc[?]^
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#exactMatch[`skos:exactMatch`]
+a! 
+
+https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/voedingsgebied[`nbnl:voedingsgebied`]
+
+
+
+!===
+
+
+
+|===
+
+== Class hierarchy
+* xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+** *`EnergyArea`*
+
+
+== Slots
+
+
+
+.Associated classes
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+EnergyArea {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+Work {
+  style {
+    fill: "#d1e7c2"
+    shadow: true
+  }
+}
+
+
+
+PostcodeArea {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+Name {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+
+EnergyArea -> Work: works
+
+
+EnergyArea -> PostcodeArea: postcode_areas
+
+
+EnergyArea -> Name: names
+
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+----
+
+
+[cols="3,1,3,6",width=100%]
+|===
+| Name | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"] | Type | Description
+
+| <<postcode_areas,`postcode_areas`>>
+| 1..*
+| xref::class/PostcodeArea.adoc[`PostcodeArea`]
+| +++Postcode Areas serviced by this EnergyArea.+++
+
+| <<short_code,`short_code`>>
+| 1..*
+| n/a
+| +++Short code name for EnergyArea. This is the *Uniek ID voedingsgebied* in the previous implementation.+++
+
+| <<works,`works`>>
+| 1..*
+| xref::class/Work.adoc[`Work`]
+| +++All the works performed for this EnergyArea.+++
+
+| <<demand_alleviation_year,`demand_alleviation_year`>>
+| 0..*
+| https://w3id.org/linkml/Integer[`integer`]
+| +++Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea.+++
+
+| <<demand_available_capacity,`demand_available_capacity`>>
+| 0..*
+| n/a
+| +++The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation.+++
+
+| <<demand_capacity_in_queue,`demand_capacity_in_queue`>>
+| 0..*
+| n/a
+| +++The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation.+++
+
+| <<demand_constraint,`demand_constraint`>>
+| 0..*
+| n/a
+| +++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided.+++
+
+| <<demand_forecast_capacity,`demand_forecast_capacity`>>
+| 0..*
+| n/a
+| +++Sum of all demand (in MW) forecast for the current year at the EnergyArea.+++
+
+| <<demand_quoted_capacity,`demand_quoted_capacity`>>
+| 0..*
+| n/a
+| +++Sum of all demand (in MW) currently quoted at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation.+++
+
+| <<demand_requests_in_queue,`demand_requests_in_queue`>>
+| 0..*
+| https://w3id.org/linkml/Integer[`integer`]
+| +++Number of demand requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - afname* in the previous implementation.+++
+
+| <<generation_alleviation_year,`generation_alleviation_year`>>
+| 0..*
+| https://w3id.org/linkml/Integer[`integer`]
+| +++Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea.+++
+
+| <<generation_available_capacity,`generation_available_capacity`>>
+| 0..*
+| n/a
+| +++Available generation capacity (in MW) at the EnergyArea. This is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation.+++
+
+| <<generation_capacity_in_queue,`generation_capacity_in_queue`>>
+| 0..*
+| n/a
+| +++The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation.+++
+
+| <<generation_constraint,`generation_constraint`>>
+| 0..*
+| n/a
+| +++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided.+++
+
+| <<generation_forecast_capacity,`generation_forecast_capacity`>>
+| 0..*
+| n/a
+| +++Sum of all forecast generation (in MW) for the current year at the EnergyArea.+++
+
+| <<generation_quoted_capacity,`generation_quoted_capacity`>>
+| 0..*
+| n/a
+| +++Sum of all currently quoted generation (in MW) at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous implementation.+++
+
+| <<generation_requests_in_queue,`generation_requests_in_queue`>>
+| 0..*
+| https://w3id.org/linkml/Integer[`integer`]
+| +++Number of generation requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - invoeding* in the previous implementation.+++
+
+| <<description,`description`>>
+| 0..*
+| https://w3id.org/linkml/String[`string`]
+| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.+++
+
+| <<m_rid,`m_rid`>>
+| 0..*
+| https://w3id.org/linkml/String[`string`]
+| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+
+| <<names,`names`>>
+| 0..*
+| xref::class/Name.adoc[`Name`]
+| +++All names of this identified object.+++
+|===
+
+'''
+
+
+//[discrete]
+[#demand_alleviation_year]
+=== `demand_alleviation_year`
++++Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandAlleviationYear[`ck:EnergyArea.demandAlleviationYear`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| https://w3id.org/linkml/Integer[`integer`]
+
+
+|===
+
+//[discrete]
+[#demand_available_capacity]
+=== `demand_available_capacity`
++++The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandAvailableCapacity[`ck:EnergyArea.demandAvailableCapacity`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#demand_capacity_in_queue]
+=== `demand_capacity_in_queue`
++++The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandCapacityInQueue[`ck:EnergyArea.demandCapacityInQueue`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#demand_constraint]
+=== `demand_constraint`
++++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandConstraint[`ck:EnergyArea.demandConstraint`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#demand_forecast_capacity]
+=== `demand_forecast_capacity`
++++Sum of all demand (in MW) forecast for the current year at the EnergyArea.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandForecastCapacity[`ck:EnergyArea.demandForecastCapacity`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#demand_quoted_capacity]
+=== `demand_quoted_capacity`
++++Sum of all demand (in MW) currently quoted at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandQuotedCapacity[`ck:EnergyArea.demandQuotedCapacity`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#demand_requests_in_queue]
+=== `demand_requests_in_queue`
++++Number of demand requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - afname* in the previous implementation.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandRequestsInQueue[`ck:EnergyArea.demandRequestsInQueue`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| https://w3id.org/linkml/Integer[`integer`]
+
+
+|===
+
+//[discrete]
+[#description]
+=== `description`
++++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:IdentifiedObject.description`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+
+|===
+
+//[discrete]
+[#generation_alleviation_year]
+=== `generation_alleviation_year`
++++Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationAlleviationYear[`ck:EnergyArea.generationAlleviationYear`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| https://w3id.org/linkml/Integer[`integer`]
+
+
+|===
+
+//[discrete]
+[#generation_available_capacity]
+=== `generation_available_capacity`
++++Available generation capacity (in MW) at the EnergyArea. This is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationAvailableCapacity[`ck:EnergyArea.generationAvailableCapacity`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#generation_capacity_in_queue]
+=== `generation_capacity_in_queue`
++++The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationCapacityInQueue[`ck:EnergyArea.generationCapacityInQueue`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#generation_constraint]
+=== `generation_constraint`
++++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationConstraint[`ck:EnergyArea.generationConstraint`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#generation_forecast_capacity]
+=== `generation_forecast_capacity`
++++Sum of all forecast generation (in MW) for the current year at the EnergyArea.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationForecastCapacity[`ck:EnergyArea.generationForecastCapacity`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#generation_quoted_capacity]
+=== `generation_quoted_capacity`
++++Sum of all currently quoted generation (in MW) at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous implementation.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationQuotedCapacity[`ck:EnergyArea.generationQuotedCapacity`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#generation_requests_in_queue]
+=== `generation_requests_in_queue`
++++Number of generation requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - invoeding* in the previous implementation.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationRequestsInQueue[`ck:EnergyArea.generationRequestsInQueue`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| https://w3id.org/linkml/Integer[`integer`]
+
+
+|===
+
+//[discrete]
+[#m_rid]
+=== `m_rid`
++++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:IdentifiedObject.mRID`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+
+|===
+
+//[discrete]
+[#names]
+=== `names`
++++All names of this identified object.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:IdentifiedObject.Names`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..*
+| Type
+| xref::class/Name.adoc[`Name`]
+
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+
+|===
+
+//[discrete]
+[#postcode_areas]
+=== `postcode_areas`
++++Postcode Areas serviced by this EnergyArea.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.PostcodeAreas[`ck:EnergyArea.PostcodeAreas`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/PostcodeArea.adoc[`PostcodeArea`]
+
+
+|===
+
+//[discrete]
+[#short_code]
+=== `short_code`
++++Short code name for EnergyArea. This is the *Uniek ID voedingsgebied* in the previous implementation.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.shortCode[`ck:EnergyArea.shortCode`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#works]
+=== `works`
++++All the works performed for this EnergyArea.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.Works[`ck:EnergyArea.Works`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/Work.adoc[`Work`]
+
+
+|===
+
+
