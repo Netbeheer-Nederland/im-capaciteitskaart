@@ -83,7 +83,7 @@
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#DateTimeInterval.quarter[`ck:DateTimeInterval.quarter`]
+| `ck:DateTimeInterval.quarter`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
@@ -117,7 +117,7 @@
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#DateTimeInterval.year[`ck:DateTimeInterval.year`]
+| `ck:DateTimeInterval.year`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type

@@ -11,7 +11,7 @@
 | Enumeration
 
 | URI^xref:ROOT::uri_explanation.adoc[?]^
-| http://data.netbeheernederland.nl/capaciteitskaart/def#RAGKind[`ck:RAGKind`]
+| `ck:RAGKind`
 
 
 | CIM standard (perspective)
@@ -28,18 +28,18 @@
 | Value | URI | Description
 
 | `amber`
-| http://data.netbeheernederland.nl/capaciteitskaart/def#RAGKind.Amber[`ck:RAGKind.Amber`]
+| `ck:RAGKind.Amber`
 | n/a
 
 | `red`
-| http://data.netbeheernederland.nl/capaciteitskaart/def#RAGKind.Red[`ck:RAGKind.Red`]
+| `ck:RAGKind.Red`
 | n/a
 
 | `transparant`
-| http://data.netbeheernederland.nl/capaciteitskaart/def#RAGKind.Transparant[`ck:RAGKind.Transparant`]
+| `ck:RAGKind.Transparant`
 | n/a
 
 | `yellow`
-| http://data.netbeheernederland.nl/capaciteitskaart/def#RAGKind.Yellow[`ck:RAGKind.Yellow`]
+| `ck:RAGKind.Yellow`
 | n/a
 |===

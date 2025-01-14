@@ -154,7 +154,7 @@ legend: "" {
 
 | <<status_kind,`status_kind`>>
 | 0..*
-| n/a
+| `WorkStatusKind`
 | +++Kind of work status.+++
 
 | <<type,`type`>>
@@ -234,7 +234,7 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#Work.projectName[`ck:Work.projectName`]
+| `ck:Work.projectName`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 1..*
 | Type
@@ -255,7 +255,7 @@ legend: "" {
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
-| n/a
+| `WorkStatusKind`
 
 | Inherited from
 | xref::class/BaseWork.adoc[`BaseWork`]

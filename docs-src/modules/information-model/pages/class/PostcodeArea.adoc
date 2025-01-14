@@ -11,7 +11,7 @@
 | Class
 
 | URI^xref:ROOT::uri_explanation.adoc[?]^
-| http://data.netbeheernederland.nl/capaciteitskaart/def#PostcodeArea[`ck:PostcodeArea`]
+| `ck:PostcodeArea`
 
 
 
@@ -112,12 +112,12 @@ legend: "" {
 
 | <<demand_constraint,`demand_constraint`>>
 | 1..*
-| n/a
+| `RAGKind`
 | +++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor afname* in the previous implementation.+++
 
 | <<generation_constraint,`generation_constraint`>>
 | 1..*
-| n/a
+| `RAGKind`
 | +++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor opwek* in the previous implementation.+++
 
 | <<postcode,`postcode`>>
@@ -152,11 +152,11 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#PostcodeArea.demandConstraint[`ck:PostcodeArea.demandConstraint`]
+| `ck:PostcodeArea.demandConstraint`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 1..*
 | Type
-| n/a
+| `RAGKind`
 
 
 |===
@@ -189,11 +189,11 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#PostcodeArea.generationConstraint[`ck:PostcodeArea.generationConstraint`]
+| `ck:PostcodeArea.generationConstraint`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 1..*
 | Type
-| n/a
+| `RAGKind`
 
 
 |===
@@ -246,7 +246,7 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#PostcodeArea.postcode[`ck:PostcodeArea.postcode`]
+| `ck:PostcodeArea.postcode`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 1..*
 | Type

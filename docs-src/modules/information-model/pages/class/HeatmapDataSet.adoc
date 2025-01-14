@@ -11,7 +11,7 @@
 | Class
 
 | URI^xref:ROOT::uri_explanation.adoc[?]^
-| http://data.netbeheernederland.nl/capaciteitskaart/def#HeatmapDataSet[`ck:HeatmapDataSet`]
+| `ck:HeatmapDataSet`
 
 
 
@@ -298,7 +298,7 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#HeatmapDataSet.EnergyAreas[`ck:HeatmapDataSet.EnergyAreas`]
+| `ck:HeatmapDataSet.EnergyAreas`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 1..*
 | Type

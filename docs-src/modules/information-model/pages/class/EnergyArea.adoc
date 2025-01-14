@@ -176,27 +176,27 @@ legend: "" {
 
 | <<demand_available_capacity,`demand_available_capacity`>>
 | 0..*
-| n/a
+| `MegaW`
 | +++The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation.+++
 
 | <<demand_capacity_in_queue,`demand_capacity_in_queue`>>
 | 0..*
-| n/a
+| `MegaW`
 | +++The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation.+++
 
 | <<demand_constraint,`demand_constraint`>>
 | 0..*
-| n/a
+| `RAGKind`
 | +++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided.+++
 
 | <<demand_forecast_capacity,`demand_forecast_capacity`>>
 | 0..*
-| n/a
+| `MegaW`
 | +++Sum of all demand (in MW) forecast for the current year at the EnergyArea.+++
 
 | <<demand_quoted_capacity,`demand_quoted_capacity`>>
 | 0..*
-| n/a
+| `MegaW`
 | +++Sum of all demand (in MW) currently quoted at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation.+++
 
 | <<demand_requests_in_queue,`demand_requests_in_queue`>>
@@ -211,27 +211,27 @@ legend: "" {
 
 | <<generation_available_capacity,`generation_available_capacity`>>
 | 0..*
-| n/a
+| `MegaW`
 | +++Available generation capacity (in MW) at the EnergyArea. This is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation.+++
 
 | <<generation_capacity_in_queue,`generation_capacity_in_queue`>>
 | 0..*
-| n/a
+| `MegaW`
 | +++The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation.+++
 
 | <<generation_constraint,`generation_constraint`>>
 | 0..*
-| n/a
+| `RAGKind`
 | +++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided.+++
 
 | <<generation_forecast_capacity,`generation_forecast_capacity`>>
 | 0..*
-| n/a
+| `MegaW`
 | +++Sum of all forecast generation (in MW) for the current year at the EnergyArea.+++
 
 | <<generation_quoted_capacity,`generation_quoted_capacity`>>
 | 0..*
-| n/a
+| `MegaW`
 | +++Sum of all currently quoted generation (in MW) at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous implementation.+++
 
 | <<generation_requests_in_queue,`generation_requests_in_queue`>>
@@ -266,7 +266,7 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandAlleviationYear[`ck:EnergyArea.demandAlleviationYear`]
+| `ck:EnergyArea.demandAlleviationYear`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
@@ -283,11 +283,11 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandAvailableCapacity[`ck:EnergyArea.demandAvailableCapacity`]
+| `ck:EnergyArea.demandAvailableCapacity`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
-| n/a
+| `MegaW`
 
 
 |===
@@ -300,11 +300,11 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandCapacityInQueue[`ck:EnergyArea.demandCapacityInQueue`]
+| `ck:EnergyArea.demandCapacityInQueue`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
-| n/a
+| `MegaW`
 
 
 |===
@@ -317,11 +317,11 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandConstraint[`ck:EnergyArea.demandConstraint`]
+| `ck:EnergyArea.demandConstraint`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
-| n/a
+| `RAGKind`
 
 
 |===
@@ -334,11 +334,11 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandForecastCapacity[`ck:EnergyArea.demandForecastCapacity`]
+| `ck:EnergyArea.demandForecastCapacity`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
-| n/a
+| `MegaW`
 
 
 |===
@@ -351,11 +351,11 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandQuotedCapacity[`ck:EnergyArea.demandQuotedCapacity`]
+| `ck:EnergyArea.demandQuotedCapacity`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
-| n/a
+| `MegaW`
 
 
 |===
@@ -368,7 +368,7 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.demandRequestsInQueue[`ck:EnergyArea.demandRequestsInQueue`]
+| `ck:EnergyArea.demandRequestsInQueue`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
@@ -405,7 +405,7 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationAlleviationYear[`ck:EnergyArea.generationAlleviationYear`]
+| `ck:EnergyArea.generationAlleviationYear`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
@@ -422,11 +422,11 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationAvailableCapacity[`ck:EnergyArea.generationAvailableCapacity`]
+| `ck:EnergyArea.generationAvailableCapacity`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
-| n/a
+| `MegaW`
 
 
 |===
@@ -439,11 +439,11 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationCapacityInQueue[`ck:EnergyArea.generationCapacityInQueue`]
+| `ck:EnergyArea.generationCapacityInQueue`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
-| n/a
+| `MegaW`
 
 
 |===
@@ -456,11 +456,11 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationConstraint[`ck:EnergyArea.generationConstraint`]
+| `ck:EnergyArea.generationConstraint`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
-| n/a
+| `RAGKind`
 
 
 |===
@@ -473,11 +473,11 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationForecastCapacity[`ck:EnergyArea.generationForecastCapacity`]
+| `ck:EnergyArea.generationForecastCapacity`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
-| n/a
+| `MegaW`
 
 
 |===
@@ -490,11 +490,11 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationQuotedCapacity[`ck:EnergyArea.generationQuotedCapacity`]
+| `ck:EnergyArea.generationQuotedCapacity`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
-| n/a
+| `MegaW`
 
 
 |===
@@ -507,7 +507,7 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.generationRequestsInQueue[`ck:EnergyArea.generationRequestsInQueue`]
+| `ck:EnergyArea.generationRequestsInQueue`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 0..*
 | Type
@@ -564,7 +564,7 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.PostcodeAreas[`ck:EnergyArea.PostcodeAreas`]
+| `ck:EnergyArea.PostcodeAreas`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 1..*
 | Type
@@ -581,7 +581,7 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.shortCode[`ck:EnergyArea.shortCode`]
+| `ck:EnergyArea.shortCode`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 1..*
 | Type
@@ -598,7 +598,7 @@ legend: "" {
 [cols="h,4",width=65%]
 |===
 | URI
-| http://data.netbeheernederland.nl/capaciteitskaart/def#EnergyArea.Works[`ck:EnergyArea.Works`]
+| `ck:EnergyArea.Works`
 | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
 | 1..*
 | Type
