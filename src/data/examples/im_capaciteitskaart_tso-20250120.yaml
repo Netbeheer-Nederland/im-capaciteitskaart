@@ -1,0 +1,29 @@
+conforms_to: http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0
+creator: 'ritger.teunissen@alliander.com'
+identifier: 'test_data_im_capaciteitskaart'
+issued: '2025-01-10'
+valid:
+  end: '2025-01-21'
+  start: '2025-12-21'
+energy_areas:
+  - short_code: 'OS FICTIEF1'
+    demand_available_capacity: 470
+    demand_capacity_in_queue: 30
+    demand_quoted_capacity: 580
+    demand_requests_in_queue: 150
+    generation_available_capacity: 470
+    generation_capacity_in_queue: 0
+    generation_quoted_capacity: 380
+    generation_requests_in_queue: 0
+    works:
+      - project_name: 'WO#_1234_Verzwaring_OS_FICTIEF1'
+        time_schedules:
+          - schedule_interval:
+              end: '2026-01-10'
+        description: 'Uitbreiding Onderstation'
+      - project_name: 'WO#_4321_Vervanging_Transformator'
+        time_schedules:
+          - schedule_interval:
+              quarter: 3
+              year: 2026
+        description: 'Vervanging transformator'
