@@ -17,42 +17,23 @@ ck:HeatmapDataSet a sh:NodeShape ;
             sh:order 4 ;
             sh:path dcterms:date ],
         [ sh:datatype xsd:string ;
-            sh:description "A name given to the resource." ;
+            sh:description "An account of the resource." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path dcterms:title ],
+            sh:order 5 ;
+            sh:path dcterms:description ],
         [ sh:datatype xsd:string ;
-            sh:description "An entity responsible for making the resource available." ;
+            sh:description "The file format of the resource." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path dcterms:publisher ],
-        [ sh:datatype xsd:string ;
-            sh:description "Information about rights held in and over the resource." ;
+            sh:order 6 ;
+            sh:path dcterms:format ],
+        [ sh:class cim:DateTimeInterval ;
+            sh:description "A date range for the validity of a resource. This should be two dates, start & end. The first date is inclusive and the second date exclusive." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path dcterms:rights ],
-        [ sh:class cim:EnergyArea ;
-            sh:description "A list of energy areas with heatmap data." ;
-            sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 14 ;
-            sh:path ck:HeatmapDataSet.EnergyAreas ],
-        [ sh:datatype xsd:string ;
-            sh:description "An entity responsible for making contributions to the resource." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dcterms:contributor ],
-        [ sh:datatype xsd:date ;
-            sh:description "Date of formal issuance of the resource." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path dcterms:issued ],
+            sh:order 13 ;
+            sh:path dcterms:valid ],
         [ sh:datatype xsd:string ;
             sh:description "ID for the schema used to create the instance data." ;
             sh:maxCount 1 ;
@@ -60,6 +41,19 @@ ck:HeatmapDataSet a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path dcterms:conformsTo ],
+        [ sh:datatype xsd:string ;
+            sh:description "A name given to the resource." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path dcterms:title ],
+        [ sh:datatype xsd:date ;
+            sh:description "Date of formal issuance of the resource." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path dcterms:issued ],
         [ sh:datatype xsd:string ;
             sh:description "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant." ;
             sh:maxCount 1 ;
@@ -74,36 +68,42 @@ ck:HeatmapDataSet a sh:NodeShape ;
             sh:order 3 ;
             sh:path dcterms:creator ],
         [ sh:datatype xsd:string ;
+            sh:description "A language of the resource." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path dcterms:language ],
+        [ sh:datatype xsd:string ;
+            sh:description "An entity responsible for making contributions to the resource." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dcterms:contributor ],
+        [ sh:datatype xsd:string ;
+            sh:description "An entity responsible for making the resource available." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path dcterms:publisher ],
+        [ sh:datatype xsd:string ;
             sh:description "An unambiguous reference to the resource within a given context." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
             sh:path dcterms:identifier ],
+        [ sh:class cim:EnergyArea ;
+            sh:description "A list of energy areas with heatmap data." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 14 ;
+            sh:path ck:HeatmapDataSet.EnergyAreas ],
         [ sh:datatype xsd:string ;
-            sh:description "A language of the resource." ;
+            sh:description "Information about rights held in and over the resource." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path dcterms:language ],
-        [ sh:datatype xsd:date ;
-            sh:description "A date range for the validity of a resource. This should be two dates to form a range.  The first date is inclusive and the second date exclusive." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path dcterms:valid ],
-        [ sh:datatype xsd:string ;
-            sh:description "An account of the resource." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path dcterms:description ],
-        [ sh:datatype xsd:string ;
-            sh:description "The file format of the resource." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dcterms:format ] ;
+            sh:order 11 ;
+            sh:path dcterms:rights ] ;
     sh:targetClass ck:HeatmapDataSet .
 
 cim:BaseWork a sh:NodeShape ;
@@ -116,18 +116,6 @@ cim:BaseWork a sh:NodeShape ;
             sh:order 5 ;
             sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
-            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:Document.type ],
-        [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -138,6 +126,18 @@ cim:BaseWork a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path cim:BaseWork.statusKind ],
+        [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:Document.type ],
         [ sh:class cim:WorkTimeSchedule ;
             sh:description "All time schedules for this work or work task." ;
             sh:minCount 1 ;
@@ -151,28 +151,28 @@ cim:Document a sh:NodeShape ;
     sh:description "Parent class for different groupings of information collected and managed as a part of a business process. It will frequently contain references to other objects, such as assets, people and power system resources." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.mRID ],
+            sh:order 0 ;
+            sh:path cim:Document.type ],
         [ sh:class cim:Name ;
             sh:description "All names of this identified object." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
-            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:Document.type ] ;
+            sh:path cim:IdentifiedObject.description ] ;
     sh:targetClass cim:Document .
 
 cim:IdentifiedObject a sh:NodeShape ;
@@ -180,12 +180,6 @@ cim:IdentifiedObject a sh:NodeShape ;
     sh:description "This is a root class to provide common identification for all classes needing identification and naming attributes." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
             sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -195,30 +189,30 @@ cim:IdentifiedObject a sh:NodeShape ;
             sh:description "All names of this identified object." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 2 ;
-            sh:path cim:IdentifiedObject.Names ] ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:IdentifiedObject.description ] ;
     sh:targetClass cim:IdentifiedObject .
 
 cim:TimeSchedule a sh:NodeShape ;
     sh:closed true ;
     sh:description "Description of anything that changes through time. Time schedule is used to perform a single-valued function of time. Use inherited 'type' attribute to give additional information on this schedule, such as periodic (hourly, daily, weekly, monthly, etc.), day of the month, by date, calendar (specific times and dates)." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.mRID ],
+    sh:property [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
             sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path cim:Document.type ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation." ;
             sh:maxCount 1 ;
@@ -231,7 +225,13 @@ cim:TimeSchedule a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 0 ;
-            sh:path cim:TimeSchedule.scheduleInterval ] ;
+            sh:path cim:TimeSchedule.scheduleInterval ],
+        [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.mRID ] ;
     sh:targetClass cim:TimeSchedule .
 
 ck:PostcodeArea a sh:NodeShape ;
@@ -242,26 +242,19 @@ ck:PostcodeArea a sh:NodeShape ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
+            sh:order 4 ;
             sh:path cim:IdentifiedObject.description ],
-        [ sh:description "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor afname* in the previous implementation." ;
-            sh:in ( ck:RAGKind.Transparant ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Yellow ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path ck:PostcodeArea.demandConstraint ],
-        [ sh:description "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor opwek* in the previous implementation." ;
-            sh:in ( ck:RAGKind.Transparant ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Yellow ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path ck:PostcodeArea.generationConstraint ],
         [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:description "TenneT substation (*Onderstation*) which feeds this PostcodeArea. Use the *ck.EnergyArea.short_code* from the TenneT dataset to relate the PostcodeArea." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.mRID ],
+            sh:order 1 ;
+            sh:path ck:PostcodeArea.substationShortCode ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 6 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
             sh:description "Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, uppercase. No spaces between the numbers and letters, i.e. \"1234AB\"." ;
             sh:maxCount 1 ;
@@ -269,77 +262,53 @@ ck:PostcodeArea a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path ck:PostcodeArea.postcode ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
+        [ sh:description "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor opwek* in the previous implementation." ;
+            sh:in ( ck:RAGKind.Transparant ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Yellow ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path ck:PostcodeArea.generationConstraint ],
+        [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
             sh:order 5 ;
-            sh:path cim:IdentifiedObject.Names ] ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:description "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor afname* in the previous implementation." ;
+            sh:in ( ck:RAGKind.Transparant ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Yellow ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path ck:PostcodeArea.demandConstraint ] ;
     sh:targetClass ck:PostcodeArea .
 
 cim:EnergyArea a sh:NodeShape ;
     sh:closed true ;
     sh:description "Describes an area having energy production or consumption. Specializations are intended to support the load allocation function as typically required in energy management systems or planning studies to allocate hypothesized load levels to individual load points for power flow analysis. Often the energy area can be linked to both measured and forecast load levels." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:integer ;
-            sh:description "Number of demand requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - afname* in the previous implementation." ;
-            sh:maxCount 1 ;
-            sh:minInclusive 0 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path ck:EnergyArea.demandRequestsInQueue ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation." ;
-            sh:maxCount 1 ;
-            sh:minInclusive 0 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path ck:EnergyArea.generationCapacityInQueue ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path ck:EnergyArea.generationAlleviationYear ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 19 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all demand (in MW) currently quoted at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation." ;
-            sh:maxCount 1 ;
-            sh:minInclusive 0 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path ck:EnergyArea.demandQuotedCapacity ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Number of generation requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - invoeding* in the previous implementation." ;
-            sh:maxCount 1 ;
-            sh:minInclusive 0 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path ck:EnergyArea.generationRequestsInQueue ],
-        [ sh:datatype unit:MegaW ;
-            sh:description "Sum of all currently quoted generation (in MW) at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous implementation." ;
-            sh:maxCount 1 ;
-            sh:minInclusive 0 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path ck:EnergyArea.generationQuotedCapacity ],
-        [ sh:datatype unit:MegaW ;
+    sh:property [ sh:datatype unit:MegaW ;
             sh:description "Available generation capacity (in MW) at the EnergyArea. This is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation." ;
             sh:maxCount 1 ;
             sh:minInclusive 0 ;
             sh:nodeKind sh:Literal ;
             sh:order 11 ;
             sh:path ck:EnergyArea.generationAvailableCapacity ],
-        [ sh:datatype xsd:string ;
-            sh:description "Short code name for EnergyArea. This is the *Uniek ID voedingsgebied* in the previous implementation." ;
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 19 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:description "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided." ;
+            sh:in ( ck:RAGKind.Transparant ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Yellow ) ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
+            sh:order 14 ;
+            sh:path ck:EnergyArea.generationConstraint ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path ck:EnergyArea.shortCode ],
+            sh:order 6 ;
+            sh:path ck:EnergyArea.demandAlleviationYear ],
         [ sh:datatype unit:MegaW ;
             sh:description "Sum of all demand (in MW) forecast for the current year at the EnergyArea." ;
             sh:maxCount 1 ;
@@ -347,18 +316,26 @@ cim:EnergyArea a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path ck:EnergyArea.demandForecastCapacity ],
-        [ sh:description "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided." ;
-            sh:in ( ck:RAGKind.Transparant ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Yellow ) ;
-            sh:maxCount 1 ;
-            sh:order 14 ;
-            sh:path ck:EnergyArea.generationConstraint ],
         [ sh:datatype unit:MegaW ;
-            sh:description "The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation." ;
+            sh:description "The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation." ;
             sh:maxCount 1 ;
             sh:minInclusive 0 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path ck:EnergyArea.demandAvailableCapacity ],
+            sh:order 2 ;
+            sh:path ck:EnergyArea.demandCapacityInQueue ],
+        [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 18 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "Sum of all demand (in MW) currently quoted at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ck:EnergyArea.demandQuotedCapacity ],
         [ sh:datatype unit:MegaW ;
             sh:description "Sum of all forecast generation (in MW) for the current year at the EnergyArea." ;
             sh:maxCount 1 ;
@@ -367,65 +344,93 @@ cim:EnergyArea a sh:NodeShape ;
             sh:order 12 ;
             sh:path ck:EnergyArea.generationForecastCapacity ],
         [ sh:datatype unit:MegaW ;
-            sh:description "The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation." ;
+            sh:description "Sum of all currently quoted generation (in MW) at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous implementation." ;
             sh:maxCount 1 ;
             sh:minInclusive 0 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ck:EnergyArea.demandCapacityInQueue ],
-        [ sh:class ck:PostcodeArea ;
-            sh:description "Postcode Areas serviced by this EnergyArea." ;
+            sh:order 10 ;
+            sh:path ck:EnergyArea.generationQuotedCapacity ],
+        [ sh:datatype xsd:string ;
+            sh:description "Short code name for EnergyArea. This is the *Uniek ID voedingsgebied* in the previous implementation." ;
+            sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 16 ;
-            sh:path ck:EnergyArea.PostcodeAreas ],
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ck:EnergyArea.shortCode ],
         [ sh:datatype xsd:integer ;
             sh:description "Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path ck:EnergyArea.demandAlleviationYear ],
+            sh:order 13 ;
+            sh:path ck:EnergyArea.generationAlleviationYear ],
+        [ sh:class ck:PostcodeArea ;
+            sh:description "Postcode Areas serviced by this EnergyArea." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 16 ;
+            sh:path ck:EnergyArea.PostcodeAreas ],
         [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 17 ;
             sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of demand requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - afname* in the previous implementation." ;
             sh:maxCount 1 ;
+            sh:minInclusive 0 ;
             sh:nodeKind sh:Literal ;
-            sh:order 18 ;
-            sh:path cim:IdentifiedObject.mRID ],
+            sh:order 1 ;
+            sh:path ck:EnergyArea.demandRequestsInQueue ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of generation requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - invoeding* in the previous implementation." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path ck:EnergyArea.generationRequestsInQueue ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path ck:EnergyArea.generationCapacityInQueue ],
+        [ sh:datatype unit:MegaW ;
+            sh:description "The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ck:EnergyArea.demandAvailableCapacity ],
+        [ sh:description "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided." ;
+            sh:in ( ck:RAGKind.Transparant ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Yellow ) ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path ck:EnergyArea.demandConstraint ],
         [ sh:class cim:Work ;
             sh:description "All the works performed for this EnergyArea." ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 15 ;
-            sh:path ck:EnergyArea.Works ],
-        [ sh:description "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided." ;
-            sh:in ( ck:RAGKind.Transparant ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Yellow ) ;
-            sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path ck:EnergyArea.demandConstraint ] ;
+            sh:path ck:EnergyArea.Works ] ;
     sh:targetClass cim:EnergyArea .
 
 cim:NameType a sh:NodeShape ;
     sh:closed true ;
     sh:description "Type of name. Possible values for attribute 'name' are implementation dependent but standard profiles may specify types. An enterprise may have multiple IT systems each having its own local name for the same object, e.g.  a planning system may have different names from an EMS. An object may also have different names within the same IT system, e.g. localName as defined in CIM version 14. The definition from CIM14 is The localName is a human readable name of the object. It is a free text name local to a node in a naming hierarchy similar to a file directory structure. A power system related naming hierarchy may be Substation, VoltageLevel, Equipment etc. Children of the same parent in such a hierarchy have names that typically are unique among them." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:NameTypeAuthority ;
-            sh:description "Authority responsible for managing names of this type." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 1 ;
-            sh:path cim:NameType.NameTypeAuthority ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Description of the name type." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path cim:NameType.description ] ;
+            sh:path cim:NameType.description ],
+        [ sh:class cim:NameTypeAuthority ;
+            sh:description "Authority responsible for managing names of this type." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path cim:NameType.NameTypeAuthority ] ;
     sh:targetClass cim:NameType .
 
 cim:NameTypeAuthority a sh:NodeShape ;
@@ -444,36 +449,12 @@ cim:Work a sh:NodeShape ;
     sh:closed true ;
     sh:description "Document used to request, initiate, track and record work. Use the *description* attribute to add additional information about this *Work*. This is *Toelichting bijzonderheden rondom planning* in the previous implementation." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:Document.type ],
-        [ sh:description "Kind of work status." ;
-            sh:in ( cim:WorkStatusKind.cancelled cim:WorkStatusKind.completed cim:WorkStatusKind.inProgress cim:WorkStatusKind.scheduled ) ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path cim:BaseWork.statusKind ],
-        [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:class cim:WorkTimeSchedule ;
+    sh:property [ sh:class cim:WorkTimeSchedule ;
             sh:description "All time schedules for this work or work task." ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 2 ;
             sh:path cim:BaseWork.TimeSchedules ],
-        [ sh:datatype xsd:string ;
-            sh:description "Name of the project this work belongs to. This is the *Projectnaam* in the previous implementation." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path ck:Work.projectName ],
         [ sh:class cim:Name ;
             sh:description "All names of this identified object." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
@@ -484,20 +465,74 @@ cim:Work a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
-            sh:path cim:IdentifiedObject.description ] ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:description "Kind of work status." ;
+            sh:in ( cim:WorkStatusKind.cancelled cim:WorkStatusKind.completed cim:WorkStatusKind.inProgress cim:WorkStatusKind.scheduled ) ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path cim:BaseWork.statusKind ],
+        [ sh:datatype xsd:string ;
+            sh:description "Name of the project this work belongs to. This is the *Projectnaam* in the previous implementation." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ck:Work.projectName ],
+        [ sh:datatype xsd:string ;
+            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:Document.type ],
+        [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path cim:IdentifiedObject.mRID ] ;
     sh:targetClass cim:Work .
+
+cim:WorkTimeSchedule a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Time schedule specific to work." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:DateTimeInterval ;
+            sh:description "Schedule date and time interval." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path cim:TimeSchedule.scheduleInterval ],
+        [ sh:datatype xsd:string ;
+            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:Document.type ] ;
+    sh:targetClass cim:WorkTimeSchedule .
 
 cim:DateTimeInterval a sh:NodeShape ;
     sh:closed true ;
     sh:description "Interval between two date and time points, where the interval includes the start time but excludes end time." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:date ;
-            sh:description "End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01* as day. This is the *Beoogde in bedrijfsname* in the previous implementation." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:DateTimeInterval.end ],
-        [ sh:datatype xsd:integer ;
+    sh:property [ sh:datatype xsd:integer ;
             sh:description "Quarter indicator for when this Work is completed. Use in combination with ck:DateTimeInterval.year." ;
             sh:maxCount 1 ;
             sh:maxInclusive 4 ;
@@ -516,44 +551,14 @@ cim:DateTimeInterval a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path ck:DateTimeInterval.year ] ;
-    sh:targetClass cim:DateTimeInterval .
-
-cim:WorkTimeSchedule a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "Time schedule specific to work." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." ;
+            sh:path ck:DateTimeInterval.year ],
+        [ sh:datatype xsd:date ;
+            sh:description "End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01* as day. This is the *Beoogde in bedrijfsname* in the previous implementation." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:Document.type ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:class cim:DateTimeInterval ;
-            sh:description "Schedule date and time interval." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 0 ;
-            sh:path cim:TimeSchedule.scheduleInterval ] ;
-    sh:targetClass cim:WorkTimeSchedule .
+            sh:path cim:DateTimeInterval.end ] ;
+    sh:targetClass cim:DateTimeInterval .
 
 cim:Name a sh:NodeShape ;
     sh:closed true ;

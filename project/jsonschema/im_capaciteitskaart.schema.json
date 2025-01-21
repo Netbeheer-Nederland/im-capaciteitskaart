@@ -202,8 +202,7 @@
             },
             "required": [
                 "short_code",
-                "works",
-                "postcode_areas"
+                "works"
             ],
             "title": "EnergyArea",
             "type": "object"
@@ -274,9 +273,8 @@
                     "type": "string"
                 },
                 "valid": {
-                    "description": "A date range for the validity of a resource. This should be two dates to form a range.  The first date is inclusive and the second date exclusive.",
-                    "format": "date",
-                    "type": "string"
+                    "$ref": "#/$defs/DateTimeInterval",
+                    "description": "A date range for the validity of a resource. This should be two dates, start & end. The first date is inclusive and the second date exclusive."
                 }
             },
             "required": [
@@ -384,6 +382,10 @@
                 },
                 "postcode": {
                     "description": "Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, uppercase. No spaces between the numbers and letters, i.e. \"1234AB\".",
+                    "type": "string"
+                },
+                "substation_short_code": {
+                    "description": "TenneT substation (*Onderstation*) which feeds this PostcodeArea. Use the *ck.EnergyArea.short_code* from the TenneT dataset to relate the PostcodeArea.",
                     "type": "string"
                 }
             },
@@ -613,9 +615,8 @@
             "type": "string"
         },
         "valid": {
-            "description": "A date range for the validity of a resource. This should be two dates to form a range.  The first date is inclusive and the second date exclusive.",
-            "format": "date",
-            "type": "string"
+            "$ref": "#/$defs/DateTimeInterval",
+            "description": "A date range for the validity of a resource. This should be two dates, start & end. The first date is inclusive and the second date exclusive."
         }
     },
     "required": [

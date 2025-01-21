@@ -2,6 +2,9 @@ conforms_to: http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0
 creator: 'ritger.teunissen@alliander.com'
 identifier: 'test_data_im_capaciteitskaart'
 issued: '2025-01-10'
+valid:
+  end: '2025-01-21'
+  start: '2025-12-21'
 energy_areas:
   - short_code: 'OS FICTIEF 20-3i'
     demand_available_capacity: 47
@@ -28,9 +31,12 @@ energy_areas:
       - demand_constraint: 'amber'
         generation_constraint: 'transparant'
         postcode: '1234AC'
+        substation_short_code: 'OS FICTIEF1'
       - demand_constraint: 'red'
         generation_constraint: 'red'
         postcode: '1234AD'
+        substation_short_code: 'OS FICTIEF1'
       - demand_constraint: 'yellow'
         generation_constraint: 'transparant'
         postcode: '1234AE'
+        substation_short_code: 'OS FICTIEF1'

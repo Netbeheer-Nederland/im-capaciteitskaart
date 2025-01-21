@@ -23,7 +23,7 @@ description: |-
       string publisher
       string rights
       string title
-      date valid
+      DateTimeInterval valid
       EnergyArea energy_areas
   }
   class EnergyArea {
@@ -62,6 +62,7 @@ description: |-
       string postcode
       RAGKind demand_constraint
       RAGKind generation_constraint
+      string substation_short_code
       string description
       string m_rid
       Name names
@@ -235,13 +236,11 @@ classes:
         slot_uri: dcterms:title
         required: false
       valid:
-        description: A date range for the validity of a resource. This should be two
-          dates to form a range.  The first date is inclusive and the second date
-          exclusive.
+        description: A date range for the validity of a resource. This should
+          be two dates, start & end. The first date is inclusive and the second
+          date exclusive.
         slot_uri: dcterms:valid
-        range: date
-        minimum_cardinality: 2
-        maximum_cardinality: 2
+        range: DateTimeInterval
         required: false
       energy_areas:
         description: A list of energy areas with heatmap data.
@@ -383,7 +382,7 @@ classes:
         slot_uri: ck:EnergyArea.PostcodeAreas
         multivalued: true
         range: PostcodeArea
-        required: true
+        required: false
     class_uri: cim:EnergyArea
   PostcodeArea:
     description: A geographic region that is defined by the initial letters or digits
@@ -396,6 +395,12 @@ classes:
           i.e. "1234AB".
         slot_uri: ck:PostcodeArea.postcode
         required: true
+      substation_short_code:
+        description: TenneT substation (*Onderstation*) which feeds this
+          PostcodeArea. Use the *ck.EnergyArea.short_code* from the TenneT
+          dataset to relate the PostcodeArea.
+        slot_uri: ck:PostcodeArea.substationShortCode
+        required: false
       demand_constraint:
         description: A RAG definition of the demand constraints at the EnergyArea.
           A utility should provide details on how this RAG status is calculated as
