@@ -190,7 +190,7 @@ class HeatmapDataSet {
     string publisher
     string rights
     string title
-    date valid
+    DateTimeInterval valid
     EnergyArea energy_areas
 }
 class EnergyArea {
@@ -229,6 +229,7 @@ class PostcodeArea {
     string postcode
     RAGKind demand_constraint
     RAGKind generation_constraint
+    string substation_short_code
     string description
     string m_rid
     Name names

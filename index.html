@@ -263,7 +263,7 @@ class HeatmapDataSet {
     string publisher
     string rights
     string title
-    date valid
+    DateTimeInterval valid
     EnergyArea energy_areas
 }
 class EnergyArea {
@@ -302,6 +302,7 @@ class PostcodeArea {
     string postcode
     RAGKind demand_constraint
     RAGKind generation_constraint
+    string substation_short_code
     string description
     string m_rid
     Name names
@@ -559,6 +560,10 @@ under ©Crown copyright 2024.</p>
 <tr>
 <td><a href="status_kind/">status_kind</a></td>
 <td>Kind of work status</td>
+</tr>
+<tr>
+<td><a href="substation_short_code/">substation_short_code</a></td>
+<td>TenneT substation (<em>Onderstation</em>) which feeds this PostcodeArea</td>
 </tr>
 <tr>
 <td><a href="time_schedules/">time_schedules</a></td>
