@@ -11,10 +11,12 @@ energy_areas:
     demand_capacity_in_queue: 30
     demand_quoted_capacity: 580
     demand_requests_in_queue: 150
+    demand_constraint: 'amber'
     generation_available_capacity: 470
     generation_capacity_in_queue: 0
     generation_quoted_capacity: 380
     generation_requests_in_queue: 0
+    generation_constraint: 'transparant'
     works:
       - project_name: 'WO#_1234_Verzwaring_OS_FICTIEF1'
         time_schedules:
