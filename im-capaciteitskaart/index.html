@@ -190,11 +190,13 @@ class HeatmapDataSet {
     string publisher
     string rights
     string title
+    UpdateInfo updated
     DateTimeInterval valid
     EnergyArea energy_areas
 }
 class EnergyArea {
     string short_code
+    EnergyAreaKind type
     integer demand_requests_in_queue
     MegaW demand_capacity_in_queue
     MegaW demand_quoted_capacity
@@ -202,6 +204,7 @@ class EnergyArea {
     MegaW demand_forecast_capacity
     integer demand_alleviation_year
     RAGKind demand_constraint
+    string demand_energy_area_short_code
     integer generation_requests_in_queue
     MegaW generation_capacity_in_queue
     MegaW generation_quoted_capacity
@@ -209,6 +212,7 @@ class EnergyArea {
     MegaW generation_forecast_capacity
     integer generation_alleviation_year
     RAGKind generation_constraint
+    string generation_energy_area_short_code
     Work works
     PostcodeArea postcode_areas
     string description
@@ -227,6 +231,7 @@ class Work {
 }
 class PostcodeArea {
     string postcode
+    string substation_short_code
     RAGKind demand_constraint
     RAGKind generation_constraint
     string substation_short_code

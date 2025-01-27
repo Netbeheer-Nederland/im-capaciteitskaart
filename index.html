@@ -263,11 +263,13 @@ class HeatmapDataSet {
     string publisher
     string rights
     string title
+    UpdateInfo updated
     DateTimeInterval valid
     EnergyArea energy_areas
 }
 class EnergyArea {
     string short_code
+    EnergyAreaKind type
     integer demand_requests_in_queue
     MegaW demand_capacity_in_queue
     MegaW demand_quoted_capacity
@@ -275,6 +277,7 @@ class EnergyArea {
     MegaW demand_forecast_capacity
     integer demand_alleviation_year
     RAGKind demand_constraint
+    string demand_energy_area_short_code
     integer generation_requests_in_queue
     MegaW generation_capacity_in_queue
     MegaW generation_quoted_capacity
@@ -282,6 +285,7 @@ class EnergyArea {
     MegaW generation_forecast_capacity
     integer generation_alleviation_year
     RAGKind generation_constraint
+    string generation_energy_area_short_code
     Work works
     PostcodeArea postcode_areas
     string description
@@ -300,6 +304,7 @@ class Work {
 }
 class PostcodeArea {
     string postcode
+    string substation_short_code
     RAGKind demand_constraint
     RAGKind generation_constraint
     string substation_short_code
@@ -383,6 +388,10 @@ under ©Crown copyright 2024.</p>
 <td>Description of anything that changes through time</td>
 </tr>
 <tr>
+<td><a href="UpdateInfo/">UpdateInfo</a></td>
+<td>Specific type of information that was updated for this dataset</td>
+</tr>
+<tr>
 <td><a href="Work/">Work</a></td>
 <td>Document used to request, initiate, track and record work</td>
 </tr>
@@ -438,6 +447,10 @@ under ©Crown copyright 2024.</p>
 <td>A RAG definition of the demand constraints at the EnergyArea</td>
 </tr>
 <tr>
+<td><a href="demand_energy_area_short_code/">demand_energy_area_short_code</a></td>
+<td>Reference to a TenneT EnergyArea which is defined as a congestion area</td>
+</tr>
+<tr>
 <td><a href="demand_forecast_capacity/">demand_forecast_capacity</a></td>
 <td>Sum of all demand (in MW) forecast for the current year at the EnergyArea</td>
 </tr>
@@ -482,6 +495,10 @@ under ©Crown copyright 2024.</p>
 <td>A RAG definition of the generation constraints at the EnergyArea</td>
 </tr>
 <tr>
+<td><a href="generation_energy_area_short_code/">generation_energy_area_short_code</a></td>
+<td>Reference to a TenneT EnergyArea which is defined as a congestion area</td>
+</tr>
+<tr>
 <td><a href="generation_forecast_capacity/">generation_forecast_capacity</a></td>
 <td>Sum of all forecast generation (in MW) for the current year at the EnergyArea</td>
 </tr>
@@ -508,6 +525,10 @@ under ©Crown copyright 2024.</p>
 <tr>
 <td><a href="m_rid/">m_rid</a></td>
 <td>Master resource identifier issued by a model authority</td>
+</tr>
+<tr>
+<td><a href="name/">name</a></td>
+<td>Any free text that name the object</td>
 </tr>
 <tr>
 <td><a href="name_type/">name_type</a></td>
@@ -575,7 +596,11 @@ under ©Crown copyright 2024.</p>
 </tr>
 <tr>
 <td><a href="type/">type</a></td>
-<td>Utility-specific classification of this document, according to its corporate ...</td>
+<td>Type of EnergyArea, either a regular energy area, or congestion area</td>
+</tr>
+<tr>
+<td><a href="updated/">updated</a></td>
+<td>Type of information that was updated for this dataset</td>
 </tr>
 <tr>
 <td><a href="valid/">valid</a></td>
@@ -601,8 +626,16 @@ under ©Crown copyright 2024.</p>
 </thead>
 <tbody>
 <tr>
+<td><a href="EnergyAreaKind/">EnergyAreaKind</a></td>
+<td>Kind of EnergyAdea</td>
+</tr>
+<tr>
 <td><a href="RAGKind/">RAGKind</a></td>
 <td>Traffic light colors coding scheme for categorising status</td>
+</tr>
+<tr>
+<td><a href="UpdateInfoKind/">UpdateInfoKind</a></td>
+<td>Type of information that has been updated as part of this dataset</td>
 </tr>
 <tr>
 <td><a href="WorkStatusKind/">WorkStatusKind</a></td>
