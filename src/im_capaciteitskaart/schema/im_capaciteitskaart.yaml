@@ -23,11 +23,13 @@ description: |-
       string publisher
       string rights
       string title
+      UpdateInfo updated
       DateTimeInterval valid
       EnergyArea energy_areas
   }
   class EnergyArea {
       string short_code
+      EnergyAreaKind type
       integer demand_requests_in_queue
       MegaW demand_capacity_in_queue
       MegaW demand_quoted_capacity
@@ -35,6 +37,7 @@ description: |-
       MegaW demand_forecast_capacity
       integer demand_alleviation_year
       RAGKind demand_constraint
+      string demand_energy_area_short_code
       integer generation_requests_in_queue
       MegaW generation_capacity_in_queue
       MegaW generation_quoted_capacity
@@ -42,6 +45,7 @@ description: |-
       MegaW generation_forecast_capacity
       integer generation_alleviation_year
       RAGKind generation_constraint
+      string generation_energy_area_short_code
       Work works
       PostcodeArea postcode_areas
       string description
@@ -60,6 +64,7 @@ description: |-
   }
   class PostcodeArea {
       string postcode
+      string substation_short_code
       RAGKind demand_constraint
       RAGKind generation_constraint
       string substation_short_code
@@ -123,6 +128,40 @@ types:
     typeof: float
     uri: unit:KiloV
 enums:
+  EnergyAreaKind:
+    description: Kind of EnergyAdea. Defines the energy area as a regular
+      energy area, or congestion area.
+    enum_uri: ck:EnergyAreaKind
+    permissible_values:
+      energy_area:
+        description: Energy area.
+        meaning: ck:EnergyAreaKind.energyArea
+      congestion_area:
+        description: Congestion area.
+        meaning: ck:EnergyAreaKind.congestionArea
+  UpdateInfoKind:
+    description: Type of information that has been updated as part of this
+      dataset.
+    enum_uri: ck:UpdateInfoKind
+    permissible_values:
+      KI:
+        description: Kleurinformatie.
+        meaning: ck:UpdateInfoKind.KI
+      ATC:
+        description: Aanwezige transportcapaciteit.
+        meaning: ck:UpdateInfoKind.ATC
+      BTC:
+        description: Benodigde transportcapaciteit.
+        meaning: ck:UpdateInfoKind.BTC
+      WR:
+        description: Wachtrij.
+        meaning: ck:UpdateInfoKind.WR
+      NU:
+        description: Netuitbreidingen.
+        meaning: ck:UpdateInfoKind.NU
+      JC:
+        description: Jaartal congestie opgelost.
+        meaning: ck:UpdateInfoKind.JC
   RAGKind:
     description: Traffic light colors coding scheme for categorising status.
     enum_uri: ck:RAGKind
@@ -235,6 +274,12 @@ classes:
         description: A name given to the resource.
         slot_uri: dcterms:title
         required: false
+      updated:
+        description: Type of information that was updated for this dataset.
+        slot_uri: ck:HeatmapDataSet.updated
+        range: UpdateInfo
+        multivalued: true
+        required: false
       valid:
         description: A date range for the validity of a resource. This should
           be two dates, start & end. The first date is inclusive and the second
@@ -266,34 +311,43 @@ classes:
           in the previous implementation.
         slot_uri: ck:EnergyArea.shortCode
         required: true
+      type:
+        description: Type of EnergyArea, either a regular energy area, or
+          congestion area. Only the TSO dataset can define congestion areas.
+        slot_uri: ck:EnergyArea.type
+        range: EnergyAreaKind
+        required: false
       demand_requests_in_queue:
-        description: Number of demand requests for new grid connections and capacity
-          increases in queue. This is the *Aantal unieke transportverzoeken in een
-          wachtrij - afname* in the previous implementation.
+        description: Number of demand requests for new grid connections and
+          capacity increases in queue. This is the *Aantal unieke
+          transportverzoeken in een wachtrij - afname* in the previous
+          implementation.
         slot_uri: ck:EnergyArea.demandRequestsInQueue
         range: integer
         required: false
         minimum_value: 0
       demand_capacity_in_queue:
-        description: The contract value of demand requests not yet granted. This is
-          the *Wachtrij in capaciteit - afname* in the previous implementation.
+        description: The contract value of demand requests not yet granted.
+          This is the *Wachtrij in capaciteit - afname* in the previous
+          implementation.
         slot_uri: ck:EnergyArea.demandCapacityInQueue
         range: MegaW
         required: false
         minimum_value: 0
       demand_quoted_capacity:
-        description: Sum of all demand (in MW) currently quoted at the EnergyArea.
-          This is the *Benodigde transportcapaciteit (in MW) afname* in the previous
-          implementation.
+        description: Sum of all demand (in MW) currently quoted at the
+          EnergyArea.  This is the *Benodigde transportcapaciteit (in MW)
+          afname* in the previous implementation.
         slot_uri: ck:EnergyArea.demandQuotedCapacity
         range: MegaW
         required: false
         minimum_value: 0
       demand_available_capacity:
-        description: The available demand capacity (in MW) at the EnergyArea. The
-          value should reflect the capacity a network operator would make available
-          to a connecting party. This is the *Aanwezige transportcapaciteit (in MW)
-          afname huidige jaar* in the previous implementation.
+        description: The available demand capacity (in MW) at the EnergyArea.
+          The value should reflect the capacity a network operator would make
+          available to a connecting party. This is the *Aanwezige
+          transportcapaciteit (in MW) afname huidige jaar* in the previous
+          implementation.
         slot_uri: ck:EnergyArea.demandAvailableCapacity
         range: MegaW
         required: false
@@ -318,6 +372,12 @@ classes:
           PostcodeArea-s are provided.
         slot_uri: ck:EnergyArea.demandConstraint
         range: RAGKind
+        required: false
+      demand_energy_area_short_code:
+        description: Reference to a TenneT EnergyArea which is defined as a
+          congestion area. Used specifically in the TSO dataset.
+        slot_uri: ck:EnergyArea.demandEnergyAreaShortCode
+        range: string
         required: false
       generation_requests_in_queue:
         description: Number of generation requests for new grid connections and capacity
@@ -370,6 +430,12 @@ classes:
           PostcodeArea-s are provided.
         slot_uri: ck:EnergyArea.generationConstraint
         range: RAGKind
+        required: false
+      generation_energy_area_short_code:
+        description: Reference to a TenneT EnergyArea which is defined as a
+          congestion area. Used specifically in the TSO dataset.
+        slot_uri: ck:EnergyArea.generationEnergyAreaShortCode
+        range: string
         required: false
       works:
         description: All the works performed for this EnergyArea.
@@ -519,6 +585,21 @@ classes:
         range: integer
         required: false
     class_uri: cim:DateTimeInterval
+  UpdateInfo:
+    description: Specific type of information that was updated for this
+      dataset.
+    attributes:
+      date:
+        description: Date of the update.
+        slot_uri: cim:UpdateInfo.date
+        range: date
+        required: true
+      type:
+        description: Type of the update.
+        slot_uri: ck:UpdateInfo.type
+        range: UpdateInfoKind
+        required: true
+    class_uri: ck:UpdateInfo
   IdentifiedObject:
     description: This is a root class to provide common identification for all classes
       needing identification and naming attributes.
@@ -552,6 +633,12 @@ classes:
       'mRID'
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     attributes:
+      name:
+        slot_uri: cim:Name.name
+        range: string
+        required: false
+        multivalued: false
+        description: "Any free text that name the object.\r\n"
       name_type:
         description: Type of this name.
         slot_uri: cim:Name.NameType
@@ -589,4 +676,3 @@ classes:
         slot_uri: cim:NameTypeAuthority.description
         range: string
     class_uri: cim:NameTypeAuthority
-

@@ -2,21 +2,80 @@ conforms_to: http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0
 creator: 'ritger.teunissen@alliander.com'
 identifier: 'test_data_im_capaciteitskaart'
 issued: '2025-01-10'
+updated:
+  - date: '2025-01-10'
+    type: KI
+  - date: '2025-01-10'
+    type: ATC
+  - date: '2025-01-10'
+    type: BTC
+  - date: '2025-01-10'
+    type: WR
+  - date: '2025-01-10'
+    type: NU
+  - date: '2025-01-10'
+    type: JC
 valid:
   end: '2025-01-21'
   start: '2025-12-21'
 energy_areas:
+  - short_code: 'Drenthe'
+    type: congestion_area
+    demand_available_capacity: 100
+    demand_capacity_in_queue: 100
+    demand_quoted_capacity: 100
+    demand_requests_in_queue: 100
+    demand_alleviation_year: 2030
+    demand_constraint: amber
+    generation_available_capacity: 100
+    generation_capacity_in_queue: 100
+    generation_quoted_capacity: 100
+    generation_requests_in_queue: 100
+    generation_alleviation_year: 2030
+    generation_constraint: red
+    works:
+      - project_name: 'WO#_2345_BWD110_realiseren_station'
+        time_schedules:
+          - schedule_interval:
+              end: '2026-01-10'
+        description: 'LSM220 TR, BWD110 realiseren station'
+  - short_code: 'GDO, Noordelijk Deelgebied'
+    type: congestion_area
+    demand_available_capacity: 200
+    demand_capacity_in_queue: 200
+    demand_quoted_capacity: 200
+    demand_requests_in_queue: 200
+    demand_alleviation_year: 2030
+    demand_constraint: amber
+    generation_available_capacity: 200
+    generation_capacity_in_queue: 200
+    generation_quoted_capacity: 200
+    generation_requests_in_queue: 200
+    generation_alleviation_year: 2030
+    generation_constraint: red
+    works:
+      - project_name: 'WO#_3456_Realiseren_station'
+        time_schedules:
+          - schedule_interval:
+              quarter: 3
+              year: 2027
+        description: 'LSM330 LV, BWD220 realiseren station'
   - short_code: 'OS FICTIEF1'
+    type: energy_area
     demand_available_capacity: 470
     demand_capacity_in_queue: 30
     demand_quoted_capacity: 580
     demand_requests_in_queue: 150
+    demand_alleviation_year: 2030
     demand_constraint: 'amber'
+    demand_energy_area_short_code: 'Drenthe'
     generation_available_capacity: 470
     generation_capacity_in_queue: 0
     generation_quoted_capacity: 380
     generation_requests_in_queue: 0
+    generation_alleviation_year: 2030
     generation_constraint: 'transparant'
+    generation_energy_area_short_code: 'GDO, Noordelijk Deelgebied'
     works:
       - project_name: 'WO#_1234_Verzwaring_OS_FICTIEF1'
         time_schedules:

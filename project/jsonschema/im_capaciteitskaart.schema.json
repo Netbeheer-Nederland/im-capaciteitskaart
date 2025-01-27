@@ -118,13 +118,17 @@
                     "$ref": "#/$defs/RAGKind",
                     "description": "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided."
                 },
+                "demand_energy_area_short_code": {
+                    "description": "Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.",
+                    "type": "string"
+                },
                 "demand_forecast_capacity": {
                     "description": "Sum of all demand (in MW) forecast for the current year at the EnergyArea.",
                     "minimum": 0,
                     "type": "number"
                 },
                 "demand_quoted_capacity": {
-                    "description": "Sum of all demand (in MW) currently quoted at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation.",
+                    "description": "Sum of all demand (in MW) currently quoted at the EnergyArea.  This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation.",
                     "minimum": 0,
                     "type": "number"
                 },
@@ -154,6 +158,10 @@
                 "generation_constraint": {
                     "$ref": "#/$defs/RAGKind",
                     "description": "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided."
+                },
+                "generation_energy_area_short_code": {
+                    "description": "Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.",
+                    "type": "string"
                 },
                 "generation_forecast_capacity": {
                     "description": "Sum of all forecast generation (in MW) for the current year at the EnergyArea.",
@@ -192,6 +200,10 @@
                     "description": "Short code name for EnergyArea. This is the *Uniek ID voedingsgebied* in the previous implementation.",
                     "type": "string"
                 },
+                "type": {
+                    "$ref": "#/$defs/EnergyAreaKind",
+                    "description": "Type of EnergyArea, either a regular energy area, or congestion area. Only the TSO dataset can define congestion areas."
+                },
                 "works": {
                     "description": "All the works performed for this EnergyArea.",
                     "items": {
@@ -206,6 +218,15 @@
             ],
             "title": "EnergyArea",
             "type": "object"
+        },
+        "EnergyAreaKind": {
+            "description": "Kind of EnergyAdea. Defines the energy area as a regular energy area, or congestion area.",
+            "enum": [
+                "energy_area",
+                "congestion_area"
+            ],
+            "title": "EnergyAreaKind",
+            "type": "string"
         },
         "HeatmapDataSet": {
             "additionalProperties": false,
@@ -272,6 +293,13 @@
                     "description": "A name given to the resource.",
                     "type": "string"
                 },
+                "updated": {
+                    "description": "Type of information that was updated for this dataset.",
+                    "items": {
+                        "$ref": "#/$defs/UpdateInfo"
+                    },
+                    "type": "array"
+                },
                 "valid": {
                     "$ref": "#/$defs/DateTimeInterval",
                     "description": "A date range for the validity of a resource. This should be two dates, start & end. The first date is inclusive and the second date exclusive."
@@ -314,6 +342,10 @@
             "additionalProperties": false,
             "description": "The Name class provides the means to define any number of human readable names for an object. A name is <b>not</b> to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'",
             "properties": {
+                "name": {
+                    "description": "Any free text that name the object.\r\n",
+                    "type": "string"
+                },
                 "name_type": {
                     "$ref": "#/$defs/NameType",
                     "description": "Type of this name."
@@ -441,6 +473,40 @@
             ],
             "title": "TimeSchedule",
             "type": "object"
+        },
+        "UpdateInfo": {
+            "additionalProperties": false,
+            "description": "Specific type of information that was updated for this dataset.",
+            "properties": {
+                "date": {
+                    "description": "Date of the update.",
+                    "format": "date",
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/$defs/UpdateInfoKind",
+                    "description": "Type of the update."
+                }
+            },
+            "required": [
+                "date",
+                "type"
+            ],
+            "title": "UpdateInfo",
+            "type": "object"
+        },
+        "UpdateInfoKind": {
+            "description": "Type of information that has been updated as part of this dataset.",
+            "enum": [
+                "KI",
+                "ATC",
+                "BTC",
+                "WR",
+                "NU",
+                "JC"
+            ],
+            "title": "UpdateInfoKind",
+            "type": "string"
         },
         "Work": {
             "additionalProperties": false,
@@ -613,6 +679,13 @@
         "title": {
             "description": "A name given to the resource.",
             "type": "string"
+        },
+        "updated": {
+            "description": "Type of information that was updated for this dataset.",
+            "items": {
+                "$ref": "#/$defs/UpdateInfo"
+            },
+            "type": "array"
         },
         "valid": {
             "$ref": "#/$defs/DateTimeInterval",
