@@ -351,33 +351,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
-<td>This is a root class to provide common identification for all classes needing...</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../TimeSchedule/">TimeSchedule</a></td>
 <td>Description of anything that changes through time</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../BaseWork/">BaseWork</a></td>
-<td>Common representation for work and work tasks</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../PostcodeArea/">PostcodeArea</a></td>
-<td>A geographic region that is defined by the initial letters or digits of a pos...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../EnergyArea/">EnergyArea</a></td>
-<td>Describes an area having energy production or consumption</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Work/">Work</a></td>
-<td>Document used to request, initiate, track and record work</td>
+<td><a href="../Document/">Document</a></td>
+<td>Parent class for different groupings of information collected and managed as ...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -386,8 +366,28 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Document/">Document</a></td>
-<td>Parent class for different groupings of information collected and managed as ...</td>
+<td><a href="../Work/">Work</a></td>
+<td>Document used to request, initiate, track and record work</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
+<td>This is a root class to provide common identification for all classes needing...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../EnergyArea/">EnergyArea</a></td>
+<td>Describes an area having energy production or consumption</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../PostcodeArea/">PostcodeArea</a></td>
+<td>A geographic region that is defined by the initial letters or digits of a pos...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../BaseWork/">BaseWork</a></td>
+<td>Common representation for work and work tasks</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -399,7 +399,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0</li>
+<li>from schema: http://data.netbeheernederland.nl/capaciteitskaart/v1.3.0</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
@@ -409,7 +409,7 @@
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">to rdf:ID or rdf:about attributes that identify CIM object elements.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.2.0</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/capaciteitskaart/v1.3.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:IdentifiedObject.mRID</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">m_rid</span>
